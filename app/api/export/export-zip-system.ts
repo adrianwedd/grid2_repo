@@ -4,7 +4,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { renderToString } from 'react-dom/server';
 import JSZip from 'jszip';
-import { PageRenderer } from '@/lib/generate-page';
+import { PageRenderer } from '@/components/PageRenderer';
 import { componentRegistry } from '@/components/sections/registry';
 import type { PageNode, SectionNode } from '@/types/section-system';
 

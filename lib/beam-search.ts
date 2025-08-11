@@ -76,7 +76,7 @@ export class BeamSearchAssembler {
         const candidates = this.getCandidates(kind, beam, context);
 
         for (const candidate of candidates) {
-          const newBeam = self.expandBeam(beam, candidate, context);
+          const newBeam = this.expandBeam(beam, candidate, context);
         }
       }
 

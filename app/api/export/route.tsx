@@ -3,8 +3,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import JSZip from 'jszip';
-import { renderToString } from 'react-dom/server';
-import { PageRenderer } from '@/lib/generate-page';
+import { renderPageToHTML } from '@/lib/html-renderer';
 import { extractTailwindClasses, generateTailwindCSS } from '@/lib/tailwind-extractor';
 import { componentRegistry } from '@/components/sections/registry';
 import {
@@ -43,7 +42,7 @@ export async function POST(request: NextRequest) {
     const projectName = page.meta.title || 'Grid2-Export';
 
     // Generate the page HTML
-    const pageHTML = renderToString(<PageRenderer page={page} />);
+    const pageHTML = renderPageToHTML(page);
     
     // Extract Tailwind classes and generate CSS
     const extractedClasses = extractTailwindClasses(pageHTML);

@@ -351,31 +351,5 @@ export async function runDemo(tone: Tone = 'bold') {
   return result;
 }
 
-// ============================================
-// React Server Component for rendering
-// ============================================
-
-import React from 'react';
-
-/**
- * Render a PageNode as React components
- */
-export function PageRenderer({ page }: { page: PageNode }) {
-  return (
-    <>
-      {page.sections.map((section) => {
-        const registryKey = `${section.meta.kind}-${section.meta.variant}`;
-        const entry = componentRegistry[registryKey as keyof typeof componentRegistry];
-        
-        if (!entry) {
-          console.warn(`Component not found: ${registryKey}`);
-          return null;
-        }
-
-        const Component = entry.component as any;
-        
-        return <Component key={section.id} {...section.props} />;
-      })}
-    </>
-  );
-}
+// PageRenderer component moved to components/PageRenderer.tsx
+// Import it with: import { PageRenderer } from '@/components/PageRenderer';

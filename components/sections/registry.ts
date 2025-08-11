@@ -74,9 +74,8 @@ export const componentRegistry: Record<string, ComponentRegistryEntry> = {
       requiresJs: false,
     },
   },
-};
 
-  ,'testimonials-grid-2x2': {
+  'testimonials-grid-2x2': {
     component: TestimonialsGrid2x2,
     meta: {
       kind: 'testimonials',
@@ -97,8 +96,9 @@ export const componentRegistry: Record<string, ComponentRegistryEntry> = {
       hasAnimations: false,
       requiresJs: false,
     },
+  },
   
-  ,'footer-mega': {
+  'footer-mega': {
     component: FooterMega,
     meta: {
       kind: 'footer',

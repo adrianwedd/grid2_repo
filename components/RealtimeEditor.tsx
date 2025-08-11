@@ -4,7 +4,7 @@
 import React from 'react';
 import { useRealtimePreview } from '@/lib/hooks/useRealtimePreview';
 import type { SectionNode } from '@/types/section-system';
-import { PageRenderer } from '@/lib/generate-page';
+import { PageRenderer } from '@/components/PageRenderer';
 
 export function RealtimeEditor({ initialSections }: { initialSections: SectionNode[] }) {
   const {

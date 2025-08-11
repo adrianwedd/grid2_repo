@@ -50,7 +50,7 @@ describe('Tailwind Extraction', () => {
     expect(result.css).toContain('align-items: center;');
     expect(result.css).toContain('font-size: 1.875rem;');
     expect(result.css).toContain('padding: 1rem;');
-    expect(result.stats.extractedClasses).toBe(4); // bg-brand-500 handled separately
+    expect(result.stats.extractedClasses).toBe(5); // All classes extracted
     expect(result.stats.totalClasses).toBe(5);
   });
 

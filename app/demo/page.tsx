@@ -1,4 +1,5 @@
-import { generatePage, demoContent, demoBrand, PageRenderer } from '@/lib/generate-page';
+import { generatePage, demoContent, demoBrand } from '@/lib/generate-page';
+import { PageRenderer } from '@/components/PageRenderer';
 
 export const dynamic = 'force-static';
 

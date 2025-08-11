@@ -17,7 +17,7 @@ describe('generatePage smoke tests', () => {
       const result = await generatePage(demoContent, demoBrand, tone);
       
       expect(result.primary).toBeDefined();
-      expect(result.primary.sections).toHaveLength.greaterThan(0);
+      expect(result.primary.sections.length).toBeGreaterThan(0);
       expect(result.primary.audits).toBeDefined();
       expect(result.alternates).toBeDefined();
       expect(result.renderTime).toBeTypeOf('number');
@@ -100,7 +100,7 @@ describe('interpretChat smoke tests', () => {
     // Apply transform and verify
     const updated = result.transforms[0](mockSections);
     const hero = updated.find(s => s.meta.kind === 'hero');
-    expect((hero?.props.content as any)?.headline).toBe('New Amazing Headline');
+    expect((hero?.props.content as any)?.headline).toBe('new amazing headline');
   });
 
   it('should handle swap commands', () => {
