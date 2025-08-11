@@ -9,7 +9,12 @@ export type SectionKind =
   | 'about'
   | 'testimonials'
   | 'cta'
-  | 'footer';
+  | 'footer'
+  | 'blog'
+  | 'contact'
+  | 'gallery'
+  | 'navigation'
+  | 'pricing';
 
 export type SectionVariant = {
   hero:
@@ -62,6 +67,26 @@ export type SectionVariant = {
     | 'legal-heavy'
     | 'newsletter'
     | 'social-focused';
+  blog:
+    | 'list-standard'
+    | 'grid-cards'
+    | 'magazine';
+  contact:
+    | 'form-basic'
+    | 'form-detailed'
+    | 'info-sidebar';
+  gallery:
+    | 'masonry'
+    | 'grid-square'
+    | 'carousel';
+  navigation:
+    | 'basic'
+    | 'mega-menu'
+    | 'sidebar';
+  pricing:
+    | 'table-3-tier'
+    | 'cards'
+    | 'comparison';
 };
 
 export type SectionId = `${SectionKind}-${string}`;

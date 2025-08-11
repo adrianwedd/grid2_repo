@@ -5,6 +5,11 @@ import { FeaturesCards3Up } from './FeaturesCards3Up';
 import { CTAGradientSlab } from './CTAGradientSlab';
 import { TestimonialsGrid2x2 } from './TestimonialsGrid2x2';
 import { FooterMega } from './FooterMega';
+import { NavBasic } from './NavBasic';
+import { PricingTable3Tier } from './PricingTable3Tier';
+import { ContactFormBasic } from './ContactFormBasic';
+import { GalleryMasonry } from './GalleryMasonry';
+import { BlogListStandard } from './BlogListStandard';
 
 export const componentRegistry: Record<string, ComponentRegistryEntry> = {
   'hero-split-image-left': {
@@ -115,6 +120,96 @@ export const componentRegistry: Record<string, ComponentRegistryEntry> = {
       bestFor: ['saas','agency','product','landing'],
       avoidFor: [],
       estimatedSize: 'sm',
+      hasAnimations: false,
+      requiresJs: false,
+    },
+  },
+  'navigation-basic': {
+    component: NavBasic,
+    meta: {
+      kind: 'navigation',
+      variant: 'basic',
+      name: 'Navigation • Basic',
+      description: 'A simple navigation bar with a logo and links.',
+      contentSlots: [],
+      hardConstraints: [],
+      softConstraints: [],
+      a11yChecklist: [],
+      bestFor: [],
+      avoidFor: [],
+      estimatedSize: 'sm',
+      hasAnimations: false,
+      requiresJs: false,
+    },
+  },
+  'pricing-table-3-tier': {
+    component: PricingTable3Tier,
+    meta: {
+      kind: 'pricing',
+      variant: 'table-3-tier',
+      name: 'Pricing • 3-Tier Table',
+      description: 'A pricing table with three tiers.',
+      contentSlots: [],
+      hardConstraints: [],
+      softConstraints: [],
+      a11yChecklist: [],
+      bestFor: [],
+      avoidFor: [],
+      estimatedSize: 'md',
+      hasAnimations: false,
+      requiresJs: false,
+    },
+  },
+  'contact-form-basic': {
+    component: ContactFormBasic,
+    meta: {
+      kind: 'contact',
+      variant: 'form-basic',
+      name: 'Contact • Basic Form',
+      description: 'A simple contact form.',
+      contentSlots: [],
+      hardConstraints: [],
+      softConstraints: [],
+      a11yChecklist: [],
+      bestFor: [],
+      avoidFor: [],
+      estimatedSize: 'md',
+      hasAnimations: false,
+      requiresJs: false,
+    },
+  },
+  'gallery-masonry': {
+    component: GalleryMasonry,
+    meta: {
+      kind: 'gallery',
+      variant: 'masonry',
+      name: 'Gallery • Masonry',
+      description: 'A masonry-style image gallery.',
+      contentSlots: [],
+      hardConstraints: [],
+      softConstraints: [],
+      a11yChecklist: [],
+      bestFor: [],
+      avoidFor: [],
+      estimatedSize: 'lg',
+      hasAnimations: false,
+      requiresJs: false,
+    },
+  },
+  'blog-list-standard': {
+    component: BlogListStandard,
+    meta: {
+      kind: 'blog',
+      variant: 'list-standard',
+      name: 'Blog • Standard List',
+      description: 'A standard list of blog posts.',
+      contentSlots: [],
+      hardConstraints: [],
+      softConstraints: [],
+      a11yChecklist: [],
+      bestFor: [],
+      avoidFor: [],
+      estimatedSize: 'lg',
       hasAnimations: false,
       requiresJs: false,
     },
