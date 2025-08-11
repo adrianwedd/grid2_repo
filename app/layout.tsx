@@ -4,10 +4,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* Quick demo: use Tailwind CDN. For production, set up Tailwind build. */}
         <script src="https://cdn.tailwindcss.com"></script>
       </head>
-      <body className="min-h-screen bg-white antialiased">{children}</body>
+      <body className="min-h-screen bg-white antialiased">
+        {children}
+      </body>
     </html>
   );
 }

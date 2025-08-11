@@ -20,12 +20,12 @@ export async function POST(req: NextRequest) {
     if (!sessionId) return NextResponse.json({ ok: false, error: 'Missing sessionId' }, { status: 400 });
 
     if (action === 'preview') {
-      const result = handlePreview(sessionId, body.command as string);
+      const result = await handlePreview(sessionId, body.command as string);
       return NextResponse.json({ ok: true, sessionId, ...result });
     }
 
     if (action === 'command') {
-      const result = handleCommand(sessionId, body.command as string);
+      const result = await handleCommand(sessionId, body.command as string);
       return NextResponse.json({ ok: true, sessionId, ...result });
     }
 

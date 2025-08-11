@@ -1,53 +1,98 @@
-# The Grid 2.0 — MVP (Deterministic AI Website Builder)
+# The Grid 2.0: AI Site Builder That Actually Works
 
-**AI for understanding, algorithms for execution.**  
-LLMs parse user intent; beam search + pure transforms build the page. Millisecond previews, no hallucinations in the hot path.
+**AI for understanding, algorithms for execution.**
+
+This project is a deterministic AI website builder that uses a beam search algorithm to assemble a webpage from a library of React components. The goal is to provide a tool that can generate websites from user intent without the "hallucinations" that can occur with purely generative AI models. The project is built with Next.js, TypeScript, and Tailwind CSS.
 
 ## Highlights
-- Deterministic beam search section assembler
-- Tone-aware, accessible components (Tailwind)
-- Pure transform system + chat interpreter
-- Real-time preview API, hook, and editor UI
-- Exports: static HTML or Next.js app
+
+- **Deterministic Page Generation:** Uses a beam search algorithm to find the optimal combination of sections for a page, ensuring consistent and predictable results.
+- **Tone-Aware Components:** A library of React components that can be rendered in different tones (e.g., minimal, bold, playful, corporate) to match the desired brand identity.
+- **Pure Transform System:** A system of pure functions that can be used to modify the generated page in a predictable and reproducible way.
+- **Real-time Preview:** A real-time editor that allows users to see the changes they make to the page as they make them.
+- **Export to Code:** The ability to export the generated page to static HTML or a Next.js application.
 
 ## Quickstart
 
-```bash
-pnpm i
-pnpm dev
-# open http://localhost:3000/demo  (static generated page)
-# open http://localhost:3000/editor (realtime editor)
+1.  **Clone the repository:**
+
+    ```bash
+    git clone <your-repo-url> grid2
+    cd grid2
+    ```
+
+2.  **Install dependencies:**
+
+    ```bash
+    pnpm i
+    ```
+
+3.  **Run the development server:**
+
+    ```bash
+    pnpm dev
+    ```
+
+    This will start the development server on `http://localhost:3000`.
+
+4.  **Try the demos:**
+
+    -   **Demo Page:** `http://localhost:3000/demo` (a statically generated page)
+    -   **Real-time Editor:** `http://localhost:3000/editor`
+    -   **CLI Demos:**
+        ```bash
+        pnpm run demo:node        # beam search + generatePage
+        pnpm run demo:transforms  # interpret chat, apply transforms, show diff/impact
+        ```
+
+## Documentation
+
+-   [**MANIFESTO.md**](./docs/MANIFESTO.md): The vision and philosophy behind the project.
+-   [**ARCHITECTURE.md**](./docs/ARCHITECTURE.md): A high-level overview of the project's architecture.
+-   [**API.md**](./docs/API.md): The documentation for the real-time preview API.
+-   [**QUICKSTART-5MIN.md**](./docs/QUICKSTART-5MIN.md): A 5-minute guide to deploying the project.
+
+## Architecture
+
+The project follows the principle of **AI for understanding, algorithms for execution**. This means that AI is used for tasks like content extraction and understanding user intent, while the core page generation and modification logic is handled by deterministic algorithms.
+
+### Modules
+
+-   **`lib/beam-search.ts`**: The beam search assembler, which is responsible for selecting the best combination of sections for a page.
+-   **`lib/transforms.ts`**: The transform system, which contains a set of pure functions for modifying the page.
+-   **`lib/preview-session.ts`**: The preview session manager, which handles in-memory sessions and undo/redo functionality.
+-   **`components/sections/*`**: The library of tone-aware React components.
+-   **`lib/generate-page.ts`**: The page generation pipeline, which runs the beam search, audits the page, and returns a `PageNode` for rendering.
+-   **`/editor`**: The real-time editor, which uses the `/api/preview` API, the `useRealtimePreview` hook, and the `PageRenderer` component.
+
+### Data Flow
+
+```
+User → Chat (command) → /api/preview → interpretChat → [transforms] → apply → analyze → sections → UI
+                       ↑                                               ↓
+                    init (sections)                                History (undo/redo)
 ```
 
-### CLI demos
+## Real-time Preview API
 
-```bash
-pnpm run demo:node        # beam search + generatePage
-pnpm run demo:transforms  # interpret chat, apply transforms, show diff/impact
-```
+The real-time preview API is available at `POST /api/preview`. It accepts a JSON body with the following actions:
 
-## Docs
-- [MANIFESTO](./docs/MANIFESTO.md)
-- [ARCHITECTURE](./docs/ARCHITECTURE.md)
-- [Realtime Preview API](./docs/API.md)
-- [🚀 8-Week Roadmap to Beta](./ROADMAP.md)
-
-## Deploy (Vercel)
-1. Push this folder to a new GitHub repo.
-2. Click the Deploy button below and replace the `REPOSITORY_URL` with your repo URL.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=REPOSITORY_URL)
-
-Or import the repo at https://vercel.com/import directly.
+-   `init`: Initializes a new preview session.
+-   `preview`: Previews the result of a command without committing it to the history.
+-   `command`: Executes a command and commits it to the history.
+-   `undo`: Undoes the last command.
+-   `redo`: Redoes the last undone command.
+-   `get`: Gets the current state of the page.
 
 ## Where to add LLMs
-- `lib/content-extractor.ts` — map messy text → `ContentGraph` (swap heuristics for LLM where available)
-- Chat command parsing — current regex works great; you can layer an LLM classifier on top to produce transform plans.
 
-## Next Steps
-See our detailed [8-week roadmap to beta](./ROADMAP.md) with ready-to-import GitHub issues and milestones.
+-   **`lib/content-extractor.ts`**: Map messy text to a `ContentGraph` (swap heuristics for an LLM where available).
+-   **Chat command parsing**: The current regex-based parser works well, but you can layer an LLM classifier on top to produce transform plans.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request on the project's GitHub repository.
 
 ## License
-MIT © 2025 Grid 2.0
 
-- [5 Minutes to Deploy](./docs/QUICKSTART-5MIN.md)
+MIT © 2025 Grid 2.0
