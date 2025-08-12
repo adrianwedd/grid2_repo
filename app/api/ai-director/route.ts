@@ -7,6 +7,7 @@ import { SpecInterpreter, STYLE_PRESETS, CLAUDE_PROMPT_TEMPLATE } from '@/lib/ai
 import type { DesignSpec } from '@/lib/ai-director';
 import { componentRegistry } from '@/components/sections/registry';
 import { demoBrand, demoContent } from '@/lib/generate-page';
+import { simulateClaudeInterpretation } from '@/lib/ai-director-demo';
 
 import { withSecurityMiddleware } from '@/lib/middleware/auth';
 import { RATE_LIMITS } from '@/lib/middleware/rate-limiter';
@@ -36,16 +37,18 @@ export async function POST(request: NextRequest) {
       designSpec = spec;
     } else if (prompt) {
       // Try Claude first if available
-      if (useClaudeIfAvailable && process.env.ANTHROPIC_API_KEY && process.env.CLAUDE_ENABLED === 'true') {
+      if (useClaudeIfAvailable && process.env.ANTHROPIC_API_KEY && process.env.ANTHROPIC_API_KEY !== 'your_anthropic_api_key_here' && process.env.CLAUDE_ENABLED === 'true') {
         try {
           designSpec = await generateSpecWithClaude(prompt);
         } catch (error) {
-          console.warn('Claude generation failed, falling back to presets:', error);
-          designSpec = generateSpecFromPrompt(prompt);
+          console.warn('Claude generation failed, falling back to demo:', error);
+          // Use demo mode that simulates Claude's intelligence
+          designSpec = simulateClaudeInterpretation(prompt);
         }
       } else {
-        // Use presets and heuristics
-        designSpec = generateSpecFromPrompt(prompt);
+        // Use demo mode when Claude not available
+        console.log('Using AI Director demo mode (Claude disabled or no API key)');
+        designSpec = simulateClaudeInterpretation(prompt);
       }
     } else {
       return NextResponse.json(
@@ -363,6 +366,7 @@ function generateDefaultSections(inspiration: string): DesignSpec['sections'] {
         variant: 'split-image-left',
         priority: 'critical',
         visual: {
+          imagery: 'product',
           layout: 'centered',
           emphasis: 'content',
         },

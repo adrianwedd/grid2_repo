@@ -1,2 +1,51 @@
 /* Temporary: Using Tailwind CDN until PostCSS issues resolved */
 @import url('https://cdn.tailwindcss.com');
+
+/* CSS Custom Properties for Dynamic Theming */
+:root {
+  --color-primary: #2563eb;
+  --color-secondary: #64748b;
+  --color-accent: #06b6d4;
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* Apply dynamic themes to headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading, 'Inter', sans-serif) !important;
+}
+
+/* Apply dynamic themes to body text */
+body, p, span, div {
+  font-family: var(--font-body, 'Inter', sans-serif);
+}
+
+/* Apply dynamic colors to key elements */
+button.bg-black {
+  background-color: var(--color-primary) !important;
+}
+
+h1, h2 {
+  color: var(--color-primary) !important;
+}
+
+.border-blue-200, .border-blue-300 {
+  border-color: var(--color-primary) !important;
+  opacity: 0.3;
+}
+
+/* Theme-aware background colors */
+.bg-blue-50 {
+  background-color: var(--color-primary) !important;
+  opacity: 0.1;
+}
+
+.bg-blue-100 {
+  background-color: var(--color-primary) !important;
+  opacity: 0.2;
+}
+
+/* Theme-aware focus styles */
+.focus\\:ring-blue-500:focus {
+  --tw-ring-color: var(--color-primary) !important;
+}

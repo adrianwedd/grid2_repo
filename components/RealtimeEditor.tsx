@@ -329,20 +329,7 @@ export function RealtimeEditor({ initialSections }: { initialSections: SectionNo
               </div>
             )}
           </div>
-        ) : claudeResult && (
-          <div className="rounded-lg border p-3 bg-blue-50">
-            <div className="text-sm font-medium text-blue-900">Claude's Design Philosophy</div>
-            <div className="mt-1 text-sm text-blue-800">{claudeResult.debug.philosophy}</div>
-            <div className="mt-2">
-              <div className="text-xs font-medium text-blue-900">Personality</div>
-              <div className="text-xs text-blue-700">{claudeResult.debug.personality}</div>
-            </div>
-            <div className="mt-2">
-              <div className="text-xs font-medium text-blue-900">Sections Generated</div>
-              <div className="text-xs text-blue-700">{claudeResult.debug.sectionsGenerated} sections</div>
-            </div>
-          </div>
-        )}
+        ) : null}
 
         {/* Analysis */}
         {analysis && (
@@ -446,20 +433,11 @@ export function RealtimeEditor({ initialSections }: { initialSections: SectionNo
       {/* Preview */}
       <div className="lg:col-span-8 rounded-xl border bg-white">
         <div className="border-b p-3 text-sm text-gray-600">
-          {claudeResult ? (
-            <>
-              Claude Generated Design 
-              <span className="ml-2 text-xs text-green-600">
-                ✨ {claudeResult.debug.philosophy}
-              </span>
-            </>
-          ) : (
-            <>Preview {preview ? '(uncommitted)' : '(committed)'}</>
-          )}
+          Preview {preview ? '(uncommitted)' : '(committed)'}
         </div>
         <div className="p-6">
           <PageRenderer
-            page={claudeResult ? claudeResult.page : {
+            page={{
               sections: current,
               meta: { title: 'Preview', description: 'Real-time preview' },
               brand: {} as any,

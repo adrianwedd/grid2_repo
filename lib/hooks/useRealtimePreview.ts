@@ -35,6 +35,7 @@ export function useRealtimePreview(initialSections: SectionNode[]) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [input, setInput] = useState('');
+  const [sessionReady, setSessionReady] = useState(false);
 
   const sessionIdRef = useRef<string | null>(null);
 
@@ -50,11 +51,21 @@ export function useRealtimePreview(initialSections: SectionNode[]) {
   // Initialize session
   useEffect(() => {
     (async () => {
-      const resp = await post({ action: 'init', sections });
-      if (resp.ok) {
-        sessionIdRef.current = resp.sessionId;
-      } else {
-        setError(resp.error || 'Failed to init session');
+      try {
+        console.log('Initializing preview session...');
+        const resp = await post({ action: 'init', sections });
+        console.log('Session init response:', resp);
+        if (resp.ok) {
+          sessionIdRef.current = resp.sessionId;
+          setSessionReady(true);
+          console.log('Session initialized:', resp.sessionId);
+        } else {
+          setError(resp.error || 'Failed to init session');
+          console.error('Session init failed:', resp.error);
+        }
+      } catch (err) {
+        console.error('Session init error:', err);
+        setError('Failed to initialize session');
       }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -92,9 +103,15 @@ export function useRealtimePreview(initialSections: SectionNode[]) {
   }, [input, doPreview]);
 
   const apply = useCallback(async () => {
-    if (!sessionIdRef.current || !input.trim()) return;
+    console.log('Apply clicked - Session:', sessionIdRef.current, 'Input:', input);
+    if (!sessionIdRef.current || !input.trim()) {
+      console.log('Apply aborted - no session or input');
+      return;
+    }
     setLoading(true);
+    console.log('Sending command to API...');
     const resp = await post({ action: 'command', sessionId: sessionIdRef.current, command: input });
+    console.log('Command response:', resp);
     setLoading(false);
     if (resp.ok) {
       setSections(resp.sections);
@@ -136,7 +153,7 @@ export function useRealtimePreview(initialSections: SectionNode[]) {
     input, setInput,
     sections, preview,
     intents, warnings, analysis,
-    loading, error,
+    loading, error, sessionReady,
     apply, undo, redo,
   };
 }

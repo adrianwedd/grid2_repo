@@ -1,15 +1,10 @@
 // components/sections/FooterMega.tsx
 import React from 'react';
-import type { SectionProps } from '@/types/section-system';
+import type { Tone } from '@/types/section-system';
 
-interface FooterMegaProps extends SectionProps {
-  content: {
-    columns: Array<{
-      heading: string;
-      links: Array<{ label: string; href: string }>;
-    }>;
-    legal?: string;
-  };
+interface FooterMegaProps {
+  content: Record<string, any>;
+  tone?: Tone;
 }
 
 export function FooterMega({ content, tone = 'minimal' }: FooterMegaProps) {

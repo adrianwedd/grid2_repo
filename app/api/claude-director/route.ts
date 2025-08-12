@@ -34,20 +34,66 @@ export async function POST(request: NextRequest) {
     // Get Claude API key
     const claudeKey = apiKey || 
                      process.env.ANTHROPIC_API_KEY ||
-                     (process.env.CLAUDE_COOKIES ? 'browser-auth' : null);
+                     (process.env.CLAUDE_SESSION_KEY ? 'browser-auth' : null);
 
     console.log(`🧠 Claude Director: "${intent}"`);
+    console.log(`🔑 Auth method: ${claudeKey || 'none'}, Session key: ${process.env.CLAUDE_SESSION_KEY ? 'present' : 'missing'}`);
     
     let spec;
-    if (claudeKey === 'browser-auth') {
-      // Try browser auth if we have cookies
+    
+    // First, try Python Claude client (most reliable)
+    if (process.env.CLAUDE_SESSION_KEY) {
       try {
-        const { generateSpecWithBrowserClaude } = await import('@/lib/claude-browser-auth');
-        spec = await generateSpecWithBrowserClaude(intent, process.env.CLAUDE_COOKIES!);
+        console.log('🐍 Attempting Python Claude client...');
+        const { generateSpecWithPythonClaude } = await import('@/lib/claude-python-bridge');
+        spec = await generateSpecWithPythonClaude(intent);
+        console.log('✅ Got response from Claude via Python client');
       } catch (error) {
-        console.warn('Browser Claude failed, falling back to demo:', error);
-        const { simulateClaudeDirector } = await import('@/lib/ai-director-demo');
-        spec = simulateClaudeDirector(intent);
+        console.warn('Python Claude client failed:', error);
+        // Fall through to other methods
+      }
+    }
+    
+    // Fallback: try to connect to existing browser if user has Chrome open with Claude
+    if (!spec) {
+      const useExistingBrowser = process.env.USE_EXISTING_BROWSER === 'true';
+      if (useExistingBrowser) {
+        try {
+          console.log('🔌 Attempting to connect to existing Chrome browser...');
+          const { generateSpecWithExistingBrowser } = await import('@/lib/claude-existing-browser');
+          spec = await generateSpecWithExistingBrowser(intent);
+          console.log('✅ Got response from Claude via existing browser');
+        } catch (error) {
+          console.warn('Existing browser connection failed:', error);
+          // Fall through to other methods
+        }
+      }
+    }
+    
+    // If existing browser didn't work, try browser auth with cookies
+    if (!spec && claudeKey === 'browser-auth') {
+      // Try browser auth with Playwright
+      try {
+        const sessionKey = process.env.CLAUDE_SESSION_KEY;
+        const orgId = process.env.CLAUDE_ORG_ID;
+        
+        if (!sessionKey) {
+          throw new Error('No CLAUDE_SESSION_KEY found in environment');
+        }
+
+        console.log('🚀 Attempting Claude browser automation with cookies...');
+        const { generateSpecWithClaudeBrowser } = await import('@/lib/claude-playwright');
+        spec = await generateSpecWithClaudeBrowser(intent, {
+          sessionKey,
+          orgId,
+          cfBm: process.env.CLAUDE_CF_BM,
+          activitySession: process.env.CLAUDE_ACTIVITY_SESSION,
+          deviceId: process.env.CLAUDE_DEVICE_ID,
+        });
+        console.log('✅ Got response from Claude via browser automation');
+      } catch (error) {
+        console.error('❌ Browser Claude failed:', error);
+        // NO DEMO FALLBACK - will be handled at end
       }
     } else if (claudeKey && claudeKey !== 'your_anthropic_api_key_here') {
       // Try API key
@@ -55,15 +101,19 @@ export async function POST(request: NextRequest) {
         const director = new ClaudeDesignDirector(claudeKey);
         spec = await director.generateDesignSpec(intent, context);
       } catch (error) {
-        console.warn('Claude API failed, falling back to demo:', error);
-        const { simulateClaudeDirector } = await import('@/lib/ai-director-demo');
-        spec = simulateClaudeDirector(intent);
+        console.error('❌ Claude API failed:', error);
+        // NO DEMO FALLBACK - will be handled at end
       }
-    } else {
-      // No auth available, use demo mode
-      console.log('Using Claude Director demo mode (no auth available)');
-      const { simulateClaudeDirector } = await import('@/lib/ai-director-demo');
-      spec = simulateClaudeDirector(intent);
+    }
+    
+    // If no spec was generated from real Claude, fail hard
+    if (!spec) {
+      console.error('❌ All Claude methods failed - NO DEMO MODE');
+      return NextResponse.json({
+        error: 'Claude Director unavailable',
+        details: 'All authentication methods failed. Please check Claude session cookies.',
+        fallback: false
+      }, { status: 503 });
     }
 
     console.log(`✨ Philosophy: "${spec.philosophy.inspiration}"`);

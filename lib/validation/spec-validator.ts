@@ -5,17 +5,89 @@ import { z } from 'zod';
 import DOMPurify from 'isomorphic-dompurify';
 
 /**
- * Zod schema for design specifications
+ * Zod schema for design specifications - supports both old and new formats
  */
 export const DesignSpecSchema = z.object({
+  // Legacy style format
   style: z.object({
-    tone: z.enum(['minimal', 'bold', 'playful', 'corporate']),
+    tone: z.enum(['minimal', 'bold', 'playful', 'corporate', 'luxury', 'tech', 'organic']).optional(),
     inspiration: z.string().optional(),
-    colorScheme: z.enum(['monochrome', 'vibrant', 'pastel', 'dark', 'brand-heavy']),
-    spacing: z.enum(['tight', 'normal', 'generous', 'airy']),
-    typography: z.enum(['sans', 'serif', 'mixed', 'bold', 'elegant']),
-    animations: z.enum(['none', 'subtle', 'playful', 'dramatic']),
-  }),
+    colorScheme: z.enum(['monochrome', 'vibrant', 'pastel', 'dark', 'brand-heavy']).optional(),
+    spacing: z.enum(['tight', 'normal', 'generous', 'airy']).optional(),
+    typography: z.enum(['sans', 'serif', 'mixed', 'bold', 'elegant']).optional(),
+    animations: z.enum(['none', 'subtle', 'playful', 'dramatic']).optional(),
+  }).optional(),
+  
+  // New brandTokens format
+  brandTokens: z.object({
+    colors: z.object({
+      primary: z.string().regex(/^#[0-9A-F]{6}$/i),
+      secondary: z.string().regex(/^#[0-9A-F]{6}$/i).optional(),
+      accent: z.string().regex(/^#[0-9A-F]{6}$/i).optional(),
+      neutral: z.array(z.string().regex(/^#[0-9A-F]{6}$/i)).optional(),
+      semantic: z.object({
+        success: z.string().regex(/^#[0-9A-F]{6}$/i).optional(),
+        warning: z.string().regex(/^#[0-9A-F]{6}$/i).optional(),
+        error: z.string().regex(/^#[0-9A-F]{6}$/i).optional(),
+      }).optional(),
+    }),
+    typography: z.object({
+      headingFont: z.string(),
+      bodyFont: z.string(),
+      monoFont: z.string().optional(),
+      scale: z.object({
+        xs: z.string(),
+        sm: z.string(),
+        base: z.string(),
+        lg: z.string(),
+        xl: z.string(),
+        "2xl": z.string(),
+        "3xl": z.string(),
+        "4xl": z.string(),
+      }).optional(),
+      weights: z.object({
+        light: z.number(),
+        normal: z.number(),
+        medium: z.number(),
+        semibold: z.number(),
+        bold: z.number(),
+      }).optional(),
+    }),
+    spacing: z.object({
+      unit: z.number(),
+      scale: z.array(z.number()),
+    }).optional(),
+    borderRadius: z.object({
+      none: z.string(),
+      sm: z.string(),
+      md: z.string(), 
+      lg: z.string(),
+      xl: z.string(),
+      full: z.string(),
+    }).optional(),
+    shadows: z.object({
+      sm: z.string(),
+      md: z.string(),
+      lg: z.string(),
+    }).optional(),
+  }).optional(),
+  
+  // Visual style (new format)
+  visualStyle: z.object({
+    personality: z.string(),
+    tone: z.enum(['minimal', 'bold', 'playful', 'corporate', 'luxury', 'tech', 'organic']),
+    mood: z.string(),
+    animations: z.object({
+      duration: z.string(),
+      easing: z.string(),
+      effects: z.array(z.string()),
+    }).optional(),
+    layout: z.object({
+      maxWidth: z.string(),
+      gutter: z.string(),
+      grid: z.string(),
+    }).optional(),
+  }).optional(),
   
   sections: z.array(z.object({
     kind: z.enum(['hero', 'features', 'about', 'testimonials', 'cta', 'footer']),
