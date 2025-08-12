@@ -1,0 +1,107 @@
+{
+  "id": "minimalistarchitect-zenwhite-demo",
+  "prompt": "Design a minimalist architecture firm website with clean lines and zen aesthetics",
+  "spec": {
+    "philosophy": {
+      "inspiration": "Japanese ma (negative space) meets Bauhaus functionality - where emptiness creates meaning",
+      "principles": ["radical simplicity", "intentional whitespace", "geometric precision", "material honesty", "functional beauty"],
+      "antipatterns": ["decorative elements", "busy textures", "bright colors", "multiple fonts", "excessive content"]
+    },
+    "brandTokens": {
+      "colors": {
+        "primary": "#2C3E50",
+        "secondary": "#34495E", 
+        "accent": "#ECF0F1",
+        "neutral": ["#FFFFFF", "#F8F9FA", "#E9ECEF"],
+        "semantic": {
+          "success": "#27AE60",
+          "warning": "#F39C12",
+          "error": "#E74C3C"
+        }
+      },
+      "typography": {
+        "headingFont": "Inter",
+        "bodyFont": "Inter",
+        "monoFont": "JetBrains Mono",
+        "scale": {
+          "xs": "0.75rem",
+          "sm": "0.875rem", 
+          "base": "1rem",
+          "lg": "1.125rem",
+          "xl": "1.25rem",
+          "2xl": "1.5rem",
+          "3xl": "1.875rem",
+          "4xl": "2.25rem"
+        },
+        "weights": {
+          "light": 200,
+          "normal": 300,
+          "medium": 400,
+          "semibold": 500,
+          "bold": 600
+        }
+      },
+      "spacing": {
+        "unit": 8,
+        "scale": [4, 8, 16, 24, 32, 48, 64, 96, 128, 192]
+      },
+      "borderRadius": {
+        "none": "0",
+        "sm": "0", 
+        "md": "0",
+        "lg": "2px",
+        "xl": "4px",
+        "full": "9999px"
+      },
+      "shadows": {
+        "sm": "0 0 0 1px rgba(0, 0, 0, 0.05)",
+        "md": "0 1px 3px rgba(0, 0, 0, 0.1)",
+        "lg": "0 4px 6px rgba(0, 0, 0, 0.07)"
+      }
+    },
+    "visualStyle": {
+      "personality": "Zen master architect with profound understanding of space and form",
+      "tone": "minimal",
+      "mood": "Serene confidence through deliberate restraint",
+      "animations": {
+        "duration": "600ms",
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "effects": ["fade", "slide-up"]
+      },
+      "layout": {
+        "maxWidth": "1100px",
+        "gutter": "3rem",
+        "grid": "12"
+      }
+    },
+    "sections": [
+      {
+        "kind": "hero",
+        "style": {
+          "background": "solid",
+          "backgroundValue": "#FFFFFF",
+          "textAlign": "left",
+          "padding": "8rem 4rem 6rem",
+          "height": "viewport"
+        },
+        "content": {
+          "headline": "Space. Form. Function.",
+          "subheadline": "Architecture that speaks through silence",
+          "cta": "View Projects"
+        }
+      }
+    ],
+    "responsive": {
+      "breakpoints": {
+        "mobile": "768px",
+        "tablet": "1024px", 
+        "desktop": "1280px"
+      },
+      "strategy": "mobile-first"
+    }
+  },
+  "timestamp": "2025-08-12T02:00:00.000Z",
+  "philosophy": "Japanese ma (negative space) meets Bauhaus functionality - where emptiness creates meaning",
+  "personality": "Zen master architect with profound understanding of space and form",
+  "tags": ["minimalist", "architecture", "zen", "clean", "lines", "space", "form", "function", "bauhaus", "japanese", "restraint"]
+}

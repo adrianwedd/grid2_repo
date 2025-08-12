@@ -1,0 +1,194 @@
+{
+  "id": "test-modernweb-me7qj64l",
+  "prompt": "test",
+  "spec": {
+    "philosophy": {
+      "inspiration": "Modern web design principles with user-first thinking",
+      "principles": [
+        "Clarity over complexity",
+        "User needs before business needs",
+        "Performance is a feature",
+        "Accessibility is not optional"
+      ],
+      "antipatterns": [
+        "No dark patterns",
+        "No unnecessary friction",
+        "No overwhelming choices"
+      ]
+    },
+    "style": {
+      "tone": "minimal",
+      "colorScheme": "brand-heavy",
+      "spacing": {
+        "approach": "Comfortable breathing room",
+        "unit": 1,
+        "scale": [
+          0.5,
+          1,
+          1.5,
+          2,
+          3,
+          4,
+          6,
+          8,
+          12,
+          16
+        ]
+      },
+      "typography": {
+        "philosophy": "Readable first, beautiful second",
+        "headingFont": "Inter",
+        "bodyFont": "Inter",
+        "scale": "normal",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ]
+      },
+      "animations": "subtle",
+      "personality": "Professional yet approachable",
+      "colorStrategy": {
+        "approach": "Strategic color use for conversion",
+        "primary": "#2563eb",
+        "semantic": {
+          "success": "#10b981",
+          "warning": "#f59e0b",
+          "error": "#ef4444",
+          "info": "#3b82f6"
+        }
+      },
+      "motion": {
+        "philosophy": "Subtle feedback, no decoration",
+        "duration": "fast",
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "triggers": [
+          "hover",
+          "focus",
+          "page-transition"
+        ]
+      }
+    },
+    "experience": {
+      "firstImpression": "Professional capability without stuffiness",
+      "emotionalJourney": [
+        "Curiosity",
+        "Understanding",
+        "Trust",
+        "Action"
+      ],
+      "frictionPoints": [
+        "Too many options",
+        "Unclear next steps"
+      ],
+      "microCopy": {
+        "philosophy": "Helpful, not clever",
+        "examples": {
+          "404": "Page not found. Let's get you back on track.",
+          "error": "Something went wrong. We're fixing it.",
+          "loading": "Just a moment..."
+        }
+      }
+    },
+    "optimization": {
+      "primaryGoal": "User engagement",
+      "secondaryGoals": [
+        "Brand awareness",
+        "User engagement"
+      ],
+      "successMetrics": [
+        "Conversion rate",
+        "Time on page",
+        "User satisfaction"
+      ],
+      "conversionStrategy": "Build trust through clear value demonstration"
+    },
+    "sections": [
+      {
+        "kind": "hero",
+        "variant": {
+          "suggestion": "split-image-left",
+          "reasoning": "split-image-left creates optimal visual hierarchy for hero content while maintaining readability and conversion focus"
+        },
+        "priority": "critical",
+        "content": {
+          "headline": {
+            "text": "test",
+            "tone": "Clear and compelling"
+          },
+          "subheadline": {
+            "text": "Intelligently generated design",
+            "tone": "Supportive clarification"
+          }
+        },
+        "purpose": "Immediate value proposition and first impression",
+        "visual": {
+          "requirements": [
+            "High-contrast imagery",
+            "Clear focal point"
+          ],
+          "avoid": [
+            "Stock photos",
+            "Generic imagery"
+          ]
+        }
+      },
+      {
+        "kind": "features",
+        "variant": {
+          "suggestion": "cards-3up",
+          "reasoning": "cards-3up creates optimal visual hierarchy for features content while maintaining readability and conversion focus"
+        },
+        "priority": "important",
+        "purpose": "Demonstrate key capabilities and benefits",
+        "content": {},
+        "visual": {
+          "requirements": [
+            "Consistent iconography",
+            "Scannable layout"
+          ],
+          "avoid": [
+            "Stock photos",
+            "Generic imagery"
+          ]
+        }
+      },
+      {
+        "kind": "cta",
+        "variant": {
+          "suggestion": "gradient-slab",
+          "reasoning": "gradient-slab creates optimal visual hierarchy for cta content while maintaining readability and conversion focus"
+        },
+        "priority": "critical",
+        "purpose": "Convert interest into action",
+        "content": {},
+        "visual": {
+          "requirements": [
+            "Strong contrast",
+            "Clear button hierarchy"
+          ],
+          "avoid": [
+            "Stock photos",
+            "Generic imagery"
+          ]
+        }
+      }
+    ]
+  },
+  "timestamp": "2025-08-11T23:19:50.469Z",
+  "philosophy": "Modern web design principles with user-first thinking",
+  "personality": "Professional yet approachable",
+  "tags": [
+    "test",
+    "minimal",
+    "professional",
+    "approachable",
+    "clarity",
+    "complexity",
+    "needs",
+    "before",
+    "business",
+    "performance"
+  ]
+}

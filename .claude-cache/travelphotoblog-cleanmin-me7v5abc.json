@@ -1,0 +1,91 @@
+{
+  "id": "travelphotoblog-cleanmin-me7v5abc",
+  "prompt": "Create a simple blog about travel photography",
+  "spec": {
+    "philosophy": {
+      "inspiration": "Clean, minimalist design that puts photography at the forefront, inspired by fine art galleries and photography portfolios",
+      "principles": ["visual storytelling", "white space as a design element", "content hierarchy", "mobile-first approach", "fast loading imagery"],
+      "antipatterns": ["cluttered layouts", "competing visual elements", "slow image loading", "poor image quality", "overwhelming navigation"]
+    },
+    "style": {
+      "personality": "Professional yet approachable photographer showcasing wanderlust and artistic vision",
+      "tone": "minimal",
+      "colorScheme": "monochrome",
+      "spacing": { "value": "generous" },
+      "typography": "mixed",
+      "animations": "subtle"
+    },
+    "experience": {
+      "userJourney": "Visitor discovers stunning photography, explores travel stories, gets inspired to travel or hire photographer, subscribes for updates",
+      "keyInteractions": ["image hover effects", "story navigation", "photo gallery browsing", "social sharing"],
+      "emotionalGoals": ["inspiration", "wanderlust", "appreciation for photography", "connection with destinations"]
+    },
+    "optimization": {
+      "primaryGoal": "engagement",
+      "successMetrics": ["time on page", "photo gallery interactions", "story completion rate", "subscription signups"],
+      "constraints": ["image loading performance", "mobile responsiveness", "SEO for travel content"]
+    },
+    "sections": [
+      {
+        "kind": "hero",
+        "variant": { "reasoning": "Large hero image with minimal text overlay to immediately showcase photography quality" },
+        "priority": "critical",
+        "purpose": "Create immediate visual impact and establish photography credibility",
+        "visual": {
+          "imagery": "product",
+          "layout": "centered",
+          "emphasis": "visual"
+        }
+      },
+      {
+        "kind": "features",
+        "variant": { "reasoning": "Blog post grid showing recent travel stories with compelling preview images" },
+        "priority": "critical",
+        "purpose": "Display latest content and encourage exploration of travel stories",
+        "visual": {
+          "imagery": "product",
+          "layout": "asymmetric",
+          "emphasis": "balanced"
+        }
+      },
+      {
+        "kind": "cta",
+        "variant": { "reasoning": "Newsletter signup with preview of exclusive photography tips and location guides" },
+        "priority": "important",
+        "purpose": "Build audience and recurring engagement",
+        "visual": {
+          "imagery": "abstract",
+          "layout": "centered",
+          "emphasis": "content"
+        }
+      },
+      {
+        "kind": "footer",
+        "variant": { "reasoning": "Simple footer with social links, about section, and contact information" },
+        "priority": "nice-to-have",
+        "purpose": "Provide navigation and professional contact information",
+        "visual": {
+          "imagery": "none",
+          "layout": "centered",
+          "emphasis": "content"
+        }
+      }
+    ]
+  },
+  "timestamp": "2025-08-12T01:30:00.000Z",
+  "philosophy": "Clean, minimalist design that puts photography at the forefront, inspired by fine art galleries and photography portfolios",
+  "personality": "Professional yet approachable photographer showcasing wanderlust and artistic vision",
+  "tags": [
+    "travel",
+    "photography",
+    "blog",
+    "minimal",
+    "professional",
+    "approachable",
+    "photographer",
+    "wanderlust",
+    "artistic",
+    "vision",
+    "storytelling"
+  ]
+}

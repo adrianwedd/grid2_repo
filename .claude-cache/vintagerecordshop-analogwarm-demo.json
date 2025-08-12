@@ -1,0 +1,119 @@
+{
+  "id": "vintagerecordshop-analogwarm-demo",
+  "prompt": "Design a vintage record shop website with warm analog vibes",
+  "spec": {
+    "philosophy": {
+      "inspiration": "1970s album artwork meets analog recording studio aesthetics - warm wood tones with vinyl texture overlays",
+      "principles": ["analog warmth over digital precision", "tactile textures", "vintage typography hierarchy", "warm color psychology", "nostalgic authenticity"],
+      "antipatterns": ["sterile white backgrounds", "sans-serif body text", "neon colors", "flat design", "geometric patterns"]
+    },
+    "brandTokens": {
+      "colors": {
+        "primary": "#8B4513",
+        "secondary": "#D2691E", 
+        "accent": "#DAA520",
+        "neutral": ["#F5F5DC", "#DEB887", "#8B7765"],
+        "semantic": {
+          "success": "#228B22",
+          "warning": "#FF8C00",
+          "error": "#B22222"
+        }
+      },
+      "typography": {
+        "headingFont": "Abril Fatface",
+        "bodyFont": "Crimson Text",
+        "monoFont": "Courier New",
+        "scale": {
+          "xs": "0.8rem",
+          "sm": "0.9rem", 
+          "base": "1.1rem",
+          "lg": "1.3rem",
+          "xl": "1.6rem",
+          "2xl": "2rem",
+          "3xl": "2.5rem",
+          "4xl": "3.2rem"
+        },
+        "weights": {
+          "light": 300,
+          "normal": 400,
+          "medium": 500,
+          "semibold": 600,
+          "bold": 700
+        }
+      },
+      "spacing": {
+        "unit": 6,
+        "scale": [3, 6, 12, 18, 24, 36, 48, 72, 96, 144]
+      },
+      "borderRadius": {
+        "none": "0",
+        "sm": "3px", 
+        "md": "6px",
+        "lg": "12px",
+        "xl": "18px",
+        "full": "9999px"
+      },
+      "shadows": {
+        "sm": "0 2px 4px rgba(139, 69, 19, 0.1)",
+        "md": "0 4px 8px rgba(139, 69, 19, 0.15), inset 0 1px 0 rgba(245, 245, 220, 0.3)",
+        "lg": "0 8px 16px rgba(139, 69, 19, 0.2), 0 0 0 1px rgba(210, 105, 30, 0.1)"
+      }
+    },
+    "visualStyle": {
+      "personality": "Nostalgic vinyl collector with deep musical knowledge and warm hospitality",
+      "tone": "organic",
+      "mood": "Warm analog nostalgia with authentic craftsmanship",
+      "animations": {
+        "duration": "500ms",
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "effects": ["vinyl-spin", "fade-in-up", "warm-glow"]
+      },
+      "layout": {
+        "maxWidth": "1200px",
+        "gutter": "2rem",
+        "grid": "12"
+      }
+    },
+    "sections": [
+      {
+        "kind": "hero",
+        "style": {
+          "background": "gradient",
+          "backgroundValue": "linear-gradient(135deg, #F5F5DC 0%, #DEB887 50%, #8B7765 100%)",
+          "textAlign": "center",
+          "padding": "4rem 2rem 3rem",
+          "height": "auto"
+        },
+        "content": {
+          "headline": "Discover Vinyl Treasures",
+          "subheadline": "Curated collection of classic records and rare finds since 1973",
+          "cta": "Browse Collection"
+        }
+      }
+    ],
+    "responsive": {
+      "breakpoints": {
+        "mobile": "768px",
+        "tablet": "1024px", 
+        "desktop": "1280px"
+      },
+      "strategy": "mobile-first"
+    }
+  },
+  "timestamp": "2025-08-12T01:55:00.000Z",
+  "philosophy": "1970s album artwork meets analog recording studio aesthetics - warm wood tones with vinyl texture overlays",
+  "personality": "Nostalgic vinyl collector with deep musical knowledge and warm hospitality",
+  "tags": [
+    "vintage",
+    "record",
+    "shop",
+    "analog",
+    "warm",
+    "vinyl",
+    "nostalgic",
+    "collector",
+    "musical",
+    "craftsmanship",
+    "authentic"
+  ]
+}

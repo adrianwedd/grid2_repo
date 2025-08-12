@@ -1,0 +1,107 @@
+{
+  "id": "brutaliststreetart-grittyurban-demo",
+  "prompt": "Create a street art gallery website with brutalist concrete aesthetics and urban edge",
+  "spec": {
+    "philosophy": {
+      "inspiration": "Soviet brutalist architecture collides with underground graffiti culture - raw concrete meets spray paint rebellion",
+      "principles": ["aggressive typography", "harsh contrast", "industrial materials", "anti-establishment energy", "urban authenticity"],
+      "antipatterns": ["polished surfaces", "smooth gradients", "corporate fonts", "soft colors", "rounded corners"]
+    },
+    "brandTokens": {
+      "colors": {
+        "primary": "#1A1A1A",
+        "secondary": "#FF6B35", 
+        "accent": "#F7931E",
+        "neutral": ["#2C2C2C", "#404040", "#666666"],
+        "semantic": {
+          "success": "#00FF41",
+          "warning": "#FFAA00",
+          "error": "#FF073A"
+        }
+      },
+      "typography": {
+        "headingFont": "Anton",
+        "bodyFont": "Roboto Condensed",
+        "monoFont": "Courier New",
+        "scale": {
+          "xs": "0.8rem",
+          "sm": "0.9rem", 
+          "base": "1rem",
+          "lg": "1.2rem",
+          "xl": "1.5rem",
+          "2xl": "2rem",
+          "3xl": "3rem",
+          "4xl": "4rem"
+        },
+        "weights": {
+          "light": 300,
+          "normal": 400,
+          "medium": 500,
+          "semibold": 700,
+          "bold": 900
+        }
+      },
+      "spacing": {
+        "unit": 2,
+        "scale": [1, 2, 4, 6, 8, 12, 16, 24, 32, 48]
+      },
+      "borderRadius": {
+        "none": "0",
+        "sm": "0", 
+        "md": "0",
+        "lg": "0",
+        "xl": "2px",
+        "full": "9999px"
+      },
+      "shadows": {
+        "sm": "2px 2px 0px rgba(255, 107, 53, 0.3)",
+        "md": "4px 4px 0px rgba(255, 107, 53, 0.4), 2px 2px 0px rgba(0, 0, 0, 0.8)",
+        "lg": "8px 8px 0px rgba(247, 147, 30, 0.5), 4px 4px 0px rgba(0, 0, 0, 0.9)"
+      }
+    },
+    "visualStyle": {
+      "personality": "Underground street artist with revolutionary spirit and uncompromising vision",
+      "tone": "bold",
+      "mood": "Raw urban energy with confrontational edge",
+      "animations": {
+        "duration": "150ms",
+        "easing": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+        "effects": ["snap", "hard-cut", "concrete-crack"]
+      },
+      "layout": {
+        "maxWidth": "1400px",
+        "gutter": "1rem",
+        "grid": "16"
+      }
+    },
+    "sections": [
+      {
+        "kind": "hero",
+        "style": {
+          "background": "gradient",
+          "backgroundValue": "linear-gradient(45deg, #1A1A1A 25%, transparent 25%), linear-gradient(-45deg, #1A1A1A 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #2C2C2C 75%), linear-gradient(-45deg, transparent 75%, #2C2C2C 75%)",
+          "textAlign": "left",
+          "padding": "2rem 1rem",
+          "height": "viewport"
+        },
+        "content": {
+          "headline": "ART IS REBELLION",
+          "subheadline": "Raw. Unfiltered. Revolutionary street art from the concrete jungle",
+          "cta": "ENTER THE UNDERGROUND"
+        }
+      }
+    ],
+    "responsive": {
+      "breakpoints": {
+        "mobile": "768px",
+        "tablet": "1024px", 
+        "desktop": "1280px"
+      },
+      "strategy": "mobile-first"
+    }
+  },
+  "timestamp": "2025-08-12T02:01:00.000Z",
+  "philosophy": "Soviet brutalist architecture collides with underground graffiti culture - raw concrete meets spray paint rebellion",
+  "personality": "Underground street artist with revolutionary spirit and uncompromising vision",
+  "tags": ["brutalist", "street", "art", "urban", "graffiti", "concrete", "rebellion", "underground", "revolutionary", "raw", "industrial"]
+}

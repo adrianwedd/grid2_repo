@@ -4,3 +4,34 @@ dist
 .env*
 .vercel
 .DS_Store
+temp/
+
+# Test files and results
+test-results/
+playwright-report/
+test-*.js
+!test-grid-system.js
+!test-theme-system.js
+
+# Python scripts and auth
+*.py
+claude-cookies.json
+get-claude-cookies.js
+start-chrome-debug.sh
+start-your-chrome.sh
+
+# Temporary and experimental files
+QUICK-FIX.md
+REFACTOR-PROPOSAL.md
+THEME-APPLICATION-FIX.md
+WORKFLOW-IMPLEMENTATION.md
+IMAGE-INTEGRATION-PLAN.md
+*.png
+claude-browser-package/
+claude-simple-client.js
+cleanup-themes.js
+generate-new-themes.js
+
+# Cache directories (keep the themes)
+# .claude-cache/ - Keeping this for themes
+

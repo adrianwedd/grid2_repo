@@ -1,0 +1,118 @@
+{
+  "id": "cyberpunkgamecafe-neontech-sample",
+  "prompt": "Design a cyberpunk gaming café website with neon colors and futuristic vibes",
+  "spec": {
+    "philosophy": {
+      "inspiration": "Blade Runner meets Tokyo neon districts - high contrast digital aesthetics with glitch effects",
+      "principles": ["digital brutalism", "neon accent hierarchy", "dark mode first", "cyberpunk typography", "holographic elements"],
+      "antipatterns": ["pastel colors", "rounded corners", "serif fonts", "organic shapes", "soft shadows"]
+    },
+    "brandTokens": {
+      "colors": {
+        "primary": "#00ff41",
+        "secondary": "#ff0080", 
+        "accent": "#00d4ff",
+        "neutral": ["#0a0a0a", "#1a1a1a", "#2a2a2a"],
+        "semantic": {
+          "success": "#00ff41",
+          "warning": "#ffaa00", 
+          "error": "#ff0040"
+        }
+      },
+      "typography": {
+        "headingFont": "Orbitron",
+        "bodyFont": "Rajdhani",
+        "monoFont": "Fira Code",
+        "scale": {
+          "xs": "0.75rem",
+          "sm": "0.875rem", 
+          "base": "1rem",
+          "lg": "1.125rem",
+          "xl": "1.25rem",
+          "2xl": "1.5rem",
+          "3xl": "2rem",
+          "4xl": "2.5rem"
+        },
+        "weights": {
+          "light": 300,
+          "normal": 400,
+          "medium": 500,
+          "semibold": 600,
+          "bold": 700
+        }
+      },
+      "spacing": {
+        "unit": 4,
+        "scale": [2, 4, 8, 12, 16, 24, 32, 48, 64, 96]
+      },
+      "borderRadius": {
+        "none": "0",
+        "sm": "2px", 
+        "md": "4px",
+        "lg": "6px",
+        "xl": "8px",
+        "full": "9999px"
+      },
+      "shadows": {
+        "sm": "0 0 10px rgba(0, 255, 65, 0.3)",
+        "md": "0 0 20px rgba(0, 255, 65, 0.4), 0 0 40px rgba(255, 0, 128, 0.2)",
+        "lg": "0 0 30px rgba(0, 212, 255, 0.5), 0 0 60px rgba(0, 255, 65, 0.3)"
+      }
+    },
+    "visualStyle": {
+      "personality": "Edgy digital rebel with underground street cred",
+      "tone": "tech",
+      "mood": "Electric intensity with underground authenticity",
+      "animations": {
+        "duration": "300ms",
+        "easing": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+        "effects": ["glitch", "neon-pulse", "digital-flicker", "matrix-rain"]
+      },
+      "layout": {
+        "maxWidth": "1400px",
+        "gutter": "2rem",
+        "grid": "16"
+      }
+    },
+    "sections": [
+      {
+        "kind": "hero",
+        "style": {
+          "background": "gradient",
+          "backgroundValue": "linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%)",
+          "textAlign": "center",
+          "padding": "4rem 2rem",
+          "height": "viewport"
+        },
+        "content": {
+          "headline": "ENTER THE MATRIX",
+          "subheadline": "Level up your gaming experience in our cyberpunk café",
+          "cta": "JACK IN NOW"
+        }
+      }
+    ],
+    "responsive": {
+      "breakpoints": {
+        "mobile": "768px",
+        "tablet": "1024px", 
+        "desktop": "1280px"
+      },
+      "strategy": "mobile-first"
+    }
+  },
+  "timestamp": "2025-08-12T01:45:00.000Z",
+  "philosophy": "Blade Runner meets Tokyo neon districts - high contrast digital aesthetics with glitch effects",
+  "personality": "Edgy digital rebel with underground street cred",
+  "tags": [
+    "cyberpunk",
+    "gaming",
+    "café", 
+    "neon",
+    "futuristic",
+    "tech",
+    "digital",
+    "rebel",
+    "underground",
+    "matrix"
+  ]
+}

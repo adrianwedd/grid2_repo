@@ -1,0 +1,230 @@
+{
+  "id": "createaboldandco-notionsd-me7quxtb",
+  "prompt": "Create a bold and colorful site for gaming",
+  "spec": {
+    "philosophy": {
+      "inspiration": "Notion's design philosophy with modern execution",
+      "principles": [
+        "Clarity over complexity",
+        "User needs before business needs",
+        "Performance is a feature",
+        "Accessibility is not optional"
+      ],
+      "antipatterns": [
+        "No dark patterns",
+        "No unnecessary friction",
+        "No overwhelming choices"
+      ]
+    },
+    "style": {
+      "tone": "playful",
+      "inspiration": "notion",
+      "colorScheme": "vibrant",
+      "spacing": {
+        "approach": "Comfortable breathing room",
+        "unit": 1,
+        "scale": [
+          0.5,
+          1,
+          1.5,
+          2,
+          3,
+          4,
+          6,
+          8,
+          12,
+          16
+        ]
+      },
+      "typography": {
+        "philosophy": "Readable first, beautiful second",
+        "headingFont": "Inter",
+        "bodyFont": "Inter",
+        "scale": "normal",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ]
+      },
+      "animations": "playful",
+      "personality": "Professional yet approachable",
+      "colorStrategy": {
+        "approach": "Strategic color use for conversion",
+        "primary": "#2563eb",
+        "semantic": {
+          "success": "#10b981",
+          "warning": "#f59e0b",
+          "error": "#ef4444",
+          "info": "#3b82f6"
+        }
+      },
+      "motion": {
+        "philosophy": "Subtle feedback, no decoration",
+        "duration": "fast",
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "triggers": [
+          "hover",
+          "focus",
+          "page-transition"
+        ]
+      }
+    },
+    "experience": {
+      "firstImpression": "Professional capability without stuffiness",
+      "emotionalJourney": [
+        "Curiosity",
+        "Understanding",
+        "Trust",
+        "Action"
+      ],
+      "frictionPoints": [
+        "Too many options",
+        "Unclear next steps"
+      ],
+      "microCopy": {
+        "philosophy": "Helpful, not clever",
+        "examples": {
+          "404": "Page not found. Let's get you back on track.",
+          "error": "Something went wrong. We're fixing it.",
+          "loading": "Just a moment..."
+        }
+      }
+    },
+    "optimization": {
+      "primaryGoal": "User engagement",
+      "secondaryGoals": [
+        "Brand awareness",
+        "User engagement"
+      ],
+      "successMetrics": [
+        "Conversion rate",
+        "Time on page",
+        "User satisfaction"
+      ],
+      "conversionStrategy": "Build trust through clear value demonstration"
+    },
+    "sections": [
+      {
+        "kind": "hero",
+        "variant": {
+          "suggestion": "split-image-left",
+          "reasoning": "split-image-left creates optimal visual hierarchy for hero content while maintaining readability and conversion focus"
+        },
+        "priority": "critical",
+        "content": {
+          "headline": {
+            "text": "Create a bold and colorful site for gaming",
+            "tone": "Clear and compelling"
+          },
+          "subheadline": {
+            "text": "Intelligently generated design",
+            "tone": "Supportive clarification"
+          }
+        },
+        "visual": {
+          "requirements": [
+            "High-contrast imagery",
+            "Clear focal point"
+          ],
+          "avoid": [
+            "Stock photos",
+            "Generic imagery"
+          ]
+        },
+        "purpose": "Immediate value proposition and first impression"
+      },
+      {
+        "kind": "features",
+        "variant": {
+          "suggestion": "cards-3up",
+          "reasoning": "cards-3up creates optimal visual hierarchy for features content while maintaining readability and conversion focus"
+        },
+        "priority": "important",
+        "content": {
+          "headline": {
+            "text": "Everything in one happy place",
+            "tone": "Clear and compelling"
+          },
+          "features": [
+            "Collaborative workspace",
+            "Beautiful templates",
+            "Delightful animations"
+          ]
+        },
+        "purpose": "Demonstrate key capabilities and benefits",
+        "visual": {
+          "requirements": [
+            "Consistent iconography",
+            "Scannable layout"
+          ],
+          "avoid": [
+            "Stock photos",
+            "Generic imagery"
+          ]
+        }
+      },
+      {
+        "kind": "testimonials",
+        "variant": {
+          "suggestion": "grid-2x2",
+          "reasoning": "grid-2x2 creates optimal visual hierarchy for testimonials content while maintaining readability and conversion focus"
+        },
+        "priority": "nice-to-have",
+        "purpose": "Build trust through social proof",
+        "content": {},
+        "visual": {
+          "requirements": [
+            "Authentic photography",
+            "Readable quotes"
+          ],
+          "avoid": [
+            "Stock photos",
+            "Generic imagery"
+          ]
+        }
+      },
+      {
+        "kind": "cta",
+        "variant": {
+          "suggestion": "gradient-slab",
+          "reasoning": "gradient-slab creates optimal visual hierarchy for cta content while maintaining readability and conversion focus"
+        },
+        "priority": "critical",
+        "content": {
+          "headline": {
+            "text": "Start your creative journey",
+            "tone": "Clear and compelling"
+          }
+        },
+        "purpose": "Convert interest into action",
+        "visual": {
+          "requirements": [
+            "Strong contrast",
+            "Clear button hierarchy"
+          ],
+          "avoid": [
+            "Stock photos",
+            "Generic imagery"
+          ]
+        }
+      }
+    ]
+  },
+  "timestamp": "2025-08-11T23:28:59.567Z",
+  "philosophy": "Notion's design philosophy with modern execution",
+  "personality": "Professional yet approachable",
+  "tags": [
+    "create",
+    "bold",
+    "colorful",
+    "site",
+    "gaming",
+    "playful",
+    "professional",
+    "approachable",
+    "clarity",
+    "complexity"
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "id": "luxuryjewelry-opulentgold-demo",
+  "prompt": "Design an ultra-luxury jewelry website with opulent gold accents and premium elegance",
+  "spec": {
+    "philosophy": {
+      "inspiration": "Versailles palace meets contemporary luxury - where craftsmanship becomes art and exclusivity speaks in whispers",
+      "principles": ["understated opulence", "precious material emphasis", "artisanal heritage", "exclusive accessibility", "timeless elegance"],
+      "antipatterns": ["gaudy displays", "aggressive marketing", "mass appeal", "trendy elements", "casual language"]
+    },
+    "brandTokens": {
+      "colors": {
+        "primary": "#B8860B",
+        "secondary": "#2C2C2C", 
+        "accent": "#D4AF37",
+        "neutral": ["#FFFEF7", "#F8F6F0", "#E8E4D8"],
+        "semantic": {
+          "success": "#228B22",
+          "warning": "#DAA520",
+          "error": "#8B0000"
+        }
+      },
+      "typography": {
+        "headingFont": "Playfair Display",
+        "bodyFont": "Source Serif Pro",
+        "monoFont": "IBM Plex Mono",
+        "scale": {
+          "xs": "0.75rem",
+          "sm": "0.875rem", 
+          "base": "1.125rem",
+          "lg": "1.375rem",
+          "xl": "1.625rem",
+          "2xl": "2rem",
+          "3xl": "2.75rem",
+          "4xl": "3.5rem"
+        },
+        "weights": {
+          "light": 300,
+          "normal": 400,
+          "medium": 500,
+          "semibold": 600,
+          "bold": 700
+        }
+      },
+      "spacing": {
+        "unit": 12,
+        "scale": [6, 12, 24, 36, 48, 72, 96, 144, 192, 288]
+      },
+      "borderRadius": {
+        "none": "0",
+        "sm": "2px", 
+        "md": "4px",
+        "lg": "8px",
+        "xl": "12px",
+        "full": "9999px"
+      },
+      "shadows": {
+        "sm": "0 2px 8px rgba(184, 134, 11, 0.15)",
+        "md": "0 4px 16px rgba(184, 134, 11, 0.2), 0 0 0 1px rgba(212, 175, 55, 0.1)",
+        "lg": "0 8px 32px rgba(184, 134, 11, 0.25), 0 0 0 1px rgba(212, 175, 55, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.4)"
+      }
+    },
+    "visualStyle": {
+      "personality": "Master jeweler with generational expertise and access to exclusive treasures",
+      "tone": "luxury",
+      "mood": "Whispered elegance with understated confidence",
+      "animations": {
+        "duration": "800ms",
+        "easing": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "effects": ["gold-shimmer", "gentle-float", "precious-gleam"]
+      },
+      "layout": {
+        "maxWidth": "1300px",
+        "gutter": "4rem",
+        "grid": "12"
+      }
+    },
+    "sections": [
+      {
+        "kind": "hero",
+        "style": {
+          "background": "gradient",
+          "backgroundValue": "radial-gradient(ellipse at center, #FFFEF7 0%, #F8F6F0 50%, #E8E4D8 100%)",
+          "textAlign": "center",
+          "padding": "6rem 3rem 5rem",
+          "height": "auto"
+        },
+        "content": {
+          "headline": "Artistry in Every Facet",
+          "subheadline": "Bespoke jewelry crafted by master artisans for discerning collectors",
+          "cta": "Discover Collection"
+        }
+      }
+    ],
+    "responsive": {
+      "breakpoints": {
+        "mobile": "768px",
+        "tablet": "1024px", 
+        "desktop": "1280px"
+      },
+      "strategy": "desktop-first"
+    }
+  },
+  "timestamp": "2025-08-12T02:02:00.000Z",
+  "philosophy": "Versailles palace meets contemporary luxury - where craftsmanship becomes art and exclusivity speaks in whispers",
+  "personality": "Master jeweler with generational expertise and access to exclusive treasures",
+  "tags": ["luxury", "jewelry", "opulent", "gold", "premium", "elegance", "craftsmanship", "exclusive", "artisan", "precious", "heritage"]
+}

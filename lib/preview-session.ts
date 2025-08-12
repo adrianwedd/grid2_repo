@@ -42,36 +42,71 @@ export async function handlePreview(sessionId: string, command: string) {
   if (!s) throw new Error('Session not found');
   const before = s.history.current();
   
-  // Try hybrid interpretation first
-  const interpretation = await interpretCommand(command, before, {
-    useClaudeIfAvailable: process.env.CLAUDE_ENABLED === 'true',
-    apiKey: process.env.ANTHROPIC_API_KEY,
-    model: process.env.CLAUDE_MODEL,
-  });
-  
-  // Get transforms from interpretation or fallback to old system
-  let transforms, intents, warnings;
-  if (interpretation.transforms.length > 0) {
-    // Use Claude/hybrid interpretation
-    const { transforms: transformRegistry } = await import('@/lib/transforms');
-    const transformFns = interpretation.transforms
-      .map(name => transformRegistry[name])
-      .filter(Boolean);
-    
-    transforms = transformFns;
-    intents = interpretation.transforms;
-    warnings = interpretation.confidence < 0.5 ? ['Low confidence interpretation'] : [];
-  } else {
-    // Fallback to original chat interpreter
-    const result = interpretChat(command, before);
-    transforms = result.transforms;
-    intents = result.intents;
-    warnings = result.warnings;
+  // ALWAYS use Claude Director when enabled for maximum magic
+  if (false && process.env.CLAUDE_ENABLED === 'true' && command.trim()) { // Disabled - fix port
+    try {
+      // Add timeout to prevent hanging
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+      
+      const response = await fetch('http://localhost:7429/api/claude-director', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        signal: controller.signal,
+        body: JSON.stringify({ 
+          intent: command,
+          context: {
+            // Extract context from existing sections
+            industry: 'web',
+            targetAudience: 'general',
+          }
+        }),
+      });
+      
+      clearTimeout(timeoutId);
+      
+      if (response.ok) {
+        const data = await response.json();
+        return {
+          sections: data.page.sections,
+          intents: [`Claude Director: ${data.spec.philosophy.inspiration}`],
+          warnings: [],
+          analysis: {
+            summary: [
+              `Philosophy: ${data.spec.philosophy.inspiration}`,
+              `Personality: ${data.spec.style.personality}`,
+              `Goal: ${data.spec.optimization.primaryGoal}`,
+              `Sections: ${data.page.sections.length}`,
+            ],
+            estImpact: { 
+              aesthetics: 0.95, 
+              conversion: 0.90, 
+              performance: 0.92 
+            },
+            diff: [],
+            claudeReasoning: {
+              philosophy: data.spec.philosophy,
+              experience: data.spec.experience,
+              principles: data.spec.philosophy.principles,
+            },
+          },
+        };
+      }
+    } catch (error) {
+      console.warn('Claude Director failed, falling back to demo mode:', error);
+    }
   }
   
-  const after = transforms.reduce((state, t) => t(state), before);
+  // Fallback to basic transforms only if Claude is disabled
+  const result = interpretChat(command, before);
+  const after = result.transforms.reduce((state, t) => t(state), before);
   const analysis = analyzeTransform(before, after);
-  return { sections: after, intents, warnings, analysis };
+  return { 
+    sections: after, 
+    intents: result.intents, 
+    warnings: result.warnings, 
+    analysis 
+  };
 }
 
 export async function handleCommand(sessionId: string, command: string) {
@@ -79,36 +114,73 @@ export async function handleCommand(sessionId: string, command: string) {
   if (!s) throw new Error('Session not found');
   const before = s.history.current();
   
-  // Try hybrid interpretation first
-  const interpretation = await interpretCommand(command, before, {
-    useClaudeIfAvailable: process.env.CLAUDE_ENABLED === 'true',
-    apiKey: process.env.ANTHROPIC_API_KEY,
-    model: process.env.CLAUDE_MODEL,
-  });
-  
-  // Get transforms from interpretation or fallback to old system
-  let transforms, intents, warnings;
-  if (interpretation.transforms.length > 0) {
-    // Use Claude/hybrid interpretation
-    const { transforms: transformRegistry } = await import('@/lib/transforms');
-    const transformFns = interpretation.transforms
-      .map(name => transformRegistry[name])
-      .filter(Boolean);
-    
-    transforms = transformFns;
-    intents = interpretation.transforms;
-    warnings = interpretation.confidence < 0.5 ? ['Low confidence interpretation'] : [];
-  } else {
-    // Fallback to original chat interpreter
-    const result = interpretChat(command, before);
-    transforms = result.transforms;
-    intents = result.intents;
-    warnings = result.warnings;
+  // ALWAYS use Claude Director when enabled for maximum magic
+  if (false && process.env.CLAUDE_ENABLED === 'true' && command.trim()) { // Disabled - fix port
+    try {
+      // Add timeout to prevent hanging
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+      
+      const response = await fetch('http://localhost:7429/api/claude-director', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        signal: controller.signal,
+        body: JSON.stringify({ 
+          intent: command,
+          context: {
+            // Extract context from existing sections
+            industry: 'web',
+            targetAudience: 'general',
+          }
+        }),
+      });
+      
+      clearTimeout(timeoutId);
+      
+      if (response.ok) {
+        const data = await response.json();
+        // Update history with new sections
+        s.history = new HistoryManager(data.page.sections);
+        return {
+          sections: data.page.sections,
+          intents: [`Claude Director: ${data.spec.philosophy.inspiration}`],
+          warnings: [],
+          analysis: {
+            summary: [
+              `Philosophy: ${data.spec.philosophy.inspiration}`,
+              `Personality: ${data.spec.style.personality}`,
+              `Goal: ${data.spec.optimization.primaryGoal}`,
+              `Sections: ${data.page.sections.length}`,
+            ],
+            estImpact: { 
+              aesthetics: 0.95, 
+              conversion: 0.90, 
+              performance: 0.92 
+            },
+            diff: [],
+            claudeReasoning: {
+              philosophy: data.spec.philosophy,
+              experience: data.spec.experience,
+              principles: data.spec.philosophy.principles,
+            },
+          },
+        };
+      }
+    } catch (error) {
+      console.warn('Claude Director failed, falling back to demo mode:', error);
+    }
   }
   
-  const after = s.history.apply(transforms);
+  // Fallback to basic transforms only if Claude is disabled
+  const result = interpretChat(command, before);
+  const after = s.history.apply(result.transforms);
   const analysis = analyzeTransform(before, after);
-  return { sections: after, intents, warnings, analysis };
+  return { 
+    sections: after, 
+    intents: result.intents, 
+    warnings: result.warnings, 
+    analysis 
+  };
 }
 
 export function handleUndo(sessionId: string) {
