@@ -489,4 +489,20 @@ export class HistoryManager {
 
   canUndo() { return this.index > 0; }
   canRedo() { return this.index < this.history.length - 1; }
+
+  // Serialization methods for session storage
+  serialize() {
+    return {
+      past: this.history.slice(0, this.index),
+      present: this.current(),
+      future: this.history.slice(this.index + 1)
+    };
+  }
+
+  static fromSerialized(data: { past: SectionNode[][]; present: SectionNode[]; future: SectionNode[][] }): HistoryManager {
+    const manager = new HistoryManager(data.present);
+    manager.history = [...data.past, data.present, ...data.future];
+    manager.index = data.past.length;
+    return manager;
+  }
 }

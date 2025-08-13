@@ -199,6 +199,8 @@ class CompositeSessionStorage implements SessionStorage {
   private storages: SessionStorage[];
   private primary: SessionStorage;
 
+  private initPromise: Promise<void>;
+
   constructor() {
     // Initialize all storage options
     const memory = new MemorySessionStorage();
@@ -210,7 +212,7 @@ class CompositeSessionStorage implements SessionStorage {
     this.primary = memory; // Default fallback
 
     // Set primary to first working storage
-    this.determinePrimary();
+    this.initPromise = this.determinePrimary();
   }
 
   private async determinePrimary() {
@@ -235,18 +237,22 @@ class CompositeSessionStorage implements SessionStorage {
   }
 
   async get(id: string): Promise<SessionData | null> {
+    await this.initPromise;
     return await this.primary.get(id);
   }
 
   async set(id: string, data: SessionData): Promise<void> {
+    await this.initPromise;
     await this.primary.set(id, data);
   }
 
   async delete(id: string): Promise<void> {
+    await this.initPromise;
     await this.primary.delete(id);
   }
 
   async cleanup(): Promise<void> {
+    await this.initPromise;
     await this.primary.cleanup();
   }
 }
@@ -256,34 +262,24 @@ let storage: SessionStorage | null = null;
 
 export function getSessionStorage(): SessionStorage {
   if (!storage) {
-    storage = new CompositeSessionStorage();
+    // Temporarily use only memory storage for debugging
+    storage = new MemorySessionStorage();
+    console.log('Using storage: MemorySessionStorage (debug mode)');
   }
   return storage;
 }
 
 // Helper functions to convert between HistoryManager and storage format
 export function serializeSession(id: string, history: HistoryManager): SessionData {
+  const serialized = history.serialize();
   return {
     id,
-    history: {
-      past: (history as any).history?.slice(0, (history as any).index) || [],
-      present: history.current(),
-      future: (history as any).history?.slice((history as any).index + 1) || []
-    },
+    history: serialized,
     updatedAt: Date.now(),
     createdAt: Date.now()
   };
 }
 
 export function deserializeSession(data: SessionData): HistoryManager {
-  const history = new HistoryManager(data.history.present);
-  
-  // Restore internal state by accessing private properties
-  if (data.history.past.length > 0 || data.history.future.length > 0) {
-    const fullHistory = [...data.history.past, data.history.present, ...data.history.future];
-    (history as any).history = fullHistory;
-    (history as any).index = data.history.past.length;
-  }
-  
-  return history;
+  return HistoryManager.fromSerialized(data.history);
 }

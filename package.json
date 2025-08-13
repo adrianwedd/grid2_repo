@@ -25,6 +25,7 @@
     "isomorphic-dompurify": "^2.26.0",
     "jszip": "^3.10.1",
     "next": "^15.4.6",
+    "node-fetch": "^3.3.2",
     "playwright": "^1.54.2",
     "playwright-extra": "^4.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
