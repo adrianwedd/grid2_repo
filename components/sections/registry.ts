@@ -13,7 +13,7 @@ import { BlogListStandard } from './BlogListStandard';
 
 export const componentRegistry: Record<string, ComponentRegistryEntry> = {
   'hero-split-image-left': {
-    component: HeroSplitImageLeft,
+    component: HeroSplitImageLeft as any,
     meta: {
       kind: 'hero',
       variant: 'split-image-left',
@@ -35,7 +35,7 @@ export const componentRegistry: Record<string, ComponentRegistryEntry> = {
     },
   },
   'features-cards-3up': {
-    component: FeaturesCards3Up,
+    component: FeaturesCards3Up as any,
     meta: {
       kind: 'features',
       variant: 'cards-3up',
@@ -58,7 +58,7 @@ export const componentRegistry: Record<string, ComponentRegistryEntry> = {
     },
   },
   'cta-gradient-slab': {
-    component: CTAGradientSlab,
+    component: CTAGradientSlab as any,
     meta: {
       kind: 'cta',
       variant: 'gradient-slab',
@@ -81,7 +81,7 @@ export const componentRegistry: Record<string, ComponentRegistryEntry> = {
   },
 
   'testimonials-grid-2x2': {
-    component: TestimonialsGrid2x2,
+    component: TestimonialsGrid2x2 as any,
     meta: {
       kind: 'testimonials',
       variant: 'grid-2x2',
@@ -104,7 +104,7 @@ export const componentRegistry: Record<string, ComponentRegistryEntry> = {
   },
   
   'footer-mega': {
-    component: FooterMega,
+    component: FooterMega as any,
     meta: {
       kind: 'footer',
       variant: 'mega',
@@ -125,7 +125,7 @@ export const componentRegistry: Record<string, ComponentRegistryEntry> = {
     },
   },
   'navigation-basic': {
-    component: NavBasic,
+    component: NavBasic as any,
     meta: {
       kind: 'navigation',
       variant: 'basic',
@@ -143,7 +143,7 @@ export const componentRegistry: Record<string, ComponentRegistryEntry> = {
     },
   },
   'pricing-table-3-tier': {
-    component: PricingTable3Tier,
+    component: PricingTable3Tier as any,
     meta: {
       kind: 'pricing',
       variant: 'table-3-tier',
@@ -161,7 +161,7 @@ export const componentRegistry: Record<string, ComponentRegistryEntry> = {
     },
   },
   'contact-form-basic': {
-    component: ContactFormBasic,
+    component: ContactFormBasic as any,
     meta: {
       kind: 'contact',
       variant: 'form-basic',
@@ -179,7 +179,7 @@ export const componentRegistry: Record<string, ComponentRegistryEntry> = {
     },
   },
   'gallery-masonry': {
-    component: GalleryMasonry,
+    component: GalleryMasonry as any,
     meta: {
       kind: 'gallery',
       variant: 'masonry',
@@ -197,7 +197,7 @@ export const componentRegistry: Record<string, ComponentRegistryEntry> = {
     },
   },
   'blog-list-standard': {
-    component: BlogListStandard,
+    component: BlogListStandard as any,
     meta: {
       kind: 'blog',
       variant: 'list-standard',
