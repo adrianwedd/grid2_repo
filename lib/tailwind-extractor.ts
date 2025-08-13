@@ -278,13 +278,13 @@ export function extractTailwindClasses(html: string): string[] {
 }
 
 export function generateBrandTokenCSS(brand: BrandTokens): string {
-  const brandVars = Object.entries(brand.colors.brand)
+  const brandVars = brand.colors.brand ? Object.entries(brand.colors.brand)
     .map(([key, value]) => `  --brand-${key}: ${value};`)
-    .join('\n');
+    .join('\n') : '';
     
-  const grayVars = Object.entries(brand.colors.gray)
+  const grayVars = brand.colors.gray ? Object.entries(brand.colors.gray)
     .map(([key, value]) => `  --gray-${key}: ${value};`)
-    .join('\n');
+    .join('\n') : '';
     
   const accentVars = brand.colors.accent 
     ? Object.entries(brand.colors.accent)
@@ -296,19 +296,19 @@ export function generateBrandTokenCSS(brand: BrandTokens): string {
 ${brandVars}
 ${grayVars}
 ${accentVars}
-  --font-heading: ${brand.fonts.heading};
-  --font-body: ${brand.fonts.body};
-  --radius-sm: ${brand.radius.sm};
-  --radius-md: ${brand.radius.md};
-  --radius-lg: ${brand.radius.lg};
-  --radius-xl: ${brand.radius.xl};
-  --shadow-sm: ${brand.shadow.sm};
-  --shadow-md: ${brand.shadow.md};
-  --shadow-lg: ${brand.shadow.lg};
-  --shadow-xl: ${brand.shadow.xl};
-  --spacing-tight: ${brand.spacing.tight};
-  --spacing-normal: ${brand.spacing.normal};
-  --spacing-relaxed: ${brand.spacing.relaxed};
+  --font-heading: ${brand.fonts?.heading || 'ui-sans-serif, system-ui'};
+  --font-body: ${brand.fonts?.body || 'ui-sans-serif, system-ui'};
+  --radius-sm: ${brand.radius?.sm || '0.125rem'};
+  --radius-md: ${brand.radius?.md || '0.375rem'};
+  --radius-lg: ${brand.radius?.lg || '0.5rem'};
+  --radius-xl: ${brand.radius?.xl || '0.75rem'};
+  --shadow-sm: ${brand.shadow?.sm || '0 1px 2px 0 rgb(0 0 0 / 0.05)'};
+  --shadow-md: ${brand.shadow?.md || '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)'};
+  --shadow-lg: ${brand.shadow?.lg || '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)'};
+  --shadow-xl: ${brand.shadow?.xl || '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)'};
+  --spacing-tight: ${brand.spacing?.tight || 0.75};
+  --spacing-normal: ${brand.spacing?.normal || 1};
+  --spacing-relaxed: ${brand.spacing?.relaxed || 1.25};
 }`;
 }
 
@@ -369,8 +369,8 @@ export function generateTailwindCSS(classes: string[], brand?: BrandTokens): Tai
       totalClasses: classes.length,
       extractedClasses: extractedClasses.length,
       customProperties: brand ? 
-        Object.keys(brand.colors.brand).length + 
-        Object.keys(brand.colors.gray).length + 
+        (brand.colors.brand ? Object.keys(brand.colors.brand).length : 0) + 
+        (brand.colors.gray ? Object.keys(brand.colors.gray).length : 0) + 
         (brand.colors.accent ? Object.keys(brand.colors.accent).length : 0) + 
         8 // fonts, radius, shadow, spacing
         : 0

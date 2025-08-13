@@ -5,14 +5,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ### Development
-- `pnpm dev` - Start Next.js development server on port 3000
-- `pnpm build` - Build the Next.js application
-- `pnpm start` - Start production server on port 3000
+- `npm run dev` - Start Next.js development server on port 3000
+- `npm run build` - Build the Next.js application
+- `npm run start` - Start production server on port 3000
 
 ### Demo Scripts
-- `pnpm run demo:node` - Run beam search + generatePage CLI demo
-- `pnpm run demo:transforms` - Test chat interpretation and transform system
-- `pnpm run demo:export` - Test the ZIP export functionality
+- `npm run demo:node` - Run beam search + generatePage CLI demo
+- `npm run demo:transforms` - Test chat interpretation and transform system
+- `npm run demo:export` - Test the ZIP export functionality
 
 ### Application URLs
 - http://localhost:3000/demo - View static generated page example
@@ -99,7 +99,7 @@ The entire system is built around `SectionNode` and `SectionMeta` types:
 ### Testing Transforms
 Use the CLI demo to test transform chains:
 ```bash
-pnpm run demo:transforms
+npm run demo:transforms
 ```
 
 ## Key Constraints
