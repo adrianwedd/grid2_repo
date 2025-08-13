@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
 
     if (action === 'init') {
       const sections = body.sections as SectionNode[];
-      const session = initSession(sections, body.sessionId);
+      const session = await initSession(sections, body.sessionId);
       return NextResponse.json({ ok: true, sessionId: session.id, sections });
     }
 
@@ -30,17 +30,17 @@ export async function POST(req: NextRequest) {
     }
 
     if (action === 'undo') {
-      const result = handleUndo(sessionId);
+      const result = await handleUndo(sessionId);
       return NextResponse.json({ ok: true, sessionId, ...result });
     }
 
     if (action === 'redo') {
-      const result = handleRedo(sessionId);
+      const result = await handleRedo(sessionId);
       return NextResponse.json({ ok: true, sessionId, ...result });
     }
 
     if (action === 'get') {
-      const result = handleGet(sessionId);
+      const result = await handleGet(sessionId);
       return NextResponse.json({ ok: true, sessionId, ...result });
     }
 

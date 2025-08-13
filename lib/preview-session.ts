@@ -1,6 +1,7 @@
 // lib/preview-session.ts
 import { HistoryManager, interpretChat, analyzeTransform } from '@/lib/transforms';
 import { interpretCommand } from '@/lib/claude-interpreter';
+import { getSessionStorage, serializeSession, deserializeSession } from '@/lib/session-storage';
 import type { SectionNode } from '@/types/section-system';
 
 type Session = {
@@ -9,36 +10,44 @@ type Session = {
   updatedAt: number;
 };
 
-const SESSIONS = new Map<string, Session>();
-const TTL_MS = 30 * 60 * 1000;
-
 const uid = () => (globalThis as any).crypto?.randomUUID?.() ?? `s_${Math.random().toString(36).slice(2)}`;
 
-function cleanup() {
-  const now = Date.now();
-  for (const [id, s] of SESSIONS) {
-    if (now - s.updatedAt > TTL_MS) SESSIONS.delete(id);
-  }
+export async function initSession(sections: SectionNode[], sessionId?: string) {
+  const storage = getSessionStorage();
+  await storage.cleanup();
+  
+  const id = sessionId ?? uid();
+  const history = new HistoryManager(sections);
+  const sessionData = serializeSession(id, history);
+  
+  await storage.set(id, sessionData);
+  
+  return { id, history, updatedAt: Date.now() };
 }
 
-export function initSession(sections: SectionNode[], sessionId?: string) {
-  cleanup();
-  const id = sessionId ?? uid();
-  const session: Session = { id, history: new HistoryManager(sections), updatedAt: Date.now() };
-  SESSIONS.set(id, session);
+export async function getSession(id: string): Promise<Session | null> {
+  const storage = getSessionStorage();
+  const sessionData = await storage.get(id);
+  
+  if (!sessionData) return null;
+  
+  const history = deserializeSession(sessionData);
+  const session = { id, history, updatedAt: Date.now() };
+  
+  // Update timestamp in storage
+  await storage.set(id, serializeSession(id, history));
+  
   return session;
 }
 
-export function getSession(id: string) {
-  cleanup();
-  const s = SESSIONS.get(id);
-  if (!s) return null;
-  s.updatedAt = Date.now();
-  return s;
+async function saveSession(session: Session) {
+  const storage = getSessionStorage();
+  const sessionData = serializeSession(session.id, session.history);
+  await storage.set(session.id, sessionData);
 }
 
 export async function handlePreview(sessionId: string, command: string) {
-  const s = getSession(sessionId);
+  const s = await getSession(sessionId);
   if (!s) throw new Error('Session not found');
   const before = s.history.current();
   
@@ -183,22 +192,24 @@ export async function handleCommand(sessionId: string, command: string) {
   };
 }
 
-export function handleUndo(sessionId: string) {
-  const s = getSession(sessionId);
+export async function handleUndo(sessionId: string) {
+  const s = await getSession(sessionId);
   if (!s) throw new Error('Session not found');
   const out = s.history.undo();
+  await saveSession(s);
   return { sections: out ?? s.history.current() };
 }
 
-export function handleRedo(sessionId: string) {
-  const s = getSession(sessionId);
+export async function handleRedo(sessionId: string) {
+  const s = await getSession(sessionId);
   if (!s) throw new Error('Session not found');
   const out = s.history.redo();
+  await saveSession(s);
   return { sections: out ?? s.history.current() };
 }
 
-export function handleGet(sessionId: string) {
-  const s = getSession(sessionId);
+export async function handleGet(sessionId: string) {
+  const s = await getSession(sessionId);
   if (!s) throw new Error('Session not found');
   return { sections: s.history.current() };
 }

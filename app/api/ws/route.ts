@@ -75,7 +75,7 @@ async function handleMessage(ws: any, message: WSMessage) {
     switch (type) {
       case 'init':
         if (!sections) throw new Error('Sections required for init');
-        const session = initSession(sections, sessionId);
+        const session = await initSession(sections, sessionId);
         subscribeToSession(ws, session.id);
         sendResponse(ws, id, session.id, true, { sections });
         break;
@@ -103,21 +103,21 @@ async function handleMessage(ws: any, message: WSMessage) {
 
       case 'undo':
         if (!sessionId) throw new Error('SessionId required');
-        const undoResult = handleUndo(sessionId);
+        const undoResult = await handleUndo(sessionId);
         sendResponse(ws, id, sessionId, true, undoResult);
         broadcastUpdate(sessionId, undoResult);
         break;
 
       case 'redo':
         if (!sessionId) throw new Error('SessionId required');
-        const redoResult = handleRedo(sessionId);
+        const redoResult = await handleRedo(sessionId);
         sendResponse(ws, id, sessionId, true, redoResult);
         broadcastUpdate(sessionId, redoResult);
         break;
 
       case 'get':
         if (!sessionId) throw new Error('SessionId required');
-        const getResult = handleGet(sessionId);
+        const getResult = await handleGet(sessionId);
         sendResponse(ws, id, sessionId, true, getResult);
         break;
 
