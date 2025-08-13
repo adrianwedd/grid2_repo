@@ -14,36 +14,64 @@ This project is a deterministic AI website builder that uses a beam search algor
 
 ## Quickstart
 
+### Prerequisites
+- Node.js 18+ 
+- npm or pnpm
+- Git
+
+### Installation
+
 1.  **Clone the repository:**
 
     ```bash
-    git clone <your-repo-url> grid2
-    cd grid2
+    git clone https://github.com/adrianwedd/grid2_repo.git
+    cd grid2_repo
     ```
 
 2.  **Install dependencies:**
 
     ```bash
-    pnpm i
+    npm install
+    # or
+    pnpm install
     ```
 
-3.  **Run the development server:**
+3.  **Set up environment variables:**
 
     ```bash
+    cp .env.example .env.local
+    # Edit .env.local with your API keys (optional)
+    ```
+
+4.  **Run the development server:**
+
+    ```bash
+    npm run dev
+    # or
     pnpm dev
     ```
 
     This will start the development server on `http://localhost:3000`.
 
-4.  **Try the demos:**
+### Available Pages
 
-    -   **Demo Page:** `http://localhost:3000/demo` (a statically generated page)
-    -   **Real-time Editor:** `http://localhost:3000/editor`
-    -   **CLI Demos:**
-        ```bash
-        pnpm run demo:node        # beam search + generatePage
-        pnpm run demo:transforms  # interpret chat, apply transforms, show diff/impact
-        ```
+-   **Home:** `http://localhost:3000` - Landing page
+-   **Editor:** `http://localhost:3000/editor` - Real-time page builder
+-   **Demo:** `http://localhost:3000/demo` - Static generated example
+-   **Feeling Lucky:** `http://localhost:3000/lucky` - Random design generator
+
+### Development Scripts
+
+```bash
+npm run dev              # Start development server
+npm run build           # Build for production
+npm run start           # Start production server
+npm test                # Run unit tests
+npm run test:e2e        # Run Playwright e2e tests
+npm run demo:node       # CLI beam search demo
+npm run demo:transforms # Test transform system
+npm run demo:export     # Test export functionality
+```
 
 ## Documentation
 
