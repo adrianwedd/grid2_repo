@@ -427,7 +427,7 @@ export function RealtimeEditor({ initialSections }: { initialSections: SectionNo
         </div>
 
         {error && <div className="text-sm text-red-600">{error}</div>}
-        {claudeError && <div className="text-sm text-red-600">Claude Error: {claudeError.error}</div>}
+        {claudeError && <div className="text-sm text-red-600">Claude Error: {String(claudeError)}</div>}
       </div>
 
       {/* Preview */}

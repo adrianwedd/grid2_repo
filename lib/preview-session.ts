@@ -119,7 +119,7 @@ export async function handlePreview(sessionId: string, command: string) {
 }
 
 export async function handleCommand(sessionId: string, command: string) {
-  const s = getSession(sessionId);
+  const s = await getSession(sessionId);
   if (!s) throw new Error('Session not found');
   const before = s.history.current();
   
@@ -149,7 +149,8 @@ export async function handleCommand(sessionId: string, command: string) {
       if (response.ok) {
         const data = await response.json();
         // Update history with new sections
-        s.history = new HistoryManager(data.page.sections);
+        s.history.push(data.page.sections);
+        await saveSession(s);
         return {
           sections: data.page.sections,
           intents: [`Claude Director: ${data.spec.philosophy.inspiration}`],
@@ -183,6 +184,7 @@ export async function handleCommand(sessionId: string, command: string) {
   // Fallback to basic transforms only if Claude is disabled
   const result = interpretChat(command, before);
   const after = s.history.apply(result.transforms);
+  await saveSession(s);
   const analysis = analyzeTransform(before, after);
   return { 
     sections: after, 

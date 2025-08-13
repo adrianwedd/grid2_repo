@@ -100,7 +100,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Image generation error:', error);
     return NextResponse.json(
-      { error: 'Image generation failed', details: error.message },
+      { error: 'Image generation failed', details: error instanceof Error ? error.message : String(error) },
       { status: 500 }
     );
   }

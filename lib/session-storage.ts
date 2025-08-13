@@ -72,7 +72,6 @@ class RedisSessionStorage implements SessionStorage {
       // Try Redis connection (local or environment)
       const redisUrl = process.env.REDIS_URL || 'redis://localhost:6379';
       this.redis = new Redis(redisUrl, {
-        retryDelayOnFailover: 100,
         enableReadyCheck: false,
         maxRetriesPerRequest: 1,
         lazyConnect: true
