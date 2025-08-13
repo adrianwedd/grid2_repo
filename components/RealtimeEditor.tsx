@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRealtimePreview } from '@/lib/hooks/useRealtimePreview';
-// import { useClaudeDirector } from '@/lib/hooks/useClaudeDirector';
+import { useClaudeDirector } from '@/lib/hooks/useClaudeDirector';
 import type { SectionNode } from '@/types/section-system';
 import { PageRenderer } from '@/components/PageRenderer';
 import { ThemeModal } from '@/components/ThemeModal';
@@ -26,13 +26,14 @@ export function RealtimeEditor({ initialSections }: { initialSections: SectionNo
     apply, undo, redo,
   } = useRealtimePreview(initialSections);
 
-  // Claude Director temporarily disabled - fix imports
-  const claudeLoading = false;
-  const claudeError = null;
-  const claudeResult = null;
-  const generateWithClaude = async (prompt: string) => {
-    console.log('Claude Director disabled - would generate:', prompt);
-  };
+  // Claude Director integration
+  const {
+    generate: generateWithClaude,
+    isLoading: claudeLoading,
+    error: claudeError,
+    result: claudeResult,
+    checkAvailability,
+  } = useClaudeDirector();
 
   const current = preview ?? sections;
 
