@@ -3,7 +3,7 @@
   "prompt": "Create a restaurant website for a cozy Italian bistro with warm colors",
   "spec": {
     "philosophy": {
-      "inspiration": "Apple's design philosophy with modern execution",
+      "inspiration": "Scandinavian hygge translated to digital spaces - warmth through simplicity",
       "principles": [
         "Clarity over complexity",
         "User needs before business needs",
@@ -49,7 +49,7 @@
         ]
       },
       "animations": "subtle",
-      "personality": "Professional yet approachable",
+      "personality": "Meticulous architect building experiences that last",
       "colorStrategy": {
         "approach": "Strategic color use for conversion",
         "primary": "#2563eb",

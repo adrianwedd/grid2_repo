@@ -3,7 +3,7 @@
   "prompt": "Create a minimal portfolio",
   "spec": {
     "philosophy": {
-      "inspiration": "Apple's design philosophy with modern execution",
+      "inspiration": "Y2K revival with modern security - nostalgic optimism grounded in reality",
       "principles": [
         "Clarity over complexity",
         "User needs before business needs",
@@ -49,7 +49,7 @@
         ]
       },
       "animations": "subtle",
-      "personality": "Professional yet approachable",
+      "personality": "Innovative craftsperson balancing tradition with experimentation",
       "colorStrategy": {
         "approach": "Strategic color use for conversion",
         "primary": "#2563eb",

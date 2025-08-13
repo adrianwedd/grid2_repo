@@ -4,31 +4,66 @@
   "spec": {
     "philosophy": {
       "inspiration": "Clean, minimalist design that puts photography at the forefront, inspired by fine art galleries and photography portfolios",
-      "principles": ["visual storytelling", "white space as a design element", "content hierarchy", "mobile-first approach", "fast loading imagery"],
-      "antipatterns": ["cluttered layouts", "competing visual elements", "slow image loading", "poor image quality", "overwhelming navigation"]
+      "principles": [
+        "visual storytelling",
+        "white space as a design element",
+        "content hierarchy",
+        "mobile-first approach",
+        "fast loading imagery"
+      ],
+      "antipatterns": [
+        "cluttered layouts",
+        "competing visual elements",
+        "slow image loading",
+        "poor image quality",
+        "overwhelming navigation"
+      ]
     },
     "style": {
       "personality": "Professional yet approachable photographer showcasing wanderlust and artistic vision",
       "tone": "minimal",
       "colorScheme": "monochrome",
-      "spacing": { "value": "generous" },
+      "spacing": {
+        "value": "generous"
+      },
       "typography": "mixed",
       "animations": "subtle"
     },
     "experience": {
       "userJourney": "Visitor discovers stunning photography, explores travel stories, gets inspired to travel or hire photographer, subscribes for updates",
-      "keyInteractions": ["image hover effects", "story navigation", "photo gallery browsing", "social sharing"],
-      "emotionalGoals": ["inspiration", "wanderlust", "appreciation for photography", "connection with destinations"]
+      "keyInteractions": [
+        "image hover effects",
+        "story navigation",
+        "photo gallery browsing",
+        "social sharing"
+      ],
+      "emotionalGoals": [
+        "inspiration",
+        "wanderlust",
+        "appreciation for photography",
+        "connection with destinations"
+      ]
     },
     "optimization": {
       "primaryGoal": "engagement",
-      "successMetrics": ["time on page", "photo gallery interactions", "story completion rate", "subscription signups"],
-      "constraints": ["image loading performance", "mobile responsiveness", "SEO for travel content"]
+      "successMetrics": [
+        "time on page",
+        "photo gallery interactions",
+        "story completion rate",
+        "subscription signups"
+      ],
+      "constraints": [
+        "image loading performance",
+        "mobile responsiveness",
+        "SEO for travel content"
+      ]
     },
     "sections": [
       {
         "kind": "hero",
-        "variant": { "reasoning": "Large hero image with minimal text overlay to immediately showcase photography quality" },
+        "variant": {
+          "reasoning": "Large hero image with minimal text overlay to immediately showcase photography quality"
+        },
         "priority": "critical",
         "purpose": "Create immediate visual impact and establish photography credibility",
         "visual": {
@@ -39,7 +74,9 @@
       },
       {
         "kind": "features",
-        "variant": { "reasoning": "Blog post grid showing recent travel stories with compelling preview images" },
+        "variant": {
+          "reasoning": "Blog post grid showing recent travel stories with compelling preview images"
+        },
         "priority": "critical",
         "purpose": "Display latest content and encourage exploration of travel stories",
         "visual": {
@@ -50,7 +87,9 @@
       },
       {
         "kind": "cta",
-        "variant": { "reasoning": "Newsletter signup with preview of exclusive photography tips and location guides" },
+        "variant": {
+          "reasoning": "Newsletter signup with preview of exclusive photography tips and location guides"
+        },
         "priority": "important",
         "purpose": "Build audience and recurring engagement",
         "visual": {
@@ -61,7 +100,9 @@
       },
       {
         "kind": "footer",
-        "variant": { "reasoning": "Simple footer with social links, about section, and contact information" },
+        "variant": {
+          "reasoning": "Simple footer with social links, about section, and contact information"
+        },
         "priority": "nice-to-have",
         "purpose": "Provide navigation and professional contact information",
         "visual": {

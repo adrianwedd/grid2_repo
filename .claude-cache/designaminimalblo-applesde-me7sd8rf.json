@@ -3,7 +3,7 @@
   "prompt": "Design a minimal blog",
   "spec": {
     "philosophy": {
-      "inspiration": "Apple's design philosophy with modern execution",
+      "inspiration": "Zen garden principles - purposeful space and mindful interaction",
       "principles": [
         "Clarity over complexity",
         "User needs before business needs",
@@ -49,7 +49,7 @@
         ]
       },
       "animations": "subtle",
-      "personality": "Professional yet approachable",
+      "personality": "Patient storyteller weaving narrative through interaction",
       "colorStrategy": {
         "approach": "Strategic color use for conversion",
         "primary": "#2563eb",

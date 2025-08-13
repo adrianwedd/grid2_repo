@@ -3,7 +3,7 @@
   "prompt": "Create a simple landing page",
   "spec": {
     "philosophy": {
-      "inspiration": "Apple's design philosophy with modern execution",
+      "inspiration": "Swiss typography precision with unexpected bursts of human creativity",
       "principles": [
         "Clarity over complexity",
         "User needs before business needs",
@@ -49,7 +49,7 @@
         ]
       },
       "animations": "subtle",
-      "personality": "Professional yet approachable",
+      "personality": "Warm technologist making advanced features feel friendly",
       "colorStrategy": {
         "approach": "Strategic color use for conversion",
         "primary": "#2563eb",

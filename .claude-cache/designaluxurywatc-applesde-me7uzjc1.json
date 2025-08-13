@@ -3,7 +3,7 @@
   "prompt": "Design a luxury watch brand website like Rolex",
   "spec": {
     "philosophy": {
-      "inspiration": "Apple's design philosophy with modern execution",
+      "inspiration": "Biomimicry in interface design - learning from nature's time-tested patterns",
       "principles": [
         "Clarity over complexity",
         "User needs before business needs",
@@ -49,7 +49,7 @@
         ]
       },
       "animations": "subtle",
-      "personality": "Professional yet approachable",
+      "personality": "Trusted advisor who prioritizes user success over metrics",
       "colorStrategy": {
         "approach": "Strategic color use for conversion",
         "primary": "#2563eb",

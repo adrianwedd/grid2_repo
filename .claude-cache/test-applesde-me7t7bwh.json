@@ -3,7 +3,7 @@
   "prompt": "test",
   "spec": {
     "philosophy": {
-      "inspiration": "Apple's design philosophy with modern execution",
+      "inspiration": "Neomorphism philosophy - interfaces that feel tangible and organic",
       "principles": [
         "Clarity over complexity",
         "User needs before business needs",
@@ -49,7 +49,7 @@
         ]
       },
       "animations": "subtle",
-      "personality": "Professional yet approachable",
+      "personality": "Mindful perfectionist who knows when good enough is perfect",
       "colorStrategy": {
         "approach": "Strategic color use for conversion",
         "primary": "#2563eb",

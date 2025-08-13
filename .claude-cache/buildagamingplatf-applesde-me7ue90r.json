@@ -3,7 +3,7 @@
   "prompt": "Build a gaming platform landing page like Discord but more neon",
   "spec": {
     "philosophy": {
-      "inspiration": "Apple's design philosophy with modern execution",
+      "inspiration": "Origami constraints - infinite possibility through deliberate limitations",
       "principles": [
         "Clarity over complexity",
         "User needs before business needs",
@@ -49,7 +49,7 @@
         ]
       },
       "animations": "subtle",
-      "personality": "Professional yet approachable",
+      "personality": "Playful educator making learning feel like discovery",
       "colorStrategy": {
         "approach": "Strategic color use for conversion",
         "primary": "#2563eb",
