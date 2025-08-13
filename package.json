@@ -9,7 +9,7 @@
     "start": "next start -p 3000",
     "demo:node": "tsx scripts/run-demo.ts",
     "demo:transforms": "tsx scripts/try-transforms.ts",
-    "demo:export": "tsx scripts/test-export.ts",
+    "demo:export": "node scripts/test-export.js",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",

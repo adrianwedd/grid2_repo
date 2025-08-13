@@ -97,7 +97,15 @@ function formatBytes(bytes: number): string {
 
 // Check if this is being run directly
 if (import.meta.main) {
-  testExport().catch(console.error);
+  testExport()
+    .then(() => {
+      console.log('✅ Test completed successfully');
+      process.exit(0);
+    })
+    .catch((error) => {
+      console.error('❌ Test failed:', error);
+      process.exit(1);
+    });
 }
 
 export { testExport };
