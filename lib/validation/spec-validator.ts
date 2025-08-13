@@ -10,13 +10,13 @@ import DOMPurify from 'isomorphic-dompurify';
 export const DesignSpecSchema = z.object({
   // Legacy style format
   style: z.object({
-    tone: z.enum(['minimal', 'bold', 'playful', 'corporate', 'luxury', 'tech', 'organic']).optional(),
+    tone: z.enum(['minimal', 'bold', 'playful', 'corporate']),
     inspiration: z.string().optional(),
-    colorScheme: z.enum(['monochrome', 'vibrant', 'pastel', 'dark', 'brand-heavy']).optional(),
-    spacing: z.enum(['tight', 'normal', 'generous', 'airy']).optional(),
-    typography: z.enum(['sans', 'serif', 'mixed', 'bold', 'elegant']).optional(),
-    animations: z.enum(['none', 'subtle', 'playful', 'dramatic']).optional(),
-  }).optional(),
+    colorScheme: z.enum(['monochrome', 'vibrant', 'pastel', 'dark', 'brand-heavy']),
+    spacing: z.enum(['tight', 'normal', 'generous', 'airy']),
+    typography: z.enum(['sans', 'serif', 'mixed', 'bold', 'elegant']),
+    animations: z.enum(['none', 'subtle', 'playful', 'dramatic']),
+  }),
   
   // New brandTokens format
   brandTokens: z.object({
@@ -99,7 +99,7 @@ export const DesignSpecSchema = z.object({
       style: z.enum(['large-serif', 'bold-sans', 'elegant', 'playful']).optional(),
       bullets: z.array(z.string()).optional(),
       features: z.array(z.string()).optional(),
-      customization: z.record(z.any()).optional(),
+      customization: z.record(z.string(), z.any()).optional(),
     }).optional(),
     visual: z.object({
       imagery: z.enum(['none', 'abstract', 'product', 'people', 'illustration']),
@@ -238,8 +238,8 @@ export class SpecValidator {
       warnings.push('Dramatic animations with tight spacing may feel cramped');
     }
     
-    if (data.style.colorScheme === 'dark' && data.content.voice === 'playful') {
-      warnings.push('Dark theme with playful voice is unusual - verify intent');
+    if (data.style.colorScheme === 'dark' && data.content.voice === 'friendly') {
+      warnings.push('Dark theme with friendly voice is unusual - verify intent');
     }
     
     // Validate section combinations

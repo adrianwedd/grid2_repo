@@ -63,13 +63,13 @@ const DEMO_PATTERNS: DemoPattern[] = [
         },
       ],
       content: {
-        voice: 'persuasive',
+        voice: 'bold',
         density: 'detailed',
       },
       layout: {
         firstImpression: 'value-first',
         flow: 'linear',
-        ctaStrategy: 'multiple-strong',
+        ctaStrategy: 'multiple-soft',
       },
     },
   },
@@ -324,7 +324,7 @@ const DEMO_PATTERNS: DemoPattern[] = [
  * This demonstrates the power of the architecture even without API key
  */
 export function simulateClaudeDirector(prompt: string): any {
-  const spec = simulateClaudeInterpretation(prompt);
+  let spec = simulateClaudeInterpretation(prompt);
   
   // Handle case where spec might be undefined
   if (!spec || !spec.style) {
@@ -623,7 +623,7 @@ export function simulateClaudeInterpretation(prompt: string): DesignSpec {
 }
   
 // Default spec - this should not be reached now
-function getDefaultSpec(): DesignSpec {
+function getDefaultSpec(prompt: string = "Website"): DesignSpec {
   return {
     style: {
       tone: 'minimal',

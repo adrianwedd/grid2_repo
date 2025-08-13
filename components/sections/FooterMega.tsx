@@ -21,11 +21,11 @@ export function FooterMega({ content, tone = 'minimal' }: FooterMegaProps) {
     <footer className={`${styles.section} border-t border-gray-200`}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16">
         <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
-          {cols.map((col, i) => (
+          {cols.map((col: any, i: number) => (
             <div key={i}>
               <h3 className={`text-sm font-semibold ${styles.heading}`}>{col.heading}</h3>
               <ul role="list" className="mt-6 space-y-2">
-                {col.links?.map((l, j) => (
+                {col.links?.map((l: any, j: number) => (
                   <li key={j}>
                     <a href={l.href} className={`text-sm ${styles.link}`}>{l.label}</a>
                   </li>

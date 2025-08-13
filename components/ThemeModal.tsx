@@ -12,6 +12,7 @@ interface CachedSpec {
         primary: string;
         secondary?: string;
         accent?: string;
+        neutral?: string[];
       };
       typography: {
         headingFont: string;

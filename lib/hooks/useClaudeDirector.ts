@@ -128,7 +128,7 @@ export function useClaudeDirector() {
       sections: result.spec.sections.map(s => ({
         kind: s.kind,
         purpose: s.purpose,
-        reasoning: s.reasoning,
+        reasoning: s.variant?.reasoning || 'Generated section',
       })),
     };
   }, [result]);

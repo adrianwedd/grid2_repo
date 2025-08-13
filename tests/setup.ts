@@ -1,7 +1,7 @@
 // tests/setup.ts
 // Test setup and global mocks
 
-import { vi } from 'vitest';
+import { vi, beforeEach } from 'vitest';
 
 // Mock globalThis.performance for Node environment
 if (typeof globalThis.performance === 'undefined') {
@@ -17,7 +17,7 @@ if (typeof globalThis.performance === 'undefined') {
 }
 
 // Mock crypto.randomUUID for deterministic testing
-const mockUUID = vi.fn(() => 'test-uuid-12345');
+const mockUUID = vi.fn(() => 'test-uuid-12345') as any;
 if (typeof globalThis.crypto === 'undefined') {
   globalThis.crypto = {
     randomUUID: mockUUID,

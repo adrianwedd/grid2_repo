@@ -119,9 +119,9 @@ export async function handlePreview(sessionId: string, command: string) {
 }
 
 export async function handleCommand(sessionId: string, command: string) {
-  const s = await getSession(sessionId);
-  if (!s) throw new Error('Session not found');
-  const before = s.history.current();
+  const session = await getSession(sessionId);
+  if (!session) throw new Error('Session not found');
+  const before = session.history.current();
   
   // ALWAYS use Claude Director when enabled for maximum magic
   if (false && process.env.CLAUDE_ENABLED === 'true' && command.trim()) { // Disabled - fix port
@@ -149,8 +149,8 @@ export async function handleCommand(sessionId: string, command: string) {
       if (response.ok) {
         const data = await response.json();
         // Update history with new sections
-        s.history.push(data.page.sections);
-        await saveSession(s);
+        session!.history.push(data.page.sections);
+        await saveSession(session!);
         return {
           sections: data.page.sections,
           intents: [`Claude Director: ${data.spec.philosophy.inspiration}`],
@@ -183,8 +183,8 @@ export async function handleCommand(sessionId: string, command: string) {
   
   // Fallback to basic transforms only if Claude is disabled
   const result = interpretChat(command, before);
-  const after = s.history.apply(result.transforms);
-  await saveSession(s);
+  const after = session.history.apply(result.transforms);
+  await saveSession(session);
   const analysis = analyzeTransform(before, after);
   return { 
     sections: after, 
