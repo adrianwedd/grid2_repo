@@ -42,6 +42,62 @@ export function FeaturesCards3Up({ content, tone = 'minimal' }: FeaturesCards3Up
       title: 'text-gray-900',
       description: 'text-gray-600',
     },
+    elegant: {
+      section: 'bg-gradient-to-b from-slate-50 to-slate-100',
+      card: 'bg-white hover:bg-slate-50 shadow-md hover:shadow-lg border border-slate-200',
+      icon: 'text-slate-700',
+      title: 'text-slate-900 font-light',
+      description: 'text-slate-600 font-light',
+    },
+    warm: {
+      section: 'bg-gradient-to-br from-amber-50 to-orange-50',
+      card: 'bg-white/80 hover:bg-white shadow-warm hover:shadow-xl border-2 border-amber-200',
+      icon: 'text-orange-600',
+      title: 'text-amber-900',
+      description: 'text-amber-700',
+    },
+    nature: {
+      section: 'bg-gradient-to-br from-green-50 to-emerald-50',
+      card: 'bg-white/90 hover:bg-white shadow-lg hover:shadow-xl border-2 border-green-200',
+      icon: 'text-green-600',
+      title: 'text-green-900',
+      description: 'text-green-700',
+    },
+    luxury: {
+      section: 'bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100',
+      card: 'bg-white hover:bg-amber-50/50 shadow-xl border border-amber-300',
+      icon: 'text-amber-700',
+      title: 'text-amber-900 font-serif',
+      description: 'text-amber-800 font-light',
+    },
+    modern: {
+      section: 'bg-gradient-to-br from-cyan-900 via-blue-900 to-indigo-900',
+      card: 'bg-gradient-to-br from-cyan-800/50 to-blue-800/50 hover:from-cyan-700/50 hover:to-blue-700/50 backdrop-blur border border-cyan-400/30',
+      icon: 'text-cyan-400',
+      title: 'text-cyan-100 font-mono uppercase',
+      description: 'text-cyan-300 font-mono text-sm',
+    },
+    retro: {
+      section: 'bg-gradient-to-br from-orange-100 to-red-100',
+      card: 'bg-gradient-to-br from-yellow-100 to-orange-100 hover:from-orange-100 hover:to-red-100 shadow-retro border-4 border-orange-900',
+      icon: 'text-orange-700',
+      title: 'text-orange-900 font-bold',
+      description: 'text-orange-700',
+    },
+    creative: {
+      section: 'bg-gradient-to-br from-pink-100 via-purple-100 to-indigo-100',
+      card: 'bg-gradient-to-br from-white to-purple-50 hover:from-purple-50 hover:to-pink-50 shadow-creative transform hover:rotate-1 transition-all',
+      icon: 'text-purple-600',
+      title: 'text-purple-900 font-bold',
+      description: 'text-purple-700',
+    },
+    monochrome: {
+      section: 'bg-white',
+      card: 'bg-black hover:bg-gray-900 text-white',
+      icon: 'text-white',
+      title: 'text-white font-bold uppercase tracking-wider',
+      description: 'text-gray-300',
+    },
   } as const;
 
   const styles = toneStyles[tone as keyof typeof toneStyles] || toneStyles.minimal;

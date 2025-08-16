@@ -14,7 +14,7 @@ export async function callClaudeWithBrowserAuth(
   prompt: string,
   config: ClaudeBrowserConfig
 ): Promise<any> {
-  const { cookies, organizationId = '8e7c7a85-8b77-4b98-b3f1-8e3c0c8e3c0c' } = config;
+  const { cookies, organizationId = '1287541f-a020-4755-bbb0-8945a1be4fa5' } = config;
 
   // Use Claude's browser API endpoint
   const response = await fetch('https://claude.ai/api/organizations/' + organizationId + '/chat_conversations', {

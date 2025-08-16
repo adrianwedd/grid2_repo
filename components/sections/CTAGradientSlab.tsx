@@ -37,6 +37,54 @@ export function CTAGradientSlab({ content, actions, tone = 'minimal' }: CTAGradi
       description: 'text-blue-100',
       disclaimer: 'text-blue-200',
     },
+    elegant: {
+      background: 'from-slate-800 to-slate-900',
+      headline: 'text-white font-light',
+      description: 'text-slate-300 font-light',
+      disclaimer: 'text-slate-400 font-light',
+    },
+    warm: {
+      background: 'from-amber-600 via-orange-600 to-red-600',
+      headline: 'text-white',
+      description: 'text-amber-100',
+      disclaimer: 'text-amber-200',
+    },
+    nature: {
+      background: 'from-green-600 via-emerald-600 to-teal-700',
+      headline: 'text-white',
+      description: 'text-green-100',
+      disclaimer: 'text-green-200',
+    },
+    luxury: {
+      background: 'from-amber-700 via-yellow-600 to-amber-800',
+      headline: 'text-white font-serif',
+      description: 'text-amber-100 font-light',
+      disclaimer: 'text-amber-200 font-light',
+    },
+    modern: {
+      background: 'from-cyan-600 via-blue-700 to-indigo-800',
+      headline: 'text-cyan-100 font-mono uppercase tracking-wider',
+      description: 'text-cyan-200 font-mono',
+      disclaimer: 'text-cyan-300 font-mono text-xs',
+    },
+    retro: {
+      background: 'from-orange-600 via-red-600 to-pink-600',
+      headline: 'text-yellow-100 font-bold',
+      description: 'text-yellow-200',
+      disclaimer: 'text-yellow-300',
+    },
+    creative: {
+      background: 'from-purple-600 via-indigo-600 to-pink-600',
+      headline: 'text-white font-bold',
+      description: 'text-purple-100',
+      disclaimer: 'text-purple-200',
+    },
+    monochrome: {
+      background: 'from-black to-gray-900',
+      headline: 'text-white font-bold uppercase tracking-[0.2em]',
+      description: 'text-gray-300',
+      disclaimer: 'text-gray-500',
+    },
   } as const;
 
   const styles = toneStyles[tone as keyof typeof toneStyles] || toneStyles.minimal;

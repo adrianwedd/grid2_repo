@@ -58,7 +58,7 @@ export async function handlePreview(sessionId: string, command: string) {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
       
-      const response = await fetch('http://localhost:7429/api/claude-director', {
+      const response = await fetch('http://localhost:3333/api/claude-director', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         signal: controller.signal,
@@ -130,7 +130,7 @@ export async function handleCommand(sessionId: string, command: string) {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
       
-      const response = await fetch('http://localhost:7429/api/claude-director', {
+      const response = await fetch('http://localhost:3333/api/claude-director', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         signal: controller.signal,

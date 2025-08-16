@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { generatePage, demoContent, demoBrand } from '@/lib/generate-page';
+import { generatePage, demoBrand } from '@/lib/generate-page';
 import { PageRenderer } from '@/components/PageRenderer';
 import { imageProvider } from '@/lib/image-provider';
+import { generateToneSpecificContent } from '@/lib/tone-content-generator';
 import type { SectionNode, Tone, PageNode } from '@/types/section-system';
 
 const STYLES: { value: Tone; label: string; description: string; accent: string; category: string }[] = [
@@ -104,6 +105,7 @@ export function StyleShowcase() {
   const [currentTone, setCurrentTone] = useState<Tone>('minimal');
   const [page, setPage] = useState<PageNode | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [imageStats, setImageStats] = useState({ placeholders: 0, generated: 0, aiGenerated: 0, tones: [] as string[], sections: [] as string[] });
   const [selectedCategory, setSelectedCategory] = useState<string>('Safe & Boring');
   
@@ -118,21 +120,40 @@ export function StyleShowcase() {
 
   // Generate page for current tone with contextual images
   useEffect(() => {
+    console.log('🔄 useEffect triggered for tone:', currentTone);
+    
     async function generateForTone() {
       setLoading(true);
+      setError(null);
       try {
         console.log('🎨 Generating page for tone:', currentTone);
+        
+        // Delay to allow imageProvider to initialize
+        await new Promise(resolve => setTimeout(resolve, 100));
         
         // Get image stats
         const stats = imageProvider.getImageStats();
         setImageStats(stats);
         console.log('📊 Image stats:', stats);
         
-        const result = await generatePage(demoContent, demoBrand, currentTone, ['hero', 'features', 'cta']);
+        // Generate tone-specific content
+        const toneContent = generateToneSpecificContent(currentTone);
+        console.log('📦 Content:', toneContent);
+        
+        const { primary } = await generatePage(toneContent, demoBrand, currentTone, ['hero', 'features', 'cta']);
         console.log('✅ Page generated successfully');
-        setPage(result.primary);
+        console.log('📄 Primary page:', primary);
+        console.log('📋 Sections:', primary.sections.map(s => `${s.meta.kind}-${s.meta.variant}`));
+        
+        setPage(primary);
       } catch (error) {
         console.error('❌ Failed to generate page:', error);
+        const errorMessage = error instanceof Error 
+          ? error.message 
+          : typeof error === 'object' && error !== null
+            ? JSON.stringify(error)
+            : String(error);
+        setError(`Failed to generate ${currentTone} design: ${errorMessage}`);
         setPage(null);
       } finally {
         setLoading(false);
@@ -232,6 +253,12 @@ export function StyleShowcase() {
               <div className="w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
               <span className="text-gray-600">Generating {currentTone} design...</span>
             </div>
+          </div>
+        )}
+        
+        {error && (
+          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg m-4">
+            <strong>Error:</strong> {error}
           </div>
         )}
         

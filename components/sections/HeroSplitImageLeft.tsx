@@ -47,6 +47,54 @@ export function HeroSplitImageLeft({
       subheadline: 'text-gray-600',
       imageWrapper: 'rounded-lg overflow-hidden shadow-md border border-gray-200',
     },
+    elegant: {
+      container: 'bg-gradient-to-b from-slate-50 to-slate-100',
+      headline: 'text-slate-900 font-light tracking-wide',
+      subheadline: 'text-slate-600 font-light',
+      imageWrapper: 'rounded-none shadow-2xl border-8 border-white',
+    },
+    warm: {
+      container: 'bg-gradient-to-br from-amber-50 to-orange-50',
+      headline: 'text-amber-900',
+      subheadline: 'text-amber-700',
+      imageWrapper: 'rounded-3xl overflow-hidden shadow-warm ring-4 ring-amber-200/50',
+    },
+    nature: {
+      container: 'bg-gradient-to-br from-green-50 to-emerald-50',
+      headline: 'text-green-900',
+      subheadline: 'text-green-700',
+      imageWrapper: 'rounded-[3rem] overflow-hidden shadow-xl border-4 border-green-200/50',
+    },
+    luxury: {
+      container: 'bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100',
+      headline: 'text-amber-900 font-serif',
+      subheadline: 'text-amber-800 font-light',
+      imageWrapper: 'rounded-sm shadow-2xl ring-2 ring-amber-400/30',
+    },
+    modern: {
+      container: 'bg-gradient-to-br from-cyan-900 via-blue-900 to-indigo-900',
+      headline: 'text-cyan-100 font-mono uppercase tracking-wider',
+      subheadline: 'text-cyan-300 font-mono',
+      imageWrapper: 'clip-path-polygon-[0_0,100%_0,100%_85%,0_100%] shadow-neon ring-2 ring-cyan-400/50',
+    },
+    retro: {
+      container: 'bg-gradient-to-br from-orange-100 to-red-100',
+      headline: 'text-orange-900 font-bold italic',
+      subheadline: 'text-orange-700',
+      imageWrapper: 'rounded-lg shadow-retro border-4 border-orange-900 outline outline-4 outline-offset-4 outline-orange-400',
+    },
+    creative: {
+      container: 'bg-gradient-to-br from-pink-100 via-purple-100 to-indigo-100',
+      headline: 'text-purple-900 font-bold transform -skew-y-2',
+      subheadline: 'text-purple-700',
+      imageWrapper: 'rounded-[40%_60%_60%_40%/60%_30%_70%_40%] shadow-creative ring-rainbow',
+    },
+    monochrome: {
+      container: 'bg-black',
+      headline: 'text-white font-bold uppercase tracking-[0.2em]',
+      subheadline: 'text-gray-400',
+      imageWrapper: 'grayscale contrast-125 shadow-none border-l-8 border-white',
+    },
   } as const;
 
   const styles = toneStyles[tone as keyof typeof toneStyles] || toneStyles.minimal;
