@@ -39,7 +39,7 @@ export function CTAGradientSlab({ content, actions, tone = 'minimal' }: CTAGradi
     },
   } as const;
 
-  const styles = toneStyles[tone];
+  const styles = toneStyles[tone as keyof typeof toneStyles] || toneStyles.minimal;
 
   return (
     <section className="relative isolate overflow-hidden py-16 sm:py-24">

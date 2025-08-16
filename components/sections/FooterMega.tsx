@@ -14,7 +14,7 @@ export function FooterMega({ content, tone = 'minimal' }: FooterMegaProps) {
     playful: { section: 'bg-gradient-to-b from-white to-purple-50', heading: 'text-gray-900', link: 'text-purple-700 hover:text-purple-900', legal: 'text-purple-700/70' },
     corporate: { section: 'bg-gray-50', heading: 'text-gray-900', link: 'text-gray-700 hover:text-gray-900', legal: 'text-gray-600' },
   } as const;
-  const styles = toneStyles[tone];
+  const styles = toneStyles[tone as keyof typeof toneStyles] || toneStyles.minimal;
   const cols = content.columns?.slice(0, 5) ?? [];
 
   return (

@@ -1,0 +1,7 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#000000" />
+  <rect x="0" y="0" width="50%" height="30%" fill="#ffffff" />
+  <rect x="60%" y="40%" width="40%" height="60%" fill="#000000" />
+  <rect x="20%" y="70%" width="30%" height="30%" fill="#e5e7eb" />
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-family="system-ui" font-size="14" font-weight="700">Harsh contrast gradient</text>
+</svg>

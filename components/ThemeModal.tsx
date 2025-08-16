@@ -37,39 +37,23 @@ export function ThemeModal({ isOpen, onClose }: ThemeModalProps) {
   const [loading, setLoading] = useState(false);
   const [currentTheme, setCurrentTheme] = useState<string | null>(null);
 
-  // Load available cached specs
+  // Load available dynamic themes
   useEffect(() => {
     if (isOpen) {
       async function loadSpecs() {
         try {
-          const response = await fetch('/api/claude-cache-list');
+          const response = await fetch('/api/dynamic-theme-generator');
           if (response.ok) {
-            const specs = await response.json();
-            setAvailableSpecs(specs);
+            const data = await response.json();
+            setAvailableSpecs(data.themes || []);
             
             // Auto-apply saved theme if it exists
             const saved = localStorage.getItem('selectedTheme');
             if (saved) {
               setCurrentTheme(saved);
-              const savedSpec = specs.find((s: CachedSpec) => s.id === saved);
+              const savedSpec = data.themes.find((s: CachedSpec) => s.id === saved);
               if (savedSpec) {
-                // Load the full spec and apply it
-                const response = await fetch('/api/feeling-lucky', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json' },
-                  body: JSON.stringify({ specId: saved }),
-                });
-                
-                if (response.ok) {
-                  const data = await response.json();
-                  const spec: CachedSpec = {
-                    id: data.cached.id,
-                    philosophy: data.cached.philosophy,
-                    personality: data.cached.personality,
-                    spec: data.spec
-                  };
-                  applyTheme(spec);
-                }
+                applyTheme(savedSpec);
               }
             }
           }
@@ -87,20 +71,9 @@ export function ThemeModal({ isOpen, onClose }: ThemeModalProps) {
     
     setLoading(true);
     try {
-      const response = await fetch('/api/feeling-lucky', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ specId }),
-      });
-      
-      if (response.ok) {
-        const data = await response.json();
-        const spec: CachedSpec = {
-          id: data.cached.id,
-          philosophy: data.cached.philosophy,
-          personality: data.cached.personality,
-          spec: data.spec
-        };
+      // Find the spec in our loaded specs
+      const spec = availableSpecs.find(s => s.id === specId);
+      if (spec) {
         setSelectedSpec(spec);
         // Apply the theme immediately for preview
         applyTheme(spec);

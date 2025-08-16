@@ -2,13 +2,11 @@
 // To use: Export your cookies from ChatGPT and paste the session token here
 
 export const CHATGPT_SESSION = {
-  // Paste your __Secure-next-auth.session-token value here
-  sessionToken: '',
+  // Session token from environment variable
+  sessionToken: process.env.CHATGPT_SESSION_TOKEN || '',
   
-  // Or use full cookie array (export from browser)
-  cookies: [
-    // Paste cookies array here if needed
-  ]
+  // Cookies will be loaded from environment
+  cookies: process.env.CHATGPT_COOKIES ? JSON.parse(process.env.CHATGPT_COOKIES) : []
 };
 
 // Instructions to get your session token:

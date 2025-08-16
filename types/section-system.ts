@@ -91,7 +91,19 @@ export type SectionVariant = {
 
 export type SectionId = `${SectionKind}-${string}`;
 
-export type Tone = 'minimal' | 'bold' | 'playful' | 'corporate';
+export type Tone = 
+  | 'minimal'      // Clean, white space, subtle shadows
+  | 'bold'         // High contrast, dark backgrounds, dramatic
+  | 'playful'      // Vibrant colors, fun gradients, curved elements
+  | 'corporate'    // Professional blues, structured, conservative
+  | 'elegant'      // Sophisticated grays, serif fonts, refined
+  | 'modern'       // Geometric, neon accents, tech-forward
+  | 'warm'         // Earth tones, organic shapes, inviting
+  | 'luxury'       // Gold accents, premium materials, exclusive
+  | 'creative'     // Artistic, asymmetric layouts, experimental
+  | 'nature'       // Green palettes, organic textures, sustainable
+  | 'retro'        // Vintage colors, nostalgic elements, classic
+  | 'monochrome';  // Pure black/white, stark contrasts, editorial
 
 // Constraint types
 export type HardConstraint =

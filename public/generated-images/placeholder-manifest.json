@@ -1,0 +1,458 @@
+{
+  "minimal": {
+    "hero": {
+      "filename": "minimal-hero-placeholder.svg",
+      "filepath": "public/generated-images/minimal-hero-placeholder.svg",
+      "style": "Maximum safety, minimum liability",
+      "colors": [
+        "#ffffff",
+        "#f8fafc",
+        "#e2e8f0"
+      ],
+      "dimensions": "1792x1024",
+      "type": "placeholder-svg"
+    },
+    "features": {
+      "filename": "minimal-features-placeholder.svg",
+      "filepath": "public/generated-images/minimal-features-placeholder.svg",
+      "style": "Minimalist safety icons",
+      "colors": [
+        "#ffffff",
+        "#64748b",
+        "#94a3b8"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    },
+    "cta": {
+      "filename": "minimal-cta-placeholder.svg",
+      "filepath": "public/generated-images/minimal-cta-placeholder.svg",
+      "style": "Soft non-threatening gradient",
+      "colors": [
+        "#ffffff",
+        "#f1f5f9",
+        "#e2e8f0"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    }
+  },
+  "corporate": {
+    "hero": {
+      "filename": "corporate-hero-placeholder.svg",
+      "filepath": "public/generated-images/corporate-hero-placeholder.svg",
+      "style": "Government ass-covering blandness",
+      "colors": [
+        "#1e40af",
+        "#3b82f6",
+        "#dbeafe"
+      ],
+      "dimensions": "1792x1024",
+      "type": "placeholder-svg"
+    },
+    "features": {
+      "filename": "corporate-features-placeholder.svg",
+      "filepath": "public/generated-images/corporate-features-placeholder.svg",
+      "style": "Professional bureaucracy icons",
+      "colors": [
+        "#1d4ed8",
+        "#2563eb",
+        "#bfdbfe"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    },
+    "cta": {
+      "filename": "corporate-cta-placeholder.svg",
+      "filepath": "public/generated-images/corporate-cta-placeholder.svg",
+      "style": "Institutional blue gradient",
+      "colors": [
+        "#1e40af",
+        "#3b82f6",
+        "#dbeafe"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    }
+  },
+  "elegant": {
+    "hero": {
+      "filename": "elegant-hero-placeholder.svg",
+      "filepath": "public/generated-images/elegant-hero-placeholder.svg",
+      "style": "Boring but sophisticated gray",
+      "colors": [
+        "#475569",
+        "#64748b",
+        "#e2e8f0"
+      ],
+      "dimensions": "1792x1024",
+      "type": "placeholder-svg"
+    },
+    "features": {
+      "filename": "elegant-features-placeholder.svg",
+      "filepath": "public/generated-images/elegant-features-placeholder.svg",
+      "style": "Refined corporate icons",
+      "colors": [
+        "#374151",
+        "#6b7280",
+        "#d1d5db"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    },
+    "cta": {
+      "filename": "elegant-cta-placeholder.svg",
+      "filepath": "public/generated-images/elegant-cta-placeholder.svg",
+      "style": "Upscale beige gradient",
+      "colors": [
+        "#475569",
+        "#64748b",
+        "#f1f5f9"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    }
+  },
+  "warm": {
+    "hero": {
+      "filename": "warm-hero-placeholder.svg",
+      "filepath": "public/generated-images/warm-hero-placeholder.svg",
+      "style": "Cozy coffee shop vibes",
+      "colors": [
+        "#f59e0b",
+        "#f97316",
+        "#fed7aa"
+      ],
+      "dimensions": "1792x1024",
+      "type": "placeholder-svg"
+    },
+    "features": {
+      "filename": "warm-features-placeholder.svg",
+      "filepath": "public/generated-images/warm-features-placeholder.svg",
+      "style": "Friendly approachable icons",
+      "colors": [
+        "#ea580c",
+        "#dc2626",
+        "#fde68a"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    },
+    "cta": {
+      "filename": "warm-cta-placeholder.svg",
+      "filepath": "public/generated-images/warm-cta-placeholder.svg",
+      "style": "Inviting autumn gradient",
+      "colors": [
+        "#f59e0b",
+        "#f97316",
+        "#fef3c7"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    }
+  },
+  "nature": {
+    "hero": {
+      "filename": "nature-hero-placeholder.svg",
+      "filepath": "public/generated-images/nature-hero-placeholder.svg",
+      "style": "Eco-friendly without preaching",
+      "colors": [
+        "#059669",
+        "#10b981",
+        "#a7f3d0"
+      ],
+      "dimensions": "1792x1024",
+      "type": "placeholder-svg"
+    },
+    "features": {
+      "filename": "nature-features-placeholder.svg",
+      "filepath": "public/generated-images/nature-features-placeholder.svg",
+      "style": "Sustainable lifestyle icons",
+      "colors": [
+        "#047857",
+        "#065f46",
+        "#d1fae5"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    },
+    "cta": {
+      "filename": "nature-cta-placeholder.svg",
+      "filepath": "public/generated-images/nature-cta-placeholder.svg",
+      "style": "Fresh natural gradient",
+      "colors": [
+        "#059669",
+        "#10b981",
+        "#ecfdf5"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    }
+  },
+  "luxury": {
+    "hero": {
+      "filename": "luxury-hero-placeholder.svg",
+      "filepath": "public/generated-images/luxury-hero-placeholder.svg",
+      "style": "Rich people problems premium",
+      "colors": [
+        "#d97706",
+        "#f59e0b",
+        "#fef3c7"
+      ],
+      "dimensions": "1792x1024",
+      "type": "placeholder-svg"
+    },
+    "features": {
+      "filename": "luxury-features-placeholder.svg",
+      "filepath": "public/generated-images/luxury-features-placeholder.svg",
+      "style": "Gold premium service icons",
+      "colors": [
+        "#b45309",
+        "#92400e",
+        "#fde68a"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    },
+    "cta": {
+      "filename": "luxury-cta-placeholder.svg",
+      "filepath": "public/generated-images/luxury-cta-placeholder.svg",
+      "style": "Premium gold gradient",
+      "colors": [
+        "#d97706",
+        "#f59e0b",
+        "#fffbeb"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    }
+  },
+  "bold": {
+    "hero": {
+      "filename": "bold-hero-placeholder.svg",
+      "filepath": "public/generated-images/bold-hero-placeholder.svg",
+      "style": "Dramatic villain energy",
+      "colors": [
+        "#000000",
+        "#1f2937",
+        "#6b7280"
+      ],
+      "dimensions": "1792x1024",
+      "type": "placeholder-svg"
+    },
+    "features": {
+      "filename": "bold-features-placeholder.svg",
+      "filepath": "public/generated-images/bold-features-placeholder.svg",
+      "style": "High contrast drama icons",
+      "colors": [
+        "#111827",
+        "#374151",
+        "#9ca3af"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    },
+    "cta": {
+      "filename": "bold-cta-placeholder.svg",
+      "filepath": "public/generated-images/bold-cta-placeholder.svg",
+      "style": "Stark dramatic gradient",
+      "colors": [
+        "#000000",
+        "#1f2937",
+        "#f9fafb"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    }
+  },
+  "modern": {
+    "hero": {
+      "filename": "modern-hero-placeholder.svg",
+      "filepath": "public/generated-images/modern-hero-placeholder.svg",
+      "style": "Cyberpunk startup neon",
+      "colors": [
+        "#0891b2",
+        "#06b6d4",
+        "#67e8f9"
+      ],
+      "dimensions": "1792x1024",
+      "type": "placeholder-svg"
+    },
+    "features": {
+      "filename": "modern-features-placeholder.svg",
+      "filepath": "public/generated-images/modern-features-placeholder.svg",
+      "style": "Tech-forward neon icons",
+      "colors": [
+        "#0e7490",
+        "#155e75",
+        "#a5f3fc"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    },
+    "cta": {
+      "filename": "modern-cta-placeholder.svg",
+      "filepath": "public/generated-images/modern-cta-placeholder.svg",
+      "style": "Electric cyan gradient",
+      "colors": [
+        "#0891b2",
+        "#06b6d4",
+        "#cffafe"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    }
+  },
+  "retro": {
+    "hero": {
+      "filename": "retro-hero-placeholder.svg",
+      "filepath": "public/generated-images/retro-hero-placeholder.svg",
+      "style": "80s nostalgia confusion",
+      "colors": [
+        "#f97316",
+        "#dc2626",
+        "#fbbf24"
+      ],
+      "dimensions": "1792x1024",
+      "type": "placeholder-svg"
+    },
+    "features": {
+      "filename": "retro-features-placeholder.svg",
+      "filepath": "public/generated-images/retro-features-placeholder.svg",
+      "style": "Vintage synthwave icons",
+      "colors": [
+        "#ea580c",
+        "#b91c1c",
+        "#fde047"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    },
+    "cta": {
+      "filename": "retro-cta-placeholder.svg",
+      "filepath": "public/generated-images/retro-cta-placeholder.svg",
+      "style": "Sunset nostalgia gradient",
+      "colors": [
+        "#f97316",
+        "#dc2626",
+        "#fef3c7"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    }
+  },
+  "playful": {
+    "hero": {
+      "filename": "playful-hero-placeholder.svg",
+      "filepath": "public/generated-images/playful-hero-placeholder.svg",
+      "style": "Kids cereal meets acid trip",
+      "colors": [
+        "#a855f7",
+        "#ec4899",
+        "#f97316"
+      ],
+      "dimensions": "1792x1024",
+      "type": "placeholder-svg"
+    },
+    "features": {
+      "filename": "playful-features-placeholder.svg",
+      "filepath": "public/generated-images/playful-features-placeholder.svg",
+      "style": "Rainbow chaos icons",
+      "colors": [
+        "#8b5cf6",
+        "#d946ef",
+        "#f59e0b"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    },
+    "cta": {
+      "filename": "playful-cta-placeholder.svg",
+      "filepath": "public/generated-images/playful-cta-placeholder.svg",
+      "style": "Candy explosion gradient",
+      "colors": [
+        "#9333ea",
+        "#e879f9",
+        "#fbbf24"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    }
+  },
+  "creative": {
+    "hero": {
+      "filename": "creative-hero-placeholder.svg",
+      "filepath": "public/generated-images/creative-hero-placeholder.svg",
+      "style": "Unhinged psychedelic lab",
+      "colors": [
+        "#dc2626",
+        "#f59e0b",
+        "#8b5cf6"
+      ],
+      "dimensions": "1792x1024",
+      "type": "placeholder-svg"
+    },
+    "features": {
+      "filename": "creative-features-placeholder.svg",
+      "filepath": "public/generated-images/creative-features-placeholder.svg",
+      "style": "Experimental chaos icons",
+      "colors": [
+        "#b91c1c",
+        "#d97706",
+        "#7c3aed"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    },
+    "cta": {
+      "filename": "creative-cta-placeholder.svg",
+      "filepath": "public/generated-images/creative-cta-placeholder.svg",
+      "style": "Psychedelic madness gradient",
+      "colors": [
+        "#dc2626",
+        "#f59e0b",
+        "#c084fc"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    }
+  },
+  "monochrome": {
+    "hero": {
+      "filename": "monochrome-hero-placeholder.svg",
+      "filepath": "public/generated-images/monochrome-hero-placeholder.svg",
+      "style": "Stark brutalist editorial chaos",
+      "colors": [
+        "#000000",
+        "#ffffff",
+        "#374151"
+      ],
+      "dimensions": "1792x1024",
+      "type": "placeholder-svg"
+    },
+    "features": {
+      "filename": "monochrome-features-placeholder.svg",
+      "filepath": "public/generated-images/monochrome-features-placeholder.svg",
+      "style": "Brutal minimalist icons",
+      "colors": [
+        "#111827",
+        "#f9fafb",
+        "#6b7280"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    },
+    "cta": {
+      "filename": "monochrome-cta-placeholder.svg",
+      "filepath": "public/generated-images/monochrome-cta-placeholder.svg",
+      "style": "Harsh contrast gradient",
+      "colors": [
+        "#000000",
+        "#ffffff",
+        "#e5e7eb"
+      ],
+      "dimensions": "1024x1024",
+      "type": "placeholder-svg"
+    }
+  }
+}

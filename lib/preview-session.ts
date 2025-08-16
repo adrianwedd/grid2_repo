@@ -52,7 +52,7 @@ export async function handlePreview(sessionId: string, command: string) {
   const before = s.history.current();
   
   // ALWAYS use Claude Director when enabled for maximum magic
-  if (false && process.env.CLAUDE_ENABLED === 'true' && command.trim()) { // Disabled - fix port
+  if (process.env.CLAUDE_ENABLED === 'true' && command.trim()) {
     try {
       // Add timeout to prevent hanging
       const controller = new AbortController();
@@ -124,7 +124,7 @@ export async function handleCommand(sessionId: string, command: string) {
   const before = session.history.current();
   
   // ALWAYS use Claude Director when enabled for maximum magic
-  if (false && process.env.CLAUDE_ENABLED === 'true' && command.trim()) { // Disabled - fix port
+  if (process.env.CLAUDE_ENABLED === 'true' && command.trim()) {
     try {
       // Add timeout to prevent hanging
       const controller = new AbortController();

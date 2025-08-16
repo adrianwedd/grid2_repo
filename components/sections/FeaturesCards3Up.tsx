@@ -44,7 +44,7 @@ export function FeaturesCards3Up({ content, tone = 'minimal' }: FeaturesCards3Up
     },
   } as const;
 
-  const styles = toneStyles[tone];
+  const styles = toneStyles[tone as keyof typeof toneStyles] || toneStyles.minimal;
 
   return (
     <section className={`py-24 sm:py-32 ${styles.section}`}>

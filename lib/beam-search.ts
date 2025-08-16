@@ -229,14 +229,29 @@ export class BeamSearchAssembler {
 
   private scoreToneMatch(meta: SectionMeta, tone: Tone): number {
     const map: Record<Tone, string[]> = {
+      // Safe & Boring
       minimal: ['minimal', 'simple', 'clean'],
-      bold: ['full-bleed', 'gradient', 'dramatic', 'animated'],
-      playful: ['animated', 'carousel', 'bento', 'playful'],
       corporate: ['professional', 'grid', 'formal', 'mega'],
+      elegant: ['sophisticated', 'refined', 'premium', 'luxury'],
+      
+      // Normal Human  
+      warm: ['friendly', 'inviting', 'cozy', 'approachable'],
+      nature: ['organic', 'eco', 'natural', 'sustainable'],
+      luxury: ['premium', 'exclusive', 'gold', 'luxury'],
+      
+      // Getting Weird
+      bold: ['full-bleed', 'gradient', 'dramatic', 'animated'],
+      modern: ['tech', 'futuristic', 'neon', 'geometric'],
+      retro: ['vintage', 'nostalgic', '80s', 'classic'],
+      
+      // Research Lab
+      playful: ['animated', 'carousel', 'bento', 'playful'],
+      creative: ['experimental', 'artistic', 'asymmetric', 'chaos'],
+      monochrome: ['stark', 'editorial', 'brutalist', 'minimal'],
     };
     const prefs = map[tone];
     const v = String(meta.variant).toLowerCase();
-    return prefs.some((p) => v.includes(p)) ? 1 : 0.6;
+    return prefs?.some((p) => v.includes(p)) ? 1 : 0.6;
   }
 
   private scoreAestheticFlow(sections: SectionNode[], candidate: SectionMeta): number {

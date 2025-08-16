@@ -157,7 +157,7 @@ test.describe('VERIFY EVERYTHING - Editor Page Reality Check', () => {
         });
         return { status: res.status, ok: res.ok };
       } catch (err) {
-        return { error: err.message };
+        return { error: (err as Error).message };
       }
     });
     
@@ -336,7 +336,7 @@ test.describe('VERIFY EVERYTHING - Editor Page Reality Check', () => {
     await page.goto('/editor');
     await page.waitForLoadState('networkidle');
     
-    const results = {
+    const results: Record<string, boolean> = {
       'Page Loads': true,
       'Transform Tab Visible': await page.locator('button:has-text("Transform")').isVisible(),
       'Generate Tab Visible': await page.locator('button:has-text("Generate")').isVisible(),

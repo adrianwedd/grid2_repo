@@ -1,0 +1,374 @@
+{
+  "minimal": {
+    "hero": {
+      "filename": "minimal-hero-ai-patient-1755094814074.png",
+      "filepath": "public/generated-images/minimal-hero-ai-patient-1755094814074.png",
+      "url": "https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-124c-622f-ae08-e65db90259c2/raw?se=2025-08-13T15%3A20%3A13Z&sp=r&sv=2024-08-04&sr=b&scid=6500b081-a5f0-508f-b3c2-a78c7f678cd3&skoid=add8ee7d-5fc7-451e-b06e-a82b2276cf62&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T12%3A42%3A57Z&ske=2025-08-14T12%3A42%3A57Z&sks=b&skv=2024-08-04&sig=kOSUmmZSbLMkErJnqkIZHmjNKhl2jsJR3O2D/OWowKM%3D",
+      "prompt": "Ultra-clean minimalist composition, pure white and light gray geometric patterns, corporate safety aesthetic, maximum professional blandness, sterile office environment vibes",
+      "timestamp": 1755094814798,
+      "style": "minimal",
+      "section": "hero",
+      "type": "ai-generated"
+    },
+    "features": {
+      "filename": "minimal-features-ai-patient-1755094866564.png",
+      "filepath": "public/generated-images/minimal-features-ai-patient-1755094866564.png",
+      "url": "https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-3b10-622f-935c-36cc5b6e0ad1/raw?se=2025-08-13T15%3A21%3A06Z&sp=r&sv=2024-08-04&sr=b&scid=172bb3a4-512b-51ea-967e-29cb82b72e81&skoid=add8ee7d-5fc7-451e-b06e-a82b2276cf62&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T01%3A15%3A11Z&ske=2025-08-14T01%3A15%3A11Z&sks=b&skv=2024-08-04&sig=FeBbeuLwaG4iHkKjim9tT0VrzxnOqbYKD/kTnSqZE%2Bs%3D",
+      "prompt": "Simple minimalist icons on white background, clean geometric shapes, corporate-safe design language, professional institutional aesthetic",
+      "timestamp": 1755094869112,
+      "style": "minimal",
+      "section": "features",
+      "type": "ai-generated"
+    },
+    "cta": {
+      "filename": "minimal-cta-ai-patient-1755097315343.png",
+      "filepath": "public/generated-images/minimal-cta-ai-patient-1755097315343.png",
+      "url": "https://sdmntprwestus3.oaiusercontent.com/files/00000000-6c28-61fd-a4c2-2de82b9a2baa/raw?se=2025-08-13T16%3A01%3A55Z&sp=r&sv=2024-08-04&sr=b&scid=c4cad112-af78-570e-a7f3-1bf866ac489e&skoid=9ccea605-1409-4478-82eb-9c83b25dc1b0&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T01%3A34%3A20Z&ske=2025-08-14T01%3A34%3A20Z&sks=b&skv=2024-08-04&sig=jQX9pN4lJCMrh2rOMjCw93quO7sAr27F4gCvMCpE/nU%3D",
+      "prompt": "Soft minimal gradient from white to light gray, non-threatening corporate color scheme, safe professional visual identity",
+      "timestamp": 1755097316047,
+      "style": "minimal",
+      "section": "cta",
+      "type": "ai-generated"
+    }
+  },
+  "corporate": {
+    "hero": {
+      "filename": "corporate-hero-ai-patient-1755094979382.png",
+      "filepath": "public/generated-images/corporate-hero-ai-patient-1755094979382.png",
+      "url": "https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-b298-622f-8ff8-5a9f175aef87/raw?se=2025-08-13T15%3A22%3A59Z&sp=r&sv=2024-08-04&sr=b&scid=a60c7d32-fd4e-5906-8daf-3b519135dd24&skoid=add8ee7d-5fc7-451e-b06e-a82b2276cf62&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T01%3A13%3A32Z&ske=2025-08-14T01%3A13%3A32Z&sks=b&skv=2024-08-04&sig=7vSK8vK7yBUoqJ0O2jr9mSLZffm%2BIOj5hHeiXyT87hk%3D",
+      "prompt": "Professional institutional blue composition, government bureaucracy aesthetic, corporate meeting room vibes, maximum compliance safety, trust-building business environment",
+      "timestamp": 1755094980563,
+      "style": "corporate",
+      "section": "hero",
+      "type": "ai-generated"
+    },
+    "features": {
+      "filename": "corporate-features-ai-patient-1755095051136.png",
+      "filepath": "public/generated-images/corporate-features-ai-patient-1755095051136.png",
+      "url": "https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-58a4-622f-83db-2dfeeb67de56/raw?se=2025-08-13T15%3A24%3A11Z&sp=r&sv=2024-08-04&sr=b&scid=a080d1ae-f93f-5286-be9a-73ed1dd458d5&skoid=add8ee7d-5fc7-451e-b06e-a82b2276cf62&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T01%3A15%3A20Z&ske=2025-08-14T01%3A15%3A20Z&sks=b&skv=2024-08-04&sig=MiwBEXMOfxAvnbVPn8NgKsqYMddtfupGIwZBl/zRViw%3D",
+      "prompt": "Corporate blue business icons, institutional professional elements, government-approved design language, bureaucratic visual system",
+      "timestamp": 1755095054112,
+      "style": "corporate",
+      "section": "features",
+      "type": "ai-generated"
+    },
+    "cta": {
+      "filename": "corporate-cta-ai-patient-1755095092446.png",
+      "filepath": "public/generated-images/corporate-cta-ai-patient-1755095092446.png",
+      "url": "https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-4dcc-622f-8a50-477870c9c72d/raw?se=2025-08-13T15%3A24%3A52Z&sp=r&sv=2024-08-04&sr=b&scid=69fcbf02-af63-5ac4-b286-d80caf5c629c&skoid=add8ee7d-5fc7-451e-b06e-a82b2276cf62&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T01%3A15%3A22Z&ske=2025-08-14T01%3A15%3A22Z&sks=b&skv=2024-08-04&sig=XCnwbNikV%2BqTcxSz3Q7WjkQpmKEdqnZ5RbrZ/eba6lU%3D",
+      "prompt": "Corporate institutional blue gradient, professional government-style background, maximum boring reliability aesthetic",
+      "timestamp": 1755095092838,
+      "style": "corporate",
+      "section": "cta",
+      "type": "ai-generated"
+    }
+  },
+  "elegant": {
+    "hero": {
+      "filename": "elegant-hero-ai-patient-1755095251740.png",
+      "filepath": "public/generated-images/elegant-hero-ai-patient-1755095251740.png",
+      "url": "https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-3e38-622f-8c8b-6b5196ede34a/raw?se=2025-08-13T15%3A27%3A31Z&sp=r&sv=2024-08-04&sr=b&scid=07990ded-2b48-527f-a644-9cbd98ea2480&skoid=add8ee7d-5fc7-451e-b06e-a82b2276cf62&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T14%3A13%3A54Z&ske=2025-08-14T14%3A13%3A54Z&sks=b&skv=2024-08-04&sig=rfxbFyxL8G3y16zGF0Gky53p1WLy0vjbkLyuRnpqheI%3D",
+      "prompt": "Sophisticated refined gray composition, upscale professional aesthetic, premium boring sophistication, high-end corporate environment, refined institutional design",
+      "timestamp": 1755095252506,
+      "style": "elegant",
+      "section": "hero",
+      "type": "ai-generated"
+    },
+    "features": {
+      "filename": "elegant-features-ai-patient-1755095362753.png",
+      "filepath": "public/generated-images/elegant-features-ai-patient-1755095362753.png",
+      "url": "https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-4e98-622f-bb3f-a11664a22a6f/raw?se=2025-08-13T15%3A29%3A22Z&sp=r&sv=2024-08-04&sr=b&scid=76966595-fd9b-54e2-902b-5f940d2d3ad1&skoid=add8ee7d-5fc7-451e-b06e-a82b2276cf62&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T10%3A33%3A02Z&ske=2025-08-14T10%3A33%3A02Z&sks=b&skv=2024-08-04&sig=/PgnpKE7c9VymVtatWvg7zRuF1AMurhiO0SzlcOHR4k%3D",
+      "prompt": "Elegant sophisticated icons in refined gray tones, premium professional elements, upscale boring design language",
+      "timestamp": 1755095365882,
+      "style": "elegant",
+      "section": "features",
+      "type": "ai-generated"
+    },
+    "cta": {
+      "filename": "elegant-cta-ai-patient-1755095405874.png",
+      "filepath": "public/generated-images/elegant-cta-ai-patient-1755095405874.png",
+      "url": "https://sdmntprcentralus.oaiusercontent.com/files/00000000-cb68-61f5-b371-13eb3af2e393/raw?se=2025-08-13T15%3A30%3A05Z&sp=r&sv=2024-08-04&sr=b&scid=3af19a64-e117-568b-b3d4-29f21b19709b&skoid=add8ee7d-5fc7-451e-b06e-a82b2276cf62&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T13%3A29%3A57Z&ske=2025-08-14T13%3A29%3A57Z&sks=b&skv=2024-08-04&sig=0mAVrqMTCQfYTqSVHSUOlUMycpw1QWw/WIau0v4YSHg%3D",
+      "prompt": "Elegant sophisticated gradient in premium gray colors, upscale professional background aesthetic",
+      "timestamp": 1755095406482,
+      "style": "elegant",
+      "section": "cta",
+      "type": "ai-generated"
+    }
+  },
+  "warm": {
+    "hero": {
+      "filename": "warm-hero-ai-patient-1755095568418.png",
+      "filepath": "public/generated-images/warm-hero-ai-patient-1755095568418.png",
+      "url": "https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-15b4-622f-8f1f-d201577b5321/raw?se=2025-08-13T15%3A32%3A47Z&sp=r&sv=2024-08-04&sr=b&scid=447f693b-c234-570c-91bd-5b8a736d7b93&skoid=add8ee7d-5fc7-451e-b06e-a82b2276cf62&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T12%3A43%3A08Z&ske=2025-08-14T12%3A43%3A08Z&sks=b&skv=2024-08-04&sig=2/APA4qBBGn%2BKvD0yqDpOmhPwUEOKclFp/U0WapzjH0%3D",
+      "prompt": "Cozy warm autumn composition with orange amber colors, coffee shop aesthetic vibes, inviting earth tone environment, comfortable human-scale atmosphere",
+      "timestamp": 1755095569209,
+      "style": "warm",
+      "section": "hero",
+      "type": "ai-generated"
+    },
+    "features": {
+      "filename": "warm-features-ai-patient-1755095685403.png",
+      "filepath": "public/generated-images/warm-features-ai-patient-1755095685403.png",
+      "url": "https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-f104-622f-b469-608750a4f793/raw?se=2025-08-13T15%3A34%3A44Z&sp=r&sv=2024-08-04&sr=b&scid=84e5da8f-a007-5e17-b915-8aa0bbf1fdfd&skoid=add8ee7d-5fc7-451e-b06e-a82b2276cf62&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T01%3A14%3A08Z&ske=2025-08-14T01%3A14%3A08Z&sks=b&skv=2024-08-04&sig=2EPgFZaDuNoVqSHsm3Nw19XR/PWogksaqZPy5AKm5Qc%3D",
+      "prompt": "Warm friendly icons in orange amber colors, approachable cozy design language, human-friendly visual elements",
+      "timestamp": 1755095686154,
+      "style": "warm",
+      "section": "features",
+      "type": "ai-generated"
+    },
+    "cta": {
+      "filename": "warm-cta-ai-patient-1755095744413.png",
+      "filepath": "public/generated-images/warm-cta-ai-patient-1755095744413.png",
+      "url": "https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-69ac-622f-9d36-8f09e0de458b/raw?se=2025-08-13T15%3A35%3A44Z&sp=r&sv=2024-08-04&sr=b&scid=d4c996c1-8b22-50aa-9d36-cec7948de795&skoid=add8ee7d-5fc7-451e-b06e-a82b2276cf62&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T01%3A15%3A10Z&ske=2025-08-14T01%3A15%3A10Z&sks=b&skv=2024-08-04&sig=SiN%2BvfcWZgcgJfgixWhoATEIlH3B3B/68DASHZfpn7M%3D",
+      "prompt": "Warm inviting gradient in autumn colors, cozy friendly professional background aesthetic",
+      "timestamp": 1755095747165,
+      "style": "warm",
+      "section": "cta",
+      "type": "ai-generated"
+    }
+  },
+  "nature": {
+    "hero": {
+      "filename": "nature-hero-ai-patient-1755097441426.png",
+      "filepath": "public/generated-images/nature-hero-ai-patient-1755097441426.png",
+      "url": "https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-6edc-622f-a6ae-2ada39f56ba6/raw?se=2025-08-13T16%3A04%3A00Z&sp=r&sv=2024-08-04&sr=b&scid=f81a8dc8-322c-5eeb-8867-75002eddb0a6&skoid=9ccea605-1409-4478-82eb-9c83b25dc1b0&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T14%3A40%3A06Z&ske=2025-08-14T14%3A40%3A06Z&sks=b&skv=2024-08-04&sig=MS77IHnCD%2B9ErTnkDgubPH3aToqjDDrjmw5rGxtjEI0%3D",
+      "prompt": "Fresh natural eco-friendly composition, vibrant green organic environment, sustainable aesthetic without preaching, natural harmony visual language",
+      "timestamp": 1755097443187,
+      "style": "nature",
+      "section": "hero",
+      "type": "ai-generated"
+    },
+    "features": {
+      "filename": "nature-features-ai-patient-1755097515810.png",
+      "filepath": "public/generated-images/nature-features-ai-patient-1755097515810.png",
+      "url": "https://sdmntprwestus2.oaiusercontent.com/files/00000000-cb18-61f8-b150-3b48b1a0c47c/raw?se=2025-08-13T16%3A05%3A15Z&sp=r&sv=2024-08-04&sr=b&scid=08d1162c-003d-576c-9383-c2b29db5a4c3&skoid=9ccea605-1409-4478-82eb-9c83b25dc1b0&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T02%3A43%3A09Z&ske=2025-08-14T02%3A43%3A09Z&sks=b&skv=2024-08-04&sig=li%2BfRDTPYH8ZDzqHwci78vcp3awnIk0JpseMRi99DO8%3D",
+      "prompt": "Eco-friendly nature icons in fresh green colors, natural organic design elements, sustainable visual language",
+      "timestamp": 1755097518591,
+      "style": "nature",
+      "section": "features",
+      "type": "ai-generated"
+    },
+    "cta": {
+      "filename": "nature-cta-ai-patient-1755097571823.png",
+      "filepath": "public/generated-images/nature-cta-ai-patient-1755097571823.png",
+      "url": "https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-b458-61f7-9de5-3af9e08e80d5/raw?se=2025-08-13T16%3A06%3A11Z&sp=r&sv=2024-08-04&sr=b&scid=fc75c573-6c18-5309-96e9-116e1b4763a9&skoid=9ccea605-1409-4478-82eb-9c83b25dc1b0&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T01%3A32%3A45Z&ske=2025-08-14T01%3A32%3A45Z&sks=b&skv=2024-08-04&sig=QANgOyUHkNYFz1SMrYk%2BqO%2Bj3QSff%2B2KnbR7MH7Bwhk%3D",
+      "prompt": "Fresh natural green gradient background, eco-friendly sustainable design aesthetic atmosphere",
+      "timestamp": 1755097572676,
+      "style": "nature",
+      "section": "cta",
+      "type": "ai-generated"
+    }
+  },
+  "luxury": {
+    "hero": {
+      "filename": "luxury-hero-ai-patient-1755097687523.png",
+      "filepath": "public/generated-images/luxury-hero-ai-patient-1755097687523.png",
+      "url": "https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-fec4-61f7-b427-e6ed7c052dc0/raw?se=2025-08-13T16%3A08%3A07Z&sp=r&sv=2024-08-04&sr=b&scid=50b50ae4-d078-5725-81a4-29eefff5ac60&skoid=9ccea605-1409-4478-82eb-9c83b25dc1b0&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T11%3A08%3A56Z&ske=2025-08-14T11%3A08%3A56Z&sks=b&skv=2024-08-04&sig=mkT7AfO8qzc9HTGpD/ILvpZUiicequpyeGLUjF/DRXs%3D",
+      "prompt": "Premium luxury composition with gold accents, exclusive high-end aesthetic, rich sophisticated environment, expensive materials visual language",
+      "timestamp": 1755097688017,
+      "style": "luxury",
+      "section": "hero",
+      "type": "ai-generated"
+    },
+    "features": {
+      "filename": "luxury-features-ai-patient-1755097766298.png",
+      "filepath": "public/generated-images/luxury-features-ai-patient-1755097766298.png",
+      "url": "https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-7780-61f7-9ab2-74f9432b7ba3/raw?se=2025-08-13T16%3A09%3A26Z&sp=r&sv=2024-08-04&sr=b&scid=633227d9-21e4-52a9-8d44-c7fb41bddd11&skoid=9ccea605-1409-4478-82eb-9c83b25dc1b0&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T01%3A32%3A47Z&ske=2025-08-14T01%3A32%3A47Z&sks=b&skv=2024-08-04&sig=P73YAdL3U4jTGIflvcZAUDTRxSCHNc0HkYBpeiuw0HE%3D",
+      "prompt": "Luxury premium icons with gold accents, exclusive high-end design elements, premium service aesthetic language",
+      "timestamp": 1755097766640,
+      "style": "luxury",
+      "section": "features",
+      "type": "ai-generated"
+    },
+    "cta": {
+      "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://chatgpt.com/\", waiting until \"load\"\u001b[22m\n",
+      "style": "luxury",
+      "section": "cta",
+      "type": "failed",
+      "timestamp": 1755097801646
+    }
+  },
+  "bold": {
+    "hero": {
+      "filename": "bold-hero-ai-patient-1755097886634.png",
+      "filepath": "public/generated-images/bold-hero-ai-patient-1755097886634.png",
+      "url": "https://sdmntprwestus2.oaiusercontent.com/files/00000000-bd4c-61f8-805c-5c01be3e81b1/raw?se=2025-08-13T16%3A11%3A26Z&sp=r&sv=2024-08-04&sr=b&scid=742d83d4-daef-5f15-81da-f12f9de1d588&skoid=9ccea605-1409-4478-82eb-9c83b25dc1b0&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T01%3A34%3A06Z&ske=2025-08-14T01%3A34%3A06Z&sks=b&skv=2024-08-04&sig=rmOdCPi8LYdhpmHkAOGgo9ryMQLEfUY8Bdn%2B0MrZKL8%3D",
+      "prompt": "Dramatic high-contrast composition, stark black environment with dramatic lighting, villain energy aesthetic, bold impactful visual atmosphere",
+      "timestamp": 1755097887076,
+      "style": "bold",
+      "section": "hero",
+      "type": "ai-generated"
+    },
+    "features": {
+      "filename": "bold-features-ai-patient-1755097963110.png",
+      "filepath": "public/generated-images/bold-features-ai-patient-1755097963110.png",
+      "url": "https://sdmntprwestus2.oaiusercontent.com/files/00000000-b594-61f8-8f41-0b2b7c7593bc/raw?se=2025-08-13T16%3A12%3A42Z&sp=r&sv=2024-08-04&sr=b&scid=67b714c9-9ee4-58c1-81ee-3b62878bc623&skoid=9ccea605-1409-4478-82eb-9c83b25dc1b0&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T02%3A43%3A23Z&ske=2025-08-14T02%3A43%3A23Z&sks=b&skv=2024-08-04&sig=k1Kv86YnrhWklNFgjVF7Q2DE2/9AZcNEd491aD9%2BxpQ%3D",
+      "prompt": "Bold high contrast icons in dramatic black and white, strong impactful design elements, villain aesthetic language",
+      "timestamp": 1755097963616,
+      "style": "bold",
+      "section": "features",
+      "type": "ai-generated"
+    },
+    "cta": {
+      "filename": "bold-cta-ai-patient-1755098003638.png",
+      "filepath": "public/generated-images/bold-cta-ai-patient-1755098003638.png",
+      "url": "https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-2d40-61f7-a237-8da7b9ee7769/raw?se=2025-08-13T16%3A13%3A23Z&sp=r&sv=2024-08-04&sr=b&scid=1b5b4ebc-fe20-53e7-8fe2-39b63c3d15cb&skoid=9ccea605-1409-4478-82eb-9c83b25dc1b0&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T02%3A43%3A24Z&ske=2025-08-14T02%3A43%3A24Z&sks=b&skv=2024-08-04&sig=MIw5yQiFj2hVv8G/JxMK5iw9NQYJB9rVtujMvGsjstc%3D",
+      "prompt": "Stark dramatic gradient background in high contrast design, impactful villain energy aesthetic",
+      "timestamp": 1755098005008,
+      "style": "bold",
+      "section": "cta",
+      "type": "ai-generated"
+    }
+  },
+  "modern": {
+    "hero": {
+      "filename": "modern-hero-ai-patient-1755098136157.png",
+      "filepath": "public/generated-images/modern-hero-ai-patient-1755098136157.png",
+      "url": "https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-38e4-61f7-b602-ddee3d305d10/raw?se=2025-08-13T16%3A15%3A36Z&sp=r&sv=2024-08-04&sr=b&scid=56a9a8a3-e4d9-511c-aa23-2824e69eb88e&skoid=9ccea605-1409-4478-82eb-9c83b25dc1b0&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T13%3A30%3A50Z&ske=2025-08-14T13%3A30%3A50Z&sks=b&skv=2024-08-04&sig=h9r1n4ZNTzJfXkEYa%2BeO11cMi0OS0Qj7UMSnnzHsTAM%3D",
+      "prompt": "Futuristic cyberpunk composition with electric cyan neon colors, tech-forward sci-fi aesthetic, startup innovation environment, geometric future design",
+      "timestamp": 1755098137036,
+      "style": "modern",
+      "section": "hero",
+      "type": "ai-generated"
+    },
+    "features": {
+      "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://chatgpt.com/\", waiting until \"load\"\u001b[22m\n",
+      "style": "modern",
+      "section": "features",
+      "type": "failed",
+      "timestamp": 1755098172044
+    },
+    "cta": {
+      "filename": "modern-cta-ai-patient-1755098280037.png",
+      "filepath": "public/generated-images/modern-cta-ai-patient-1755098280037.png",
+      "url": "https://sdmntprwestus2.oaiusercontent.com/files/00000000-d690-61f8-9584-a5984f247386/raw?se=2025-08-13T16%3A17%3A59Z&sp=r&sv=2024-08-04&sr=b&scid=1968e7b4-450f-54a6-8115-3615095b96e3&skoid=9ccea605-1409-4478-82eb-9c83b25dc1b0&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T01%3A32%3A42Z&ske=2025-08-14T01%3A32%3A42Z&sks=b&skv=2024-08-04&sig=w53unSm/yHTqYjTgUVx0rqLyamdj3Vd6vBW8F4Qltv4%3D",
+      "prompt": "Electric cyberpunk gradient with neon cyan colors, futuristic tech background design atmosphere",
+      "timestamp": 1755098282727,
+      "style": "modern",
+      "section": "cta",
+      "type": "ai-generated"
+    }
+  },
+  "retro": {
+    "hero": {
+      "filename": "retro-hero-ai-patient-1755098441224.png",
+      "filepath": "public/generated-images/retro-hero-ai-patient-1755098441224.png",
+      "url": "https://sdmntprsouthcentralus.oaiusercontent.com/files/00000000-dc90-61f7-ad33-bd1e56a3d160/raw?se=2025-08-13T16%3A20%3A41Z&sp=r&sv=2024-08-04&sr=b&scid=6619dc0c-ea36-5634-986e-565070bfadf9&skoid=9ccea605-1409-4478-82eb-9c83b25dc1b0&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T01%3A34%3A26Z&ske=2025-08-14T01%3A34%3A26Z&sks=b&skv=2024-08-04&sig=3So8LLtpVLR4SibJgAdpyYhOYfDAA1fwyyb/rezOCG0%3D",
+      "prompt": "Vintage 80s synthwave composition with orange sunset colors, nostalgic aesthetic vibes, retro-modern confusion atmosphere, vintage design language",
+      "timestamp": 1755098443991,
+      "style": "retro",
+      "section": "hero",
+      "type": "ai-generated"
+    },
+    "features": {
+      "filename": "retro-features-ai-patient-1755098561280.png",
+      "filepath": "public/generated-images/retro-features-ai-patient-1755098561280.png",
+      "url": "https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-4144-622f-a9c2-5a3ceaf58322/raw?se=2025-08-13T16%3A22%3A40Z&sp=r&sv=2024-08-04&sr=b&scid=b2be6131-ffda-5255-aa44-98e5c675bb6c&skoid=9ccea605-1409-4478-82eb-9c83b25dc1b0&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T14%3A40%3A06Z&ske=2025-08-14T14%3A40%3A06Z&sks=b&skv=2024-08-04&sig=92A%2B7EMsrQC3BgRmq6lbQTIEW13Ew/SPQCztnuIxEVg%3D",
+      "prompt": "Vintage 80s icons in retro synthwave colors, nostalgic design elements, retro-modern confusion aesthetic",
+      "timestamp": 1755098562070,
+      "style": "retro",
+      "section": "features",
+      "type": "ai-generated"
+    },
+    "cta": {
+      "filename": "retro-cta-ai-patient-1755098597555.png",
+      "filepath": "public/generated-images/retro-cta-ai-patient-1755098597555.png",
+      "url": "https://sdmntprwestus2.oaiusercontent.com/files/00000000-71ac-61f8-a6f7-0b1c87539d0e/raw?se=2025-08-13T16%3A23%3A17Z&sp=r&sv=2024-08-04&sr=b&scid=845c6026-bebb-5ed2-8520-80c824a30857&skoid=9ccea605-1409-4478-82eb-9c83b25dc1b0&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T01%3A32%3A52Z&ske=2025-08-14T01%3A32%3A52Z&sks=b&skv=2024-08-04&sig=YRp%2Bh7FYRfjsslhlXJBK/jgRnjG%2BJ/SuE7m1BQVUNH0%3D",
+      "prompt": "Retro synthwave gradient background in 80s sunset colors, nostalgic vintage design atmosphere",
+      "timestamp": 1755098598046,
+      "style": "retro",
+      "section": "cta",
+      "type": "ai-generated"
+    }
+  },
+  "playful": {
+    "hero": {
+      "filename": "playful-hero-ai-patient-1755098652236.png",
+      "filepath": "public/generated-images/playful-hero-ai-patient-1755098652236.png",
+      "url": "https://sdmntprwestus3.oaiusercontent.com/files/00000000-d198-61fd-82ad-732eeee2f562/raw?se=2025-08-13T16%3A24%3A11Z&sp=r&sv=2024-08-04&sr=b&scid=4753a57a-2c5b-59f9-ad7e-e77dcbc8ce3a&skoid=9ccea605-1409-4478-82eb-9c83b25dc1b0&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T13%3A30%3A13Z&ske=2025-08-14T13%3A30%3A13Z&sks=b&skv=2024-08-04&sig=JqoHeCBwBQFPNXcUX6s3JPt194Zv%2BSNOB1IqSGpygyE%3D",
+      "prompt": "Psychedelic rainbow composition with vibrant chaotic colors, kids cereal acid trip aesthetic, experimental fun energy, wild color explosion atmosphere",
+      "timestamp": 1755098652966,
+      "style": "playful",
+      "section": "hero",
+      "type": "ai-generated"
+    },
+    "features": {
+      "filename": "playful-features-ai-patient-1755098742015.png",
+      "filepath": "public/generated-images/playful-features-ai-patient-1755098742015.png",
+      "url": "https://sdmntprwestus3.oaiusercontent.com/files/00000000-a0bc-61fd-87dc-c3daece23ae6/raw?se=2025-08-13T16%3A25%3A41Z&sp=r&sv=2024-08-04&sr=b&scid=585e6a18-c3ad-5a42-8c28-cf0fd7e61bf1&skoid=9ccea605-1409-4478-82eb-9c83b25dc1b0&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T01%3A32%3A39Z&ske=2025-08-14T01%3A32%3A39Z&sks=b&skv=2024-08-04&sig=FjPgusXKkvctuNwi%2BMWNzklQGq/d4rfO1TQ7N%2BKbwx8%3D",
+      "prompt": "Psychedelic rainbow icons in chaotic playful colors, acid trip design elements, experimental fun chaos aesthetic",
+      "timestamp": 1755098742651,
+      "style": "playful",
+      "section": "features",
+      "type": "ai-generated"
+    },
+    "cta": {
+      "error": "No image generated after 600 seconds",
+      "style": "playful",
+      "section": "cta",
+      "type": "failed",
+      "timestamp": 1755101152563
+    }
+  },
+  "creative": {
+    "hero": {
+      "error": "No image generated after 600 seconds",
+      "style": "creative",
+      "section": "hero",
+      "type": "failed",
+      "timestamp": 1755103558476
+    },
+    "features": {
+      "filename": "creative-features-ai-patient-1755103639460.png",
+      "filepath": "public/generated-images/creative-features-ai-patient-1755103639460.png",
+      "url": "https://sdmntpraustraliaeast.oaiusercontent.com/files/00000000-e418-61fa-a8de-7096b824d86b/raw?se=2025-08-13T17%3A47%3A18Z&sp=r&sv=2024-08-04&sr=b&scid=a2900127-0ca8-594c-9ee0-913fc11bbfe7&skoid=5c72dd08-68ae-4091-b4e1-40ccec0693ae&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T00%3A54%3A45Z&ske=2025-08-14T00%3A54%3A45Z&sks=b&skv=2024-08-04&sig=HKzEZZH2hgJmBH1Suyb8/xUsdBn7419kJ2sX85NT3wo%3D",
+      "prompt": "Experimental chaotic icons with psychedelic research colors, unhinged creative design elements, artistic madness aesthetic",
+      "timestamp": 1755103639981,
+      "style": "creative",
+      "section": "features",
+      "type": "ai-generated"
+    },
+    "cta": {
+      "filename": "creative-cta-ai-patient-1755103743802.png",
+      "filepath": "public/generated-images/creative-cta-ai-patient-1755103743802.png",
+      "url": "https://sdmntprcentralus.oaiusercontent.com/files/00000000-cff0-61f5-833f-f5bfe4c411bd/raw?se=2025-08-13T17%3A49%3A03Z&sp=r&sv=2024-08-04&sr=b&scid=8885a369-8317-50f1-9905-2288c1c2caea&skoid=5c72dd08-68ae-4091-b4e1-40ccec0693ae&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T00%3A54%3A44Z&ske=2025-08-14T00%3A54%3A44Z&sks=b&skv=2024-08-04&sig=Gd7PUXseBaaNqlcTsByBF7FJ/HNYbrOBpek%2BwwxwO3U%3D",
+      "prompt": "Unhinged psychedelic gradient in experimental chaos colors, creative laboratory madness background atmosphere",
+      "timestamp": 1755103746931,
+      "style": "creative",
+      "section": "cta",
+      "type": "ai-generated"
+    }
+  },
+  "monochrome": {
+    "hero": {
+      "filename": "monochrome-hero-ai-patient-1755103791569.png",
+      "filepath": "public/generated-images/monochrome-hero-ai-patient-1755103791569.png",
+      "url": "https://sdmntprnortheu.oaiusercontent.com/files/00000000-c0bc-61f4-8b64-70ad56db35c0/raw?se=2025-08-13T17%3A49%3A50Z&sp=r&sv=2024-08-04&sr=b&scid=3f2c1f46-1fba-5a10-9120-a722a458550b&skoid=5c72dd08-68ae-4091-b4e1-40ccec0693ae&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T00%3A56%3A09Z&ske=2025-08-14T00%3A56%3A09Z&sks=b&skv=2024-08-04&sig=fiKq/ftw1Q3XNQ%2BZ2rhmziUesUdf6A90wGOiMeA6RNw%3D",
+      "prompt": "Stark brutalist composition in pure black and white, editorial chaos aesthetic, harsh architectural contrasts, brutal minimalist design atmosphere",
+      "timestamp": 1755103795866,
+      "style": "monochrome",
+      "section": "hero",
+      "type": "ai-generated"
+    },
+    "features": {
+      "filename": "monochrome-features-ai-patient-1755103864589.png",
+      "filepath": "public/generated-images/monochrome-features-ai-patient-1755103864589.png",
+      "url": "https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-8cac-622f-8bcb-8d65fd216d18/raw?se=2025-08-13T17%3A51%3A04Z&sp=r&sv=2024-08-04&sr=b&scid=15cd76cb-fc77-542d-94c4-461592fcf8c6&skoid=5c72dd08-68ae-4091-b4e1-40ccec0693ae&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T00%3A54%3A43Z&ske=2025-08-14T00%3A54%3A43Z&sks=b&skv=2024-08-04&sig=HkU11nrkWJkv9TaiZAldfBg8OJO4vLbYJT%2B/t5tNjZE%3D",
+      "prompt": "Brutalist editorial icons in stark black white design, architectural chaos elements, brutal contrast aesthetic",
+      "timestamp": 1755103865199,
+      "style": "monochrome",
+      "section": "features",
+      "type": "ai-generated"
+    },
+    "cta": {
+      "filename": "monochrome-cta-ai-patient-1755103907005.png",
+      "filepath": "public/generated-images/monochrome-cta-ai-patient-1755103907005.png",
+      "url": "https://sdmntprpolandcentral.oaiusercontent.com/files/00000000-8118-620a-9242-4b00e3eab608/raw?se=2025-08-13T17%3A51%3A46Z&sp=r&sv=2024-08-04&sr=b&scid=7a1f42d4-203b-5a3d-bdb9-770203893c54&skoid=5c72dd08-68ae-4091-b4e1-40ccec0693ae&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T11%3A08%3A44Z&ske=2025-08-14T11%3A08%3A44Z&sks=b&skv=2024-08-04&sig=QyU0nb04pp7O5GJwfIaBQiyRZBp5yV2YeuWPReeoUZw%3D",
+      "prompt": "Brutal monochrome gradient with stark black white contrast, architectural chaos editorial design atmosphere",
+      "timestamp": 1755103912071,
+      "style": "monochrome",
+      "section": "cta",
+      "type": "ai-generated"
+    }
+  }
+}

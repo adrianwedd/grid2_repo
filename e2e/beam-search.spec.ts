@@ -56,13 +56,13 @@ test.describe('Beam Search Determinism', () => {
       expect(responses[i].page.sections.length).toBe(responses[0].page.sections.length);
       
       // Same section kinds in same order
-      const kinds0 = responses[0].page.sections.map(s => s.meta.kind);
-      const kindsI = responses[i].page.sections.map(s => s.meta.kind);
+      const kinds0 = responses[0].page.sections.map((s: any) => s.meta.kind);
+      const kindsI = responses[i].page.sections.map((s: any) => s.meta.kind);
       expect(kindsI).toEqual(kinds0);
       
       // Same variants selected
-      const variants0 = responses[0].page.sections.map(s => s.meta.variant);
-      const variantsI = responses[i].page.sections.map(s => s.meta.variant);
+      const variants0 = responses[0].page.sections.map((s: any) => s.meta.variant);
+      const variantsI = responses[i].page.sections.map((s: any) => s.meta.variant);
       expect(variantsI).toEqual(variants0);
       
       // Same tone
@@ -115,7 +115,7 @@ test.describe('Beam Search Determinism', () => {
     const json = await response.json();
 
     // Check that critical sections are included
-    const sectionKinds = json.page.sections.map(s => s.meta.kind);
+    const sectionKinds = json.page.sections.map((s: any) => s.meta.kind);
     expect(sectionKinds).toContain('hero');
     expect(sectionKinds).toContain('cta');
     
@@ -235,7 +235,7 @@ test.describe('Beam Search Determinism', () => {
     const json = await response.json();
     
     // Check that a testimonials section was generated
-    const testimonialSection = json.page.sections.find(s => s.meta.kind === 'testimonials');
+    const testimonialSection = json.page.sections.find((s: any) => s.meta.kind === 'testimonials');
     expect(testimonialSection).toBeTruthy();
     
     // With playful animations, carousel might be preferred (if available)

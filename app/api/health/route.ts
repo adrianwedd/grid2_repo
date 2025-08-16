@@ -5,6 +5,7 @@ import { NextResponse } from 'next/server';
 import { generatePage, demoContent, demoBrand } from '@/lib/generate-page';
 import { getSessionStorage } from '@/lib/session-storage';
 import { componentRegistry } from '@/components/sections/registry';
+import { validateEnvironment } from '@/lib/env-validation';
 
 export const dynamic = 'force-dynamic';
 
@@ -126,7 +127,12 @@ export async function GET() {
     
     // Test write/read cycle
     const testKey = `health-check-${Date.now()}`;
-    const testData = { test: true, timestamp };
+    const testData = { 
+      id: testKey,
+      history: { past: [], present: [], future: [] },
+      updatedAt: Date.now(),
+      createdAt: Date.now()
+    };
     
     await storage.set(testKey, testData);
     const retrieved = await storage.get(testKey);
@@ -134,7 +140,7 @@ export async function GET() {
     
     const storageDuration = performance.now() - storageStart;
     
-    if (!retrieved || retrieved.test !== true) {
+    if (!retrieved || retrieved.id !== testKey) {
       health.checks.sessionStorage = {
         status: 'fail',
         duration: storageDuration,
@@ -163,30 +169,37 @@ export async function GET() {
   // Check 4: Environment Configuration
   try {
     const envStart = performance.now();
-    const requiredEnvVars = ['NODE_ENV'];
-    const optionalEnvVars = ['CLAUDE_ENABLED', 'REDIS_URL', 'KV_URL'];
-    
-    const missing = requiredEnvVars.filter(env => !process.env[env]);
-    const present = optionalEnvVars.filter(env => process.env[env]);
-    
+    const envValidation = validateEnvironment();
     const envDuration = performance.now() - envStart;
     
-    if (missing.length > 0) {
+    if (!envValidation.valid) {
       health.checks.environment = {
         status: 'fail',
         duration: envDuration,
-        message: `Missing required environment variables: ${missing.join(', ')}`,
-        details: { missing, present }
+        message: `Environment validation failed`,
+        details: {
+          missing: envValidation.missing,
+          invalid: envValidation.invalid,
+          warnings: envValidation.warnings
+        }
+      };
+    } else if (envValidation.warnings.length > 0) {
+      health.checks.environment = {
+        status: 'warn',
+        duration: envDuration,
+        message: `Environment configured with warnings`,
+        details: {
+          nodeEnv: process.env.NODE_ENV,
+          warnings: envValidation.warnings
+        }
       };
     } else {
       health.checks.environment = {
         status: 'pass',
         duration: envDuration,
-        message: `Environment configured (${present.length} optional vars set)`,
-        details: { 
-          nodeEnv: process.env.NODE_ENV,
-          optionalVarsSet: present.length,
-          present 
+        message: `Environment properly configured`,
+        details: {
+          nodeEnv: process.env.NODE_ENV
         }
       };
     }

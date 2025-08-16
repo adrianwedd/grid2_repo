@@ -49,7 +49,7 @@ export function HeroSplitImageLeft({
     },
   } as const;
 
-  const styles = toneStyles[tone];
+  const styles = toneStyles[tone as keyof typeof toneStyles] || toneStyles.minimal;
 
   return (
     <section className={`relative isolate min-h-[90vh] flex items-center ${styles.container}`}>

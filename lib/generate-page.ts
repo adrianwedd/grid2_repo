@@ -3,6 +3,7 @@
 
 import { BeamSearchAssembler } from './beam-search';
 import { componentRegistry } from '@/components/sections/registry';
+import { getContextualMedia } from './image-provider';
 import type {
   ContentGraph,
   BrandTokens,
@@ -50,24 +51,28 @@ export async function generatePage(
     requiredSections
   );
 
+  // Enhance sections with contextual media
+  const enhancedPrimary = enhanceSectionsWithMedia(primary, tone);
+  const enhancedAlternates = alternates.map(alt => enhanceSectionsWithMedia(alt, tone));
+
   // Generate page metadata
   const pageMeta = generatePageMeta(content);
 
   // Run audits
-  const primaryAudits = await auditPage(primary, brand);
+  const primaryAudits = await auditPage(enhancedPrimary, brand);
   const alternateAudits = await Promise.all(
-    alternates.map((sections) => auditPage(sections, brand))
+    enhancedAlternates.map((sections) => auditPage(sections, brand))
   );
 
   // Package results
   const primaryPage: PageNode = {
-    sections: primary,
+    sections: enhancedPrimary,
     meta: pageMeta,
     brand,
     audits: primaryAudits,
   };
 
-  const alternatePages: PageNode[] = alternates.map((sections, i) => ({
+  const alternatePages: PageNode[] = enhancedAlternates.map((sections, i) => ({
     sections,
     meta: pageMeta,
     brand,
@@ -226,6 +231,29 @@ async function auditPage(
     performance,
     passed,
   };
+}
+
+/**
+ * Enhance sections with contextual media based on tone
+ */
+function enhanceSectionsWithMedia(sections: SectionNode[], tone: Tone): SectionNode[] {
+  return sections.map(section => {
+    // Get contextual media for this section type and tone
+    const contextualMedia = getContextualMedia(tone, section.meta.kind);
+    
+    // If we have contextual media and the section doesn't already have media, add it
+    if (contextualMedia.length > 0 && (!section.props.media || section.props.media.length === 0)) {
+      return {
+        ...section,
+        props: {
+          ...section.props,
+          media: contextualMedia
+        }
+      };
+    }
+    
+    return section;
+  });
 }
 
 // ============================================

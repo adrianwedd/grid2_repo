@@ -142,7 +142,7 @@ test.describe('Style Presets', () => {
       expect(response.ok()).toBeTruthy();
       const json = await response.json();
 
-      const sectionKinds = json.page.sections.map(s => s.meta.kind);
+      const sectionKinds = json.page.sections.map((s: any) => s.meta.kind);
       
       // Check required sections are present
       for (const kind of expectations.requiredKinds) {
@@ -150,16 +150,16 @@ test.describe('Style Presets', () => {
       }
 
       // Check specific expectations
-      if (expectations.heroVariant) {
-        const heroSection = json.page.sections.find(s => s.meta.kind === 'hero');
-        expect(heroSection?.meta.variant).toBe(expectations.heroVariant);
+      if ((expectations as any).heroVariant) {
+        const heroSection = json.page.sections.find((s: any) => s.meta.kind === 'hero');
+        expect(heroSection?.meta.variant).toBe((expectations as any).heroVariant);
       }
 
-      if (expectations.minimalSections) {
+      if ((expectations as any).minimalSections) {
         expect(json.page.sections.length).toBeLessThanOrEqual(4);
       }
 
-      if (expectations.allowsTestimonials) {
+      if ((expectations as any).allowsTestimonials) {
         // Notion can have testimonials but doesn't require them
         const hasTestimonials = sectionKinds.includes('testimonials');
         expect(typeof hasTestimonials).toBe('boolean'); // Just check it's a valid boolean
@@ -206,7 +206,7 @@ test.describe('Style Presets', () => {
       expect(response.ok()).toBeTruthy();
       const json = await response.json();
 
-      if (expectations.hasMonochromeColors) {
+      if ((expectations as any).hasMonochromeColors) {
         expect(json.config.brand.colors).toBeTruthy();
       }
 

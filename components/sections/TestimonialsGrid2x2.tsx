@@ -46,7 +46,7 @@ export function TestimonialsGrid2x2({ content, tone = 'minimal' }: TestimonialsG
     },
   } as const;
 
-  const styles = toneStyles[tone];
+  const styles = toneStyles[tone as keyof typeof toneStyles] || toneStyles.minimal;
   const StarRating = ({ rating = 5 }: { rating?: number }) => (
     <div className="flex" aria-label={`Rating ${rating} out of 5`}>
       {Array.from({ length: 5 }).map((_, i) => (

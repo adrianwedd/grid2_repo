@@ -35,3 +35,33 @@ generate-new-themes.js
 # Cache directories (keep the themes)
 # .claude-cache/ - Keeping this for themes
 
+# Generated image scripts
+generate-*-images*.js
+generate-placeholder-images.js
+generate-style-images.js
+generate-batch-ai-images.js
+test-*-image*.js
+test-spec-image-generation.js
+
+# Debug and test files
+debug-assets/
+PLAYWRIGHT_TEST_REPORT.md
+github-issues-project.md
+tsconfig.tsbuildinfo
+
+# Export artifacts
+*.zip
+nextjs-export.zip
+static-export.zip
+remix-export.zip
+
+# E2E test directories
+tests/e2e/
+e2e/
+
+# Dynamic theme cache
+.dynamic-themes/
+
+# Public generated images (keep manifests)
+# public/generated-images/ - Keep this for production
+

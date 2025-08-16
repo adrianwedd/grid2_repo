@@ -60,7 +60,15 @@ export async function withAuth(
     apiKeyHeader: 'x-api-key',
   }
 ): Promise<NextResponse | null> {
-  // Skip auth in development if configured
+  // Skip auth ONLY in development, NEVER in production
+  if (process.env.NODE_ENV === 'production' && process.env.SKIP_AUTH === 'true') {
+    console.error('🚨 SECURITY: SKIP_AUTH cannot be true in production!');
+    return NextResponse.json(
+      { error: 'Security configuration error' },
+      { status: 500 }
+    );
+  }
+  
   if (
     process.env.NODE_ENV === 'development' && 
     process.env.SKIP_AUTH === 'true'
