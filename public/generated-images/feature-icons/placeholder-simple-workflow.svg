@@ -1,0 +1,13 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <rect width="200" height="200" fill="#f0f4f8"/>
+      <circle cx="50" cy="100" r="15" fill="#8b5cf6" opacity="0.8"/>
+      <circle cx="100" cy="100" r="15" fill="#8b5cf6" opacity="0.8"/>
+      <circle cx="150" cy="100" r="15" fill="#8b5cf6" opacity="0.8"/>
+      <path d="M65 100 L85 100" stroke="#8b5cf6" stroke-width="2" marker-end="url(#arrow)"/>
+      <path d="M115 100 L135 100" stroke="#8b5cf6" stroke-width="2" marker-end="url(#arrow)"/>
+      <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="#8b5cf6"/>
+        </marker>
+      </defs>
+    </svg>

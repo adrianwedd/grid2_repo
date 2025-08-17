@@ -1,6 +1,7 @@
 // components/sections/FeaturesCards3Up.tsx
 import React from 'react';
 import type { SectionProps } from '@/types/section-system';
+import Image from 'next/image';
 
 interface FeaturesCards3UpProps extends SectionProps {
   content: {
@@ -10,6 +11,17 @@ interface FeaturesCards3UpProps extends SectionProps {
     features: string[];
   };
 }
+
+// Map feature titles to their icon files (will use AI-generated images when available)
+const featureIcons: Record<string, string> = {
+  'Clean interface': '/generated-images/feature-icons/clean-interface.png',
+  'Fast performance': '/generated-images/feature-icons/fast-performance.png', 
+  'Simple workflow': '/generated-images/feature-icons/simple-workflow.png',
+  // Case variations for compatibility
+  'Clean Interface': '/generated-images/feature-icons/clean-interface.png',
+  'Fast Performance': '/generated-images/feature-icons/fast-performance.png',
+  'Simple Workflow': '/generated-images/feature-icons/simple-workflow.png',
+};
 
 export function FeaturesCards3Up({ content, tone = 'minimal' }: FeaturesCards3UpProps) {
   const toneStyles = {
@@ -127,8 +139,33 @@ export function FeaturesCards3Up({ content, tone = 'minimal' }: FeaturesCards3Up
               className={`relative rounded-2xl p-8 transition-all duration-200 ${styles.card}`}
             >
               <div className={`mb-6 ${styles.icon}`}>
-                {/* Decorative icon block; replace with real icon lib if desired */}
-                <div className="h-12 w-12 rounded-lg bg-current opacity-10" aria-hidden="true" />
+                {/* Use AI-generated icon if available, otherwise fallback to decorative block */}
+                {featureIcons[title] ? (
+                  <div className="h-20 w-20 relative">
+                    <Image
+                      src={featureIcons[title]}
+                      alt={`${title} icon`}
+                      width={80}
+                      height={80}
+                      className="rounded-lg object-cover"
+                      onError={(e) => {
+                        // Fallback to decorative block if image fails to load
+                        e.currentTarget.style.display = 'none';
+                        const fallback = e.currentTarget.parentElement?.querySelector('.fallback-icon');
+                        if (fallback) {
+                          (fallback as HTMLElement).style.display = 'block';
+                        }
+                      }}
+                    />
+                    <div 
+                      className="h-12 w-12 rounded-lg bg-current opacity-10 fallback-icon" 
+                      style={{ display: 'none' }}
+                      aria-hidden="true" 
+                    />
+                  </div>
+                ) : (
+                  <div className="h-12 w-12 rounded-lg bg-current opacity-10" aria-hidden="true" />
+                )}
               </div>
 
               <h3 className={`text-xl font-semibold leading-7 ${styles.title}`}>{title}</h3>

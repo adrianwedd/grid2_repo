@@ -1,0 +1,20 @@
+{
+  "clean-interface": {
+    "filename": "placeholder-clean-interface.svg",
+    "filepath": "public/generated-images/feature-icons/placeholder-clean-interface.svg",
+    "description": "Clean interface",
+    "type": "placeholder"
+  },
+  "fast-performance": {
+    "filename": "placeholder-fast-performance.svg",
+    "filepath": "public/generated-images/feature-icons/placeholder-fast-performance.svg",
+    "description": "Fast performance",
+    "type": "placeholder"
+  },
+  "simple-workflow": {
+    "filename": "placeholder-simple-workflow.svg",
+    "filepath": "public/generated-images/feature-icons/placeholder-simple-workflow.svg",
+    "description": "Simple workflow",
+    "type": "placeholder"
+  }
+}

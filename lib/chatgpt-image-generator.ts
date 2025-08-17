@@ -30,16 +30,29 @@ export class ChatGPTImageGenerator {
     
     // Add cookies if provided
     if (cookies && cookies.length > 0) {
-      await context.addCookies(cookies.map(cookie => ({
-        name: cookie.name,
-        value: cookie.value,
-        domain: cookie.domain,
-        path: cookie.path,
-        expires: cookie.expirationDate,
-        httpOnly: cookie.httpOnly,
-        secure: cookie.secure,
-        sameSite: cookie.sameSite as any
-      })));
+      console.log(`Adding ${cookies.length} cookies to browser context...`);
+      await context.addCookies(cookies.map(cookie => {
+        const playwrightCookie = {
+          name: cookie.name,
+          value: cookie.value,
+          domain: cookie.domain,
+          path: cookie.path || '/',
+          httpOnly: cookie.httpOnly || false,
+          secure: cookie.secure || false,
+          sameSite: (cookie.sameSite === 'no_restriction' ? 'None' : 
+                     cookie.sameSite === 'lax' ? 'Lax' : 
+                     cookie.sameSite === 'strict' ? 'Strict' :
+                     cookie.sameSite || 'Lax') as 'Strict' | 'Lax' | 'None'
+        };
+        
+        // Add expires if present
+        if (cookie.expirationDate && !cookie.session) {
+          playwrightCookie.expires = cookie.expirationDate;
+        }
+        
+        return playwrightCookie;
+      }));
+      console.log('✅ All cookies added to browser context');
     }
 
     this.page = await context.newPage();
