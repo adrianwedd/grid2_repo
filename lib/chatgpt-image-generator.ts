@@ -32,17 +32,19 @@ export class ChatGPTImageGenerator {
     if (cookies && cookies.length > 0) {
       console.log(`Adding ${cookies.length} cookies to browser context...`);
       await context.addCookies(cookies.map(cookie => {
-        const playwrightCookie = {
+        const playwrightCookie: any = {
           name: cookie.name,
           value: cookie.value,
           domain: cookie.domain,
           path: cookie.path || '/',
           httpOnly: cookie.httpOnly || false,
           secure: cookie.secure || false,
-          sameSite: (cookie.sameSite === 'no_restriction' ? 'None' : 
-                     cookie.sameSite === 'lax' ? 'Lax' : 
-                     cookie.sameSite === 'strict' ? 'Strict' :
-                     cookie.sameSite || 'Lax') as 'Strict' | 'Lax' | 'None'
+          sameSite: (() => {
+            if (cookie.sameSite === 'no_restriction') return 'None';
+            if (cookie.sameSite === 'lax') return 'Lax';
+            if (cookie.sameSite === 'strict') return 'Strict';
+            return 'Lax';
+          })() as 'Strict' | 'Lax' | 'None'
         };
         
         // Add expires if present
