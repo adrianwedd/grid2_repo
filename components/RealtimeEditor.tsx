@@ -6,7 +6,7 @@ import { useRealtimePreview } from '@/lib/hooks/useRealtimePreview';
 import { useClaudeDirector } from '@/lib/hooks/useClaudeDirector';
 import type { SectionNode } from '@/types/section-system';
 import { PageRenderer } from '@/components/PageRenderer';
-import { ThemeModal } from '@/components/ThemeModal';
+// ThemeModal removed - using expanded StyleGallery instead
 
 export function RealtimeEditor({ initialSections }: { initialSections: SectionNode[] }) {
   const [claudePrompt, setClaudePrompt] = useState('');
@@ -16,7 +16,7 @@ export function RealtimeEditor({ initialSections }: { initialSections: SectionNo
   const [availableThemes, setAvailableThemes] = useState<any[]>([]);
   const [currentTheme, setCurrentTheme] = useState<string | null>(null);
   const [themesLoading, setThemesLoading] = useState(false);
-  const [showThemeModal, setShowThemeModal] = useState(false);
+  // Theme modal state removed - using inline gallery instead
   
   const {
     input, setInput,
@@ -213,13 +213,13 @@ export function RealtimeEditor({ initialSections }: { initialSections: SectionNo
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <button
-              onClick={() => setShowThemeModal(true)}
-              className="px-3 py-1 text-sm bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 transition-colors"
+            <a
+              href="/"
+              className="px-3 py-1 text-sm bg-purple-100 text-purple-700 rounded-lg hover:bg-purple-200 transition-colors inline-block"
               title="Theme Gallery"
             >
               🎨
-            </button>
+            </a>
             <button
               onClick={handleGenerateImages}
               className="px-3 py-1 text-sm bg-green-100 text-green-700 rounded-lg hover:bg-green-200 transition-colors disabled:opacity-50"
@@ -447,11 +447,6 @@ export function RealtimeEditor({ initialSections }: { initialSections: SectionNo
           />
         </div>
       </div>
-      {/* Theme Modal */}
-      <ThemeModal 
-        isOpen={showThemeModal} 
-        onClose={() => setShowThemeModal(false)} 
-      />
     </div>
   );
 }

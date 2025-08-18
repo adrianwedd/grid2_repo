@@ -5,6 +5,7 @@ import { generatePage, demoBrand } from '@/lib/generate-page';
 import { PageRenderer } from '@/components/PageRenderer';
 import { imageProvider } from '@/lib/image-provider';
 import { generateToneSpecificContent } from '@/lib/tone-content-generator';
+import { StyleGallery } from '@/components/StyleGallery';
 import type { SectionNode, Tone, PageNode } from '@/types/section-system';
 
 const STYLES: { value: Tone; label: string; description: string; accent: string; category: string }[] = [
@@ -108,6 +109,7 @@ export function StyleShowcase() {
   const [error, setError] = useState<string | null>(null);
   const [imageStats, setImageStats] = useState({ placeholders: 0, generated: 0, aiGenerated: 0, tones: [] as string[], sections: [] as string[] });
   const [selectedCategory, setSelectedCategory] = useState<string>('Safe & Boring');
+  const [expandedGallery, setExpandedGallery] = useState(false);
   
   // Group styles by category
   const stylesByCategory = STYLES.reduce((acc, style) => {
@@ -187,60 +189,20 @@ export function StyleShowcase() {
                 <a href="/editor" className="hover:text-blue-600 transition-colors">
                   Try Editor →
                 </a>
-                <a href="/demo" className="hover:text-blue-600 transition-colors">
-                  Static Demo →
-                </a>
+                <button 
+                  onClick={() => setExpandedGallery(!expandedGallery)}
+                  className="hover:text-blue-600 transition-colors">
+                  {expandedGallery ? 'Compact' : 'Expand'} Gallery →
+                </button>
               </div>
             </div>
 
-            {/* Category Navigation */}
-            <div className="flex items-center space-x-1">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all duration-200 ${
-                    selectedCategory === category
-                      ? 'bg-gray-900 text-white'
-                      : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-            
-            {/* Style Buttons for Selected Category */}
-            <div className="flex flex-wrap items-center gap-2">
-              {stylesByCategory[selectedCategory]?.map((style) => (
-                <button
-                  key={style.value}
-                  onClick={() => setCurrentTone(style.value)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                    currentTone === style.value
-                      ? style.accent
-                      : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-                  }`}
-                  title={style.description}
-                >
-                  {style.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Current tone description */}
-          <div className="mt-4 p-3 bg-slate-50 rounded-lg">
-            <div className="flex items-center justify-between">
-              <div>
-                <span className="font-semibold text-gray-900">
-                  {STYLES.find(t => t.value === currentTone)?.label}
-                </span>
-                <span className="ml-2 text-gray-600">
-                  {STYLES.find(t => t.value === currentTone)?.description}
-                </span>
-              </div>
-            </div>
+            {/* Style Gallery Component */}
+            <StyleGallery 
+              currentTone={currentTone}
+              onSelectTone={setCurrentTone}
+              expanded={expandedGallery}
+            />
           </div>
         </div>
       </div>
