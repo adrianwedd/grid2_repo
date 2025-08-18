@@ -17,39 +17,37 @@ interface StyleInfo {
 }
 
 const STYLES: StyleInfo[] = [
-  // Professional
-  { value: 'minimal', label: 'Minimal', description: 'Clean and uncluttered', accent: 'bg-gray-800 text-white', category: 'Professional',
+  // Safe & Boring
+  { value: 'minimal', label: 'Minimal', description: 'IBM ThinkPad running Ubuntu', accent: 'bg-gray-800 text-white', category: 'Safe & Boring',
     preview: { colors: ['#111827', '#F3F4F6'], font: 'Sans-serif', mood: 'Clean' } },
-  { value: 'corporate', label: 'Corporate', description: 'Business professional', accent: 'bg-blue-600 text-white', category: 'Professional',
+  { value: 'corporate', label: 'Corporate', description: 'Business professional', accent: 'bg-blue-600 text-white', category: 'Safe & Boring',
     preview: { colors: ['#1E40AF', '#DBEAFE'], font: 'Sans-serif', mood: 'Trustworthy' } },
-  { value: 'elegant', label: 'Elegant', description: 'Sophisticated and refined', accent: 'bg-slate-700 text-white', category: 'Professional',
+  { value: 'elegant', label: 'Elegant', description: 'Sophisticated and refined', accent: 'bg-slate-700 text-white', category: 'Safe & Boring',
     preview: { colors: ['#334155', '#F1F5F9'], font: 'Serif', mood: 'Refined' } },
   
-  // Creative
-  { value: 'bold', label: 'Bold', description: 'Strong and impactful', accent: 'bg-red-600 text-white', category: 'Creative',
+  // Tasteful Design
+  { value: 'bold', label: 'Bold', description: 'Graphic design is my passion', accent: 'bg-red-600 text-white', category: 'Tasteful Design',
     preview: { colors: ['#DC2626', '#FEE2E2'], font: 'Bold Sans', mood: 'Impactful' } },
-  { value: 'playful', label: 'Playful', description: 'Fun and energetic', accent: 'bg-purple-600 text-white', category: 'Creative',
-    preview: { colors: ['#9333EA', '#F3E8FF'], font: 'Rounded', mood: 'Energetic' } },
-  { value: 'creative', label: 'Creative', description: 'Artistic and unique', accent: 'bg-gradient-to-r from-pink-500 to-purple-500 text-white', category: 'Creative',
-    preview: { colors: ['#EC4899', '#8B5CF6'], font: 'Display', mood: 'Artistic' } },
-  
-  // Modern
-  { value: 'modern', label: 'Modern', description: 'Cutting-edge design', accent: 'bg-cyan-600 text-white', category: 'Modern',
-    preview: { colors: ['#0891B2', '#CFFAFE'], font: 'Mono', mood: 'Tech' } },
-  { value: 'monochrome', label: 'Monochrome', description: 'Black and white contrast', accent: 'bg-black text-white', category: 'Modern',
-    preview: { colors: ['#000000', '#FFFFFF'], font: 'Sans-serif', mood: 'Contrast' } },
-  
-  // Organic
-  { value: 'warm', label: 'Warm', description: 'Cozy and inviting', accent: 'bg-orange-600 text-white', category: 'Organic',
+  { value: 'warm', label: 'Warm', description: 'Cozy and inviting', accent: 'bg-orange-600 text-white', category: 'Tasteful Design',
     preview: { colors: ['#EA580C', '#FED7AA'], font: 'Sans-serif', mood: 'Friendly' } },
-  { value: 'nature', label: 'Nature', description: 'Earth-inspired tones', accent: 'bg-green-600 text-white', category: 'Organic',
+  { value: 'nature', label: 'Nature', description: 'Earth-inspired tones', accent: 'bg-green-600 text-white', category: 'Tasteful Design',
     preview: { colors: ['#16A34A', '#BBF7D0'], font: 'Serif', mood: 'Natural' } },
   
-  // Luxury
-  { value: 'luxury', label: 'Luxury', description: 'Premium and exclusive', accent: 'bg-amber-700 text-white', category: 'Luxury',
+  // Luxury Experience
+  { value: 'luxury', label: 'Luxury', description: 'Premium and exclusive', accent: 'bg-gradient-to-r from-amber-600 to-yellow-500 text-white', category: 'Luxury Experience',
     preview: { colors: ['#B45309', '#FEF3C7'], font: 'Serif', mood: 'Premium' } },
-  { value: 'retro', label: 'Retro', description: 'Vintage nostalgia', accent: 'bg-orange-700 text-white', category: 'Luxury',
+  { value: 'modern', label: 'Modern', description: 'Cutting-edge design', accent: 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white', category: 'Luxury Experience',
+    preview: { colors: ['#0891B2', '#CFFAFE'], font: 'Mono', mood: 'Tech' } },
+  { value: 'retro', label: 'Retro', description: 'Vintage nostalgia', accent: 'bg-gradient-to-r from-orange-500 to-red-500 text-white', category: 'Luxury Experience',
     preview: { colors: ['#C2410C', '#FFEDD5'], font: 'Display', mood: 'Nostalgic' } },
+  
+  // Research Lab
+  { value: 'playful', label: 'Playful', description: 'Kids cereal box meets acid trip', accent: 'bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white', category: 'Research Lab',
+    preview: { colors: ['#9333EA', '#F3E8FF'], font: 'Rounded', mood: 'Energetic' } },
+  { value: 'creative', label: 'Creative', description: 'Unhinged psychedelic research lab', accent: 'bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 hover:from-pink-600 hover:via-red-600 hover:to-yellow-600 text-white', category: 'Research Lab',
+    preview: { colors: ['#EC4899', '#8B5CF6'], font: 'Display', mood: 'Artistic' } },
+  { value: 'monochrome', label: 'Monochrome', description: 'Stark brutalist madness', accent: 'bg-gradient-to-r from-gray-900 to-black hover:from-gray-800 hover:to-gray-900 text-white', category: 'Research Lab',
+    preview: { colors: ['#000000', '#FFFFFF'], font: 'Sans-serif', mood: 'Contrast' } },
 ];
 
 interface StyleGalleryProps {
@@ -62,7 +60,7 @@ export function StyleGallery({ currentTone, onSelectTone, expanded = false }: St
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [hoveredStyle, setHoveredStyle] = useState<Tone | null>(null);
 
-  const categories = ['All', 'Professional', 'Creative', 'Modern', 'Organic', 'Luxury'];
+  const categories = ['All', 'Safe & Boring', 'Tasteful Design', 'Luxury Experience', 'Research Lab'];
   
   const filteredStyles = selectedCategory === 'All' 
     ? STYLES 
