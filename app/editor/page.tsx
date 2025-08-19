@@ -1,5 +1,5 @@
 // app/editor/page.tsx
-import { RealtimeEditor } from '@/components/RealtimeEditor';
+import { RealtimeEditor } from '@/components/RealtimeEditor-Fixed';
 import { generatePage, demoContent, demoBrand } from '@/lib/generate-page';
 
 export const dynamic = 'force-dynamic';

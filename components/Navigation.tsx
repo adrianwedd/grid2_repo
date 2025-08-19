@@ -10,7 +10,7 @@ import { usePathname } from 'next/navigation';
 const navItems = [
   { href: '/', label: 'Home', description: 'Grid 2.0 Overview' },
   { href: '/editor', label: 'Editor', description: 'Realtime Claude Director' },
-  { href: '/lucky', label: 'I\'m Feeling Lucky', description: 'Showcase Claude specs' },
+  { href: '/style-gallery', label: 'Styles', description: 'AI-Generated Styles Gallery' },
 ];
 
 export function Navigation() {
