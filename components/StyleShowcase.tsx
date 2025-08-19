@@ -195,8 +195,10 @@ export function StyleShowcase() {
               
               <div className="flex items-center space-x-2 text-xs text-gray-500">
                 <span>
-                  {imageStats.generated > 0 
-                    ? `${imageStats.generated} AI images` 
+                  {imageStats.aiGenerated > 0 
+                    ? `${imageStats.aiGenerated} AI images` 
+                    : imageStats.generated > 0
+                    ? `${imageStats.generated} generated images`
                     : `${imageStats.placeholders} placeholders`
                   }
                 </span>
