@@ -79,8 +79,10 @@ export class OpenRouterClient {
       model = 'creative'
     } = options;
 
-    // Select the best free model for the tone
-    const selectedModel = this.selectModelForTone(tone, model);
+    // Use the specified model directly (fuck tone mapping, they all work!)
+    const selectedModel = typeof model === 'string' && model.includes(':free') 
+      ? model // Use exact model ID if provided
+      : FREE_MODELS.text[model as keyof typeof FREE_MODELS.text] || FREE_MODELS.text.creative;
     
     // Build creative prompt based on tone
     const enhancedPrompt = this.enhancePromptForTone(prompt, tone);
