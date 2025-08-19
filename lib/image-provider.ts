@@ -195,15 +195,21 @@ class ImageProvider {
   /**
    * Get appropriate image for a tone and section  
    */
-  getImageForToneSection(tone: Tone, sectionKind: SectionKind): MediaAsset | null {
-    // Force immediate load if AI manifest is not ready
+  async getImageForToneSection(tone: Tone, sectionKind: SectionKind): Promise<MediaAsset | null> {
+    // WAIT for async manifest loading to complete
+    if (!this.aiManifest && this.initPromise) {
+      console.log('⏳ WAITING for AI manifest to load for', tone, sectionKind);
+      await this.initPromise;
+    }
+    
+    // Still force a retry if no manifest after waiting
     if (!this.aiManifest) {
-      console.log('⚡ FORCING AI manifest load for', tone, sectionKind);
-      this.ensureManifestsLoaded();
+      console.log('⚡ FORCING AI manifest load after wait for', tone, sectionKind);
+      await this.initializeManifests();
       
-      // Give it one more chance if still not loaded
+      // Final check
       if (!this.aiManifest) {
-        console.log('❌ AI manifest STILL not loaded - this should use the images from the updated manifest');
+        console.log('❌ AI manifest STILL not loaded after async wait');
       }
     }
     
@@ -282,14 +288,14 @@ class ImageProvider {
   /**
    * Get all available images for a tone
    */
-  getImagesForTone(tone: Tone): Record<string, MediaAsset | null> {
+  async getImagesForTone(tone: Tone): Promise<Record<string, MediaAsset | null>> {
     return {
-      hero: this.getImageForToneSection(tone, 'hero'),
-      features: this.getImageForToneSection(tone, 'features'),
-      about: this.getImageForToneSection(tone, 'about'),
-      testimonials: this.getImageForToneSection(tone, 'testimonials'),
-      cta: this.getImageForToneSection(tone, 'cta'),
-      footer: this.getImageForToneSection(tone, 'footer')
+      hero: await this.getImageForToneSection(tone, 'hero'),
+      features: await this.getImageForToneSection(tone, 'features'),
+      about: await this.getImageForToneSection(tone, 'about'),
+      testimonials: await this.getImageForToneSection(tone, 'testimonials'),
+      cta: await this.getImageForToneSection(tone, 'cta'),
+      footer: await this.getImageForToneSection(tone, 'footer')
     };
   }
 
@@ -343,8 +349,8 @@ class ImageProvider {
 export const imageProvider = new ImageProvider();
 
 // Helper function to get contextual images for sections
-export function getContextualMedia(tone: Tone, sectionKind: SectionKind): MediaAsset[] {
-  const image = imageProvider.getImageForToneSection(tone, sectionKind);
+export async function getContextualMedia(tone: Tone, sectionKind: SectionKind): Promise<MediaAsset[]> {
+  const image = await imageProvider.getImageForToneSection(tone, sectionKind);
   console.log(`🖼️ Getting image for ${tone} ${sectionKind}:`, image ? 'Found' : 'Not found', image?.src);
   return image ? [image] : [];
 }

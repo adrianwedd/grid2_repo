@@ -53,9 +53,9 @@ export async function generatePage(
 
   // Enhance sections with contextual media
   console.log('🎨 Enhancing sections with media for tone:', tone);
-  const enhancedPrimary = enhanceSectionsWithMedia(primary, tone);
+  const enhancedPrimary = await enhanceSectionsWithMedia(primary, tone);
   console.log('📷 Enhanced primary sections:', enhancedPrimary.map(s => `${s.meta.kind}: ${s.props.media?.length || 0} media`));
-  const enhancedAlternates = alternates.map(alt => enhanceSectionsWithMedia(alt, tone));
+  const enhancedAlternates = await Promise.all(alternates.map(alt => enhanceSectionsWithMedia(alt, tone)));
 
   // Generate page metadata
   const pageMeta = generatePageMeta(content);
@@ -238,10 +238,10 @@ async function auditPage(
 /**
  * Enhance sections with contextual media based on tone
  */
-function enhanceSectionsWithMedia(sections: SectionNode[], tone: Tone): SectionNode[] {
-  return sections.map(section => {
+async function enhanceSectionsWithMedia(sections: SectionNode[], tone: Tone): Promise<SectionNode[]> {
+  const enhancedSections = await Promise.all(sections.map(async section => {
     // Get contextual media for this section type and tone
-    const contextualMedia = getContextualMedia(tone, section.meta.kind);
+    const contextualMedia = await getContextualMedia(tone, section.meta.kind);
     
     // Always add contextual media for better image coverage
     if (contextualMedia.length > 0) {
@@ -255,7 +255,9 @@ function enhanceSectionsWithMedia(sections: SectionNode[], tone: Tone): SectionN
     }
     
     return section;
-  });
+  }));
+  
+  return enhancedSections;
 }
 
 // ============================================
