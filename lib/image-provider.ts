@@ -33,7 +33,19 @@ class ImageProvider {
     
     try {
       // Determine base URL for server-side requests
-      const baseUrl = isServerSide ? process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000' : '';
+      // In production, use the actual deployment URL
+      let baseUrl = '';
+      if (isServerSide) {
+        if (process.env.VERCEL_URL) {
+          baseUrl = `https://${process.env.VERCEL_URL}`;
+        } else if (process.env.NEXT_PUBLIC_VERCEL_URL) {
+          baseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+        } else if (process.env.NODE_ENV === 'production') {
+          baseUrl = 'https://grid2repo.vercel.app';
+        } else {
+          baseUrl = 'http://localhost:3000';
+        }
+      }
       
       const aiResponse = await fetch(`${baseUrl}/generated-images/ai-patient-manifest.json`);
       if (aiResponse.ok) {
@@ -45,7 +57,20 @@ class ImageProvider {
     }
 
     try {
-      const baseUrl = isServerSide ? process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000' : '';
+      // Use same base URL determination
+      let baseUrl = '';
+      if (isServerSide) {
+        if (process.env.VERCEL_URL) {
+          baseUrl = `https://${process.env.VERCEL_URL}`;
+        } else if (process.env.NEXT_PUBLIC_VERCEL_URL) {
+          baseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+        } else if (process.env.NODE_ENV === 'production') {
+          baseUrl = 'https://grid2repo.vercel.app';
+        } else {
+          baseUrl = 'http://localhost:3000';
+        }
+      }
+      
       const placeholderResponse = await fetch(`${baseUrl}/generated-images/placeholder-manifest.json`);
       if (placeholderResponse.ok) {
         this.placeholderManifest = await placeholderResponse.json();
@@ -56,7 +81,20 @@ class ImageProvider {
     }
 
     try {
-      const baseUrl = isServerSide ? process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000' : '';
+      // Use same base URL determination
+      let baseUrl = '';
+      if (isServerSide) {
+        if (process.env.VERCEL_URL) {
+          baseUrl = `https://${process.env.VERCEL_URL}`;
+        } else if (process.env.NEXT_PUBLIC_VERCEL_URL) {
+          baseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+        } else if (process.env.NODE_ENV === 'production') {
+          baseUrl = 'https://grid2repo.vercel.app';
+        } else {
+          baseUrl = 'http://localhost:3000';
+        }
+      }
+      
       const generatedResponse = await fetch(`${baseUrl}/generated-images/image-manifest.json`);
       if (generatedResponse.ok) {
         this.generatedManifest = await generatedResponse.json();
