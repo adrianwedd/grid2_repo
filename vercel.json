@@ -2,5 +2,15 @@
   "buildCommand": "next build",
   "devCommand": "next dev",
   "installCommand": "npm ci",
-  "framework": "nextjs"
+  "framework": "nextjs",
+  "functions": {
+    "app/api/generate/route.ts": {
+      "maxDuration": 30
+    }
+  },
+  "images": {
+    "sizes": [640, 828, 1200, 1920],
+    "domains": ["grid2repo.vercel.app"],
+    "formats": ["image/webp"]
+  }
 }

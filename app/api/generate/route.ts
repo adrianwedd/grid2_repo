@@ -1,6 +1,7 @@
 // Unified generation API - replaces 12 redundant endpoints
 import { NextRequest, NextResponse } from 'next/server';
 import { generatePage, demoBrand } from '@/lib/generate-page';
+import { creativeContent } from '@/lib/creative-content';
 import type { Tone } from '@/types/section-system';
 
 export async function POST(request: NextRequest) {
@@ -100,29 +101,15 @@ function analyzeToneFromIntent(intent: string): Tone {
 
 // Generate content from intent
 function generateContentFromIntent(intent: string, tone: Tone): any {
-  // This would ideally use AI, but for now use intelligent defaults
-  return {
-    hero: {
-      headline: extractHeadline(intent) || `Your ${tone} Vision`,
-      subheadline: `Crafted with precision using Grid 2.0's intelligent design system`,
-      bullets: [
-        'AI-powered design understanding',
-        'Deterministic generation engine',
-        'Beautiful, accessible, fast'
-      ]
-    },
-    features: {
-      headline: 'Built for Excellence',
-      subheadline: 'Every detail optimized for your success',
-      items: ['Smart Design', 'Fast Performance', 'Full Control']
-    },
-    cta: {
-      headline: 'Ready to Launch?',
-      description: 'Transform your vision into reality',
-      primaryAction: { label: 'Get Started', href: '#' },
-      secondaryAction: { label: 'Learn More', href: '#' }
-    }
-  };
+  // Use creative content with custom headline if provided
+  const baseContent = generateDefaultContent(tone);
+  const customHeadline = extractHeadline(intent);
+  
+  if (customHeadline) {
+    baseContent.hero.headline = customHeadline;
+  }
+  
+  return baseContent;
 }
 
 // Extract headline from intent
@@ -135,124 +122,17 @@ function extractHeadline(intent: string): string | null {
   return words.charAt(0).toUpperCase() + words.slice(1);
 }
 
-// Generate default content for a tone
+// Generate default content for a tone with MUCH more interesting text
 function generateDefaultContent(tone: Tone): any {
-  const toneContent: Record<Tone, any> = {
-    minimal: {
-      hero: {
-        headline: 'Simple. Clean. Perfect.',
-        subheadline: 'Minimalist design that speaks volumes',
-        bullets: ['No clutter', 'Pure focus', 'Essential beauty']
-      }
-    },
-    bold: {
-      hero: {
-        headline: 'MAKE AN IMPACT',
-        subheadline: 'Bold design for those who dare to stand out',
-        bullets: ['Maximum contrast', 'Dramatic presence', 'Unforgettable']
-      }
-    },
-    playful: {
-      hero: {
-        headline: 'Let\'s Have Some Fun!',
-        subheadline: 'Playful design that brings joy to every interaction',
-        bullets: ['Vibrant colors', 'Delightful animations', 'Pure happiness']
-      }
-    },
-    corporate: {
-      hero: {
-        headline: 'Professional Excellence',
-        subheadline: 'Enterprise-grade solutions for modern business',
-        bullets: ['Trusted by leaders', 'Proven results', 'Scalable growth']
-      }
-    },
-    elegant: {
-      hero: {
-        headline: 'Refined Sophistication',
-        subheadline: 'Elegant design for discerning tastes',
-        bullets: ['Timeless beauty', 'Subtle luxury', 'Exquisite details']
-      }
-    },
-    modern: {
-      hero: {
-        headline: 'The Future is Now',
-        subheadline: 'Cutting-edge design for tomorrow\'s innovators',
-        bullets: ['Next-gen tech', 'Lightning fast', 'Always ahead']
-      }
-    },
-    warm: {
-      hero: {
-        headline: 'Welcome Home',
-        subheadline: 'Warm, inviting design that feels like a hug',
-        bullets: ['Cozy comfort', 'Friendly vibes', 'Human connection']
-      }
-    },
-    luxury: {
-      hero: {
-        headline: 'Exclusively Yours',
-        subheadline: 'Luxury design for the most discerning',
-        bullets: ['Premium quality', 'Bespoke service', 'Unparalleled excellence']
-      }
-    },
-    creative: {
-      hero: {
-        headline: 'Unleash Creativity',
-        subheadline: 'Where imagination meets innovation',
-        bullets: ['Artistic vision', 'Boundless possibilities', 'Creative freedom']
-      }
-    },
-    nature: {
-      hero: {
-        headline: 'Naturally Beautiful',
-        subheadline: 'Eco-conscious design in harmony with nature',
-        bullets: ['Sustainable choices', 'Organic growth', 'Earth-friendly']
-      }
-    },
-    retro: {
-      hero: {
-        headline: 'Vintage Vibes',
-        subheadline: 'Nostalgic design with a modern twist',
-        bullets: ['Classic style', 'Timeless appeal', 'Retro cool']
-      }
-    },
-    monochrome: {
-      hero: {
-        headline: 'Black. White. Bold.',
-        subheadline: 'Monochrome design with maximum impact',
-        bullets: ['Pure contrast', 'Editorial edge', 'Striking simplicity']
-      }
-    },
-    techno: {
-      hero: {
-        headline: 'SYSTEM ONLINE',
-        subheadline: 'Cyberpunk aesthetics for the digital age',
-        bullets: ['Neon dreams', 'Digital reality', 'Future shock']
-      }
-    },
-    zen: {
-      hero: {
-        headline: 'Find Your Balance',
-        subheadline: 'Zen design for mindful living',
-        bullets: ['Inner peace', 'Harmonious flow', 'Serene beauty']
-      }
-    }
-  };
-
-  const baseContent = toneContent[tone] || toneContent.minimal;
+  // Use creative content generator for hilarious and interesting text
+  const heroContent = creativeContent.generateHeroContent(tone);
+  const featureContent = creativeContent.generateFeatureContent(tone);
+  const ctaContent = creativeContent.generateCTAContent(tone);
   
   return {
-    ...baseContent,
-    features: {
-      headline: 'Features',
-      subheadline: 'Everything you need',
-      items: ['Feature One', 'Feature Two', 'Feature Three']
-    },
-    cta: {
-      headline: 'Get Started',
-      description: 'Join thousands of satisfied users',
-      primaryAction: { label: 'Start Now', href: '#' },
-      secondaryAction: { label: 'Learn More', href: '#' }
-    }
+    hero: heroContent,
+    features: featureContent,
+    cta: ctaContent
   };
 }
 
