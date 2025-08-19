@@ -1,6 +1,6 @@
 export const metadata = { 
-  title: 'Grid 2.0 Demo',
-  description: 'AI-powered deterministic website builder'
+  title: 'Grid 2.0 - AI Website Builder',
+  description: 'AI-powered deterministic website builder with beam search and Claude integration'
 };
 
 import { Navigation } from '@/components/Navigation';
