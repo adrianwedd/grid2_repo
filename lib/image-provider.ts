@@ -306,5 +306,6 @@ export const imageProvider = new ImageProvider();
 // Helper function to get contextual images for sections
 export function getContextualMedia(tone: Tone, sectionKind: SectionKind): MediaAsset[] {
   const image = imageProvider.getImageForToneSection(tone, sectionKind);
+  console.log(`🖼️ Getting image for ${tone} ${sectionKind}:`, image ? 'Found' : 'Not found', image?.src);
   return image ? [image] : [];
 }

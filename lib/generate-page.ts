@@ -52,7 +52,9 @@ export async function generatePage(
   );
 
   // Enhance sections with contextual media
+  console.log('🎨 Enhancing sections with media for tone:', tone);
   const enhancedPrimary = enhanceSectionsWithMedia(primary, tone);
+  console.log('📷 Enhanced primary sections:', enhancedPrimary.map(s => `${s.meta.kind}: ${s.props.media?.length || 0} media`));
   const enhancedAlternates = alternates.map(alt => enhanceSectionsWithMedia(alt, tone));
 
   // Generate page metadata
@@ -241,8 +243,8 @@ function enhanceSectionsWithMedia(sections: SectionNode[], tone: Tone): SectionN
     // Get contextual media for this section type and tone
     const contextualMedia = getContextualMedia(tone, section.meta.kind);
     
-    // If we have contextual media and the section doesn't already have media, add it
-    if (contextualMedia.length > 0 && (!section.props.media || section.props.media.length === 0)) {
+    // Always add contextual media for better image coverage
+    if (contextualMedia.length > 0) {
       return {
         ...section,
         props: {

@@ -1,9 +1,9 @@
-import { StyleShowcase } from '@/components/StyleShowcase';
+import { StyleShowcaseGrid } from '@/components/StyleShowcaseGrid';
 
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <StyleShowcase />
+      <StyleShowcaseGrid />
     </main>
   );
 }
