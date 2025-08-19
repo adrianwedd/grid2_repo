@@ -248,6 +248,10 @@ export class BeamSearchAssembler {
       playful: ['animated', 'carousel', 'bento', 'playful'],
       creative: ['experimental', 'artistic', 'asymmetric', 'chaos'],
       monochrome: ['stark', 'editorial', 'brutalist', 'minimal'],
+      
+      // New AI-Generated Styles
+      techno: ['cyber', 'neon', 'digital', 'holographic', 'futuristic'],
+      zen: ['calm', 'serene', 'balanced', 'meditative', 'japanese']
     };
     const prefs = map[tone];
     const v = String(meta.variant).toLowerCase();
