@@ -1,5 +1,7 @@
-/* Temporary: Using Tailwind CDN until PostCSS issues resolved */
-@import url('https://cdn.tailwindcss.com');
+/* Tailwind CSS v3 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* CSS Custom Properties for Dynamic Theming */
 :root {
