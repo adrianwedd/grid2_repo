@@ -71,11 +71,7 @@ export default async function DemoPage() {
       </header>
 
       <main>
-        <PageRenderer 
-          sections={result.primary.sections}
-          brand={demoBrand}
-          showToneDebug={false}
-        />
+        <PageRenderer page={result.primary} />
       </main>
 
       <footer className="border-t border-gray-200 px-6 py-8 mt-16">
