@@ -126,7 +126,23 @@ export async function POST(request: NextRequest) {
         philosophy: {
           inspiration: `Fallback design: ${intent}`,
           mood: tone,
-          essence: `A ${tone} interpretation of your vision`
+          essence: `A ${tone} interpretation of your vision`,
+          principles: [`Embrace ${tone} design philosophy`, 'Balance form and function', 'Create memorable experiences']
+        },
+        style: {
+          personality: `${tone.charAt(0).toUpperCase() + tone.slice(1)} and approachable`,
+          voice: tone === 'corporate' ? 'Professional yet human' : tone === 'playful' ? 'Fun and engaging' : 'Clear and confident',
+          energy: tone === 'bold' ? 'high' : tone === 'minimal' ? 'calm' : 'balanced'
+        },
+        experience: {
+          userJourney: ['Discovery', 'Engagement', 'Action'],
+          emotions: [tone === 'warm' ? 'Comfort' : tone === 'bold' ? 'Excitement' : 'Confidence'],
+          interactions: ['Intuitive navigation', 'Clear calls-to-action']
+        },
+        optimization: {
+          performance: ['Fast loading', 'Mobile responsive'],
+          accessibility: ['WCAG compliant', 'Screen reader friendly'],
+          seo: ['Semantic HTML', 'Meta tags optimized']
         },
         colors: {
           primary: tone === 'bold' ? '#000000' : tone === 'corporate' ? '#1e40af' : '#2563eb',
@@ -141,6 +157,32 @@ export async function POST(request: NextRequest) {
           style: tone === 'modern' ? 'asymmetric' : 'classic',
           density: 'balanced'
         },
+        sections: [
+          {
+            type: 'hero',
+            purpose: 'Capture attention and communicate value proposition',
+            variant: {
+              reasoning: `Using ${tone} approach to create immediate impact`,
+              approach: tone === 'bold' ? 'dramatic' : tone === 'minimal' ? 'clean' : 'balanced'
+            }
+          },
+          {
+            type: 'features',
+            purpose: 'Showcase key capabilities and benefits',
+            variant: {
+              reasoning: `Highlight features in ${tone} style to build trust`,
+              approach: 'benefits-focused'
+            }
+          },
+          {
+            type: 'cta',
+            purpose: 'Drive user action and conversions',
+            variant: {
+              reasoning: `Create compelling call-to-action with ${tone} personality`,
+              approach: 'conversion-optimized'
+            }
+          }
+        ],
         tone: tone as any
       };
       
