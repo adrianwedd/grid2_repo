@@ -5,7 +5,11 @@
 import fetch from 'node-fetch';
 import fs from 'fs/promises';
 
-const API_KEY = process.env.OPENROUTER_API_KEY || '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';
+const API_KEY = process.env.OPENROUTER_API_KEY;
+if (!API_KEY) {
+  console.error('❌ OPENROUTER_API_KEY environment variable is required');
+  process.exit(1);
+}
 
 // Creative AI models
 const MODELS = [

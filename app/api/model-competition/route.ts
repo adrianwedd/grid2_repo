@@ -2,7 +2,10 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 
-const API_KEY = process.env.OPENROUTER_API_KEY || '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';
+const API_KEY = process.env.OPENROUTER_API_KEY;
+if (!API_KEY) {
+  throw new Error('OPENROUTER_API_KEY environment variable is required');
+}
 
 // Competition models that WORK (from your dashboard)
 const COMPETITION_MODELS = [

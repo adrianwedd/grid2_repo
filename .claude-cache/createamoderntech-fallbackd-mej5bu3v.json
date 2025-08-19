@@ -1,0 +1,151 @@
+{
+  "id": "createamoderntech-fallbackd-mej5bu3v",
+  "prompt": "create a modern tech startup landing page",
+  "spec": {
+    "philosophy": {
+      "inspiration": "Fallback design: create a modern tech startup landing page",
+      "mood": "modern",
+      "essence": "A modern interpretation of your vision",
+      "principles": [
+        "Embrace modern design philosophy",
+        "Balance form and function",
+        "Create memorable experiences"
+      ]
+    },
+    "style": {
+      "personality": "Modern and approachable",
+      "voice": "Clear and confident",
+      "energy": "balanced"
+    },
+    "experience": {
+      "userJourney": [
+        "Discovery",
+        "Engagement",
+        "Action"
+      ],
+      "emotions": [
+        "Confidence"
+      ],
+      "interactions": [
+        "Intuitive navigation",
+        "Clear calls-to-action"
+      ]
+    },
+    "optimization": {
+      "performance": [
+        "Fast loading",
+        "Mobile responsive"
+      ],
+      "accessibility": [
+        "WCAG compliant",
+        "Screen reader friendly"
+      ],
+      "seo": [
+        "Semantic HTML",
+        "Meta tags optimized"
+      ]
+    },
+    "colors": {
+      "primary": "#2563eb",
+      "secondary": "#64748b",
+      "accent": "#06b6d4"
+    },
+    "typography": {
+      "scale": 1,
+      "contrast": "standard"
+    },
+    "layout": {
+      "style": "asymmetric",
+      "density": "balanced"
+    },
+    "sections": [
+      {
+        "kind": "hero",
+        "purpose": "Capture attention and communicate value proposition",
+        "variant": {
+          "suggestion": "split-image-left",
+          "reasoning": "Using modern approach to create immediate impact",
+          "approach": "balanced"
+        },
+        "content": {
+          "headline": {
+            "text": "Create Amazing Modern Experiences",
+            "tone": "Bold and inspiring"
+          },
+          "subheadline": {
+            "text": "Transform your vision into reality with modern design principles",
+            "tone": "Supporting and clarifying"
+          },
+          "body": {
+            "approach": "Benefits-focused bullets",
+            "items": [
+              "Modern design philosophy",
+              "Fast, responsive performance",
+              "Built for your audience"
+            ]
+          }
+        }
+      },
+      {
+        "kind": "features",
+        "purpose": "Showcase key capabilities and benefits",
+        "variant": {
+          "suggestion": "three-column-cards",
+          "reasoning": "Highlight features in modern style to build trust",
+          "approach": "benefits-focused"
+        },
+        "content": {
+          "headline": {
+            "text": "Powerful Features",
+            "tone": "Confident"
+          },
+          "body": {
+            "approach": "Feature showcase",
+            "items": [
+              "Lightning-fast performance",
+              "Mobile-first responsive design",
+              "SEO optimized structure"
+            ]
+          }
+        }
+      },
+      {
+        "kind": "cta",
+        "purpose": "Drive user action and conversions",
+        "variant": {
+          "suggestion": "gradient-slab",
+          "reasoning": "Create compelling call-to-action with modern personality",
+          "approach": "conversion-optimized"
+        },
+        "content": {
+          "headline": {
+            "text": "Ready to Build?",
+            "tone": "Inviting"
+          },
+          "cta": {
+            "primary": {
+              "text": "Get Started",
+              "psychology": "Low commitment entry"
+            }
+          }
+        }
+      }
+    ],
+    "tone": "modern"
+  },
+  "timestamp": "2025-08-19T22:59:30.476Z",
+  "philosophy": "Fallback design: create a modern tech startup landing page",
+  "personality": "Modern and approachable",
+  "tags": [
+    "create",
+    "modern",
+    "tech",
+    "startup",
+    "landing",
+    "page",
+    "approachable",
+    "embrace",
+    "design",
+    "philosophy"
+  ]
+}

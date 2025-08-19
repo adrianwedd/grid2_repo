@@ -21,12 +21,12 @@
 ```bash
 # Working: Models list endpoint
 GET https://openrouter.ai/api/v1/models
-Authorization: Bearer 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
+Authorization: Bearer YOUR_OPENROUTER_API_KEY
 Status: ✅ 200 OK - Returns 54 free models
 
 # Failing: Chat completions endpoint  
 POST https://openrouter.ai/api/v1/chat/completions
-Authorization: Bearer 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
+Authorization: Bearer YOUR_OPENROUTER_API_KEY
 Status: ❌ 401 Unauthorized - "User not found"
 ```
 
