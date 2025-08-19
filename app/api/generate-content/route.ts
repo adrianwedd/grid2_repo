@@ -4,8 +4,10 @@ import { openRouterClient } from '@/lib/openrouter-client';
 import type { Tone } from '@/types/section-system';
 
 export async function POST(request: NextRequest) {
+  let body: any;
+  
   try {
-    const body = await request.json();
+    body = await request.json();
     const { 
       type, 
       tone = 'playful', 
@@ -100,7 +102,7 @@ export async function POST(request: NextRequest) {
       success: false,
       error: 'Failed to generate content',
       fallback: true,
-      data: getLocalFallback(body.type, body.tone)
+      data: getLocalFallback(body?.type || 'hero', body?.tone || 'playful')
     });
   }
 }
