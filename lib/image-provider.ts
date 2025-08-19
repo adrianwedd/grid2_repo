@@ -116,8 +116,9 @@ class ImageProvider {
       this.initializeManifests();
     }
     
-    // Use hardcoded placeholder manifest as fallback for all 12 styles ONLY if AI manifest fails
-    if (!this.placeholderManifest) {
+    // ONLY create placeholder manifest if we have NO AI images at all
+    // This was the bug - it was always creating placeholders even when AI images existed
+    if (!this.placeholderManifest && !this.aiManifest) {
       this.placeholderManifest = {
         // Safe & Boring
         minimal: {
@@ -201,10 +202,20 @@ class ImageProvider {
       generatedManifest: !!this.generatedManifest,
       placeholderManifest: !!this.placeholderManifest,
       tone,
-      sectionKind
+      sectionKind,
+      manifestsInitialized: this.manifestsInitialized
     });
     
-    const manifest = this.aiManifest || this.generatedManifest || this.placeholderManifest;
+    // Force priority to AI manifest when available
+    let manifest = this.aiManifest;
+    if (!manifest) manifest = this.generatedManifest;
+    if (!manifest) manifest = this.placeholderManifest;
+    
+    console.log('📝 Using manifest type:', 
+      this.aiManifest ? 'AI' : 
+      this.generatedManifest ? 'Generated' : 
+      this.placeholderManifest ? 'Placeholder' : 'None'
+    );
     
     if (!manifest) {
       return null;
