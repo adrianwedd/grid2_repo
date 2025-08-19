@@ -330,6 +330,61 @@ export function generateToneSpecificContent(tone: Tone): ContentGraph {
         secondaryAction: { label: 'NO', href: '/' },
       },
     },
+
+    techno: {
+      hero: {
+        headline: '◢ CYBERPUNK_PROTOCOL.INIT() ◣',
+        subheadline: 'Enter the neon grid. Where digital dreams become holographic reality. The future is now, encrypted.',
+        bullets: [
+          '⟨◉⟩ NEURAL INTERFACE ACTIVE',
+          '⟨⬢⟩ QUANTUM ENCRYPTION ENABLED',
+          '⟨◈⟩ MATRIX SYNCHRONIZATION ONLINE',
+        ],
+      },
+      features: {
+        headline: '◢◤ CYBERNETIC CAPABILITIES ◥◣',
+        subheadline: 'Advanced tech from the digital underground',
+        items: [
+          'HOLOGRAPHIC DATA STREAMS',
+          'NEURAL NETWORK INTERFACE',
+          'QUANTUM PROCESSING CORE',
+        ],
+      },
+      cta: {
+        headline: '◢ JACK INTO THE MATRIX ◣',
+        description: 'Download consciousness. Upload possibilities.',
+        disclaimer: 'WARNING: Highly addictive digital experience',
+        primaryAction: { label: '⟨◉⟩ CONNECT', href: '/matrix' },
+        secondaryAction: { label: '⟨⬢⟩ SCAN CODE', href: '/scan' },
+      },
+    },
+
+    zen: {
+      hero: {
+        headline: 'Find Balance in Digital Harmony',
+        subheadline: 'Where technology meets tranquility. Mindful tools for a peaceful digital life.',
+        bullets: [
+          '🧘 Mindful workflows',
+          '⚖️ Perfect balance',
+          '🌸 Serene simplicity',
+        ],
+      },
+      features: {
+        headline: 'Peaceful Productivity',
+        subheadline: 'Tools that breathe with your natural rhythm',
+        items: [
+          'Meditation-inspired interface',
+          'Distraction-free workspace',
+          'Gentle notification system',
+        ],
+      },
+      cta: {
+        headline: 'Begin Your Journey to Digital Peace',
+        description: 'Step into serenity. Find your flow.',
+        primaryAction: { label: '🧘 Start Mindfully', href: '/peace' },
+        secondaryAction: { label: '🌸 Learn More', href: '/philosophy' },
+      },
+    },
   };
   
   return contentByTone[tone];

@@ -192,6 +192,36 @@ export const STYLE_DEFINITIONS: Record<Tone, {
     },
     aestheticKeywords: ['brutalist', 'stark', 'editorial', 'architectural', 'minimal', 'harsh'],
     visualPersonality: 'Stark brutalist with pure black and white design and editorial chaos aesthetic'
+  },
+
+  // New AI-Generated Styles
+  techno: {
+    name: 'Techno',
+    description: 'Futuristic cyberpunk with neon colors and holographic effects',
+    category: 'Research Lab',
+    colors: {
+      primary: '#00ffff',   // Cyan neon
+      secondary: '#ff00ff', // Magenta neon
+      accent: '#00ff00',    // Green neon accent
+      background: '#0a0a0a',
+      text: '#ffffff'
+    },
+    aestheticKeywords: ['cyberpunk', 'neon', 'digital', 'holographic', 'futuristic', 'tech'],
+    visualPersonality: 'Futuristic cyberpunk with electric neon colors and holographic tech aesthetic'
+  },
+  zen: {
+    name: 'Zen',
+    description: 'Minimal meditation with natural calm and balanced harmony',
+    category: 'Normal Human',
+    colors: {
+      primary: '#8b9dc3',   // Calm blue-gray
+      secondary: '#ddd6c1', // Warm beige
+      accent: '#c9b59c',    // Soft tan accent
+      background: '#f7f5f3',
+      text: '#4a4a4a'
+    },
+    aestheticKeywords: ['calm', 'serene', 'balanced', 'meditative', 'japanese', 'mindful'],
+    visualPersonality: 'Serene minimalist with balanced natural colors and meditative calm aesthetic'
   }
 };
 
@@ -437,7 +467,16 @@ Color palette: ${Object.values(styleInfo.colors).join(', ')}`;
       corporate: { heading: 'system-ui', body: 'system-ui' },
       elegant: { heading: 'Georgia', body: 'system-ui' },
       creative: { heading: 'Space Grotesk', body: 'Inter' },
-      // ... other styles
+      bold: { heading: 'Space Grotesk', body: 'Inter' },
+      playful: { heading: 'Fredoka', body: 'Open Sans' },
+      warm: { heading: 'Poppins', body: 'Open Sans' },
+      nature: { heading: 'Nunito', body: 'Nunito Sans' },
+      luxury: { heading: 'Cormorant Garamond', body: 'Lora' },
+      modern: { heading: 'JetBrains Mono', body: 'Roboto' },
+      retro: { heading: 'Righteous', body: 'Roboto' },
+      monochrome: { heading: 'IBM Plex Mono', body: 'IBM Plex Sans' },
+      techno: { heading: 'Orbitron', body: 'Roboto Mono' },
+      zen: { heading: 'Noto Sans JP', body: 'Noto Sans' }
     };
     
     return (fonts as any)[tone]?.[type] || 'system-ui';
@@ -447,7 +486,9 @@ Color palette: ${Object.values(styleInfo.colors).join(', ')}`;
     const radiusMap = {
       minimal: { sm: '0.125rem', md: '0.375rem', lg: '0.5rem', xl: '0.75rem' },
       creative: { sm: '0.5rem', md: '1rem', lg: '1.5rem', xl: '2rem' },
-      // ... other styles
+      playful: { sm: '0.5rem', md: '1rem', lg: '1.5rem', xl: '2rem' },
+      techno: { sm: '0rem', md: '0.25rem', lg: '0.5rem', xl: '0.75rem' },
+      zen: { sm: '0.25rem', md: '0.5rem', lg: '0.75rem', xl: '1rem' }
     };
     
     return (radiusMap as any)[tone] || radiusMap.minimal;

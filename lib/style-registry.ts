@@ -92,8 +92,7 @@ export const styles: Record<string, StyleConfig> = {
       "professional",
       "innovative",
       "accessible"
-    ],
-    "generatedAt": "2025-08-18T23:15:51.669Z"
+    ]
   },
   "zen": {
     "name": "zen",
@@ -165,8 +164,7 @@ export const styles: Record<string, StyleConfig> = {
       "balanced",
       "natural",
       "mindful"
-    ],
-    "generatedAt": "2025-08-18T23:25:00.000Z"
+    ]
   }
 };
 
