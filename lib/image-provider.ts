@@ -23,9 +23,10 @@ class ImageProvider {
   private aiManifest: ImageManifest | null = null;
   private generatedManifest: ImageManifest | null = null;
   private manifestsInitialized = false;
+  private initPromise: Promise<void> | null = null;
 
   constructor() {
-    this.initializeManifests();
+    this.initPromise = this.initializeManifests();
   }
 
   private async initializeManifests() {
@@ -116,9 +117,12 @@ class ImageProvider {
       this.initializeManifests();
     }
     
-    // ONLY create placeholder manifest if we have NO AI images at all
-    // This was the bug - it was always creating placeholders even when AI images existed
-    if (!this.placeholderManifest && !this.aiManifest) {
+    // DEPRECATED: No more placeholder fallbacks! Force AI images only
+    console.log('🚫 Placeholder manifest creation DISABLED - AI images only');
+    return;
+    
+    // DEAD CODE - placeholder manifest creation removed
+    if (false && !this.placeholderManifest && !this.aiManifest) {
       this.placeholderManifest = {
         // Safe & Boring
         minimal: {
@@ -189,13 +193,21 @@ class ImageProvider {
   }
 
   /**
-   * Get appropriate image for a tone and section
+   * Get appropriate image for a tone and section  
    */
   getImageForToneSection(tone: Tone, sectionKind: SectionKind): MediaAsset | null {
-    // Ensure manifests are loaded (use fallback if needed)
-    this.ensureManifestsLoaded();
+    // Force immediate load if AI manifest is not ready
+    if (!this.aiManifest) {
+      console.log('⚡ FORCING AI manifest load for', tone, sectionKind);
+      this.ensureManifestsLoaded();
+      
+      // Give it one more chance if still not loaded
+      if (!this.aiManifest) {
+        console.log('❌ AI manifest STILL not loaded - this should use the images from the updated manifest');
+      }
+    }
     
-    // Priority order: AI images > Generated images > Placeholders
+    // Priority order: AI images > Generated images > Placeholders  
     // DEBUG: Force AI manifest to be used if available
     console.log('🔍 Image provider debug:', {
       aiManifest: !!this.aiManifest,
@@ -206,18 +218,15 @@ class ImageProvider {
       manifestsInitialized: this.manifestsInitialized
     });
     
-    // Force priority to AI manifest when available
-    let manifest = this.aiManifest;
-    if (!manifest) manifest = this.generatedManifest;
-    if (!manifest) manifest = this.placeholderManifest;
+    // ONLY use AI manifest - no fallbacks!
+    const manifest = this.aiManifest;
     
     console.log('📝 Using manifest type:', 
-      this.aiManifest ? 'AI' : 
-      this.generatedManifest ? 'Generated' : 
-      this.placeholderManifest ? 'Placeholder' : 'None'
+      this.aiManifest ? 'AI' : 'NONE (AI manifest required)'
     );
     
     if (!manifest) {
+      console.log('🚫 NO AI MANIFEST - returning null (no placeholders!)');
       return null;
     }
 
