@@ -22,6 +22,7 @@ class ImageProvider {
   private placeholderManifest: ImageManifest | null = null;
   private aiManifest: ImageManifest | null = null;
   private generatedManifest: ImageManifest | null = null;
+  private manifestsInitialized = false;
 
   constructor() {
     this.initializeManifests();
@@ -50,7 +51,10 @@ class ImageProvider {
       const aiResponse = await fetch(`${baseUrl}/generated-images/ai-patient-manifest.json`);
       if (aiResponse.ok) {
         this.aiManifest = await aiResponse.json();
-        console.log(`✅ Loaded AI images manifest (${isServerSide ? 'server' : 'client'})`);
+        this.manifestsInitialized = true;
+        console.log(`✅ Loaded AI images manifest (${isServerSide ? 'server' : 'client'}) with ${Object.keys(this.aiManifest).length} tones`);
+      } else {
+        console.warn('Failed to fetch AI manifest:', aiResponse.status, aiResponse.statusText);
       }
     } catch (error) {
       console.warn('Failed to load AI manifest:', error);
@@ -106,7 +110,13 @@ class ImageProvider {
   }
 
   private ensureManifestsLoaded() {
-    // Use hardcoded placeholder manifest as fallback for all 12 styles
+    // Try to reload AI manifest if it's not loaded yet and we haven't tried initializing
+    if (!this.aiManifest && !this.manifestsInitialized) {
+      console.log('🔄 Attempting to initialize manifests...');
+      this.initializeManifests();
+    }
+    
+    // Use hardcoded placeholder manifest as fallback for all 12 styles ONLY if AI manifest fails
     if (!this.placeholderManifest) {
       this.placeholderManifest = {
         // Safe & Boring
@@ -185,6 +195,15 @@ class ImageProvider {
     this.ensureManifestsLoaded();
     
     // Priority order: AI images > Generated images > Placeholders
+    // DEBUG: Force AI manifest to be used if available
+    console.log('🔍 Image provider debug:', {
+      aiManifest: !!this.aiManifest,
+      generatedManifest: !!this.generatedManifest,
+      placeholderManifest: !!this.placeholderManifest,
+      tone,
+      sectionKind
+    });
+    
     const manifest = this.aiManifest || this.generatedManifest || this.placeholderManifest;
     
     if (!manifest) {
