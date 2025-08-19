@@ -52,7 +52,7 @@ class ImageProvider {
       if (aiResponse.ok) {
         this.aiManifest = await aiResponse.json();
         this.manifestsInitialized = true;
-        console.log(`✅ Loaded AI images manifest (${isServerSide ? 'server' : 'client'}) with ${Object.keys(this.aiManifest).length} tones`);
+        console.log(`✅ Loaded AI images manifest (${isServerSide ? 'server' : 'client'}) with ${this.aiManifest ? Object.keys(this.aiManifest).length : 0} tones`);
       } else {
         console.warn('Failed to fetch AI manifest:', aiResponse.status, aiResponse.statusText);
       }
