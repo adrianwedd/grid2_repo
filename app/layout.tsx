@@ -1,6 +1,7 @@
 export const metadata = { title: 'Grid 2.0 Demo' };
 
 import { Navigation } from '@/components/Navigation';
+import { Analytics } from '@vercel/analytics/next';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -11,6 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen bg-gray-50 antialiased">
         <Navigation />
         <main>{children}</main>
+        <Analytics />
       </body>
     </html>
   );
