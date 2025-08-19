@@ -9,8 +9,8 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-// Your working API key
-const API_KEY = process.env.OPENROUTER_API_KEY || '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';
+// Your NEW WORKING API key!
+const API_KEY = process.env.OPENROUTER_API_KEY || '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';
 
 // Models that are DEFINITELY working based on your dashboard
 const WORKING_MODELS = [

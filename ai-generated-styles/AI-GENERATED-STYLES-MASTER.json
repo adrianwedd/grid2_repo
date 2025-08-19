@@ -1,0 +1,146 @@
+{
+  "generated": "2025-08-19T14:43:02.141Z",
+  "source": "REAL OpenRouter API Calls",
+  "models": 8,
+  "successful": 3,
+  "styles": [
+    {
+      "id": "mistral-small-3-2-24b-instruct",
+      "model": "mistralai/mistral-small-3.2-24b-instruct:free",
+      "generatedBy": "mistral-small-3.2-24b-instruct",
+      "timestamp": "2025-08-19T14:27:28.325Z",
+      "name": "The Quantum Nebula Emporium",
+      "philosophy": "Where Pixels Dance with the Cosmos",
+      "colors": {
+        "primary": "#FF00FF",
+        "secondary": "#00FFFF",
+        "accent": "#FFFF00",
+        "background": "#000000",
+        "text": "#FFFFFF"
+      },
+      "features": [
+        "Interactive Particle Ecosystem: Every click spawns a new galaxy of animated particles that react to user movements and sounds from the environment.",
+        "Temporal Glitch Portal: Randomly teleports users to different themed micro-websites from alternate timelines (retro cyberpunk, steam-punk alien bazaar, or a dystopian amusement park).",
+        "Emotional AI Host: A sentient AI named 'Nebula' that morphs its appearance and personality based on the user’s typing speed and mood, offering surreal commentary and poetry."
+      ],
+      "hero": {
+        "headline": "ENTER THE VORTEX OF ABSURD CREATIVITY",
+        "subheadline": "Where Pixels Dance with the Cosmos",
+        "cta": "ENTER THE MATRIX"
+      },
+      "typography": {
+        "headingFont": "system-ui",
+        "bodyFont": "system-ui",
+        "scale": 1.2
+      },
+      "layout": {
+        "style": "chaotic",
+        "density": "maximum"
+      },
+      "animations": [
+        "glitch",
+        "particle",
+        "morph"
+      ],
+      "originalResponse": "```json\n{\n  \"website_name\": \"The Quantum Nebula Emporium\",\n  \"tagline\": \"Where Pixels Dance with the Cosmos\",\n  \"primary_color_hex\": \"#FF00FF\",\n  \"unique_features\": [\n    \"Interactive Particle Ecosystem: Every click spawns a new galaxy of animated particles that react to user movements and sounds from the environment.\",\n    \"Temporal Glitch Portal: Randomly teleports users to different themed micro-websites from alternate timelines (retro cyberpunk, steam-punk alien bazaar, or a dystopian amusement park).\",\n    \"Emotional AI Host: A sentient AI named 'Nebula' that morphs its appearance and personality based on the user’s typing speed and mood, offering surreal commentary and poetry.\"\n  ],\n  \"hero_headline\": \"ENTER THE VORTEX OF ABSURD CREATIVITY\"\n}\n```",
+      "usage": {
+        "prompt_tokens": 618,
+        "completion_tokens": 194,
+        "total_tokens": 812,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "id": "qwen3-coder",
+      "model": "qwen/qwen3-coder:free",
+      "generatedBy": "qwen3-coder",
+      "timestamp": "2025-08-19T14:37:48.604Z",
+      "name": "VOIDWHISPER",
+      "philosophy": "WHERE CHAOS BIRTHS CLARITY AND UNICORNS PROGRAM YOUR SOUL",
+      "colors": {
+        "primary": "#FF00FF",
+        "secondary": "#00FFFF",
+        "accent": "#FFFF00",
+        "background": "#000000",
+        "text": "#FFFFFF"
+      },
+      "features": [
+        "Mood-Responsive Typography That Screams When You're Happy and Whispers in Ancient Greek When You're Sad",
+        "Reverse Gravity Navigation Where You Swipe Down to Go Up and Buttons Flee From Your Cursor Like Shy Housecats",
+        "Living Background Ecosystem Where Every Click Feeds Digital Organisms That Evolve Into Website Features Over Time"
+      ],
+      "hero": {
+        "headline": "ABANDON ALL BORING EXPECTATIONS, YE WHO ENTER HERE",
+        "subheadline": "WHERE CHAOS BIRTHS CLARITY AND UNICORNS PROGRAM YOUR SOUL",
+        "cta": "ENTER THE MATRIX"
+      },
+      "typography": {
+        "headingFont": "system-ui",
+        "bodyFont": "system-ui",
+        "scale": 1.2
+      },
+      "layout": {
+        "style": "chaotic",
+        "density": "maximum"
+      },
+      "animations": [
+        "glitch",
+        "particle",
+        "morph"
+      ],
+      "originalResponse": "```json\n{\n  \"name\": \"VOIDWHISPER\",\n  \"tagline\": \"WHERE CHAOS BIRTHS CLARITY AND UNICORNS PROGRAM YOUR SOUL\",\n  \"primary_color\": \"#FF00FF\",\n  \"unique_features\": [\n    \"Mood-Responsive Typography That Screams When You're Happy and Whispers in Ancient Greek When You're Sad\",\n    \"Reverse Gravity Navigation Where You Swipe Down to Go Up and Buttons Flee From Your Cursor Like Shy Housecats\",\n    \"Living Background Ecosystem Where Every Click Feeds Digital Organisms That Evolve Into Website Features Over Time\"\n  ],\n  \"hero_headline\": \"ABANDON ALL BORING EXPECTATIONS, YE WHO ENTER HERE\"\n}\n```",
+      "usage": {
+        "prompt_tokens": 64,
+        "completion_tokens": 157,
+        "total_tokens": 221,
+        "prompt_tokens_details": null
+      }
+    },
+    {
+      "id": "kimi-k2",
+      "model": "moonshotai/kimi-k2:free",
+      "generatedBy": "kimi-k2",
+      "timestamp": "2025-08-19T14:38:03.627Z",
+      "name": "GlitchGizzard & the Quantum Jellyfish",
+      "philosophy": "Reality is just a slow-loading JPEG—refresh until the universe crashes.",
+      "colors": {
+        "primary": "#FFD9FF",
+        "secondary": "#00FFFF",
+        "accent": "#FFFF00",
+        "background": "#000000",
+        "text": "#FFFFFF"
+      },
+      "features": [
+        "Micro-Burrito generator that 3D-prints snackable poems into your USB-C port",
+        "Reverse nostalgia filter that shows tomorrow’s regrets in sepia-tone GIFs before you make them",
+        "Cosmic hiccup button—click for a 0.7-second interdimensional sneeze shared across every open browser tab worldwide"
+      ],
+      "hero": {
+        "headline": "Careful—your future déjà vu is already buffering here.",
+        "subheadline": "",
+        "cta": "ENTER THE MATRIX"
+      },
+      "typography": {
+        "headingFont": "system-ui",
+        "bodyFont": "system-ui",
+        "scale": 1.2
+      },
+      "layout": {
+        "style": "chaotic",
+        "density": "maximum"
+      },
+      "animations": [
+        "glitch",
+        "particle",
+        "morph"
+      ],
+      "originalResponse": "{\n  \"name\": \"GlitchGizzard & the Quantum Jellyfish\",\n  \"philosophy\": \"Reality is just a slow-loading JPEG—refresh until the universe crashes.\",\n  \"primary_color\": \"#FFD9FF\",\n  \"features\": [\n    \"Micro-Burrito generator that 3D-prints snackable poems into your USB-C port\",\n    \"Reverse nostalgia filter that shows tomorrow’s regrets in sepia-tone GIFs before you make them\",\n    \"Cosmic hiccup button—click for a 0.7-second interdimensional sneeze shared across every open browser tab worldwide\"\n  ],\n  \"hero_headline\": \"Careful—your future déjà vu is already buffering here.\"\n}",
+      "usage": {
+        "prompt_tokens": 81,
+        "completion_tokens": 150,
+        "total_tokens": 231,
+        "prompt_tokens_details": null
+      }
+    }
+  ]
+}

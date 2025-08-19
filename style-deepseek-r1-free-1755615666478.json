@@ -1,0 +1,10 @@
+{
+  "model": "deepseek/deepseek-r1:free",
+  "response": "```json\n{\n  \"websiteBlueprint\": {\n    \"name\": \"Aurora CyberGarden\",\n    \"theme\": \"A surreal fusion of bioluminescent nature and glitchy cyberpunk futurism\",\n    \"colorPalette\": {\n      \"primary\": [\"#0a0f1d\", \"deep space blue\"],\n      \"secondary\": [\"#ff00ff\", \"holographic pink\"],\n      \"accents\": [\"#39ff14\", \"neon circuit green\"],\n      \"backgroundEffect\": \"Iridescent particle clouds that react to mouse turbulence\",\n      \"text\": [\"#e0e0e0\", \"soft CRT glow\"]\n    },\n    \"coreFeelings\": [\"Playful discovery\", \"Digital serenity\", \"Curious nostalgia\"],\n    \"keyFeatures\": [\n      \"Liquid typography that drips/reacts to hover\",\n      \"Floating islands of content that orbit the cursor\",\n      \"Ambient glitch creatures that peek from screen edges\",\n      \"Breathing gradients synced to user's scroll rhythm\",\n      \"AIs whispering poetic nonsense in the background\"\n    ],\n    \"interactiveElements\": {\n      \"chaosMode\": {\n        \"trigger\": \"Triple-click the moon in header\",\n        \"effect\": \"Transforms site into vaporwave dinosaur parade\"\n      },\n      \"moodSlime\": {\n        \"description\": \"Sentient footer blob that mimics user's browsing mood\",\n        \"behaviors\": [\"Dances when happy\", \"Eats cookies\", \"Glows red during error states",
+  "usage": {
+    "prompt_tokens": 53,
+    "completion_tokens": 1000,
+    "total_tokens": 1053
+  },
+  "timestamp": "2025-08-19T15:01:06.478Z"
+}

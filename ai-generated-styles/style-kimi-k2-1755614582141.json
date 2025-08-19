@@ -1,0 +1,46 @@
+{
+  "id": "kimi-k2",
+  "model": "moonshotai/kimi-k2:free",
+  "generatedBy": "kimi-k2",
+  "timestamp": "2025-08-19T14:38:03.627Z",
+  "name": "GlitchGizzard & the Quantum Jellyfish",
+  "philosophy": "Reality is just a slow-loading JPEG—refresh until the universe crashes.",
+  "colors": {
+    "primary": "#FFD9FF",
+    "secondary": "#00FFFF",
+    "accent": "#FFFF00",
+    "background": "#000000",
+    "text": "#FFFFFF"
+  },
+  "features": [
+    "Micro-Burrito generator that 3D-prints snackable poems into your USB-C port",
+    "Reverse nostalgia filter that shows tomorrow’s regrets in sepia-tone GIFs before you make them",
+    "Cosmic hiccup button—click for a 0.7-second interdimensional sneeze shared across every open browser tab worldwide"
+  ],
+  "hero": {
+    "headline": "Careful—your future déjà vu is already buffering here.",
+    "subheadline": "",
+    "cta": "ENTER THE MATRIX"
+  },
+  "typography": {
+    "headingFont": "system-ui",
+    "bodyFont": "system-ui",
+    "scale": 1.2
+  },
+  "layout": {
+    "style": "chaotic",
+    "density": "maximum"
+  },
+  "animations": [
+    "glitch",
+    "particle",
+    "morph"
+  ],
+  "originalResponse": "{\n  \"name\": \"GlitchGizzard & the Quantum Jellyfish\",\n  \"philosophy\": \"Reality is just a slow-loading JPEG—refresh until the universe crashes.\",\n  \"primary_color\": \"#FFD9FF\",\n  \"features\": [\n    \"Micro-Burrito generator that 3D-prints snackable poems into your USB-C port\",\n    \"Reverse nostalgia filter that shows tomorrow’s regrets in sepia-tone GIFs before you make them\",\n    \"Cosmic hiccup button—click for a 0.7-second interdimensional sneeze shared across every open browser tab worldwide\"\n  ],\n  \"hero_headline\": \"Careful—your future déjà vu is already buffering here.\"\n}",
+  "usage": {
+    "prompt_tokens": 81,
+    "completion_tokens": 150,
+    "total_tokens": 231,
+    "prompt_tokens_details": null
+  }
+}

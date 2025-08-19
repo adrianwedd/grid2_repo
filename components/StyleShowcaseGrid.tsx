@@ -84,6 +84,55 @@ const STYLES: Array<{
     name: 'Zen Tranquil',
     description: 'Peaceful, balanced harmony',
     colors: { primary: '#4A5568', secondary: '#718096', background: '#F7FAFC' }
+  },
+  // AI Generated Styles
+  {
+    value: 'playful',
+    name: 'Quantum Nebula',
+    description: 'Where Pixels Dance with the Cosmos',
+    colors: { primary: '#FF00FF', secondary: '#00FFFF', background: '#000000' }
+  },
+  {
+    value: 'bold',
+    name: 'DeepSeek Enigma',
+    description: 'Where logic transcends reality',
+    colors: { primary: '#0080FF', secondary: '#4B0082', background: '#0A0A0A' }
+  },
+  {
+    value: 'creative',
+    name: 'Thunder Goat',
+    description: 'Where Chaos Meets Brilliance',
+    colors: { primary: '#FF00F6', secondary: '#8B00FF', background: '#1A001A' }
+  },
+  {
+    value: 'playful',
+    name: 'VOIDWHISPER',
+    description: 'CHAOS BIRTHS CLARITY',
+    colors: { primary: '#FF00FF', secondary: '#000000', background: '#FFFFFF' }
+  },
+  {
+    value: 'retro',
+    name: 'Psychedelic Café',
+    description: 'Time, Space, and Flavors Collide',
+    colors: { primary: '#FF69B4', secondary: '#FFA500', background: '#2F004F' }
+  },
+  {
+    value: 'playful',
+    name: 'GlitchGizzard',
+    description: 'Reality is a slow-loading JPEG',
+    colors: { primary: '#FFD9FF', secondary: '#DDA0DD', background: '#1C0033' }
+  },
+  {
+    value: 'modern',
+    name: 'GLM Air Flow',
+    description: 'Breathe in the digital atmosphere',
+    colors: { primary: '#00FFCC', secondary: '#40E0D0', background: '#001A33' }
+  },
+  {
+    value: 'creative',
+    name: 'Quantum Quokka',
+    description: 'Reality Melts, Imagination Bakes',
+    colors: { primary: '#FF66CC', secondary: '#CC66FF', background: '#330033' }
   }
 ];
 
