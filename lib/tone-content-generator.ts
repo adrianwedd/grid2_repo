@@ -2,8 +2,15 @@
 // Generate tone-specific content for each personality
 
 import type { ContentGraph, Tone } from '@/types/section-system';
+import { creativeContent } from '@/lib/creative-content';
 
 export function generateToneSpecificContent(tone: Tone): ContentGraph {
+  // Use creative content generator for more hilarious text
+  const heroContent = creativeContent.generateHeroContent(tone);
+  const features = creativeContent.generateFeatureContent(tone);
+  const ctaContent = creativeContent.generateCTAContent(tone);
+  
+  // Build content graph with creative content
   const contentByTone: Record<Tone, ContentGraph> = {
     minimal: {
       hero: {

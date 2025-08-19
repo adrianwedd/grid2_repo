@@ -2,6 +2,7 @@
 import React from 'react';
 import type { SectionProps } from '@/types/section-system';
 import Image from 'next/image';
+import { creativeContent } from '@/lib/creative-content';
 
 interface FeaturesCards3UpProps extends SectionProps {
   content: {
@@ -169,9 +170,9 @@ export function FeaturesCards3Up({ content, tone = 'minimal' }: FeaturesCards3Up
               </div>
 
               <h3 className={`text-xl font-semibold leading-7 ${styles.title}`}>{title}</h3>
-              {/* Optional: small default blurb to avoid empty card feel */}
+              {/* Use hilarious discovery text based on tone */}
               <p className={`mt-4 text-base leading-7 ${styles.description}`}>
-                {`Discover more about ${title.toLowerCase()}.`}
+                {creativeContent.getDiscoveryText(brand.tone, title)}
               </p>
             </div>
           ))}

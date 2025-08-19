@@ -428,10 +428,132 @@ export function getRandomPlaceholder(): string {
   return placeholders[Math.floor(Math.random() * placeholders.length)];
 }
 
+// Hilarious discovery/teaser text based on tone
+const DISCOVERY_TEASERS = {
+  minimal: [
+    'Uncover the beauty of doing less, better',
+    'Dive into the art of strategic emptiness',
+    'Experience the power of purposeful absence',
+    'Master the zen of productive minimalism',
+    'Witness simplicity\'s secret superpowers'
+  ],
+  bold: [
+    'Brace yourself for maximum impact potential',
+    'Unleash the beast that\'s been sleeping inside',
+    'Discover why subtle is overrated',
+    'Get ready to make some serious noise',
+    'Warning: May cause spontaneous confidence'
+  ],
+  playful: [
+    'Jump down the rabbit hole of pure joy',
+    'Tickle your brain with delightful surprises',
+    'Where serious meets silly and they become friends',
+    'Professional fun, amateur boring',
+    'Caution: Extreme happiness ahead'
+  ],
+  corporate: [
+    'Leverage synergistic value propositions',
+    'Optimize your strategic imperatives today',
+    'Disrupt the paradigm, shift the narrative',
+    'Unlock enterprise-grade excitement levels',
+    'Achieve unprecedented ROI on attention'
+  ],
+  elegant: [
+    'Indulge in refined digital craftsmanship',
+    'Savor the subtleties of sophisticated design',
+    'Experience luxury without the attitude',
+    'Where grace meets gigabytes',
+    'Cultivate your distinguished digital presence'
+  ],
+  modern: [
+    'Download tomorrow\'s solutions today',
+    'Experience the bleeding edge (safely)',
+    'Your portal to the post-post-modern',
+    'Warning: May cause temporal displacement',
+    'The future wants to be your friend'
+  ],
+  warm: [
+    'Snuggle up to something special',
+    'Like a hug from your favorite website',
+    'Comfort food for your eyeballs',
+    'Where pixels feel like home',
+    'Your cozy corner of the internet'
+  ],
+  luxury: [
+    'Reserved for those with impeccable standards',
+    'Exclusively inclusive digital experiences',
+    'Where premium meets its match',
+    'Caviar wishes, champagne clicks',
+    'First class, no turbulence'
+  ],
+  creative: [
+    'Color outside the lines, inside the box, who cares',
+    'Where weird is the highest compliment',
+    'Normalcy not found. Thank goodness.',
+    'Unconventional by design, delightful by accident',
+    'Your license to be brilliantly bizarre'
+  ],
+  nature: [
+    'Organically grown, digitally delivered',
+    'Free-range features in their natural habitat',
+    'Carbon neutral, creativity positive',
+    'Sustainably sourced satisfaction',
+    'Mother Nature\'s favorite website'
+  ],
+  retro: [
+    'Rewind to fast-forward your success',
+    'Yesterday\'s future is today\'s reality',
+    'Nostalgia with a modern twist',
+    'Old school cool, new school rules',
+    'Your time machine awaits'
+  ],
+  monochrome: [
+    'Fifty shades of getting it done',
+    'Color is overrated. Results aren\'t.',
+    'Black, white, and read all over',
+    'Minimalist palette, maximalist impact',
+    'Grayscale greatness guaranteed'
+  ],
+  techno: [
+    'Enter the digital dimension',
+    'Reality.exe has stopped responding',
+    'Your cyberpunk dreams realized',
+    'Upload your consciousness here',
+    'The matrix has you now'
+  ],
+  zen: [
+    'Breathe in features, breathe out stress',
+    'Enlightenment loading... please wait',
+    'Your path to digital dharma',
+    'Inner peace, outer performance',
+    'Om my god, it\'s beautiful'
+  ]
+} as const;
+
+// Function to get random discovery text for a tone
+export function getDiscoveryText(tone: Tone, featureTitle?: string): string {
+  const teasers = DISCOVERY_TEASERS[tone as keyof typeof DISCOVERY_TEASERS] || DISCOVERY_TEASERS.minimal;
+  const randomTeaser = teasers[Math.floor(Math.random() * teasers.length)];
+  
+  if (featureTitle) {
+    // Create contextual discovery text
+    const contextual = [
+      `${randomTeaser} with ${featureTitle}`,
+      `How ${featureTitle} ${randomTeaser.toLowerCase()}`,
+      `${featureTitle}: ${randomTeaser}`,
+      randomTeaser // Sometimes just use the teaser alone
+    ];
+    return contextual[Math.floor(Math.random() * contextual.length)];
+  }
+  
+  return randomTeaser;
+}
+
 // Export for use in generation
 export const creativeContent = {
   generateHeroContent,
   generateFeatureContent,
   generateCTAContent,
-  getRandomPlaceholder
+  getRandomPlaceholder,
+  getDiscoveryText
 };
