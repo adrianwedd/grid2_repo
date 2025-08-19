@@ -257,6 +257,7 @@ export function StyleShowcaseGrid() {
   const [pages, setPages] = useState<Record<Tone, PageNode | null>>({} as any);
   const [loading, setLoading] = useState<Record<Tone, boolean>>({} as any);
   const [previewStyle, setPreviewStyle] = useState<Tone | null>(null);
+  const [mounted, setMounted] = useState(false);
   const [imageStats, setImageStats] = useState({ 
     placeholders: 0, 
     generated: 0, 
@@ -266,6 +267,9 @@ export function StyleShowcaseGrid() {
   });
 
   useEffect(() => {
+    // Mark as mounted to handle hydration
+    setMounted(true);
+    
     // Initialize image provider and get stats
     const loadImageStats = async () => {
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -277,7 +281,7 @@ export function StyleShowcaseGrid() {
 
     loadImageStats();
 
-    // Generate all pages
+    // Generate all pages after mount to avoid hydration mismatch
     STYLES.forEach(style => {
       generateStylePage(style.value);
     });
