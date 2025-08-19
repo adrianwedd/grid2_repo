@@ -110,7 +110,7 @@ export function HeroSplitImageLeft({
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2 lg:items-center">
           <div className="order-2 lg:order-1">
-            <h1 className={`font-heading text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl ${styles.headline}`}>
+            <h1 className={`font-heading text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl break-words relative z-10 ${styles.headline}`}>
               {content.headline}
             </h1>
 

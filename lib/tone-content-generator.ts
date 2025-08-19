@@ -231,7 +231,7 @@ export function generateToneSpecificContent(tone: Tone): ContentGraph {
     
     modern: {
       hero: {
-        headline: '> NEXT_GEN_PLATFORM.init()',
+        headline: '> NEXT GEN PLATFORM',
         subheadline: 'Bleeding-edge tech stack. Async everything. Built for developers who live in the future.',
         bullets: [
           'GraphQL + WebSockets',
