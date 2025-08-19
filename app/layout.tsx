@@ -1,4 +1,7 @@
-export const metadata = { title: 'Grid 2.0 Demo' };
+export const metadata = { 
+  title: 'Grid 2.0 Demo',
+  description: 'AI-powered deterministic website builder'
+};
 
 import { Navigation } from '@/components/Navigation';
 import { Analytics } from '@vercel/analytics/next';
