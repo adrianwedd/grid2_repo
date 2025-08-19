@@ -96,9 +96,10 @@ interface StyleCardProps {
     hasGenerated: boolean;
     hasPlaceholder: boolean;
   };
+  onPreview: () => void;
 }
 
-function StyleCard({ style, page, loading, imageStats }: StyleCardProps) {
+function StyleCard({ style, page, loading, imageStats, onPreview }: StyleCardProps) {
   // Extract images from the page sections
   const getImages = () => {
     if (!page || !page.sections) return [];
@@ -125,7 +126,10 @@ function StyleCard({ style, page, loading, imageStats }: StyleCardProps) {
   const images = getImages();
   
   return (
-    <div className="group relative overflow-hidden rounded-xl border-2 border-gray-200 bg-white hover:border-gray-400 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+    <div 
+      className="group relative overflow-hidden rounded-xl border-2 border-gray-200 bg-white hover:border-gray-400 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+      onClick={onPreview}
+    >
       {/* Color bar header */}
       <div 
         className="h-3 bg-gradient-to-r"
@@ -236,6 +240,15 @@ function StyleCard({ style, page, loading, imageStats }: StyleCardProps) {
           </div>
         </div>
       </div>
+      
+      {/* Preview overlay */}
+      {!loading && page && (
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+          <div className="bg-white rounded-lg px-4 py-2 shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+            <span className="text-sm font-medium text-gray-900">Click to preview</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -243,6 +256,7 @@ function StyleCard({ style, page, loading, imageStats }: StyleCardProps) {
 export function StyleShowcaseGrid() {
   const [pages, setPages] = useState<Record<Tone, PageNode | null>>({} as any);
   const [loading, setLoading] = useState<Record<Tone, boolean>>({} as any);
+  const [previewStyle, setPreviewStyle] = useState<Tone | null>(null);
   const [imageStats, setImageStats] = useState({ 
     placeholders: 0, 
     generated: 0, 
@@ -268,6 +282,27 @@ export function StyleShowcaseGrid() {
       generateStylePage(style.value);
     });
   }, []);
+
+  // Handle keyboard events for modal
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && previewStyle) {
+        setPreviewStyle(null);
+      }
+    };
+
+    if (previewStyle) {
+      document.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'auto';
+    };
+  }, [previewStyle]);
 
   const generateStylePage = async (tone: Tone) => {
     setLoading(prev => ({ ...prev, [tone]: true }));
@@ -350,6 +385,7 @@ export function StyleShowcaseGrid() {
               page={pages[style.value]}
               loading={loading[style.value] || false}
               imageStats={getImageStatsForStyle(style.value)}
+              onPreview={() => setPreviewStyle(style.value)}
             />
           ))}
         </div>
@@ -364,6 +400,59 @@ export function StyleShowcaseGrid() {
           </p>
         </div>
       </div>
+
+      {/* Full-screen preview modal */}
+      {previewStyle && pages[previewStyle] && (
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          {/* Modal content */}
+          <div className="bg-white rounded-xl shadow-2xl w-full h-full max-w-6xl max-h-[90vh] flex flex-col overflow-hidden">
+            {/* Modal header */}
+            <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-white">
+              <div className="flex items-center gap-4">
+                <div 
+                  className="w-6 h-6 rounded bg-gradient-to-r"
+                  style={{
+                    background: `linear-gradient(to right, ${STYLES.find(s => s.value === previewStyle)?.colors.primary}, ${STYLES.find(s => s.value === previewStyle)?.colors.secondary})`
+                  }}
+                />
+                <div>
+                  <h2 className="text-xl font-bold text-gray-900">
+                    {STYLES.find(s => s.value === previewStyle)?.name}
+                  </h2>
+                  <p className="text-sm text-gray-600">
+                    {STYLES.find(s => s.value === previewStyle)?.description}
+                  </p>
+                </div>
+              </div>
+              
+              <button
+                onClick={() => setPreviewStyle(null)}
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                aria-label="Close preview"
+              >
+                <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            {/* Scrollable preview content */}
+            <div className="flex-1 overflow-auto bg-gray-50">
+              <div className="min-h-full">
+                <PageRenderer page={pages[previewStyle]!} />
+              </div>
+            </div>
+            
+            {/* Modal footer */}
+            <div className="p-4 bg-white border-t border-gray-200">
+              <div className="flex items-center justify-between text-sm text-gray-500">
+                <span>Full preview of {previewStyle} style</span>
+                <span>{pages[previewStyle]?.sections.length} sections • {pages[previewStyle]?.sections.reduce((acc, section) => acc + (section.props?.media?.length || 0), 0)} images</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
