@@ -1,0 +1,212 @@
+🚀 Testing ALL Free OpenRouter Models
+============================================================
+Prompt: "Write a catchy headline for an AI website builder (5-7 words, be creative and fun)"
+============================================================
+📋 Fetching all free models...
+Found 54 free models
+
+
+📦 Testing batch 1/11
+  Testing: agentica-org/deepcoder-14b-preview:free
+  Testing: arliai/qwq-32b-arliai-rpr-v1:free
+  Testing: cognitivecomputations/dolphin-mistral-24b-venice-edition:free
+  Testing: cognitivecomputations/dolphin3.0-mistral-24b:free
+  Testing: cognitivecomputations/dolphin3.0-r1-mistral-24b:free
+    ❌ agentica-org/deepcoder-14b-preview:free: {"error":{"message":"User not found.","code":401}}
+    ❌ arliai/qwq-32b-arliai-rpr-v1:free: {"error":{"message":"User not found.","code":401}}
+    ❌ cognitivecomputations/dolphin-mistral-24b-venice-edition:free: {"error":{"message":"User not found.","code":401}}
+    ❌ cognitivecomputations/dolphin3.0-mistral-24b:free: {"error":{"message":"User not found.","code":401}}
+    ❌ cognitivecomputations/dolphin3.0-r1-mistral-24b:free: {"error":{"message":"User not found.","code":401}}
+
+📦 Testing batch 2/11
+  Testing: deepseek/deepseek-chat-v3-0324:free
+  Testing: deepseek/deepseek-r1-0528-qwen3-8b:free
+  Testing: deepseek/deepseek-r1-0528:free
+  Testing: deepseek/deepseek-r1-distill-llama-70b:free
+  Testing: deepseek/deepseek-r1-distill-qwen-14b:free
+    ❌ deepseek/deepseek-chat-v3-0324:free: {"error":{"message":"User not found.","code":401}}
+    ❌ deepseek/deepseek-r1-0528-qwen3-8b:free: {"error":{"message":"User not found.","code":401}}
+    ❌ deepseek/deepseek-r1-0528:free: {"error":{"message":"User not found.","code":401}}
+    ❌ deepseek/deepseek-r1-distill-llama-70b:free: {"error":{"message":"User not found.","code":401}}
+    ❌ deepseek/deepseek-r1-distill-qwen-14b:free: {"error":{"message":"User not found.","code":401}}
+
+📦 Testing batch 3/11
+  Testing: deepseek/deepseek-r1:free
+  Testing: featherless/qwerky-72b:free
+  Testing: google/gemini-2.0-flash-exp:free
+  Testing: google/gemma-2-9b-it:free
+  Testing: google/gemma-3-12b-it:free
+    ❌ deepseek/deepseek-r1:free: {"error":{"message":"User not found.","code":401}}
+    ❌ featherless/qwerky-72b:free: {"error":{"message":"User not found.","code":401}}
+    ❌ google/gemini-2.0-flash-exp:free: {"error":{"message":"User not found.","code":401}}
+    ❌ google/gemma-2-9b-it:free: {"error":{"message":"User not found.","code":401}}
+    ❌ google/gemma-3-12b-it:free: {"error":{"message":"User not found.","code":401}}
+
+📦 Testing batch 4/11
+  Testing: google/gemma-3-27b-it:free
+  Testing: google/gemma-3-4b-it:free
+  Testing: google/gemma-3n-e2b-it:free
+  Testing: google/gemma-3n-e4b-it:free
+  Testing: meta-llama/llama-3.1-405b-instruct:free
+    ❌ google/gemma-3-27b-it:free: {"error":{"message":"User not found.","code":401}}
+    ❌ google/gemma-3-4b-it:free: {"error":{"message":"User not found.","code":401}}
+    ❌ google/gemma-3n-e2b-it:free: {"error":{"message":"User not found.","code":401}}
+    ❌ google/gemma-3n-e4b-it:free: {"error":{"message":"User not found.","code":401}}
+    ❌ meta-llama/llama-3.1-405b-instruct:free: {"error":{"message":"User not found.","code":401}}
+
+📦 Testing batch 5/11
+  Testing: meta-llama/llama-3.2-11b-vision-instruct:free
+  Testing: meta-llama/llama-3.2-3b-instruct:free
+  Testing: meta-llama/llama-3.3-70b-instruct:free
+  Testing: microsoft/mai-ds-r1:free
+  Testing: mistralai/devstral-small-2505:free
+    ❌ meta-llama/llama-3.2-11b-vision-instruct:free: {"error":{"message":"User not found.","code":401}}
+    ❌ meta-llama/llama-3.2-3b-instruct:free: {"error":{"message":"User not found.","code":401}}
+    ❌ meta-llama/llama-3.3-70b-instruct:free: {"error":{"message":"User not found.","code":401}}
+    ❌ microsoft/mai-ds-r1:free: {"error":{"message":"User not found.","code":401}}
+    ❌ mistralai/devstral-small-2505:free: {"error":{"message":"User not found.","code":401}}
+
+📦 Testing batch 6/11
+  Testing: mistralai/mistral-7b-instruct:free
+  Testing: mistralai/mistral-nemo:free
+  Testing: mistralai/mistral-small-24b-instruct-2501:free
+  Testing: mistralai/mistral-small-3.1-24b-instruct:free
+  Testing: mistralai/mistral-small-3.2-24b-instruct:free
+    ❌ mistralai/mistral-7b-instruct:free: {"error":{"message":"User not found.","code":401}}
+    ❌ mistralai/mistral-nemo:free: {"error":{"message":"User not found.","code":401}}
+    ❌ mistralai/mistral-small-24b-instruct-2501:free: {"error":{"message":"User not found.","code":401}}
+    ❌ mistralai/mistral-small-3.1-24b-instruct:free: {"error":{"message":"User not found.","code":401}}
+    ❌ mistralai/mistral-small-3.2-24b-instruct:free: {"error":{"message":"User not found.","code":401}}
+
+📦 Testing batch 7/11
+  Testing: moonshotai/kimi-dev-72b:free
+  Testing: moonshotai/kimi-k2:free
+  Testing: moonshotai/kimi-vl-a3b-thinking:free
+  Testing: nousresearch/deephermes-3-llama-3-8b-preview:free
+  Testing: nvidia/llama-3.1-nemotron-ultra-253b-v1:free
+    ❌ moonshotai/kimi-dev-72b:free: {"error":{"message":"User not found.","code":401}}
+    ❌ moonshotai/kimi-k2:free: {"error":{"message":"User not found.","code":401}}
+    ❌ moonshotai/kimi-vl-a3b-thinking:free: {"error":{"message":"User not found.","code":401}}
+    ❌ nousresearch/deephermes-3-llama-3-8b-preview:free: {"error":{"message":"User not found.","code":401}}
+    ❌ nvidia/llama-3.1-nemotron-ultra-253b-v1:free: {"error":{"message":"User not found.","code":401}}
+
+📦 Testing batch 8/11
+  Testing: openai/gpt-oss-20b:free
+  Testing: qwen/qwen-2.5-72b-instruct:free
+  Testing: qwen/qwen-2.5-coder-32b-instruct:free
+  Testing: qwen/qwen2.5-vl-32b-instruct:free
+  Testing: qwen/qwen2.5-vl-72b-instruct:free
+    ❌ openai/gpt-oss-20b:free: {"error":{"message":"User not found.","code":401}}
+    ❌ qwen/qwen-2.5-72b-instruct:free: {"error":{"message":"User not found.","code":401}}
+    ❌ qwen/qwen-2.5-coder-32b-instruct:free: {"error":{"message":"User not found.","code":401}}
+    ❌ qwen/qwen2.5-vl-32b-instruct:free: {"error":{"message":"User not found.","code":401}}
+    ❌ qwen/qwen2.5-vl-72b-instruct:free: {"error":{"message":"User not found.","code":401}}
+
+📦 Testing batch 9/11
+  Testing: qwen/qwen3-14b:free
+  Testing: qwen/qwen3-235b-a22b:free
+  Testing: qwen/qwen3-30b-a3b:free
+  Testing: qwen/qwen3-4b:free
+  Testing: qwen/qwen3-8b:free
+    ❌ qwen/qwen3-14b:free: {"error":{"message":"User not found.","code":401}}
+    ❌ qwen/qwen3-235b-a22b:free: {"error":{"message":"User not found.","code":401}}
+    ❌ qwen/qwen3-30b-a3b:free: {"error":{"message":"User not found.","code":401}}
+    ❌ qwen/qwen3-4b:free: {"error":{"message":"User not found.","code":401}}
+    ❌ qwen/qwen3-8b:free: {"error":{"message":"User not found.","code":401}}
+
+📦 Testing batch 10/11
+  Testing: qwen/qwen3-coder:free
+  Testing: qwen/qwq-32b:free
+  Testing: rekaai/reka-flash-3:free
+  Testing: sarvamai/sarvam-m:free
+  Testing: shisa-ai/shisa-v2-llama3.3-70b:free
+    ❌ qwen/qwen3-coder:free: {"error":{"message":"User not found.","code":401}}
+    ❌ qwen/qwq-32b:free: {"error":{"message":"User not found.","code":401}}
+    ❌ rekaai/reka-flash-3:free: {"error":{"message":"User not found.","code":401}}
+    ❌ sarvamai/sarvam-m:free: {"error":{"message":"User not found.","code":401}}
+    ❌ shisa-ai/shisa-v2-llama3.3-70b:free: {"error":{"message":"User not found.","code":401}}
+
+📦 Testing batch 11/11
+  Testing: tencent/hunyuan-a13b-instruct:free
+  Testing: tngtech/deepseek-r1t-chimera:free
+  Testing: tngtech/deepseek-r1t2-chimera:free
+  Testing: z-ai/glm-4.5-air:free
+    ❌ tencent/hunyuan-a13b-instruct:free: {"error":{"message":"User not found.","code":401}}
+    ❌ tngtech/deepseek-r1t-chimera:free: {"error":{"message":"User not found.","code":401}}
+    ❌ tngtech/deepseek-r1t2-chimera:free: {"error":{"message":"User not found.","code":401}}
+    ❌ z-ai/glm-4.5-air:free: {"error":{"message":"User not found.","code":401}}
+
+============================================================
+📊 FINAL REPORT
+============================================================
+
+✅ Success: 0/54 models
+❌ Failed: 54/54 models
+
+✨ SAMPLE OUTPUTS:
+
+⚠️ FAILED MODELS:
+  agentica-org/deepcoder-14b-preview:free: {"error":{"message":"User not found.","code":401}}
+  arliai/qwq-32b-arliai-rpr-v1:free: {"error":{"message":"User not found.","code":401}}
+  cognitivecomputations/dolphin-mistral-24b-venice-edition:free: {"error":{"message":"User not found.","code":401}}
+  cognitivecomputations/dolphin3.0-mistral-24b:free: {"error":{"message":"User not found.","code":401}}
+  cognitivecomputations/dolphin3.0-r1-mistral-24b:free: {"error":{"message":"User not found.","code":401}}
+  deepseek/deepseek-chat-v3-0324:free: {"error":{"message":"User not found.","code":401}}
+  deepseek/deepseek-r1-0528-qwen3-8b:free: {"error":{"message":"User not found.","code":401}}
+  deepseek/deepseek-r1-0528:free: {"error":{"message":"User not found.","code":401}}
+  deepseek/deepseek-r1-distill-llama-70b:free: {"error":{"message":"User not found.","code":401}}
+  deepseek/deepseek-r1-distill-qwen-14b:free: {"error":{"message":"User not found.","code":401}}
+  deepseek/deepseek-r1:free: {"error":{"message":"User not found.","code":401}}
+  featherless/qwerky-72b:free: {"error":{"message":"User not found.","code":401}}
+  google/gemini-2.0-flash-exp:free: {"error":{"message":"User not found.","code":401}}
+  google/gemma-2-9b-it:free: {"error":{"message":"User not found.","code":401}}
+  google/gemma-3-12b-it:free: {"error":{"message":"User not found.","code":401}}
+  google/gemma-3-27b-it:free: {"error":{"message":"User not found.","code":401}}
+  google/gemma-3-4b-it:free: {"error":{"message":"User not found.","code":401}}
+  google/gemma-3n-e2b-it:free: {"error":{"message":"User not found.","code":401}}
+  google/gemma-3n-e4b-it:free: {"error":{"message":"User not found.","code":401}}
+  meta-llama/llama-3.1-405b-instruct:free: {"error":{"message":"User not found.","code":401}}
+  meta-llama/llama-3.2-11b-vision-instruct:free: {"error":{"message":"User not found.","code":401}}
+  meta-llama/llama-3.2-3b-instruct:free: {"error":{"message":"User not found.","code":401}}
+  meta-llama/llama-3.3-70b-instruct:free: {"error":{"message":"User not found.","code":401}}
+  microsoft/mai-ds-r1:free: {"error":{"message":"User not found.","code":401}}
+  mistralai/devstral-small-2505:free: {"error":{"message":"User not found.","code":401}}
+  mistralai/mistral-7b-instruct:free: {"error":{"message":"User not found.","code":401}}
+  mistralai/mistral-nemo:free: {"error":{"message":"User not found.","code":401}}
+  mistralai/mistral-small-24b-instruct-2501:free: {"error":{"message":"User not found.","code":401}}
+  mistralai/mistral-small-3.1-24b-instruct:free: {"error":{"message":"User not found.","code":401}}
+  mistralai/mistral-small-3.2-24b-instruct:free: {"error":{"message":"User not found.","code":401}}
+  moonshotai/kimi-dev-72b:free: {"error":{"message":"User not found.","code":401}}
+  moonshotai/kimi-k2:free: {"error":{"message":"User not found.","code":401}}
+  moonshotai/kimi-vl-a3b-thinking:free: {"error":{"message":"User not found.","code":401}}
+  nousresearch/deephermes-3-llama-3-8b-preview:free: {"error":{"message":"User not found.","code":401}}
+  nvidia/llama-3.1-nemotron-ultra-253b-v1:free: {"error":{"message":"User not found.","code":401}}
+  openai/gpt-oss-20b:free: {"error":{"message":"User not found.","code":401}}
+  qwen/qwen-2.5-72b-instruct:free: {"error":{"message":"User not found.","code":401}}
+  qwen/qwen-2.5-coder-32b-instruct:free: {"error":{"message":"User not found.","code":401}}
+  qwen/qwen2.5-vl-32b-instruct:free: {"error":{"message":"User not found.","code":401}}
+  qwen/qwen2.5-vl-72b-instruct:free: {"error":{"message":"User not found.","code":401}}
+  qwen/qwen3-14b:free: {"error":{"message":"User not found.","code":401}}
+  qwen/qwen3-235b-a22b:free: {"error":{"message":"User not found.","code":401}}
+  qwen/qwen3-30b-a3b:free: {"error":{"message":"User not found.","code":401}}
+  qwen/qwen3-4b:free: {"error":{"message":"User not found.","code":401}}
+  qwen/qwen3-8b:free: {"error":{"message":"User not found.","code":401}}
+  qwen/qwen3-coder:free: {"error":{"message":"User not found.","code":401}}
+  qwen/qwq-32b:free: {"error":{"message":"User not found.","code":401}}
+  rekaai/reka-flash-3:free: {"error":{"message":"User not found.","code":401}}
+  sarvamai/sarvam-m:free: {"error":{"message":"User not found.","code":401}}
+  shisa-ai/shisa-v2-llama3.3-70b:free: {"error":{"message":"User not found.","code":401}}
+  tencent/hunyuan-a13b-instruct:free: {"error":{"message":"User not found.","code":401}}
+  tngtech/deepseek-r1t-chimera:free: {"error":{"message":"User not found.","code":401}}
+  tngtech/deepseek-r1t2-chimera:free: {"error":{"message":"User not found.","code":401}}
+  z-ai/glm-4.5-air:free: {"error":{"message":"User not found.","code":401}}
+
+💾 Full results saved to: all-models-test-2025-08-19T12-49-35-300Z.json
+
+============================================================
+🎯 KEY FINDINGS:
+============================================================
+• 0 models work perfectly!
+• Average response time: NaNms
+• Fastest model: undefined (undefinedms)
+• All working models can follow instructions!

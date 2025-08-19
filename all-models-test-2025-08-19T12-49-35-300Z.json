@@ -1,0 +1,387 @@
+{
+  "timestamp": "2025-08-19T12:49:35.301Z",
+  "prompt": "Write a catchy headline for an AI website builder (5-7 words, be creative and fun)",
+  "totalModels": 54,
+  "successful": 0,
+  "failed": 54,
+  "results": [
+    {
+      "model": "agentica-org/deepcoder-14b-preview:free",
+      "name": "Agentica: Deepcoder 14B Preview (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 377
+    },
+    {
+      "model": "arliai/qwq-32b-arliai-rpr-v1:free",
+      "name": "ArliAI: QwQ 32B RpR v1 (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 433
+    },
+    {
+      "model": "cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
+      "name": "Venice: Uncensored (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 433
+    },
+    {
+      "model": "cognitivecomputations/dolphin3.0-mistral-24b:free",
+      "name": "Dolphin3.0 Mistral 24B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 439
+    },
+    {
+      "model": "cognitivecomputations/dolphin3.0-r1-mistral-24b:free",
+      "name": "Dolphin3.0 R1 Mistral 24B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 443
+    },
+    {
+      "model": "deepseek/deepseek-chat-v3-0324:free",
+      "name": "DeepSeek: DeepSeek V3 0324 (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 132
+    },
+    {
+      "model": "deepseek/deepseek-r1-0528-qwen3-8b:free",
+      "name": "DeepSeek: Deepseek R1 0528 Qwen3 8B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 142
+    },
+    {
+      "model": "deepseek/deepseek-r1-0528:free",
+      "name": "DeepSeek: R1 0528 (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 240
+    },
+    {
+      "model": "deepseek/deepseek-r1-distill-llama-70b:free",
+      "name": "DeepSeek: R1 Distill Llama 70B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 114
+    },
+    {
+      "model": "deepseek/deepseek-r1-distill-qwen-14b:free",
+      "name": "DeepSeek: R1 Distill Qwen 14B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 143
+    },
+    {
+      "model": "deepseek/deepseek-r1:free",
+      "name": "DeepSeek: R1 (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 141
+    },
+    {
+      "model": "featherless/qwerky-72b:free",
+      "name": "Qrwkv 72B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 139
+    },
+    {
+      "model": "google/gemini-2.0-flash-exp:free",
+      "name": "Google: Gemini 2.0 Flash Experimental (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 149
+    },
+    {
+      "model": "google/gemma-2-9b-it:free",
+      "name": "Google: Gemma 2 9B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 163
+    },
+    {
+      "model": "google/gemma-3-12b-it:free",
+      "name": "Google: Gemma 3 12B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 146
+    },
+    {
+      "model": "google/gemma-3-27b-it:free",
+      "name": "Google: Gemma 3 27B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 118
+    },
+    {
+      "model": "google/gemma-3-4b-it:free",
+      "name": "Google: Gemma 3 4B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 223
+    },
+    {
+      "model": "google/gemma-3n-e2b-it:free",
+      "name": "Google: Gemma 3n 2B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 276
+    },
+    {
+      "model": "google/gemma-3n-e4b-it:free",
+      "name": "Google: Gemma 3n 4B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 107
+    },
+    {
+      "model": "meta-llama/llama-3.1-405b-instruct:free",
+      "name": "Meta: Llama 3.1 405B Instruct (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 117
+    },
+    {
+      "model": "meta-llama/llama-3.2-11b-vision-instruct:free",
+      "name": "Meta: Llama 3.2 11B Vision Instruct (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 152
+    },
+    {
+      "model": "meta-llama/llama-3.2-3b-instruct:free",
+      "name": "Meta: Llama 3.2 3B Instruct (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 150
+    },
+    {
+      "model": "meta-llama/llama-3.3-70b-instruct:free",
+      "name": "Meta: Llama 3.3 70B Instruct (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 125
+    },
+    {
+      "model": "microsoft/mai-ds-r1:free",
+      "name": "Microsoft: MAI DS R1 (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 161
+    },
+    {
+      "model": "mistralai/devstral-small-2505:free",
+      "name": "Mistral: Devstral Small 2505 (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 235
+    },
+    {
+      "model": "mistralai/mistral-7b-instruct:free",
+      "name": "Mistral: Mistral 7B Instruct (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 190
+    },
+    {
+      "model": "mistralai/mistral-nemo:free",
+      "name": "Mistral: Mistral Nemo (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 142
+    },
+    {
+      "model": "mistralai/mistral-small-24b-instruct-2501:free",
+      "name": "Mistral: Mistral Small 3 (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 121
+    },
+    {
+      "model": "mistralai/mistral-small-3.1-24b-instruct:free",
+      "name": "Mistral: Mistral Small 3.1 24B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 106
+    },
+    {
+      "model": "mistralai/mistral-small-3.2-24b-instruct:free",
+      "name": "Mistral: Mistral Small 3.2 24B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 127
+    },
+    {
+      "model": "moonshotai/kimi-dev-72b:free",
+      "name": "MoonshotAI: Kimi Dev 72B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 127
+    },
+    {
+      "model": "moonshotai/kimi-k2:free",
+      "name": "MoonshotAI: Kimi K2 (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 222
+    },
+    {
+      "model": "moonshotai/kimi-vl-a3b-thinking:free",
+      "name": "MoonshotAI: Kimi VL A3B Thinking (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 248
+    },
+    {
+      "model": "nousresearch/deephermes-3-llama-3-8b-preview:free",
+      "name": "Nous: DeepHermes 3 Llama 3 8B Preview (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 187
+    },
+    {
+      "model": "nvidia/llama-3.1-nemotron-ultra-253b-v1:free",
+      "name": "NVIDIA: Llama 3.1 Nemotron Ultra 253B v1 (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 134
+    },
+    {
+      "model": "openai/gpt-oss-20b:free",
+      "name": "OpenAI: gpt-oss-20b (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 131
+    },
+    {
+      "model": "qwen/qwen-2.5-72b-instruct:free",
+      "name": "Qwen2.5 72B Instruct (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 148
+    },
+    {
+      "model": "qwen/qwen-2.5-coder-32b-instruct:free",
+      "name": "Qwen2.5 Coder 32B Instruct (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 140
+    },
+    {
+      "model": "qwen/qwen2.5-vl-32b-instruct:free",
+      "name": "Qwen: Qwen2.5 VL 32B Instruct (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 124
+    },
+    {
+      "model": "qwen/qwen2.5-vl-72b-instruct:free",
+      "name": "Qwen: Qwen2.5 VL 72B Instruct (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 214
+    },
+    {
+      "model": "qwen/qwen3-14b:free",
+      "name": "Qwen: Qwen3 14B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 120
+    },
+    {
+      "model": "qwen/qwen3-235b-a22b:free",
+      "name": "Qwen: Qwen3 235B A22B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 118
+    },
+    {
+      "model": "qwen/qwen3-30b-a3b:free",
+      "name": "Qwen: Qwen3 30B A3B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 141
+    },
+    {
+      "model": "qwen/qwen3-4b:free",
+      "name": "Qwen: Qwen3 4B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 166
+    },
+    {
+      "model": "qwen/qwen3-8b:free",
+      "name": "Qwen: Qwen3 8B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 136
+    },
+    {
+      "model": "qwen/qwen3-coder:free",
+      "name": "Qwen: Qwen3 Coder  (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 128
+    },
+    {
+      "model": "qwen/qwq-32b:free",
+      "name": "Qwen: QwQ 32B (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 220
+    },
+    {
+      "model": "rekaai/reka-flash-3:free",
+      "name": "Reka: Flash 3 (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 126
+    },
+    {
+      "model": "sarvamai/sarvam-m:free",
+      "name": "Sarvam AI: Sarvam-M (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 107
+    },
+    {
+      "model": "shisa-ai/shisa-v2-llama3.3-70b:free",
+      "name": "Shisa AI: Shisa V2 Llama 3.3 70B  (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 143
+    },
+    {
+      "model": "tencent/hunyuan-a13b-instruct:free",
+      "name": "Tencent: Hunyuan A13B Instruct (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 134
+    },
+    {
+      "model": "tngtech/deepseek-r1t-chimera:free",
+      "name": "TNG: DeepSeek R1T Chimera (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 187
+    },
+    {
+      "model": "tngtech/deepseek-r1t2-chimera:free",
+      "name": "TNG: DeepSeek R1T2 Chimera (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 151
+    },
+    {
+      "model": "z-ai/glm-4.5-air:free",
+      "name": "Z.AI: GLM 4.5 Air (free)",
+      "success": false,
+      "error": "{\"error\":{\"message\":\"User not found.\",\"code\":401}}",
+      "time": 115
+    }
+  ]
+}

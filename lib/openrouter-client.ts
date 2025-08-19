@@ -1,9 +1,12 @@
 // OpenRouter client for FREE AI model access
 // Uses only free-tier models for text and image generation
+// Status: Authentication issue preventing completions - using fallback content
 
 import type { Tone } from '@/types/section-system';
+import { MODEL_RECOMMENDATIONS, getModelGuide, TESTING_STATUS } from './working-models-guide';
 
-// TRULY FREE models available on OpenRouter (with :free suffix = $0.00 cost)
+// TRULY FREE models available on OpenRouter (with :free suffix = $0.00 cost)  
+// Note: Currently unable to access due to API key permissions - see TESTING_STATUS
 const FREE_MODELS = {
   text: {
     // DeepSeek models - POWERFUL reasoning capabilities!
@@ -69,6 +72,8 @@ export class OpenRouterClient {
 
   /**
    * Generate hilarious, creative text using FREE models
+   * Status: Currently using fallback content due to API authentication issues
+   * See TESTING_STATUS for details on the 54 free models we intended to test
    */
   async generateText(options: TextGenerationOptions): Promise<string> {
     const {
@@ -86,6 +91,13 @@ export class OpenRouterClient {
     
     // Build creative prompt based on tone
     const enhancedPrompt = this.enhancePromptForTone(prompt, tone);
+
+    // Log which model we're TRYING to use (for when authentication is fixed)
+    console.log(`🤖 Would use model: ${selectedModel} for ${tone} tone`);
+    const modelGuide = getModelGuide(selectedModel);
+    if (modelGuide) {
+      console.log(`📊 Model info: ${modelGuide.name} - ${modelGuide.strengths.join(', ')}`);
+    }
 
     try {
       const response = await fetch(`${this.baseUrl}/chat/completions`, {
@@ -116,16 +128,25 @@ export class OpenRouterClient {
 
       if (!response.ok) {
         const error = await response.text();
-        console.error('OpenRouter error:', error);
+        console.warn(`🚨 OpenRouter API failed (${response.status}): Using fallback content`);
+        console.warn(`Error details: ${error.substring(0, 100)}`);
         // Fallback to local creative content
         return this.getFallbackContent(tone, prompt);
       }
 
       const data = await response.json() as OpenRouterResponse;
-      return data.choices[0]?.message?.content || this.getFallbackContent(tone, prompt);
+      const content = data.choices[0]?.message?.content;
+      
+      if (content) {
+        console.log('✅ OpenRouter API success! Generated content via AI');
+        return content;
+      } else {
+        console.warn('⚠️ OpenRouter API returned empty content, using fallback');
+        return this.getFallbackContent(tone, prompt);
+      }
 
     } catch (error) {
-      console.error('Failed to generate text:', error);
+      console.warn('🔄 OpenRouter API unavailable, using high-quality fallback content');
       // Always fallback gracefully to local content
       return this.getFallbackContent(tone, prompt);
     }
