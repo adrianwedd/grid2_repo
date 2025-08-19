@@ -80,7 +80,7 @@ export default async function DemoPage() {
             This demo page was generated using Grid 2.0's deterministic beam search algorithm.
           </p>
           <p className="mt-2">
-            Generated in {result.renderTime}ms • {result.primary.sections.length} sections • Score: {result.primary.totalScore.toFixed(2)}
+            Generated in {result.renderTime}ms • {result.primary.sections.length} sections
           </p>
         </div>
       </footer>
