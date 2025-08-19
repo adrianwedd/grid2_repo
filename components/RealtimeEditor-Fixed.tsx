@@ -54,7 +54,6 @@ Task: ${basePrompt}
 
 Current page context:
 - ${current.length} sections
-- Tone: ${current[0]?.meta?.tone || 'minimal'}
 - Sections: ${current.map(s => s.meta.kind).join(', ')}
 
 Please provide specific design recommendations for:
@@ -275,7 +274,9 @@ Be specific and actionable in your suggestions.`;
               {(error || claudeError) && (
                 <div className="bg-red-50 border border-red-200 rounded-lg p-3">
                   <p className="text-sm text-red-700">
-                    {error || claudeError}
+                    {error || (claudeError && typeof claudeError === 'object' ? 
+                      (claudeError as any).message || 'An error occurred' : 
+                      String(claudeError))}
                   </p>
                 </div>
               )}
@@ -290,8 +291,8 @@ Be specific and actionable in your suggestions.`;
                   <span className="font-medium">{current.length}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Current Tone:</span>
-                  <span className="font-medium">{current[0]?.meta?.tone || 'minimal'}</span>
+                  <span className="text-gray-600">Type:</span>
+                  <span className="font-medium">{current[0]?.meta?.kind || 'hero'}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Session:</span>
@@ -312,9 +313,10 @@ Be specific and actionable in your suggestions.`;
               <div className="h-[800px] overflow-y-auto">
                 <PageRenderer 
                   page={{ 
-                    id: 'preview', 
                     sections: current,
-                    audit: { score: 100, issues: [] }
+                    meta: { title: 'Preview', description: 'Live preview of your changes' },
+                    brand: { colors: {}, typography: {}, radius: {}, shadows: {}, spacing: {} } as any,
+                    audits: { a11y: [], seo: [], performance: [], passed: true }
                   }} 
                 />
               </div>
