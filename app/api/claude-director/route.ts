@@ -159,27 +159,76 @@ export async function POST(request: NextRequest) {
         },
         sections: [
           {
-            type: 'hero',
+            kind: 'hero',
             purpose: 'Capture attention and communicate value proposition',
             variant: {
+              suggestion: 'split-image-left',
               reasoning: `Using ${tone} approach to create immediate impact`,
               approach: tone === 'bold' ? 'dramatic' : tone === 'minimal' ? 'clean' : 'balanced'
+            },
+            content: {
+              headline: {
+                text: intent.includes('awesome') || intent.includes('crazy') ? 
+                  'Build Something Absolutely Insane' : 
+                  `Create Amazing ${tone.charAt(0).toUpperCase() + tone.slice(1)} Experiences`,
+                tone: 'Bold and inspiring'
+              },
+              subheadline: {
+                text: `Transform your vision into reality with ${tone} design principles`,
+                tone: 'Supporting and clarifying'
+              },
+              body: {
+                approach: 'Benefits-focused bullets',
+                items: [
+                  `${tone.charAt(0).toUpperCase() + tone.slice(1)} design philosophy`,
+                  'Fast, responsive performance',
+                  'Built for your audience'
+                ]
+              }
             }
           },
           {
-            type: 'features',
+            kind: 'features',
             purpose: 'Showcase key capabilities and benefits',
             variant: {
+              suggestion: 'three-column-cards',
               reasoning: `Highlight features in ${tone} style to build trust`,
               approach: 'benefits-focused'
+            },
+            content: {
+              headline: {
+                text: 'Powerful Features',
+                tone: 'Confident'
+              },
+              body: {
+                approach: 'Feature showcase',
+                items: [
+                  'Lightning-fast performance',
+                  'Mobile-first responsive design',
+                  'SEO optimized structure'
+                ]
+              }
             }
           },
           {
-            type: 'cta',
+            kind: 'cta',
             purpose: 'Drive user action and conversions',
             variant: {
+              suggestion: 'gradient-slab',
               reasoning: `Create compelling call-to-action with ${tone} personality`,
               approach: 'conversion-optimized'
+            },
+            content: {
+              headline: {
+                text: 'Ready to Build?',
+                tone: 'Inviting'
+              },
+              cta: {
+                primary: {
+                  text: 'Get Started',
+                  psychology: 'Low commitment entry'
+                }
+              }
             }
           }
         ],

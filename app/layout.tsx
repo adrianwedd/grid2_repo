@@ -1,6 +1,10 @@
 export const metadata = { 
   title: 'Grid 2.0 - AI Website Builder',
-  description: 'AI-powered deterministic website builder with beam search and Claude integration'
+  description: 'AI-powered deterministic website builder with beam search and Claude integration',
+  icons: {
+    icon: '/icon.svg',
+    apple: '/icon.svg',
+  },
 };
 
 import { Navigation } from '@/components/Navigation';
