@@ -145,10 +145,19 @@ export function StyleShowcase() {
         console.log('🎨 Generating page for tone:', currentTone);
         
         // Delay to allow imageProvider to initialize
-        await new Promise(resolve => setTimeout(resolve, 100));
+        await new Promise(resolve => setTimeout(resolve, 500));
         
-        // Get image stats
-        const stats = imageProvider.getImageStats();
+        // Get image stats with retry
+        let stats = imageProvider.getImageStats();
+        
+        // If no stats loaded yet, wait a bit more and try again
+        if (stats.aiGenerated === 0 && stats.placeholders === 0) {
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          imageProvider.refresh(); // Force refresh
+          await new Promise(resolve => setTimeout(resolve, 500));
+          stats = imageProvider.getImageStats();
+        }
+        
         setImageStats(stats);
         console.log('📊 Image stats:', stats);
         
