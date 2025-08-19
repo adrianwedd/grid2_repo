@@ -203,9 +203,12 @@ export function StyleGallery({ currentTone, onSelectTone, expanded = false }: St
                 </span>
               </div>
             </div>
-            <div className={`ml-4 px-6 py-3 rounded-lg ${STYLES.find(t => t.value === currentTone)?.accent}`}>
-              <span className="text-sm font-medium">Preview</span>
-            </div>
+            <button
+              onClick={() => window.open('/editor', '_blank')}
+              className={`ml-4 px-6 py-3 rounded-lg transition-all hover:scale-105 ${STYLES.find(t => t.value === currentTone)?.accent}`}
+            >
+              <span className="text-sm font-medium">Preview in Editor</span>
+            </button>
           </div>
         </div>
       )}
