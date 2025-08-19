@@ -1,0 +1,31 @@
+{
+  "id": "deepseek-r1",
+  "model": "deepseek/deepseek-r1:free",
+  "generatedBy": "deepseek-r1",
+  "timestamp": "2025-08-19T14:27:38.487Z",
+  "name": "DeepSeek Enigma",
+  "philosophy": "Where logic transcends reality",
+  "colors": {
+    "primary": "#0080FF",
+    "secondary": "#00FFFF",
+    "accent": "#FFFF00",
+    "background": "#000000",
+    "text": "#FFFFFF"
+  },
+  "features": [
+    "Quantum reasoning engine",
+    "Paradox resolution system",
+    "Mind-bending navigation"
+  ],
+  "hero": {
+    "headline": "THINK DEEPER",
+    "subheadline": "Where logic transcends reality",
+    "cta": "EXPLORE NOW"
+  },
+  "usage": {
+    "prompt_tokens": 63,
+    "completion_tokens": 400,
+    "total_tokens": 463
+  },
+  "responseTime": "1453ms"
+}

@@ -54,6 +54,13 @@ const STYLES: { value: Tone; label: string; description: string; accent: string;
     accent: 'bg-gradient-to-r from-yellow-600 to-amber-600 hover:from-yellow-700 hover:to-amber-700 text-white',
     category: 'Normal Human'
   },
+  {
+    value: 'zen',
+    label: 'Zen',
+    description: 'Mindful meditation, balanced harmony',
+    accent: 'bg-gradient-to-r from-green-400 to-blue-400 hover:from-green-500 hover:to-blue-500 text-white',
+    category: 'Normal Human'
+  },
   
   // Getting Weird
   {
@@ -107,12 +114,63 @@ const STYLES: { value: Tone; label: string; description: string; accent: string;
     accent: 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white',
     category: 'Research Lab'
   },
+  
+  // AI Generated Madness
   {
-    value: 'zen',
-    label: 'Zen',
-    description: 'Mindful meditation, balanced harmony',
-    accent: 'bg-gradient-to-r from-green-400 to-blue-400 hover:from-green-500 hover:to-blue-500 text-white',
-    category: 'Normal Human'
+    value: 'playful',
+    label: 'Quantum Nebula',
+    description: 'Where Pixels Dance with the Cosmos',
+    accent: 'bg-gradient-to-r from-purple-500 via-pink-500 to-yellow-500 hover:from-purple-600 hover:via-pink-600 hover:to-yellow-600 text-white',
+    category: 'AI Generated'
+  },
+  {
+    value: 'bold',
+    label: 'DeepSeek Enigma',
+    description: 'Where logic transcends reality',
+    accent: 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white',
+    category: 'AI Generated'
+  },
+  {
+    value: 'creative',
+    label: 'Thunder Goat',
+    description: 'Where Chaos Meets Brilliance',
+    accent: 'bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white',
+    category: 'AI Generated'
+  },
+  {
+    value: 'playful',
+    label: 'VOIDWHISPER',
+    description: 'CHAOS BIRTHS CLARITY',
+    accent: 'bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white',
+    category: 'AI Generated'
+  },
+  {
+    value: 'retro',
+    label: 'Psychedelic Café',
+    description: 'Time, Space, and Flavors Collide',
+    accent: 'bg-gradient-to-r from-pink-400 to-orange-400 hover:from-pink-500 hover:to-orange-500 text-white',
+    category: 'AI Generated'
+  },
+  {
+    value: 'playful',
+    label: 'GlitchGizzard',
+    description: 'Reality is a slow-loading JPEG',
+    accent: 'bg-gradient-to-r from-pink-300 to-purple-300 hover:from-pink-400 hover:to-purple-400 text-gray-900',
+    category: 'AI Generated'
+  },
+  {
+    value: 'modern',
+    label: 'GLM Air Flow',
+    description: 'Breathe in the digital atmosphere',
+    accent: 'bg-gradient-to-r from-cyan-400 to-teal-400 hover:from-cyan-500 hover:to-teal-500 text-white',
+    category: 'AI Generated'
+  },
+  {
+    value: 'creative',
+    label: 'Quantum Quokka',
+    description: 'Reality Melts, Imagination Bakes',
+    accent: 'bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 text-white',
+    category: 'AI Generated'
   }
 ];
 
