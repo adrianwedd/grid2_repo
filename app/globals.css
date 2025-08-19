@@ -22,32 +22,15 @@ body, p, span, div {
   font-family: var(--font-body, 'Inter', sans-serif);
 }
 
-/* Apply dynamic colors to key elements */
-button.bg-black {
-  background-color: var(--color-primary) !important;
+/* Apply dynamic colors to specific branded elements only */
+.brand-primary {
+  color: var(--color-primary);
 }
 
-h1, h2 {
-  color: var(--color-primary) !important;
+.brand-bg-primary {
+  background-color: var(--color-primary);
 }
 
-.border-blue-200, .border-blue-300 {
-  border-color: var(--color-primary) !important;
-  opacity: 0.3;
-}
-
-/* Theme-aware background colors */
-.bg-blue-50 {
-  background-color: var(--color-primary) !important;
-  opacity: 0.1;
-}
-
-.bg-blue-100 {
-  background-color: var(--color-primary) !important;
-  opacity: 0.2;
-}
-
-/* Theme-aware focus styles */
-.focus\\:ring-blue-500:focus {
-  --tw-ring-color: var(--color-primary) !important;
+.brand-border-primary {
+  border-color: var(--color-primary);
 }
