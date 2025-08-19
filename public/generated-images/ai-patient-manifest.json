@@ -1,8 +1,8 @@
 {
   "minimal": {
     "hero": {
-      "filename": "minimal-hero-ai-patient-1755094814074.png",
-      "filepath": "public/generated-images/minimal-hero-ai-patient-1755094814074.png",
+      "filename": "minimal-hero-ai-test-1755094154229.png",
+      "filepath": "public/generated-images/minimal-hero-ai-test-1755094154229.png",
       "url": "https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-124c-622f-ae08-e65db90259c2/raw?se=2025-08-13T15%3A20%3A13Z&sp=r&sv=2024-08-04&sr=b&scid=6500b081-a5f0-508f-b3c2-a78c7f678cd3&skoid=add8ee7d-5fc7-451e-b06e-a82b2276cf62&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-08-13T12%3A42%3A57Z&ske=2025-08-14T12%3A42%3A57Z&sks=b&skv=2024-08-04&sig=kOSUmmZSbLMkErJnqkIZHmjNKhl2jsJR3O2D/OWowKM%3D",
       "prompt": "Ultra-clean minimalist composition, pure white and light gray geometric patterns, corporate safety aesthetic, maximum professional blandness, sterile office environment vibes",
       "timestamp": 1755094814798,
@@ -388,6 +388,32 @@
       "type": "ai-generated",
       "timestamp": 1755561010115,
       "prompt": "Minimalist zen garden with perfectly raked sand patterns, single stone, soft morning light, tranquil atmosphere, muted earth tones, Japanese aesthetic, wide angle, photorealistic, 8k quality, serene and balanced composition"
+    }
+  },
+  "techno": {
+    "hero": {
+      "filename": "techno-hero-1755558907980.png",
+      "filepath": "public/generated-images/techno-hero-1755558907980.png",
+      "style": "techno",
+      "section": "hero",
+      "type": "ai-generated",
+      "timestamp": 1755591284883
+    },
+    "features": {
+      "filename": "techno-features-1755558927933.png",
+      "filepath": "public/generated-images/techno-features-1755558927933.png",
+      "style": "techno",
+      "section": "features",
+      "type": "ai-generated",
+      "timestamp": 1755591284883
+    },
+    "cta": {
+      "filename": "techno-cta-1755558946364.png",
+      "filepath": "public/generated-images/techno-cta-1755558946364.png",
+      "style": "techno",
+      "section": "cta",
+      "type": "ai-generated",
+      "timestamp": 1755591284883
     }
   }
 }
