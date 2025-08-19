@@ -286,7 +286,7 @@ export class IntelligentPageGenerator {
     );
     
     // Get AI images for the selected tone
-    const aiImages = this.getAIImagesForTone(refinedPrompt.suggestedTone, sections as SectionKind[]);
+    const aiImages = await this.getAIImagesForTone(refinedPrompt.suggestedTone, sections as SectionKind[]);
     
     // Create rationale for style choice
     const styleRationale = this.generateStyleRationale(refinedPrompt);
@@ -301,15 +301,15 @@ export class IntelligentPageGenerator {
   /**
    * Get AI images for a specific tone and sections
    */
-  getAIImagesForTone(tone: Tone, sections: string[]): Record<string, string> {
+  async getAIImagesForTone(tone: Tone, sections: string[]): Promise<Record<string, string>> {
     const aiImages: Record<string, string> = {};
     
-    sections.forEach(section => {
-      const image = imageProvider.getImageForToneSection(tone, section as any);
+    await Promise.all(sections.map(async section => {
+      const image = await imageProvider.getImageForToneSection(tone, section as any);
       if (image) {
         aiImages[`${tone}_${section}`] = image.src;
       }
-    });
+    }));
     
     return aiImages;
   }
