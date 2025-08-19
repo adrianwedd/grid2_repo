@@ -6,16 +6,22 @@ import type { Tone } from '@/types/section-system';
 // TRULY FREE models available on OpenRouter (with :free suffix = $0.00 cost)
 const FREE_MODELS = {
   text: {
-    // Proven working free models from takeoff-sim
+    // DeepSeek models - POWERFUL reasoning capabilities!
+    reasoning: 'deepseek/deepseek-r1:free', // Best reasoning model, comparable to o1!
+    reasoningFast: 'deepseek/deepseek-r1-0528:free', // Faster R1 variant
+    coding: 'deepseek/deepseek-chat-v3-0324:free', // Excellent for coding
+    reasoningLite: 'deepseek/deepseek-r1-distill-qwen-14b:free', // Smaller but smart
+    reasoningLarge: 'deepseek/deepseek-r1-distill-llama-70b:free', // Large distilled
+    
+    // Other excellent free models
     creative: 'cognitivecomputations/dolphin-mistral-24b-venice-edition:free', // High creativity
     fast: 'qwen/qwen3-coder:free', // Fast and reliable
     balanced: 'google/gemma-3n-e2b-it:free', // Good balance
     analytical: 'mistralai/mistral-small-3.2-24b-instruct:free', // Good for analysis
     general: 'openai/gpt-oss-20b:free', // General purpose
-    // Additional free models that work well
-    efficient: 'microsoft/phi-3-mini-128k-instruct:free', // Lightweight
-    opensource: 'meta-llama/llama-3.2-3b-instruct:free', // Meta's free tier
-    versatile: 'nousresearch/hermes-3-llama-3.1-8b:free' // Versatile
+    kimi: 'moonshotai/kimi-k2:free', // MoonshotAI's Kimi model
+    kimiDev: 'moonshotai/kimi-dev-72b:free', // Larger Kimi for development
+    versatile: 'z-ai/glm-4.5-air:free' // Z.AI's GLM model
   },
   image: {
     // Most image models require credits, but some have free tiers
@@ -212,22 +218,22 @@ export class OpenRouterClient {
   // Private helper methods
 
   private selectModelForTone(tone: Tone, preferredModel: keyof typeof FREE_MODELS.text): string {
-    // Match tone to best free model based on their strengths
+    // Match tone to best free model - now with DeepSeek reasoning!
     const toneModelMap: Partial<Record<Tone, keyof typeof FREE_MODELS.text>> = {
       playful: 'creative', // Dolphin model for maximum creativity
       creative: 'creative', // Dolphin model for wild ideas
-      bold: 'versatile', // Hermes for bold statements
-      minimal: 'efficient', // Phi-3 for concise output
+      bold: 'reasoning', // DeepSeek R1 for powerful statements
+      minimal: 'reasoningLite', // DeepSeek distilled for concise output
       corporate: 'analytical', // Mistral for professional tone
-      elegant: 'balanced', // Gemma for refined output
-      modern: 'general', // GPT-OSS for modern tech
-      luxury: 'analytical', // Mistral for sophisticated tone
-      warm: 'versatile', // Hermes for friendly tone
+      elegant: 'reasoning', // DeepSeek R1 for sophisticated content
+      modern: 'coding', // DeepSeek V3 for tech content
+      luxury: 'reasoningLarge', // DeepSeek 70B for premium quality
+      warm: 'kimi', // Kimi for friendly, warm tone
       nature: 'balanced', // Gemma for natural language
       retro: 'creative', // Dolphin for nostalgic creativity
-      monochrome: 'efficient', // Phi-3 for stark simplicity
-      techno: 'fast', // Qwen for tech-focused content
-      zen: 'balanced' // Gemma for peaceful balance
+      monochrome: 'reasoningFast', // DeepSeek fast for stark simplicity
+      techno: 'coding', // DeepSeek V3 for tech-focused content
+      zen: 'reasoning' // DeepSeek R1 for thoughtful content
     };
 
     const modelKey = toneModelMap[tone] || preferredModel;
