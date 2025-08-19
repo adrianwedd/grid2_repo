@@ -172,7 +172,7 @@ export function FeaturesCards3Up({ content, tone = 'minimal' }: FeaturesCards3Up
               <h3 className={`text-xl font-semibold leading-7 ${styles.title}`}>{title}</h3>
               {/* Use hilarious discovery text based on tone */}
               <p className={`mt-4 text-base leading-7 ${styles.description}`}>
-                {creativeContent.getDiscoveryText(brand.tone, title)}
+                {creativeContent.getDiscoveryText(tone, title)}
               </p>
             </div>
           ))}
