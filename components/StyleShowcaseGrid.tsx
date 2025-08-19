@@ -5,6 +5,7 @@ import { generatePage, demoBrand } from '@/lib/generate-page';
 import { PageRenderer } from '@/components/PageRenderer';
 import { imageProvider } from '@/lib/image-provider';
 import { generateToneSpecificContent } from '@/lib/tone-content-generator';
+import { AI_STYLES_CONTENT } from '@/lib/ai-styles-content';
 import type { Tone, PageNode } from '@/types/section-system';
 
 const STYLES: Array<{
@@ -12,6 +13,7 @@ const STYLES: Array<{
   name: string;
   description: string;
   colors: { primary: string; secondary: string; background: string };
+  aiStyleId?: string;
 }> = [
   {
     value: 'minimal',
@@ -90,49 +92,57 @@ const STYLES: Array<{
     value: 'playful',
     name: 'Quantum Nebula',
     description: 'Where Pixels Dance with the Cosmos',
-    colors: { primary: '#FF00FF', secondary: '#00FFFF', background: '#000000' }
+    colors: { primary: '#FF00FF', secondary: '#00FFFF', background: '#000000' },
+    aiStyleId: 'quantum-nebula'
   },
   {
     value: 'bold',
     name: 'DeepSeek Enigma',
     description: 'Where logic transcends reality',
-    colors: { primary: '#0080FF', secondary: '#4B0082', background: '#0A0A0A' }
+    colors: { primary: '#0080FF', secondary: '#4B0082', background: '#0A0A0A' },
+    aiStyleId: 'deepseek-enigma'
   },
   {
     value: 'creative',
     name: 'Thunder Goat',
     description: 'Where Chaos Meets Brilliance',
-    colors: { primary: '#FF00F6', secondary: '#8B00FF', background: '#1A001A' }
+    colors: { primary: '#FF00F6', secondary: '#8B00FF', background: '#1A001A' },
+    aiStyleId: 'thunder-goat'
   },
   {
     value: 'playful',
     name: 'VOIDWHISPER',
     description: 'CHAOS BIRTHS CLARITY',
-    colors: { primary: '#FF00FF', secondary: '#000000', background: '#FFFFFF' }
+    colors: { primary: '#FF00FF', secondary: '#000000', background: '#FFFFFF' },
+    aiStyleId: 'voidwhisper'
   },
   {
     value: 'retro',
     name: 'Psychedelic Café',
     description: 'Time, Space, and Flavors Collide',
-    colors: { primary: '#FF69B4', secondary: '#FFA500', background: '#2F004F' }
+    colors: { primary: '#FF69B4', secondary: '#FFA500', background: '#2F004F' },
+    aiStyleId: 'psychedelic-cafe'
   },
   {
     value: 'playful',
     name: 'GlitchGizzard',
     description: 'Reality is a slow-loading JPEG',
-    colors: { primary: '#FFD9FF', secondary: '#DDA0DD', background: '#1C0033' }
+    colors: { primary: '#FFD9FF', secondary: '#DDA0DD', background: '#1C0033' },
+    aiStyleId: 'glitchgizzard'
   },
   {
     value: 'modern',
     name: 'GLM Air Flow',
     description: 'Breathe in the digital atmosphere',
-    colors: { primary: '#00FFCC', secondary: '#40E0D0', background: '#001A33' }
+    colors: { primary: '#00FFCC', secondary: '#40E0D0', background: '#001A33' },
+    aiStyleId: 'glm-air-flow'
   },
   {
     value: 'creative',
     name: 'Quantum Quokka',
     description: 'Reality Melts, Imagination Bakes',
-    colors: { primary: '#FF66CC', secondary: '#CC66FF', background: '#330033' }
+    colors: { primary: '#FF66CC', secondary: '#CC66FF', background: '#330033' },
+    aiStyleId: 'quantum-quokka'
   }
 ];
 
@@ -332,7 +342,7 @@ export function StyleShowcaseGrid() {
 
     // Generate all pages after mount to avoid hydration mismatch
     STYLES.forEach(style => {
-      generateStylePage(style.value);
+      generateStylePage(style);
     });
   }, []);
 
@@ -357,22 +367,48 @@ export function StyleShowcaseGrid() {
     };
   }, [previewStyle]);
 
-  const generateStylePage = async (tone: Tone) => {
+  const generateStylePage = async (style: typeof STYLES[0]) => {
+    const tone = style.value;
     setLoading(prev => ({ ...prev, [tone]: true }));
     
     try {
-      const toneContent = generateToneSpecificContent(tone);
+      let content;
+      let brand = demoBrand;
+      
+      // Use AI style content if this is an AI-generated style
+      if (style.aiStyleId && AI_STYLES_CONTENT[style.aiStyleId]) {
+        const aiStyle = AI_STYLES_CONTENT[style.aiStyleId];
+        content = aiStyle.content;
+        
+        // Create custom brand with AI colors
+        brand = {
+          ...demoBrand,
+          colors: {
+            ...demoBrand.colors,
+            primary: aiStyle.colors.primary,
+            secondary: aiStyle.colors.secondary,
+            background: aiStyle.colors.background
+          }
+        };
+        
+        console.log(`🤖 Using AI content for ${aiStyle.name}`);
+      } else {
+        // Use standard tone content for regular styles
+        content = generateToneSpecificContent(tone);
+        console.log(`📝 Using standard content for ${tone}`);
+      }
+      
       const { primary } = await generatePage(
-        toneContent, 
-        demoBrand, 
+        content, 
+        brand, 
         tone, 
         ['hero', 'features', 'cta']
       );
       
       setPages(prev => ({ ...prev, [tone]: primary }));
-      console.log(`✅ Generated ${tone} page with ${primary.sections.length} sections`);
+      console.log(`✅ Generated ${style.name} page with ${primary.sections.length} sections`);
     } catch (error) {
-      console.error(`❌ Failed to generate ${tone}:`, error);
+      console.error(`❌ Failed to generate ${style.name}:`, error);
       setPages(prev => ({ ...prev, [tone]: null }));
     } finally {
       setLoading(prev => ({ ...prev, [tone]: false }));
