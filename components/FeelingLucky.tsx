@@ -37,7 +37,11 @@ export function FeelingLucky() {
     setError(null);
 
     try {
-      const response = await fetch('/api/feeling-lucky?action=random');
+      const response = await fetch('/api/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ mode: 'random' })
+      });
       
       if (!response.ok) {
         throw new Error('Failed to get lucky');
@@ -58,10 +62,12 @@ export function FeelingLucky() {
     setLoading(true);
     
     try {
-      const response = await fetch('/api/feeling-lucky', {
+      const response = await fetch('/api/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ specId }),
+        body: JSON.stringify({ 
+          mode: 'random' // Always random for regenerate
+        }),
       });
 
       if (!response.ok) {

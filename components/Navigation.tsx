@@ -91,11 +91,11 @@ function ClaudeStatus() {
   const [status, setStatus] = React.useState<'checking' | 'available' | 'demo'>('checking');
   
   React.useEffect(() => {
-    // Check Claude Director status
-    fetch('/api/claude-director')
+    // Check API status
+    fetch('/api/generate')
       .then(res => res.json())
       .then(data => {
-        setStatus(data.available ? 'available' : 'demo');
+        setStatus(data.version ? 'available' : 'demo');
       })
       .catch(() => setStatus('demo'));
   }, []);
