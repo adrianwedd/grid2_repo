@@ -103,7 +103,9 @@ export type Tone =
   | 'creative'     // Artistic, asymmetric layouts, experimental
   | 'nature'       // Green palettes, organic textures, sustainable
   | 'retro'        // Vintage colors, nostalgic elements, classic
-  | 'monochrome';  // Pure black/white, stark contrasts, editorial
+  | 'monochrome'   // Pure black/white, stark contrasts, editorial
+  | 'techno'       // Futuristic cyberpunk, neon colors, holographic effects
+  | 'zen';         // Minimal meditation, natural calm, balanced harmony
 
 // Constraint types
 export type HardConstraint =

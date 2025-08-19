@@ -48,6 +48,10 @@ const STYLES: StyleInfo[] = [
     preview: { colors: ['#EC4899', '#8B5CF6'], font: 'Display', mood: 'Artistic' } },
   { value: 'monochrome', label: 'Monochrome', description: 'Stark brutalist madness', accent: 'bg-gradient-to-r from-gray-900 to-black hover:from-gray-800 hover:to-gray-900 text-white', category: 'Research Lab',
     preview: { colors: ['#000000', '#FFFFFF'], font: 'Sans-serif', mood: 'Contrast' } },
+  { value: 'techno', label: 'Techno', description: 'Futuristic cyberpunk aesthetic', accent: 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white', category: 'Research Lab',
+    preview: { colors: ['#007AFF', '#5856D6'], font: 'Sans-serif', mood: 'Futuristic' } },
+  { value: 'zen', label: 'Zen', description: 'Mindful meditation balance', accent: 'bg-gradient-to-r from-green-400 to-blue-400 hover:from-green-500 hover:to-blue-500 text-white', category: 'Tasteful Design',
+    preview: { colors: ['#4A5568', '#68D391'], font: 'Sans-serif', mood: 'Calm' } },
 ];
 
 interface StyleGalleryProps {

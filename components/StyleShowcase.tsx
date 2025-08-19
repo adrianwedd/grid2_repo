@@ -99,6 +99,20 @@ const STYLES: { value: Tone; label: string; description: string; accent: string;
     description: 'Stark brutalist madness, editorial chaos',
     accent: 'bg-gradient-to-r from-gray-900 to-black hover:from-gray-800 hover:to-gray-900 text-white',
     category: 'Research Lab'
+  },
+  {
+    value: 'techno',
+    label: 'Techno',
+    description: 'Futuristic cyberpunk, neon everything',
+    accent: 'bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white',
+    category: 'Research Lab'
+  },
+  {
+    value: 'zen',
+    label: 'Zen',
+    description: 'Mindful meditation, balanced harmony',
+    accent: 'bg-gradient-to-r from-green-400 to-blue-400 hover:from-green-500 hover:to-blue-500 text-white',
+    category: 'Normal Human'
   }
 ];
 

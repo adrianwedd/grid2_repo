@@ -1,0 +1,73 @@
+{
+  "name": "zen",
+  "description": "Minimal meditation aesthetic with natural calm and balanced harmony",
+  "tokens": {
+    "colors": {
+      "primary": "#4A5568",
+      "secondary": "#68D391",
+      "accent": "#F6E05E",
+      "background": "#F7FAFC",
+      "surface": "#FFFFFF",
+      "text": "#2D3748",
+      "textMuted": "#718096"
+    },
+    "fonts": {
+      "heading": "system-ui, -apple-system, \"Segoe UI\", sans-serif",
+      "body": "system-ui, -apple-system, \"Segoe UI\", sans-serif"
+    },
+    "radius": {
+      "small": "6px",
+      "medium": "12px",
+      "large": "24px"
+    },
+    "shadows": {
+      "small": "0 1px 3px rgba(0,0,0,0.05)",
+      "medium": "0 4px 6px rgba(0,0,0,0.07)",
+      "large": "0 10px 20px rgba(0,0,0,0.1)"
+    }
+  },
+  "content": {
+    "hero": {
+      "headline": "Find Your Inner Balance",
+      "subheadline": "Discover peace and harmony through mindful design and gentle interactions",
+      "cta": "Begin Journey"
+    },
+    "features": [
+      {
+        "title": "Mindful Design",
+        "description": "Every element crafted with intention and purpose"
+      },
+      {
+        "title": "Natural Flow",
+        "description": "Intuitive experiences that feel effortless and organic"
+      },
+      {
+        "title": "Balanced Harmony",
+        "description": "Perfect equilibrium between form and function"
+      }
+    ],
+    "cta": {
+      "headline": "Ready to Embrace Tranquility?",
+      "button": "Start Your Practice"
+    },
+    "about": {
+      "headline": "Designed for Inner Peace",
+      "description": "Our platform helps you create spaces that nurture calm and mindful living"
+    }
+  },
+  "images": [
+    {
+      "type": "hero",
+      "filename": "zen-hero-1755561010115.png",
+      "path": "/generated-images/zen-hero-1755561010115.png",
+      "url": "local"
+    }
+  ],
+  "personality": [
+    "calm",
+    "balanced",
+    "natural",
+    "mindful"
+  ],
+  "generatedAt": "2025-08-18T23:25:00.000Z"
+}
