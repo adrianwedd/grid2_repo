@@ -380,14 +380,16 @@ export function StyleShowcaseGrid() {
         const aiStyle = AI_STYLES_CONTENT[style.aiStyleId];
         content = aiStyle.content;
         
-        // Create custom brand with AI colors
+        // Create custom brand with AI colors  
         brand = {
           ...demoBrand,
           colors: {
             ...demoBrand.colors,
-            primary: aiStyle.colors.primary,
-            secondary: aiStyle.colors.secondary,
-            background: aiStyle.colors.background
+            brand: {
+              ...demoBrand.colors.brand,
+              500: aiStyle.colors.primary,  // Primary color
+              600: aiStyle.colors.secondary // Secondary shade
+            }
           }
         };
         
