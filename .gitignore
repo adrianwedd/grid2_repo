@@ -48,7 +48,6 @@ test-spec-image-generation.js
 
 # Debug and test files
 debug-assets/
-PLAYWRIGHT_TEST_REPORT.md
 github-issues-project.md
 tsconfig.tsbuildinfo
 
@@ -57,10 +56,6 @@ tsconfig.tsbuildinfo
 nextjs-export.zip
 static-export.zip
 remix-export.zip
-
-# E2E test directories
-tests/e2e/
-e2e/
 
 # Dynamic theme cache
 .dynamic-themes/
