@@ -106,7 +106,20 @@ export async function POST(request: NextRequest) {
       }
     }
     
-    // If no spec was generated from real Claude, use intelligent fallback
+    // Try OpenRouter as fallback before local fallback
+    if (!spec && process.env.OPENROUTER_API_KEY) {
+      try {
+        console.log('🌐 Attempting OpenRouter API...');
+        const { generateSpecWithOpenRouter } = await import('@/lib/openrouter-director');
+        spec = await generateSpecWithOpenRouter(intent, context);
+        console.log('✅ Got response from OpenRouter');
+      } catch (error) {
+        console.warn('OpenRouter failed:', error);
+        // Continue to fallback
+      }
+    }
+    
+    // If no spec was generated from real Claude or OpenRouter, use intelligent fallback
     if (!spec) {
       console.log('⚡ Using intelligent fallback mode');
       
