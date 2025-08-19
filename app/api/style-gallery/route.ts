@@ -61,7 +61,9 @@ function getHeadingFontForTone(tone: Tone): string {
     retro: 'Righteous',
     playful: 'Fredoka',
     creative: 'Abril Fatface',
-    monochrome: 'IBM Plex Mono'
+    monochrome: 'IBM Plex Mono',
+    techno: 'Orbitron',
+    zen: 'Noto Sans JP'
   };
   return fontMap[tone] || 'Inter';
 }
@@ -79,7 +81,9 @@ function getBodyFontForTone(tone: Tone): string {
     retro: 'Roboto',
     playful: 'Open Sans',
     creative: 'Open Sans',
-    monochrome: 'IBM Plex Sans'
+    monochrome: 'IBM Plex Sans',
+    techno: 'Roboto Mono',
+    zen: 'Noto Sans'
   };
   return fontMap[tone] || 'Inter';
 }

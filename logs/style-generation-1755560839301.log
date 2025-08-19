@@ -1,0 +1,25 @@
+{"timestamp":"2025-08-18T23:47:19.302Z","level":"INFO","message":null,"data":null}
+{"timestamp":"2025-08-18T23:47:19.307Z","level":"INFO","message":"🎨 GENERATING COMPLETE STYLE: zen","data":null}
+{"timestamp":"2025-08-18T23:47:19.307Z","level":"INFO","message":"📝 Description: Minimalist Japanese aesthetic with natural wood, bamboo, and serene atmosphere","data":null}
+{"timestamp":"2025-08-18T23:47:19.307Z","level":"INFO","message":null,"data":null}
+{"timestamp":"2025-08-18T23:47:19.307Z","level":"INFO","message":"STEP 1: Generating style content with Claude","data":null}
+{"timestamp":"2025-08-18T23:47:19.307Z","level":"DEBUG","message":"Attempt 1/2","data":null}
+{"timestamp":"2025-08-18T23:49:43.488Z","level":"DEBUG","message":"Raw Claude response length:","data":{"length":56}}
+{"timestamp":"2025-08-18T23:49:43.489Z","level":"DEBUG","message":"Strategy 1 failed: Unexpected token 'C', \"Claude can\"... is not valid JSON","data":null}
+{"timestamp":"2025-08-18T23:49:43.489Z","level":"DEBUG","message":"Strategy 2 failed: No code block found","data":null}
+{"timestamp":"2025-08-18T23:49:43.489Z","level":"DEBUG","message":"Strategy 3 failed: No JSON object found","data":null}
+{"timestamp":"2025-08-18T23:49:43.489Z","level":"DEBUG","message":"Strategy 4 failed: Unexpected end of JSON input","data":null}
+{"timestamp":"2025-08-18T23:49:43.489Z","level":"ERROR","message":"Failed to parse Claude response","data":{"error":"All parsing strategies failed"}}
+{"timestamp":"2025-08-18T23:49:43.490Z","level":"INFO","message":"Generating intelligent fallback style","data":null}
+{"timestamp":"2025-08-18T23:49:43.490Z","level":"DEBUG","message":"Extracted info from response","data":{"colors":[],"keywords":[],"tone":"modern"}}
+{"timestamp":"2025-08-18T23:49:43.490Z","level":"SUCCESS","message":"Generated intelligent fallback","data":null}
+{"timestamp":"2025-08-18T23:49:43.490Z","level":"SUCCESS","message":"Style content generated successfully","data":null}
+{"timestamp":"2025-08-18T23:49:43.490Z","level":"INFO","message":"STEP 2: Generating images with ChatGPT","data":null}
+{"timestamp":"2025-08-18T23:49:43.491Z","level":"INFO","message":"Starting ChatGPT image generation","data":{"count":3}}
+{"timestamp":"2025-08-18T23:49:51.415Z","level":"INFO","message":"Generating image 1/3","data":{"type":"hero"}}
+{"timestamp":"2025-08-18T23:49:51.416Z","level":"DEBUG","message":"Attempt 1/3","data":null}
+{"timestamp":"2025-08-18T23:49:55.080Z","level":"DEBUG","message":"Waiting for image generation...","data":null}
+{"timestamp":"2025-08-18T23:50:12.610Z","level":"SUCCESS","message":"Image saved: zen-hero-1755561010115.png","data":{"size":2043078}}
+{"timestamp":"2025-08-18T23:50:17.617Z","level":"INFO","message":"Generating image 2/3","data":{"type":"features"}}
+{"timestamp":"2025-08-18T23:50:17.618Z","level":"DEBUG","message":"Attempt 1/3","data":null}
+{"timestamp":"2025-08-18T23:50:21.470Z","level":"DEBUG","message":"Waiting for image generation...","data":null}
