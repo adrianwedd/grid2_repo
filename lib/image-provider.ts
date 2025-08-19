@@ -28,52 +28,39 @@ class ImageProvider {
   }
 
   private async initializeManifests() {
-    // Only try to load manifests on client side
-    if (typeof window === 'undefined') {
-      // Server side - use file system
-      try {
-        const fs = await import('fs/promises');
-        const path = await import('path');
-        
-        const aiManifestPath = path.join(process.cwd(), 'public/generated-images/ai-patient-manifest.json');
-        try {
-          const aiData = await fs.readFile(aiManifestPath, 'utf-8');
-          this.aiManifest = JSON.parse(aiData);
-          console.log('✅ Loaded AI images manifest (server)');
-        } catch (error) {
-          console.warn('Failed to load AI manifest from filesystem:', error);
-        }
-      } catch (error) {
-        console.warn('Failed to import filesystem modules:', error);
-      }
-      return;
-    }
-
-    // Client side - use fetch
+    // Use fetch for both client and server side to ensure consistency
+    const isServerSide = typeof window === 'undefined';
+    
     try {
-      const aiResponse = await fetch('/generated-images/ai-patient-manifest.json');
+      // Determine base URL for server-side requests
+      const baseUrl = isServerSide ? process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000' : '';
+      
+      const aiResponse = await fetch(`${baseUrl}/generated-images/ai-patient-manifest.json`);
       if (aiResponse.ok) {
         this.aiManifest = await aiResponse.json();
-        console.log('✅ Loaded AI images manifest (client)');
+        console.log(`✅ Loaded AI images manifest (${isServerSide ? 'server' : 'client'})`);
       }
     } catch (error) {
       console.warn('Failed to load AI manifest:', error);
     }
 
     try {
-      const placeholderResponse = await fetch('/generated-images/placeholder-manifest.json');
+      const baseUrl = isServerSide ? process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000' : '';
+      const placeholderResponse = await fetch(`${baseUrl}/generated-images/placeholder-manifest.json`);
       if (placeholderResponse.ok) {
         this.placeholderManifest = await placeholderResponse.json();
-        console.log('✅ Loaded placeholder manifest');
+        console.log(`✅ Loaded placeholder manifest (${isServerSide ? 'server' : 'client'})`);
       }
     } catch (error) {
       console.warn('Failed to load placeholder manifest:', error);
     }
 
     try {
-      const generatedResponse = await fetch('/generated-images/image-manifest.json');
+      const baseUrl = isServerSide ? process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000' : '';
+      const generatedResponse = await fetch(`${baseUrl}/generated-images/image-manifest.json`);
       if (generatedResponse.ok) {
         this.generatedManifest = await generatedResponse.json();
+        console.log(`✅ Loaded generated manifest (${isServerSide ? 'server' : 'client'})`);
       }
     } catch (error) {
       console.warn('Failed to load generated manifest:', error);
