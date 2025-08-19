@@ -26,7 +26,10 @@ REFACTOR-PROPOSAL.md
 THEME-APPLICATION-FIX.md
 WORKFLOW-IMPLEMENTATION.md
 IMAGE-INTEGRATION-PLAN.md
-*.png
+# *.png - Commented out to allow generated images
+# Keep specific PNG files out if needed
+/screenshots/*.png
+/test-images/*.png
 claude-browser-package/
 claude-simple-client.js
 cleanup-themes.js

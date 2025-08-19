@@ -1,10 +1,10 @@
 // Generate specific feature icons for the minimal tone
-import dotenv from 'dotenv';
+const dotenv = require('dotenv');
 dotenv.config({ path: '.env.local' });
 
-import { ChatGPTImageGenerator } from './lib/chatgpt-image-generator.ts';
-import fs from 'fs';
-import path from 'path';
+const { ChatGPTImageGenerator } = require('./lib/chatgpt-image-generator.ts');
+const fs = require('fs');
+const path = require('path');
 
 // Load session config manually
 const CHATGPT_SESSION = {
