@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { generatePage, demoBrand } from '@/lib/generate-page';
 import { PageRenderer } from '@/components/PageRenderer';
 import { imageProvider } from '@/lib/image-provider';
-import { AI_STYLE_METADATA, AI_STYLES_CONTENT_MAP } from '@/lib/all-ai-styles';
+import { AI_STYLE_METADATA_COMBINED as AI_STYLE_METADATA, AI_STYLES_CONTENT_MAP_COMBINED as AI_STYLES_CONTENT_MAP } from '@/lib/all-ai-styles-combined';
 import type { Tone, PageNode } from '@/types/section-system';
 
 // Use ALL AI-generated styles
