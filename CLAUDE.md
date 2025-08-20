@@ -2,6 +2,31 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## 🚨 CRITICAL SECURITY RULES
+
+### NEVER HARDCODE API KEYS OR SECRETS
+- **NEVER** put API keys, tokens, or secrets directly in source code
+- **NEVER** commit files containing real API keys or credentials
+- **ALWAYS** use environment variables from `.env.local` (which is gitignored)
+- **ALWAYS** check that `.env.local` is in `.gitignore` before adding keys
+- **ALWAYS** use placeholders like `your_api_key_here` in example files
+- **NEVER** use fallback values with real API keys (e.g., `process.env.KEY || 'real-key'`)
+
+### Correct Pattern:
+```javascript
+// ✅ CORRECT - Load from environment only
+const API_KEY = process.env.OPENROUTER_API_KEY;
+if (!API_KEY) {
+  throw new Error('OPENROUTER_API_KEY environment variable is required');
+}
+```
+
+### Wrong Pattern:
+```javascript
+// ❌ NEVER DO THIS - Hardcoded fallback
+const API_KEY = process.env.OPENROUTER_API_KEY || 'YOUR_KEY_HERE';
+```
+
 ## Commands
 
 ### Development
