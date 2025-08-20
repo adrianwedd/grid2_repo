@@ -5,7 +5,7 @@ import { generatePage, demoBrand } from '@/lib/generate-page';
 import { PageRenderer } from '@/components/PageRenderer';
 import { imageProvider } from '@/lib/image-provider';
 import { generateToneSpecificContent } from '@/lib/tone-content-generator';
-import { AI_STYLES_CONTENT } from '@/lib/ai-styles-content';
+import { AI_STYLES_CONTENT, AI_STYLE_METADATA_COMBINED } from '@/lib/ai-styles-content';
 import type { Tone, PageNode } from '@/types/section-system';
 
 const STYLES: Array<{
@@ -143,6 +143,91 @@ const STYLES: Array<{
     description: 'Reality Melts, Imagination Bakes',
     colors: { primary: '#FF66CC', secondary: '#CC66FF', background: '#330033' },
     aiStyleId: 'quantum-quokka'
+  },
+  // ========== NEW 12 AI STYLES ==========
+  {
+    value: 'modern' as Tone,
+    name: 'Neon Ghost Protocol',
+    description: 'Bleeding-edge chaos meets sleek dystopian elegance',
+    colors: { primary: '#FF00FF', secondary: '#00FFFF', background: '#0A0A1A' },
+    aiStyleId: 'neon-ghost'
+  },
+  {
+    value: 'zen' as Tone,
+    name: 'Ethereal Zen Garden',
+    description: 'Digital tranquility and balance',
+    colors: { primary: '#4A5568', secondary: '#68D391', background: '#F7FAFC' },
+    aiStyleId: 'zen-ethereal'
+  },
+  {
+    value: 'retro' as Tone,
+    name: 'Pixel Paradise Arcade',
+    description: 'Insert coin to start your adventure',
+    colors: { primary: '#FF6B6B', secondary: '#4ECDC4', background: '#1A1A2E' },
+    aiStyleId: 'retro-arcade'
+  },
+  {
+    value: 'elegant' as Tone,
+    name: 'Nocturne Arcana Library',
+    description: 'Where forgotten scrolls whisper secrets',
+    colors: { primary: '#8B4513', secondary: '#DAA520', background: '#1C1C1C' },
+    aiStyleId: 'dark-academia'
+  },
+  {
+    value: 'nature' as Tone,
+    name: 'Sunrise Symphony',
+    description: 'Sustainable innovation meets eco-consciousness',
+    colors: { primary: '#10B981', secondary: '#F59E0B', background: '#FEFCE8' },
+    aiStyleId: 'solar-punk'
+  },
+  {
+    value: 'creative' as Tone,
+    name: 'Digital Sunset Mall',
+    description: 'Nostalgia crashes into digital decay',
+    colors: { primary: '#FF71CE', secondary: '#B967FF', background: '#05FFA1' },
+    aiStyleId: 'vaporwave-dreams'
+  },
+  {
+    value: 'bold' as Tone,
+    name: 'Concrete Monolith',
+    description: 'Raw, unapologetic digital concrete',
+    colors: { primary: '#2D3748', secondary: '#E53E3E', background: '#EDF2F7' },
+    aiStyleId: 'brutalist-concrete'
+  },
+  {
+    value: 'playful' as Tone,
+    name: 'Geometric Playground',
+    description: 'Where serious design goes to party',
+    colors: { primary: '#F687B3', secondary: '#FBB6CE', background: '#FED7E2' },
+    aiStyleId: 'memphis-party'
+  },
+  {
+    value: 'bold' as Tone,
+    name: 'Void Whisper Station',
+    description: 'Embrace the beautiful terror',
+    colors: { primary: '#6B46C1', secondary: '#1E293B', background: '#020617' },
+    aiStyleId: 'cosmic-void'
+  },
+  {
+    value: 'warm' as Tone,
+    name: 'Digital Cottage Haven',
+    description: 'Handcrafted pixels with warmth',
+    colors: { primary: '#92400E', secondary: '#D97706', background: '#FEF3C7' },
+    aiStyleId: 'cottage-comfort'
+  },
+  {
+    value: 'creative' as Tone,
+    name: 'Everything Everywhere',
+    description: 'Why choose when you can have it all',
+    colors: { primary: '#FF0080', secondary: '#00FF80', background: '#8000FF' },
+    aiStyleId: 'maximalist-chaos'
+  },
+  {
+    value: 'modern' as Tone,
+    name: 'Reality.exe Error',
+    description: 'Beauty emerges from corruption',
+    colors: { primary: '#00FFFF', secondary: '#FF00FF', background: '#000000' },
+    aiStyleId: 'glitch-reality'
   }
 ];
 
@@ -486,7 +571,7 @@ export function StyleShowcaseGrid() {
       <div className="bg-gray-900 text-gray-400 py-8 mt-12">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="text-sm">
-            12 unique design philosophies • Same content, different personalities • 
+            {STYLES.length} unique design philosophies • Same content, different personalities • 
             <span className="text-blue-400 ml-1">Powered by Grid 2.0</span>
           </p>
         </div>
