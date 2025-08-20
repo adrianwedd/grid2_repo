@@ -4,147 +4,11 @@ import React, { useState, useEffect } from 'react';
 import { generatePage, demoBrand } from '@/lib/generate-page';
 import { PageRenderer } from '@/components/PageRenderer';
 import { imageProvider } from '@/lib/image-provider';
-import { generateToneSpecificContent } from '@/lib/tone-content-generator';
-import { AI_STYLES_CONTENT } from '@/lib/ai-styles-content';
+import { AI_STYLE_METADATA, AI_STYLES_CONTENT_MAP } from '@/lib/all-ai-styles';
 import type { Tone, PageNode } from '@/types/section-system';
 
-const STYLES: Array<{
-  value: Tone;
-  name: string;
-  description: string;
-  colors: { primary: string; secondary: string; background: string };
-  aiStyleId?: string;
-}> = [
-  {
-    value: 'minimal',
-    name: 'Minimal Swiss',
-    description: 'Clean, focused, distraction-free',
-    colors: { primary: '#000000', secondary: '#666666', background: '#FFFFFF' }
-  },
-  {
-    value: 'bold',
-    name: 'Bold Brutalist',
-    description: 'Maximum impact, zero subtlety',
-    colors: { primary: '#FF0000', secondary: '#000000', background: '#FFFF00' }
-  },
-  {
-    value: 'playful',
-    name: 'Playful Memphis',
-    description: 'Fun, energetic, delightful',
-    colors: { primary: '#FF69B4', secondary: '#00CED1', background: '#FFE4E1' }
-  },
-  {
-    value: 'corporate',
-    name: 'Corporate Professional',
-    description: 'Business-ready, trustworthy',
-    colors: { primary: '#003366', secondary: '#0066CC', background: '#F0F4F8' }
-  },
-  {
-    value: 'elegant',
-    name: 'Elegant Editorial',
-    description: 'Sophisticated and refined',
-    colors: { primary: '#2C3E50', secondary: '#8B7355', background: '#FAF9F6' }
-  },
-  {
-    value: 'modern',
-    name: 'Modern Tech',
-    description: 'Future-forward innovation',
-    colors: { primary: '#6366F1', secondary: '#8B5CF6', background: '#0F172A' }
-  },
-  {
-    value: 'warm',
-    name: 'Warm Organic',
-    description: 'Cozy, inviting, human',
-    colors: { primary: '#D2691E', secondary: '#8B4513', background: '#FFF8DC' }
-  },
-  {
-    value: 'luxury',
-    name: 'Luxury Premium',
-    description: 'Exclusive, high-end excellence',
-    colors: { primary: '#D4AF37', secondary: '#1C1C1C', background: '#FFFEF7' }
-  },
-  {
-    value: 'creative',
-    name: 'Creative Artistic',
-    description: 'Imaginative and unconventional',
-    colors: { primary: '#FF1493', secondary: '#00FFFF', background: '#FFE4E1' }
-  },
-  {
-    value: 'nature',
-    name: 'Nature Eco',
-    description: 'Sustainable, earth-friendly',
-    colors: { primary: '#228B22', secondary: '#8B4513', background: '#F5FFFA' }
-  },
-  {
-    value: 'retro',
-    name: 'Retro Vintage',
-    description: 'Nostalgic throwback vibes',
-    colors: { primary: '#FF6347', secondary: '#4682B4', background: '#FFF8DC' }
-  },
-  {
-    value: 'zen',
-    name: 'Zen Tranquil',
-    description: 'Peaceful, balanced harmony',
-    colors: { primary: '#4A5568', secondary: '#718096', background: '#F7FAFC' }
-  },
-  // AI Generated Styles
-  {
-    value: 'playful',
-    name: 'Quantum Nebula',
-    description: 'Where Pixels Dance with the Cosmos',
-    colors: { primary: '#FF00FF', secondary: '#00FFFF', background: '#000000' },
-    aiStyleId: 'quantum-nebula'
-  },
-  {
-    value: 'bold',
-    name: 'DeepSeek Enigma',
-    description: 'Where logic transcends reality',
-    colors: { primary: '#0080FF', secondary: '#4B0082', background: '#0A0A0A' },
-    aiStyleId: 'deepseek-enigma'
-  },
-  {
-    value: 'creative',
-    name: 'Thunder Goat',
-    description: 'Where Chaos Meets Brilliance',
-    colors: { primary: '#FF00F6', secondary: '#8B00FF', background: '#1A001A' },
-    aiStyleId: 'thunder-goat'
-  },
-  {
-    value: 'playful',
-    name: 'VOIDWHISPER',
-    description: 'CHAOS BIRTHS CLARITY',
-    colors: { primary: '#FF00FF', secondary: '#000000', background: '#FFFFFF' },
-    aiStyleId: 'voidwhisper'
-  },
-  {
-    value: 'retro',
-    name: 'Psychedelic Café',
-    description: 'Time, Space, and Flavors Collide',
-    colors: { primary: '#FF69B4', secondary: '#FFA500', background: '#2F004F' },
-    aiStyleId: 'psychedelic-cafe'
-  },
-  {
-    value: 'playful',
-    name: 'GlitchGizzard',
-    description: 'Reality is a slow-loading JPEG',
-    colors: { primary: '#FFD9FF', secondary: '#DDA0DD', background: '#1C0033' },
-    aiStyleId: 'glitchgizzard'
-  },
-  {
-    value: 'modern',
-    name: 'GLM Air Flow',
-    description: 'Breathe in the digital atmosphere',
-    colors: { primary: '#00FFCC', secondary: '#40E0D0', background: '#001A33' },
-    aiStyleId: 'glm-air-flow'
-  },
-  {
-    value: 'creative',
-    name: 'Quantum Quokka',
-    description: 'Reality Melts, Imagination Bakes',
-    colors: { primary: '#FF66CC', secondary: '#CC66FF', background: '#330033' },
-    aiStyleId: 'quantum-quokka'
-  }
-];
+// Use ALL AI-generated styles
+const STYLES = AI_STYLE_METADATA;
 
 interface StyleCardProps {
   style: typeof STYLES[0];
@@ -230,18 +94,18 @@ function StyleCard({ style, page, loading, imageStats, onPreview }: StyleCardPro
               </div>
             )}
             
-            {/* Other images - smaller grid */}
+            {/* Other section images - smaller grid */}
             <div className="grid grid-cols-2 gap-2">
-              {images.filter(img => img.section !== 'hero').slice(0, 2).map((img, idx) => (
-                <div key={idx} className="relative h-20 bg-gray-100 rounded overflow-hidden">
+              {images.filter(img => img.section !== 'hero').slice(0, 2).map((image, idx) => (
+                <div key={idx} className="relative h-16 bg-gray-100 rounded overflow-hidden">
                   <img
-                    src={img.src}
-                    alt={img.alt}
+                    src={image.src}
+                    alt={image.alt}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/40 px-1 py-0.5">
-                    <span className="text-white text-xs">{img.section}</span>
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                    <span className="text-white text-xs font-medium capitalize">{image.section}</span>
                   </div>
                 </div>
               ))}
@@ -249,7 +113,7 @@ function StyleCard({ style, page, loading, imageStats, onPreview }: StyleCardPro
           </div>
         )}
         
-        {/* No images fallback */}
+        {/* No images state */}
         {!loading && images.length === 0 && (
           <div className="h-48 bg-gray-50 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300">
             <div className="text-center">
@@ -259,39 +123,39 @@ function StyleCard({ style, page, loading, imageStats, onPreview }: StyleCardPro
           </div>
         )}
         
-        {/* Image stats badge */}
+        {/* Image stats */}
         <div className="mt-3 flex items-center justify-between">
           <div className="flex gap-1">
             {imageStats.hasAI && (
-              <span className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded">AI</span>
+              <span className="text-xs px-2 py-1 bg-purple-100 text-purple-700 rounded">AI</span>
             )}
-            {imageStats.hasGenerated && !imageStats.hasAI && (
-              <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">Generated</span>
+            {imageStats.hasGenerated && (
+              <span className="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded">Generated</span>
             )}
-            {imageStats.hasPlaceholder && !imageStats.hasAI && !imageStats.hasGenerated && (
-              <span className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">Placeholder</span>
+            {imageStats.hasPlaceholder && (
+              <span className="text-xs px-2 py-1 bg-gray-100 text-gray-700 rounded">Placeholder</span>
             )}
           </div>
           <span className="text-xs text-gray-500">{images.length} images</span>
         </div>
         
-        {/* Style info */}
+        {/* Color palette */}
         <div className="mt-3 pt-3 border-t border-gray-100">
           <div className="flex items-center gap-2">
             <span className="text-xs text-gray-500">Colors:</span>
             <div className="flex gap-1">
               <div 
-                className="w-4 h-4 rounded border border-gray-300"
+                className="w-4 h-4 rounded border border-gray-300" 
                 style={{ backgroundColor: style.colors.primary }}
                 title={style.colors.primary}
               />
               <div 
-                className="w-4 h-4 rounded border border-gray-300"
+                className="w-4 h-4 rounded border border-gray-300" 
                 style={{ backgroundColor: style.colors.secondary }}
                 title={style.colors.secondary}
               />
               <div 
-                className="w-4 h-4 rounded border border-gray-300"
+                className="w-4 h-4 rounded border border-gray-300" 
                 style={{ backgroundColor: style.colors.background }}
                 title={style.colors.background}
               />
@@ -299,45 +163,32 @@ function StyleCard({ style, page, loading, imageStats, onPreview }: StyleCardPro
           </div>
         </div>
       </div>
-      
-      {/* Preview overlay */}
-      {!loading && page && (
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-          <div className="bg-white rounded-lg px-4 py-2 shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-            <span className="text-sm font-medium text-gray-900">Click to preview</span>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
 
 export function StyleShowcaseGrid() {
-  const [pages, setPages] = useState<Record<Tone, PageNode | null>>({} as any);
-  const [loading, setLoading] = useState<Record<Tone, boolean>>({} as any);
-  const [previewStyle, setPreviewStyle] = useState<Tone | null>(null);
-  const [mounted, setMounted] = useState(false);
-  const [imageStats, setImageStats] = useState({ 
-    placeholders: 0, 
-    generated: 0, 
-    aiGenerated: 0,
-    tones: [] as string[],
-    sections: [] as string[]
-  });
+  const [pages, setPages] = useState<Record<string, PageNode | null>>({} as any);
+  const [loading, setLoading] = useState<Record<string, boolean>>({} as any);
+  const [previewStyle, setPreviewStyle] = useState<string | null>(null);
+  const [imageCounts, setImageCounts] = useState<{
+    aiGenerated: number;
+    placeholder: number;
+    generated: number;
+  }>({ aiGenerated: 0, placeholder: 0, generated: 0 });
+
+  // Load image counts from provider
+  const loadImageStats = () => {
+    const stats = imageProvider.getImageStats();
+    setImageCounts({
+      aiGenerated: stats.aiGenerated || 0,
+      placeholder: stats.placeholder || 0,
+      generated: stats.generated || 0
+    });
+  };
 
   useEffect(() => {
-    // Mark as mounted to handle hydration
-    setMounted(true);
-    
-    // Initialize image provider and get stats
-    const loadImageStats = async () => {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      imageProvider.refresh();
-      const stats = imageProvider.getImageStats();
-      setImageStats(stats);
-      console.log('📊 Image stats loaded:', stats);
-    };
-
+    // Load image stats on mount
     loadImageStats();
 
     // Generate all pages after mount to avoid hydration mismatch
@@ -369,36 +220,29 @@ export function StyleShowcaseGrid() {
 
   const generateStylePage = async (style: typeof STYLES[0]) => {
     const tone = style.value;
-    setLoading(prev => ({ ...prev, [tone]: true }));
+    // Always use aiStyleId as key for AI styles
+    const styleKey = style.aiStyleId!;
+    setLoading(prev => ({ ...prev, [styleKey]: true }));
     
     try {
-      let content;
-      let brand = demoBrand;
+      // Get AI style content
+      const aiStyle = AI_STYLES_CONTENT_MAP[style.aiStyleId!];
+      const content = aiStyle.content;
       
-      // Use AI style content if this is an AI-generated style
-      if (style.aiStyleId && AI_STYLES_CONTENT[style.aiStyleId]) {
-        const aiStyle = AI_STYLES_CONTENT[style.aiStyleId];
-        content = aiStyle.content;
-        
-        // Create custom brand with AI colors  
-        brand = {
-          ...demoBrand,
-          colors: {
-            ...demoBrand.colors,
-            brand: {
-              ...demoBrand.colors.brand,
-              500: aiStyle.colors.primary,  // Primary color
-              600: aiStyle.colors.secondary // Secondary shade
-            }
+      // Create custom brand with AI colors  
+      const brand = {
+        ...demoBrand,
+        colors: {
+          ...demoBrand.colors,
+          brand: {
+            ...demoBrand.colors.brand,
+            500: aiStyle.colors.primary,
+            600: aiStyle.colors.secondary
           }
-        };
-        
-        console.log(`🤖 Using AI content for ${aiStyle.name}`);
-      } else {
-        // Use standard tone content for regular styles
-        content = generateToneSpecificContent(tone);
-        console.log(`📝 Using standard content for ${tone}`);
-      }
+        }
+      };
+      
+      console.log(`🤖 Generating ${aiStyle.name} with unique content`);
       
       const { primary } = await generatePage(
         content, 
@@ -407,18 +251,19 @@ export function StyleShowcaseGrid() {
         ['hero', 'features', 'cta']
       );
       
-      setPages(prev => ({ ...prev, [tone]: primary }));
+      setPages(prev => ({ ...prev, [styleKey]: primary }));
       console.log(`✅ Generated ${style.name} page with ${primary.sections.length} sections`);
     } catch (error) {
       console.error(`❌ Failed to generate ${style.name}:`, error);
-      setPages(prev => ({ ...prev, [tone]: null }));
+      setPages(prev => ({ ...prev, [styleKey]: null }));
     } finally {
-      setLoading(prev => ({ ...prev, [tone]: false }));
+      setLoading(prev => ({ ...prev, [styleKey]: false }));
     }
   };
 
   const getImageStatsForStyle = (tone: Tone) => {
-    const page = pages[tone];
+    const styleKey = STYLES.find(s => s.value === tone)?.aiStyleId || tone;
+    const page = pages[styleKey];
     if (!page) return { hasAI: false, hasGenerated: false, hasPlaceholder: false };
     
     let hasAI = false;
@@ -429,13 +274,9 @@ export function StyleShowcaseGrid() {
       if (section.props?.media) {
         section.props.media.forEach((media: any) => {
           if (media.src) {
-            if (media.src.includes('ai-generated') || media.src.includes('ai-patient')) {
-              hasAI = true;
-            } else if (media.src.includes('generated')) {
-              hasGenerated = true;
-            } else if (media.src.includes('placeholder')) {
-              hasPlaceholder = true;
-            }
+            if (media.src.includes('/ai-images/')) hasAI = true;
+            else if (media.src.includes('/generated-images/')) hasGenerated = true;
+            else if (media.src.includes('/api/placeholder')) hasPlaceholder = true;
           }
         });
       }
@@ -455,28 +296,51 @@ export function StyleShowcaseGrid() {
               <p className="text-gray-600 mt-1">AI Director meets Deterministic Engine</p>
             </div>
             <div className="text-sm text-gray-500">
-              {imageStats.aiGenerated > 0 
-                ? `${imageStats.aiGenerated} AI images loaded`
-                : imageStats.generated > 0
-                ? `${imageStats.generated} generated images`
-                : `${imageStats.placeholders} placeholder images`
-              }
+              {imageCounts.aiGenerated + imageCounts.generated + imageCounts.placeholder} images total
             </div>
           </div>
         </div>
       </div>
 
-      {/* Styles grid */}
+      {/* Main content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Stats bar */}
+        <div className="bg-white rounded-lg shadow-sm p-4 mb-8">
+          <div className="flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-gray-900">AI-Generated Style Collection</h2>
+            <div className="flex gap-4 text-sm">
+              <span className="text-purple-600">
+                <span className="font-semibold">{STYLES.length}</span> Unique AI Styles
+              </span>
+              {imageCounts.aiGenerated > 0 && (
+                <span className="text-blue-600">
+                  <span className="font-semibold">{imageCounts.aiGenerated}</span> AI Images
+                </span>
+              )}
+              {imageCounts.generated > 0 && (
+                <span className="text-green-600">
+                  <span className="font-semibold">{imageCounts.generated}</span> Generated
+                </span>
+              )}
+              {imageCounts.placeholder > 0 && (
+                <span className="text-gray-600">
+                  <span className="font-semibold">{imageCounts.placeholder}</span> Placeholders
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Styles grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {STYLES.map(style => (
             <StyleCard
-              key={style.value}
+              key={style.aiStyleId}
               style={style}
-              page={pages[style.value]}
-              loading={loading[style.value] || false}
+              page={pages[style.aiStyleId!]}
+              loading={loading[style.aiStyleId!] || false}
               imageStats={getImageStatsForStyle(style.value)}
-              onPreview={() => setPreviewStyle(style.value)}
+              onPreview={() => setPreviewStyle(style.aiStyleId!)}
             />
           ))}
         </div>
@@ -486,32 +350,33 @@ export function StyleShowcaseGrid() {
       <div className="bg-gray-900 text-gray-400 py-8 mt-12">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="text-sm">
-            12 unique design philosophies • Same content, different personalities • 
-            <span className="text-blue-400 ml-1">Powered by Grid 2.0</span>
+            All {STYLES.length} styles generated by AI models • Each with unique philosophy and content
+          </p>
+          <p className="text-xs mt-2 text-gray-500">
+            Powered by OpenRouter with DeepSeek, Mistral, Qwen, and more
           </p>
         </div>
       </div>
 
-      {/* Full-screen preview modal */}
+      {/* Preview Modal */}
       {previewStyle && pages[previewStyle] && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          {/* Modal content */}
-          <div className="bg-white rounded-xl shadow-2xl w-full h-full max-w-6xl max-h-[90vh] flex flex-col overflow-hidden">
+        <div className="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-6xl h-[90vh] flex flex-col overflow-hidden">
             {/* Modal header */}
             <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-white">
               <div className="flex items-center gap-4">
                 <div 
                   className="w-6 h-6 rounded bg-gradient-to-r"
                   style={{
-                    background: `linear-gradient(to right, ${STYLES.find(s => s.value === previewStyle)?.colors.primary}, ${STYLES.find(s => s.value === previewStyle)?.colors.secondary})`
+                    background: `linear-gradient(to right, ${STYLES.find(s => s.aiStyleId === previewStyle)?.colors.primary}, ${STYLES.find(s => s.aiStyleId === previewStyle)?.colors.secondary})`
                   }}
                 />
                 <div>
                   <h2 className="text-xl font-bold text-gray-900">
-                    {STYLES.find(s => s.value === previewStyle)?.name}
+                    {STYLES.find(s => s.aiStyleId === previewStyle)?.name}
                   </h2>
                   <p className="text-sm text-gray-600">
-                    {STYLES.find(s => s.value === previewStyle)?.description}
+                    {STYLES.find(s => s.aiStyleId === previewStyle)?.description}
                   </p>
                 </div>
               </div>
@@ -537,7 +402,7 @@ export function StyleShowcaseGrid() {
             {/* Modal footer */}
             <div className="p-4 bg-white border-t border-gray-200">
               <div className="flex items-center justify-between text-sm text-gray-500">
-                <span>Full preview of {previewStyle} style</span>
+                <span>Full preview of {STYLES.find(s => s.aiStyleId === previewStyle)?.name} style</span>
                 <span>{pages[previewStyle]?.sections.length} sections • {pages[previewStyle]?.sections.reduce((acc, section) => acc + (section.props?.media?.length || 0), 0)} images</span>
               </div>
             </div>

@@ -1,0 +1,171 @@
+{
+  "timestamp": "2025-08-19T23:47:40.564Z",
+  "status": {
+    "status": "ready",
+    "configuredProviders": [],
+    "totalProviders": 4,
+    "hasAnyProvider": false,
+    "fallbackAvailable": true,
+    "supportedStyles": [
+      "photorealistic",
+      "artistic",
+      "minimal",
+      "bold",
+      "playful"
+    ],
+    "supportedAspectRatios": [
+      "1:1",
+      "16:9",
+      "9:16",
+      "4:3",
+      "3:4"
+    ],
+    "supportedQualities": [
+      "draft",
+      "standard",
+      "high"
+    ]
+  },
+  "testCases": [
+    {
+      "name": "Minimal Tech Hero",
+      "prompt": "A minimalist tech startup hero image with geometric shapes and clean lines",
+      "style": "minimal",
+      "aspectRatio": "16:9",
+      "quality": "standard"
+    },
+    {
+      "name": "Bold Creative Agency",
+      "prompt": "A bold, dramatic creative agency hero with vibrant colors and dynamic composition",
+      "style": "bold",
+      "aspectRatio": "16:9",
+      "quality": "high"
+    },
+    {
+      "name": "Playful App Landing",
+      "prompt": "A playful, colorful mobile app landing page hero with fun illustrations",
+      "style": "playful",
+      "aspectRatio": "9:16",
+      "quality": "standard"
+    },
+    {
+      "name": "Professional Corporate",
+      "prompt": "A professional corporate website hero with modern office and business themes",
+      "style": "photorealistic",
+      "aspectRatio": "16:9",
+      "quality": "high"
+    },
+    {
+      "name": "Artistic Portfolio",
+      "prompt": "An artistic portfolio hero with creative textures and unique visual style",
+      "style": "artistic",
+      "aspectRatio": "4:3",
+      "quality": "standard"
+    }
+  ],
+  "results": [
+    {
+      "name": "Minimal Tech Hero",
+      "prompt": "A minimalist tech startup hero image with geometric shapes and clean lines",
+      "style": "minimal",
+      "aspectRatio": "16:9",
+      "quality": "standard",
+      "result": {
+        "success": true,
+        "image": "https://source.unsplash.com/1920x1080/?A%20minimalist%20tech%20startup%20hero%20image%20with%20geometri",
+        "provider": "Unsplash",
+        "model": "placeholder",
+        "estimatedCost": 0,
+        "metadata": {
+          "fallback": true,
+          "reason": "No AI providers configured"
+        },
+        "timestamp": "2025-08-19T23:47:35.379Z"
+      }
+    },
+    {
+      "name": "Bold Creative Agency",
+      "prompt": "A bold, dramatic creative agency hero with vibrant colors and dynamic composition",
+      "style": "bold",
+      "aspectRatio": "16:9",
+      "quality": "high",
+      "result": {
+        "success": true,
+        "image": "https://source.unsplash.com/1920x1080/?A%20bold%2C%20dramatic%20creative%20agency%20hero%20with%20vibrant",
+        "provider": "Unsplash",
+        "model": "placeholder",
+        "estimatedCost": 0,
+        "metadata": {
+          "fallback": true,
+          "reason": "No AI providers configured"
+        },
+        "timestamp": "2025-08-19T23:47:36.426Z"
+      }
+    },
+    {
+      "name": "Playful App Landing",
+      "prompt": "A playful, colorful mobile app landing page hero with fun illustrations",
+      "style": "playful",
+      "aspectRatio": "9:16",
+      "quality": "standard",
+      "result": {
+        "success": true,
+        "image": "https://source.unsplash.com/1080x1080/?A%20playful%2C%20colorful%20mobile%20app%20landing%20page%20hero%20w",
+        "provider": "Unsplash",
+        "model": "placeholder",
+        "estimatedCost": 0,
+        "metadata": {
+          "fallback": true,
+          "reason": "No AI providers configured"
+        },
+        "timestamp": "2025-08-19T23:47:37.470Z"
+      }
+    },
+    {
+      "name": "Professional Corporate",
+      "prompt": "A professional corporate website hero with modern office and business themes",
+      "style": "photorealistic",
+      "aspectRatio": "16:9",
+      "quality": "high",
+      "result": {
+        "success": true,
+        "image": "https://source.unsplash.com/1920x1080/?A%20professional%20corporate%20website%20hero%20with%20modern%20",
+        "provider": "Unsplash",
+        "model": "placeholder",
+        "estimatedCost": 0,
+        "metadata": {
+          "fallback": true,
+          "reason": "No AI providers configured"
+        },
+        "timestamp": "2025-08-19T23:47:38.516Z"
+      }
+    },
+    {
+      "name": "Artistic Portfolio",
+      "prompt": "An artistic portfolio hero with creative textures and unique visual style",
+      "style": "artistic",
+      "aspectRatio": "4:3",
+      "quality": "standard",
+      "result": {
+        "success": true,
+        "image": "https://source.unsplash.com/1080x1080/?An%20artistic%20portfolio%20hero%20with%20creative%20textures%20",
+        "provider": "Unsplash",
+        "model": "placeholder",
+        "estimatedCost": 0,
+        "metadata": {
+          "fallback": true,
+          "reason": "No AI providers configured"
+        },
+        "timestamp": "2025-08-19T23:47:39.556Z"
+      }
+    }
+  ],
+  "summary": {
+    "testsRun": 5,
+    "successful": 5,
+    "totalCost": 0,
+    "providerUsage": {
+      "Unsplash": 5
+    }
+  }
+}
