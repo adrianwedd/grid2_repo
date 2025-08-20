@@ -2,6 +2,33 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## 🚨 CRITICAL DEPLOYMENT RULES
+
+### ALWAYS VERIFY VERCEL DEPLOYMENTS
+After pushing code to GitHub:
+1. **ALWAYS** run `npm run build` locally first to catch TypeScript/build errors
+2. **ALWAYS** wait and check if Vercel deployment succeeds
+3. **ALWAYS** test the deployed UI on the live Vercel URL
+4. **IF deployment fails**: Check build logs, fix errors immediately, redeploy
+5. **IF UI is broken on Vercel**: Debug, fix, and verify the fix is deployed
+
+### Vercel Deployment Checklist:
+```bash
+# 1. Build locally first
+npm run build
+
+# 2. If build succeeds, commit and push
+git add -A && git commit -m "your message" && git push
+
+# 3. Wait ~1-2 minutes, then verify deployment
+curl -I https://grid2repo.vercel.app/
+
+# 4. Test specific features on live site
+curl -s https://grid2repo.vercel.app/your-route | grep "expected-content"
+
+# 5. If issues found, fix immediately and redeploy
+```
+
 ## 🚨 CRITICAL SECURITY RULES
 
 ### NEVER HARDCODE API KEYS OR SECRETS
