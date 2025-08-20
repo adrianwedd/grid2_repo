@@ -1,5 +1,6 @@
 // Image provider system for style-specific images
 import type { Tone, SectionKind, MediaAsset } from '@/types/section-system';
+import { uniqueImageProvider } from './unique-image-provider';
 
 interface ImageManifest {
   [tone: string]: {
@@ -196,6 +197,17 @@ class ImageProvider {
    * Get appropriate image for a tone and section  
    */
   async getImageForToneSection(tone: Tone, sectionKind: SectionKind): Promise<MediaAsset | null> {
+    // First priority: Try unique AI-generated images
+    await uniqueImageProvider.waitForInit();
+    
+    // Check if we have unique images for this tone
+    const uniqueImage = uniqueImageProvider.getImageForStyle(tone, sectionKind);
+    if (uniqueImage) {
+      console.log(`🎨 Using unique AI image for ${tone} ${sectionKind}`);
+      return uniqueImage;
+    }
+    
+    // Fallback to existing system
     // WAIT for async manifest loading to complete
     if (!this.aiManifest && this.initPromise) {
       console.log('⏳ WAITING for AI manifest to load for', tone, sectionKind);
