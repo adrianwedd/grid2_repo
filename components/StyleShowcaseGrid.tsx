@@ -182,7 +182,7 @@ export function StyleShowcaseGrid() {
     const stats = imageProvider.getImageStats();
     setImageCounts({
       aiGenerated: stats.aiGenerated || 0,
-      placeholder: stats.placeholder || 0,
+      placeholder: stats.placeholders || 0,
       generated: stats.generated || 0
     });
   };
