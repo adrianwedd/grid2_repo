@@ -52,20 +52,30 @@ export function useRealtimePreview(initialSections: SectionNode[]) {
   useEffect(() => {
     (async () => {
       try {
-        console.log('Initializing preview session...');
+        console.log('Initializing preview session with sections:', sections);
+        
+        // Validate sections before sending
+        if (!sections || sections.length === 0) {
+          console.error('No sections provided for initialization');
+          setError('No sections available to initialize');
+          return;
+        }
+        
         const resp = await post({ action: 'init', sections });
         console.log('Session init response:', resp);
+        
         if (resp.ok) {
           sessionIdRef.current = resp.sessionId;
           setSessionReady(true);
-          console.log('Session initialized:', resp.sessionId);
+          console.log('Session initialized successfully:', resp.sessionId);
         } else {
-          setError(resp.error || 'Failed to init session');
-          console.error('Session init failed:', resp.error);
+          const errorMsg = resp.error || 'Failed to init session';
+          setError(errorMsg);
+          console.error('Session init failed:', errorMsg, resp);
         }
       } catch (err) {
         console.error('Session init error:', err);
-        setError('Failed to initialize session');
+        setError(`Failed to initialize session: ${err instanceof Error ? err.message : 'Unknown error'}`);
       }
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
