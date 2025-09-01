@@ -50,6 +50,8 @@ export function useRealtimePreview(initialSections: SectionNode[]) {
 
   // Initialize session
   useEffect(() => {
+    let mounted = true;
+    
     (async () => {
       try {
         console.log('Initializing preview session with sections:', sections);
@@ -61,8 +63,18 @@ export function useRealtimePreview(initialSections: SectionNode[]) {
           return;
         }
         
-        const resp = await post({ action: 'init', sections });
+        // Ensure sections have required structure
+        const validSections = sections.map(s => ({
+          id: s.id || `section-${Date.now()}`,
+          meta: s.meta || { kind: 'hero' },
+          props: s.props || {},
+          position: s.position || 0
+        }));
+        
+        const resp = await post({ action: 'init', sections: validSections });
         console.log('Session init response:', resp);
+        
+        if (!mounted) return;
         
         if (resp.ok) {
           sessionIdRef.current = resp.sessionId;
@@ -74,12 +86,14 @@ export function useRealtimePreview(initialSections: SectionNode[]) {
           console.error('Session init failed:', errorMsg, resp);
         }
       } catch (err) {
+        if (!mounted) return;
         console.error('Session init error:', err);
         setError(`Failed to initialize session: ${err instanceof Error ? err.message : 'Unknown error'}`);
       }
     })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    
+    return () => { mounted = false; };
+  }, [post, sections]);
 
   const doPreview = useMemo(
     () =>
