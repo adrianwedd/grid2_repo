@@ -51,12 +51,13 @@ export async function handlePreview(sessionId: string, command: string) {
   if (!s) throw new Error('Session not found');
   const before = s.history.current();
   
-  // ALWAYS use Claude Director when enabled for maximum magic
-  if (process.env.CLAUDE_ENABLED === 'true' && command.trim()) {
+  // Skip Claude Director on production for now - it's causing timeouts
+  // Only use it in local development where localhost:3333 is available
+  if (process.env.CLAUDE_ENABLED === 'true' && command.trim() && !process.env.VERCEL) {
     try {
       // Add timeout to prevent hanging
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+      const timeoutId = setTimeout(() => controller.abort(), 2000); // 2 second timeout
       
       const response = await fetch('http://localhost:3333/api/claude-director', {
         method: 'POST',
@@ -106,7 +107,7 @@ export async function handlePreview(sessionId: string, command: string) {
     }
   }
   
-  // Fallback to basic transforms only if Claude is disabled
+  // Use basic transforms as the primary mode
   const result = interpretChat(command, before);
   const after = result.transforms.reduce((state, t) => t(state), before);
   const analysis = analyzeTransform(before, after);
@@ -123,12 +124,13 @@ export async function handleCommand(sessionId: string, command: string) {
   if (!session) throw new Error('Session not found');
   const before = session.history.current();
   
-  // ALWAYS use Claude Director when enabled for maximum magic
-  if (process.env.CLAUDE_ENABLED === 'true' && command.trim()) {
+  // Skip Claude Director on production for now - it's causing timeouts
+  // Only use it in local development where localhost:3333 is available
+  if (process.env.CLAUDE_ENABLED === 'true' && command.trim() && !process.env.VERCEL) {
     try {
       // Add timeout to prevent hanging
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+      const timeoutId = setTimeout(() => controller.abort(), 2000); // 2 second timeout
       
       const response = await fetch('http://localhost:3333/api/claude-director', {
         method: 'POST',
@@ -181,7 +183,7 @@ export async function handleCommand(sessionId: string, command: string) {
     }
   }
   
-  // Fallback to basic transforms only if Claude is disabled
+  // Use basic transforms as the primary mode
   const result = interpretChat(command, before);
   const after = session.history.apply(result.transforms);
   await saveSession(session);

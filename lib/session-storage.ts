@@ -216,6 +216,14 @@ class CompositeSessionStorage implements SessionStorage {
   }
 
   private async determinePrimary() {
+    // On Vercel, skip external storage tests and use memory directly
+    // This avoids initialization delays that could cause timeouts
+    if (process.env.VERCEL) {
+      this.primary = new MemorySessionStorage();
+      console.log('Using storage: MemorySessionStorage (Vercel environment)');
+      return;
+    }
+    
     for (const storage of this.storages) {
       try {
         // Test storage with a dummy operation
@@ -262,9 +270,8 @@ let storage: SessionStorage | null = null;
 
 export function getSessionStorage(): SessionStorage {
   if (!storage) {
-    // Temporarily use only memory storage for debugging
-    storage = new MemorySessionStorage();
-    console.log('Using storage: MemorySessionStorage (debug mode)');
+    // Use composite storage with automatic fallbacks
+    storage = new CompositeSessionStorage();
   }
   return storage;
 }
