@@ -114,14 +114,7 @@ class UniqueImageProvider {
     return {
       kind: 'image',
       src: imagePath,
-      alt: `${style.name} ${sectionKind} image`,
-      caption: `AI-generated image for ${style.name} style`,
-      metadata: {
-        style: style.name,
-        tone: style.tone,
-        provider: this.manifest.provider,
-        unique: true
-      }
+      alt: `${style.name} ${sectionKind} image - AI-generated for ${style.name} style`
     };
   }
 
@@ -155,15 +148,7 @@ class UniqueImageProvider {
         images.push({
           kind: 'image',
           src: imagePath,
-          alt: `${style.name} ${sectionKind} image ${i + 1}`,
-          caption: `AI-generated image for ${style.name} style`,
-          metadata: {
-            style: style.name,
-            tone: style.tone,
-            provider: this.manifest.provider,
-            unique: true,
-            index: i + 1
-          }
+          alt: `${style.name} ${sectionKind} image ${i + 1} - AI-generated for ${style.name} style`
         });
       }
     }
