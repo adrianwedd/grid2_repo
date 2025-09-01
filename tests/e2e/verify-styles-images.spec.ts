@@ -255,7 +255,7 @@ test.describe('StyleShowcase - Complete Image and Style Verification', () => {
           
           if (!exists && !altExists) {
             const allAlts = await styleImages.evaluateAll(imgs => 
-              imgs.map((img: HTMLImageElement) => img.alt)
+              imgs.map((img) => (img as HTMLImageElement).alt)
             );
             console.log(`    Available alts: ${allAlts.join(', ')}`);
           }

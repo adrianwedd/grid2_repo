@@ -14,7 +14,7 @@ test.describe('Performance - Page Load Times', () => {
     const loadTime = Date.now() - startTime;
     
     // Get Core Web Vitals
-    const metrics = await page.evaluate(() => {
+    const metrics = await page.evaluate((): Promise<any> => {
       return new Promise((resolve) => {
         const data: any = {
           FCP: 0,
@@ -50,8 +50,8 @@ test.describe('Performance - Page Load Times', () => {
     
     // Assert reasonable thresholds
     expect(loadTime).toBeLessThan(3000); // Total load under 3s
-    expect(metrics.FCP).toBeLessThan(1800); // FCP under 1.8s
-    expect(metrics.TTFB).toBeLessThan(600); // TTFB under 600ms
+    expect((metrics as any).FCP).toBeLessThan(1800); // FCP under 1.8s
+    expect((metrics as any).TTFB).toBeLessThan(600); // TTFB under 600ms
   });
 
   test('measure editor page performance', async ({ page }) => {
@@ -271,9 +271,17 @@ test.describe('Performance - Bundle Size', () => {
     let usedBytes = 0;
     
     for (const entry of jsCoverage) {
-      totalBytes += entry.text.length;
-      for (const range of entry.ranges) {
-        usedBytes += range.end - range.start;
+      if ('text' in entry && entry.text) {
+        totalBytes += entry.text.length;
+      } else if ('source' in entry && entry.source) {
+        totalBytes += entry.source.length;
+      }
+      
+      const ranges = 'ranges' in entry ? entry.ranges : 
+                     'functions' in entry ? entry.functions.flatMap(f => f.ranges) : [];
+      
+      for (const range of ranges) {
+        usedBytes += range.endOffset - range.startOffset;
       }
     }
 
@@ -297,9 +305,11 @@ test.describe('Performance - Bundle Size', () => {
     let usedBytes = 0;
     
     for (const entry of cssCoverage) {
-      totalBytes += entry.text.length;
-      for (const range of entry.ranges) {
-        usedBytes += range.end - range.start;
+      if (entry.text) {
+        totalBytes += entry.text.length;
+        for (const range of entry.ranges) {
+          usedBytes += range.end - range.start;
+        }
       }
     }
 
