@@ -14,7 +14,8 @@ export type SectionKind =
   | 'contact'
   | 'gallery'
   | 'navigation'
-  | 'pricing';
+  | 'pricing'
+  | 'faq';
 
 export type SectionVariant = {
   hero:
@@ -27,7 +28,11 @@ export type SectionVariant = {
     | 'with-form'
     | 'minimal'
     | 'video-bg'
-    | 'animated-gradient';
+    | 'animated-gradient'
+    | 'gradient-spotlight'
+    | 'video-background'
+    | 'parallax-scroll'
+    | 'animated-text';
   features:
     | 'cards-3up'
     | 'cards-4up'
@@ -36,14 +41,17 @@ export type SectionVariant = {
     | 'comparison-table'
     | 'bento-grid'
     | 'timeline'
-    | 'accordion';
+    | 'accordion'
+    | 'icon-grid';
   about:
     | 'media-left'
     | 'media-right'
     | 'timeline'
     | 'stat-block'
     | 'team-grid'
-    | 'mission-vision';
+    | 'mission-vision'
+    | 'story-timeline'
+    | 'mission-values';
   testimonials:
     | 'grid-2x2'
     | 'carousel'
@@ -86,7 +94,11 @@ export type SectionVariant = {
   pricing:
     | 'table-3-tier'
     | 'cards'
-    | 'comparison';
+    | 'comparison'
+    | 'tiered';
+  faq:
+    | 'accordion'
+    | 'grid';
 };
 
 export type SectionId = `${SectionKind}-${string}`;
@@ -134,7 +146,7 @@ export type A11yRequirement =
 // Content slot types
 export interface ContentSlot {
   key: string;
-  type: 'text' | 'text[]' | 'image' | 'video' | 'icon' | 'quote' | 'stat';
+  type: 'text' | 'text[]' | 'image' | 'video' | 'icon' | 'quote' | 'stat' | 'action' | 'stat[]' | 'member[]' | 'milestone[]' | 'value[]' | 'plan[]' | 'comparison' | 'faq[]' | 'feature[]';
   required: boolean;
   maxLength?: number;
   minLength?: number;

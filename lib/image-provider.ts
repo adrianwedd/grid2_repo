@@ -265,7 +265,8 @@ class ImageProvider {
       contact: 'cta', // Use CTA style for contact
       gallery: 'hero', // Use hero style for gallery
       navigation: 'features', // Use features style for navigation
-      pricing: 'features' // Use features style for pricing
+      pricing: 'features', // Use features style for pricing
+      faq: 'features' // Use features style for FAQ
     };
 
     const imageCategory = sectionMapping[sectionKind];

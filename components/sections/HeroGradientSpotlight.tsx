@@ -94,9 +94,9 @@ export function HeroGradientSpotlight({ tone, content }: SectionProps) {
           </div>
 
           {/* Optional: Stats or trust indicators */}
-          {content?.stats && (
+          {content?.stats && Array.isArray(content.stats) && (
             <div className="grid grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto">
-              {content.stats.map((stat: any, i: number) => (
+              {(content.stats as any[]).map((stat: any, i: number) => (
                 <div key={i} className="text-center">
                   <div className="text-3xl font-bold text-white">{stat.value}</div>
                   <div className="text-sm text-white/60 mt-1">{stat.label}</div>
