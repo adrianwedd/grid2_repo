@@ -2,9 +2,13 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 
-const API_KEY = process.env.OPENROUTER_API_KEY;
-if (!API_KEY) {
-  throw new Error('OPENROUTER_API_KEY environment variable is required');
+// Check API key at runtime, not build time
+const getApiKey = () => {
+  const key = process.env.OPENROUTER_API_KEY;
+  if (!key) {
+    throw new Error('OPENROUTER_API_KEY environment variable is required');
+  }
+  return key;
 }
 
 // Competition models that WORK (from your dashboard)
@@ -19,6 +23,7 @@ const COMPETITION_MODELS = [
 
 export async function POST(request: NextRequest) {
   try {
+    const API_KEY = getApiKey();
     const { challenge, model } = await request.json();
     
     const selectedModel = model || COMPETITION_MODELS[Math.floor(Math.random() * COMPETITION_MODELS.length)];
@@ -99,6 +104,7 @@ Be extremely creative and unconventional! Format as JSON.`;
 export async function GET() {
   console.log('🏆 Running Model Competition on Vercel!');
   
+  const API_KEY = getApiKey();
   const results = [];
   
   for (const model of COMPETITION_MODELS) {
