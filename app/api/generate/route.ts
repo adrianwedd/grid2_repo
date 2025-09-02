@@ -22,15 +22,7 @@ export async function POST(request: NextRequest) {
 
     // Handle different generation modes
     switch (mode) {
-      case 'random':
-        // "Feeling Lucky" mode - pick random tone
-        const tones: Tone[] = ['minimal', 'bold', 'playful', 'corporate', 'elegant', 
-                               'modern', 'warm', 'luxury', 'creative', 'nature', 
-                               'retro', 'monochrome', 'techno', 'zen'];
-        selectedTone = tones[Math.floor(Math.random() * tones.length)];
-        generatedContent = generateDefaultContent(selectedTone);
-        console.log(`🎲 Random tone selected: ${selectedTone}`);
-        break;
+      // Removed 'random' mode - "I'm Feeling Lucky" feature deprecated
 
       case 'intent':
         // AI-based generation from natural language
