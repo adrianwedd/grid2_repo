@@ -33,6 +33,11 @@ import { HeroFullBleed } from './HeroFullBleed';
 import { HeroCentered } from './HeroCentered';
 import { HeroWithForm } from './HeroWithForm';
 import { HeroCardOverlay } from './HeroCardOverlay';
+import { FeaturesIconList } from './FeaturesIconList';
+import { FeaturesComparison } from './FeaturesComparison';
+import { FeaturesBentoGrid } from './FeaturesBentoGrid';
+import { FeaturesAccordion } from './FeaturesAccordion';
+import { FeaturesSplitList } from './FeaturesSplitList';
 
 export const componentRegistry: Record<string, ComponentRegistryEntry> = {
   'hero-gradient-spotlight': {
@@ -337,6 +342,121 @@ export const componentRegistry: Record<string, ComponentRegistryEntry> = {
       bestFor: ['about', 'company', 'product'],
       avoidFor: [],
       estimatedSize: 'lg',
+      hasAnimations: false,
+      requiresJs: false,
+    },
+  },
+  'features-icon-list': {
+    component: FeaturesIconList as any,
+    meta: {
+      kind: 'features',
+      variant: 'icon-list',
+      name: 'Features • Icon List',
+      description: 'Grid of features with icons and descriptions.',
+      contentSlots: [
+        { key: 'eyebrow', type: 'text', required: false, maxLength: 30 },
+        { key: 'headline', type: 'text', required: true, maxLength: 100 },
+        { key: 'subheadline', type: 'text', required: false, maxLength: 200 },
+        { key: 'features', type: 'feature[]', required: true, minLength: 3, maxLength: 9 },
+        { key: 'cta', type: 'action', required: false },
+      ],
+      hardConstraints: ['mobile_first'],
+      softConstraints: ['avoid_dense_text_mobile', 'optimize_for_thumb_reach'],
+      a11yChecklist: ['contrast_aa', 'keyboard_navigable', 'screen_reader_friendly'],
+      bestFor: ['saas', 'product', 'agency', 'landing'],
+      avoidFor: [],
+      estimatedSize: 'lg',
+      hasAnimations: false,
+      requiresJs: false,
+    },
+  },
+  'features-comparison': {
+    component: FeaturesComparison as any,
+    meta: {
+      kind: 'features',
+      variant: 'comparison',
+      name: 'Features • Comparison Table',
+      description: 'Pricing/feature comparison table with plans.',
+      contentSlots: [
+        { key: 'headline', type: 'text', required: true, maxLength: 100 },
+        { key: 'subheadline', type: 'text', required: false, maxLength: 200 },
+        { key: 'plans', type: 'plan[]', required: true, minLength: 2, maxLength: 4 },
+      ],
+      hardConstraints: ['mobile_first'],
+      softConstraints: ['avoid_dense_text_mobile'],
+      a11yChecklist: ['contrast_aa', 'keyboard_navigable', 'screen_reader_friendly'],
+      bestFor: ['saas', 'product', 'pricing'],
+      avoidFor: ['blog', 'portfolio'],
+      estimatedSize: 'xl',
+      hasAnimations: false,
+      requiresJs: false,
+    },
+  },
+  'features-bento-grid': {
+    component: FeaturesBentoGrid as any,
+    meta: {
+      kind: 'features',
+      variant: 'bento-grid',
+      name: 'Features • Bento Grid',
+      description: 'Modern bento box layout with mixed card sizes.',
+      contentSlots: [
+        { key: 'headline', type: 'text', required: true, maxLength: 100 },
+        { key: 'subheadline', type: 'text', required: false, maxLength: 200 },
+        { key: 'features', type: 'feature[]', required: true, minLength: 4, maxLength: 8 },
+      ],
+      hardConstraints: ['mobile_first'],
+      softConstraints: ['avoid_dense_text_mobile'],
+      a11yChecklist: ['contrast_aa', 'keyboard_navigable', 'screen_reader_friendly'],
+      bestFor: ['saas', 'product', 'creative', 'modern'],
+      avoidFor: ['corporate', 'traditional'],
+      estimatedSize: 'xl',
+      hasAnimations: true,
+      requiresJs: false,
+    },
+  },
+  'features-accordion': {
+    component: FeaturesAccordion as any,
+    meta: {
+      kind: 'features',
+      variant: 'accordion',
+      name: 'Features • Accordion',
+      description: 'Expandable accordion-style features list.',
+      contentSlots: [
+        { key: 'headline', type: 'text', required: true, maxLength: 100 },
+        { key: 'subheadline', type: 'text', required: false, maxLength: 200 },
+        { key: 'features', type: 'feature[]', required: true, minLength: 3, maxLength: 8 },
+      ],
+      hardConstraints: ['mobile_first'],
+      softConstraints: ['avoid_dense_text_mobile'],
+      a11yChecklist: ['contrast_aa', 'keyboard_navigable', 'screen_reader_friendly'],
+      bestFor: ['saas', 'product', 'faq', 'documentation'],
+      avoidFor: [],
+      estimatedSize: 'lg',
+      hasAnimations: true,
+      requiresJs: true,
+    },
+  },
+  'features-split-list': {
+    component: FeaturesSplitList as any,
+    meta: {
+      kind: 'features',
+      variant: 'split-list',
+      name: 'Features • Split List',
+      description: 'Split layout with features list and content side.',
+      contentSlots: [
+        { key: 'headline', type: 'text', required: true, maxLength: 100 },
+        { key: 'subheadline', type: 'text', required: false, maxLength: 200 },
+        { key: 'features', type: 'feature[]', required: true, minLength: 3, maxLength: 6 },
+        { key: 'imageUrl', type: 'text', required: false },
+        { key: 'stats', type: 'stat[]', required: false, maxLength: 4 },
+        { key: 'cta', type: 'action', required: false },
+      ],
+      hardConstraints: ['mobile_first', 'img_alt_required'],
+      softConstraints: ['avoid_dense_text_mobile', 'optimize_for_thumb_reach'],
+      a11yChecklist: ['contrast_aa', 'keyboard_navigable', 'screen_reader_friendly'],
+      bestFor: ['saas', 'product', 'agency', 'landing'],
+      avoidFor: [],
+      estimatedSize: 'xl',
       hasAnimations: false,
       requiresJs: false,
     },
