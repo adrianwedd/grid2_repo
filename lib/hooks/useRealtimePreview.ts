@@ -48,24 +48,24 @@ export function useRealtimePreview(initialSections: SectionNode[]) {
     return res.json();
   }, []);
 
-  // Initialize session
+  // Initialize session only once on mount
   useEffect(() => {
     let mounted = true;
     
     (async () => {
       try {
-        console.log('Initializing preview session with sections:', sections);
+        console.log('Initializing preview session with sections:', initialSections);
         
         // Validate sections before sending
-        if (!sections || sections.length === 0) {
+        if (!initialSections || initialSections.length === 0) {
           console.error('No sections provided for initialization');
           setError('No sections available to initialize');
           return;
         }
         
         // Ensure sections have required structure
-        const validSections = sections.map(s => ({
-          id: s.id || `section-${Date.now()}`,
+        const validSections = initialSections.map(s => ({
+          id: s.id || `section-${Date.now()}-${Math.random()}`,
           meta: s.meta || { kind: 'hero' },
           props: s.props || {},
           position: s.position || 0
@@ -93,7 +93,8 @@ export function useRealtimePreview(initialSections: SectionNode[]) {
     })();
     
     return () => { mounted = false; };
-  }, [post, sections]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const doPreview = useMemo(
     () =>
