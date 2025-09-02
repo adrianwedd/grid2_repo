@@ -1,7 +1,13 @@
 // components/sections/registry.ts
 import type { ComponentRegistryEntry } from '@/types/section-system';
 import { HeroSplitImageLeft } from './HeroSplitImageLeft';
+import { HeroGradientSpotlight } from './HeroGradientSpotlight';
+import { HeroVideoBackground } from './HeroVideoBackground';
+import { HeroParallaxScroll } from './HeroParallaxScroll';
+import { HeroAnimatedText } from './HeroAnimatedText';
 import { FeaturesCards3Up } from './FeaturesCards3Up';
+import { FeaturesIconGrid } from './FeaturesIconGrid';
+import { FeaturesTimeline } from './FeaturesTimeline';
 import { CTAGradientSlab } from './CTAGradientSlab';
 import { TestimonialsGrid2x2 } from './TestimonialsGrid2x2';
 import { FooterMega } from './FooterMega';
@@ -12,6 +18,95 @@ import { GalleryMasonry } from './GalleryMasonry';
 import { BlogListStandard } from './BlogListStandard';
 
 export const componentRegistry: Record<string, ComponentRegistryEntry> = {
+  'hero-gradient-spotlight': {
+    component: HeroGradientSpotlight as any,
+    meta: {
+      kind: 'hero',
+      variant: 'gradient-spotlight',
+      name: 'Hero • Gradient Spotlight',
+      description: 'Animated gradient background with spotlight effects.',
+      contentSlots: [
+        { key: 'headline', type: 'text', required: true, maxLength: 100 },
+        { key: 'subheadline', type: 'text', required: false, maxLength: 200 },
+        { key: 'primaryCta', type: 'action', required: true },
+        { key: 'secondaryCta', type: 'action', required: false },
+        { key: 'stats', type: 'stat[]', required: false, maxLength: 3 },
+      ],
+      hardConstraints: ['h1_once_per_page', 'mobile_first', 'contrast_aa'],
+      softConstraints: ['prefer_dark_mode', 'optimize_for_animation'],
+      a11yChecklist: ['contrast_aa', 'focus_visible', 'keyboard_navigable', 'reduced_motion'],
+      bestFor: ['saas', 'product', 'landing', 'agency'],
+      avoidFor: ['blog', 'documentation'],
+      estimatedSize: 'xl',
+      hasAnimations: true,
+      requiresJs: false,
+    },
+  },
+  'hero-video-background': {
+    component: HeroVideoBackground as any,
+    meta: {
+      kind: 'hero',
+      variant: 'video-background',
+      name: 'Hero • Video Background',
+      description: 'Full-screen video background with overlay text.',
+      contentSlots: [
+        { key: 'headline', type: 'text', required: true, maxLength: 100 },
+        { key: 'subheadline', type: 'text', required: false, maxLength: 200 },
+        { key: 'videoUrl', type: 'text', required: false },
+        { key: 'primaryCta', type: 'action', required: true },
+      ],
+      hardConstraints: ['h1_once_per_page', 'mobile_first', 'video_fallback'],
+      softConstraints: ['prefer_autoplay_muted', 'optimize_video_size'],
+      a11yChecklist: ['contrast_aa', 'focus_visible', 'keyboard_navigable', 'motion_control'],
+      bestFor: ['saas', 'product', 'agency', 'creative'],
+      avoidFor: ['blog', 'documentation', 'accessibility_focused'],
+      estimatedSize: 'xxl',
+      hasAnimations: true,
+      requiresJs: false,
+    },
+  },
+  'hero-parallax-scroll': {
+    component: HeroParallaxScroll as any,
+    meta: {
+      kind: 'hero',
+      variant: 'parallax-scroll',
+      name: 'Hero • Parallax Scroll',
+      description: 'Depth effect with parallax scrolling layers.',
+      contentSlots: [
+        { key: 'headline', type: 'text', required: true, maxLength: 100 },
+        { key: 'subheadline', type: 'text', required: false, maxLength: 200 },
+      ],
+      hardConstraints: ['h1_once_per_page', 'mobile_first'],
+      softConstraints: ['prefer_smooth_scroll', 'optimize_for_performance'],
+      a11yChecklist: ['contrast_aa', 'focus_visible', 'reduced_motion'],
+      bestFor: ['creative', 'portfolio', 'agency'],
+      avoidFor: ['documentation', 'accessibility_focused'],
+      estimatedSize: 'lg',
+      hasAnimations: true,
+      requiresJs: true,
+    },
+  },
+  'hero-animated-text': {
+    component: HeroAnimatedText as any,
+    meta: {
+      kind: 'hero',
+      variant: 'animated-text',
+      name: 'Hero • Animated Text',
+      description: 'Rotating text animation for dynamic messaging.',
+      contentSlots: [
+        { key: 'animatedWords', type: 'text[]', required: true, minLength: 2, maxLength: 6 },
+        { key: 'subheadline', type: 'text', required: false, maxLength: 200 },
+      ],
+      hardConstraints: ['h1_once_per_page', 'mobile_first'],
+      softConstraints: ['prefer_readable_animations'],
+      a11yChecklist: ['contrast_aa', 'focus_visible', 'screen_reader_friendly'],
+      bestFor: ['creative', 'agency', 'startup'],
+      avoidFor: ['corporate', 'documentation'],
+      estimatedSize: 'md',
+      hasAnimations: true,
+      requiresJs: true,
+    },
+  },
   'hero-split-image-left': {
     component: HeroSplitImageLeft as any,
     meta: {
@@ -53,6 +148,50 @@ export const componentRegistry: Record<string, ComponentRegistryEntry> = {
       bestFor: ['saas', 'product', 'service'],
       avoidFor: [],
       estimatedSize: 'md',
+      hasAnimations: false,
+      requiresJs: false,
+    },
+  },
+  'features-icon-grid': {
+    component: FeaturesIconGrid as any,
+    meta: {
+      kind: 'features',
+      variant: 'icon-grid',
+      name: 'Features • Icon Grid',
+      description: 'Grid layout with icons and descriptions.',
+      contentSlots: [
+        { key: 'headline', type: 'text', required: false, maxLength: 100 },
+        { key: 'subheadline', type: 'text', required: false, maxLength: 200 },
+        { key: 'features', type: 'feature[]', required: true, minLength: 4, maxLength: 8 },
+      ],
+      hardConstraints: ['mobile_first'],
+      softConstraints: ['prefer_consistent_icons'],
+      a11yChecklist: ['contrast_aa', 'keyboard_navigable', 'icon_labels'],
+      bestFor: ['saas', 'product', 'service'],
+      avoidFor: [],
+      estimatedSize: 'md',
+      hasAnimations: false,
+      requiresJs: false,
+    },
+  },
+  'features-timeline': {
+    component: FeaturesTimeline as any,
+    meta: {
+      kind: 'features',
+      variant: 'timeline',
+      name: 'Features • Timeline',
+      description: 'Chronological timeline with milestones.',
+      contentSlots: [
+        { key: 'headline', type: 'text', required: false, maxLength: 100 },
+        { key: 'subheadline', type: 'text', required: false, maxLength: 200 },
+        { key: 'timeline', type: 'milestone[]', required: true, minLength: 3, maxLength: 8 },
+      ],
+      hardConstraints: ['mobile_first'],
+      softConstraints: ['prefer_chronological_order'],
+      a11yChecklist: ['contrast_aa', 'keyboard_navigable', 'screen_reader_friendly'],
+      bestFor: ['about', 'company', 'product'],
+      avoidFor: [],
+      estimatedSize: 'lg',
       hasAnimations: false,
       requiresJs: false,
     },
