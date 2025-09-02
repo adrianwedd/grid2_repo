@@ -1,7 +1,7 @@
 // app/editor/page.tsx
 'use client';
 
-import { RealtimeEditor } from '@/components/RealtimeEditor-Fixed';
+import { RealtimeEditorLLM } from '@/components/RealtimeEditor-LLM';
 import type { SectionNode } from '@/types/section-system';
 
 // Simple default sections that always work
@@ -96,5 +96,5 @@ const defaultSections: SectionNode[] = [
 export default function EditorPage() {
   // Use client-side only rendering with default sections
   // This avoids server-side generation issues
-  return <RealtimeEditor initialSections={defaultSections} />;
+  return <RealtimeEditorLLM initialSections={defaultSections} />;
 }
