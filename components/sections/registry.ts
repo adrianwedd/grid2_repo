@@ -23,6 +23,11 @@ import { AboutStoryTimeline } from './AboutStoryTimeline';
 import { AboutMissionValues } from './AboutMissionValues';
 import { FAQAccordion } from './FAQAccordion';
 import { FAQGrid } from './FAQGrid';
+import { ContactSplitMap } from './ContactSplitMap';
+import { ContactMultiChannel } from './ContactMultiChannel';
+import { GalleryGrid } from './GalleryGrid';
+import { GalleryCarousel } from './GalleryCarousel';
+import { BlogCardGrid } from './BlogCardGrid';
 
 export const componentRegistry: Record<string, ComponentRegistryEntry> = {
   'hero-gradient-spotlight': {
@@ -510,6 +515,116 @@ export const componentRegistry: Record<string, ComponentRegistryEntry> = {
       bestFor: ['product', 'service', 'landing'],
       avoidFor: ['blog', 'documentation'],
       estimatedSize: 'md',
+      hasAnimations: false,
+      requiresJs: false,
+    },
+  },
+  'contact-split-map': {
+    component: ContactSplitMap as any,
+    meta: {
+      kind: 'contact',
+      variant: 'split-map',
+      name: 'Contact • Split Map',
+      description: 'Contact form with map and info sidebar.',
+      contentSlots: [
+        { key: 'headline', type: 'text', required: true, maxLength: 100 },
+        { key: 'subheadline', type: 'text', required: false, maxLength: 200 },
+        { key: 'contactInfo', type: 'contactInfo', required: false },
+      ],
+      hardConstraints: ['mobile_first', 'form_label_required'],
+      softConstraints: ['optimize_for_thumb_reach'],
+      a11yChecklist: ['contrast_aa', 'keyboard_navigable', 'focus_visible'],
+      bestFor: ['business', 'service', 'local'],
+      avoidFor: ['blog'],
+      estimatedSize: 'lg',
+      hasAnimations: false,
+      requiresJs: true,
+    },
+  },
+  'contact-multi-channel': {
+    component: ContactMultiChannel as any,
+    meta: {
+      kind: 'contact',
+      variant: 'multi-channel',
+      name: 'Contact • Multi Channel',
+      description: 'Multiple contact options in a grid layout.',
+      contentSlots: [
+        { key: 'headline', type: 'text', required: true, maxLength: 100 },
+        { key: 'subheadline', type: 'text', required: false, maxLength: 200 },
+        { key: 'channels', type: 'channel[]', required: false },
+      ],
+      hardConstraints: ['mobile_first'],
+      softConstraints: ['optimize_for_thumb_reach'],
+      a11yChecklist: ['contrast_aa', 'keyboard_navigable'],
+      bestFor: ['enterprise', 'support', 'service'],
+      avoidFor: [],
+      estimatedSize: 'md',
+      hasAnimations: false,
+      requiresJs: false,
+    },
+  },
+  'gallery-grid': {
+    component: GalleryGrid as any,
+    meta: {
+      kind: 'gallery',
+      variant: 'grid',
+      name: 'Gallery • Grid',
+      description: 'Filterable grid gallery with categories.',
+      contentSlots: [
+        { key: 'headline', type: 'text', required: true, maxLength: 100 },
+        { key: 'subheadline', type: 'text', required: false, maxLength: 200 },
+        { key: 'images', type: 'images', required: true },
+      ],
+      hardConstraints: ['mobile_first', 'img_alt_required'],
+      softConstraints: ['avoid_adjacent_heavy_imagery'],
+      a11yChecklist: ['contrast_aa', 'keyboard_navigable'],
+      bestFor: ['portfolio', 'creative', 'product'],
+      avoidFor: [],
+      estimatedSize: 'xl',
+      hasAnimations: true,
+      requiresJs: true,
+    },
+  },
+  'gallery-carousel-full': {
+    component: GalleryCarousel as any,
+    meta: {
+      kind: 'gallery',
+      variant: 'carousel-full',
+      name: 'Gallery • Carousel Full',
+      description: 'Full-width carousel with thumbnails.',
+      contentSlots: [
+        { key: 'headline', type: 'text', required: true, maxLength: 100 },
+        { key: 'subheadline', type: 'text', required: false, maxLength: 200 },
+        { key: 'images', type: 'images', required: true },
+      ],
+      hardConstraints: ['mobile_first', 'img_alt_required'],
+      softConstraints: ['limit_animations'],
+      a11yChecklist: ['contrast_aa', 'keyboard_navigable', 'reduced_motion_safe'],
+      bestFor: ['portfolio', 'showcase', 'product'],
+      avoidFor: [],
+      estimatedSize: 'xl',
+      hasAnimations: true,
+      requiresJs: true,
+    },
+  },
+  'blog-card-grid': {
+    component: BlogCardGrid as any,
+    meta: {
+      kind: 'blog',
+      variant: 'card-grid',
+      name: 'Blog • Card Grid',
+      description: 'Blog posts in card grid layout.',
+      contentSlots: [
+        { key: 'headline', type: 'text', required: true, maxLength: 100 },
+        { key: 'subheadline', type: 'text', required: false, maxLength: 200 },
+        { key: 'posts', type: 'post[]', required: true },
+      ],
+      hardConstraints: ['mobile_first'],
+      softConstraints: ['avoid_dense_text_mobile'],
+      a11yChecklist: ['contrast_aa', 'keyboard_navigable'],
+      bestFor: ['blog', 'news', 'magazine'],
+      avoidFor: [],
+      estimatedSize: 'lg',
       hasAnimations: false,
       requiresJs: false,
     },

@@ -78,15 +78,20 @@ export type SectionVariant = {
   blog:
     | 'list-standard'
     | 'grid-cards'
-    | 'magazine';
+    | 'magazine'
+    | 'card-grid';
   contact:
     | 'form-basic'
     | 'form-detailed'
-    | 'info-sidebar';
+    | 'info-sidebar'
+    | 'split-map'
+    | 'multi-channel';
   gallery:
     | 'masonry'
     | 'grid-square'
-    | 'carousel';
+    | 'carousel'
+    | 'grid'
+    | 'carousel-full';
   navigation:
     | 'basic'
     | 'mega-menu'
@@ -146,7 +151,7 @@ export type A11yRequirement =
 // Content slot types
 export interface ContentSlot {
   key: string;
-  type: 'text' | 'text[]' | 'image' | 'video' | 'icon' | 'quote' | 'stat' | 'action' | 'stat[]' | 'member[]' | 'milestone[]' | 'value[]' | 'plan[]' | 'comparison' | 'faq[]' | 'feature[]';
+  type: 'text' | 'text[]' | 'image' | 'video' | 'icon' | 'quote' | 'stat' | 'action' | 'stat[]' | 'member[]' | 'milestone[]' | 'value[]' | 'plan[]' | 'comparison' | 'faq[]' | 'feature[]' | 'channel[]' | 'contactInfo' | 'images' | 'post[]';
   required: boolean;
   maxLength?: number;
   minLength?: number;
