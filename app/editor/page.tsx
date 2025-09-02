@@ -1,37 +1,100 @@
 // app/editor/page.tsx
+'use client';
+
 import { RealtimeEditor } from '@/components/RealtimeEditor-Fixed';
-import { generatePage, demoContent, demoBrand } from '@/lib/generate-page';
 import type { SectionNode } from '@/types/section-system';
 
-export const dynamic = 'force-dynamic';
-
-// Fallback sections if generation fails
-const fallbackSections: SectionNode[] = [
+// Simple default sections that always work
+const defaultSections: SectionNode[] = [
   {
-    id: 'hero-fallback',
+    id: 'hero-default',
     meta: {
       kind: 'hero',
-      variant: 'split-content',
-      name: 'Hero Fallback',
-    } as any,
+      variant: 'split-image-left',
+      name: 'Hero Split Image',
+      description: 'Hero with image on the left',
+      contentSlots: [],
+      hardConstraints: [],
+      softConstraints: [],
+      a11yChecklist: [],
+      bestFor: [],
+      avoidFor: [],
+      estimatedSize: 'lg',
+      hasAnimations: false,
+      requiresJs: false,
+    },
     props: {
-      id: 'hero-fallback-props',
+      id: 'hero-props',
       tone: 'minimal',
       content: {
-        headline: 'Welcome to Grid 2.0 Editor',
-        subheadline: 'AI-powered website builder'
+        headline: 'Welcome to Grid 2.0',
+        subheadline: 'Build beautiful websites with AI assistance'
       }
-    } as any,
+    },
     position: 0
+  },
+  {
+    id: 'features-default',
+    meta: {
+      kind: 'features',
+      variant: 'cards-3up',
+      name: 'Features Cards',
+      description: 'Three feature cards',
+      contentSlots: [],
+      hardConstraints: [],
+      softConstraints: [],
+      a11yChecklist: [],
+      bestFor: [],
+      avoidFor: [],
+      estimatedSize: 'md',
+      hasAnimations: false,
+      requiresJs: false,
+    },
+    props: {
+      id: 'features-props',
+      tone: 'minimal',
+      content: {
+        headline: 'Powerful Features',
+        features: [
+          'AI-powered design suggestions',
+          'Real-time preview',
+          'Export to code'
+        ]
+      }
+    },
+    position: 1
+  },
+  {
+    id: 'cta-default',
+    meta: {
+      kind: 'cta',
+      variant: 'gradient-slab',
+      name: 'CTA Gradient',
+      description: 'Call to action section',
+      contentSlots: [],
+      hardConstraints: [],
+      softConstraints: [],
+      a11yChecklist: [],
+      bestFor: [],
+      avoidFor: [],
+      estimatedSize: 'sm',
+      hasAnimations: false,
+      requiresJs: false,
+    },
+    props: {
+      id: 'cta-props',
+      tone: 'minimal',
+      content: {
+        headline: 'Ready to get started?',
+        subheadline: 'Create your first page in minutes'
+      }
+    },
+    position: 2
   }
 ];
 
-export default async function EditorPage() {
-  try {
-    const { primary } = await generatePage(demoContent, demoBrand, 'minimal', ['hero','features','cta']);
-    return <RealtimeEditor initialSections={primary.sections || fallbackSections} />;
-  } catch (error) {
-    console.error('Failed to generate page:', error);
-    return <RealtimeEditor initialSections={fallbackSections} />;
-  }
+export default function EditorPage() {
+  // Use client-side only rendering with default sections
+  // This avoids server-side generation issues
+  return <RealtimeEditor initialSections={defaultSections} />;
 }

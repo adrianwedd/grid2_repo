@@ -94,8 +94,16 @@ Be specific and actionable in your suggestions.`;
             <div>
               <h1 className="text-2xl font-bold">Grid 2.0 Editor</h1>
               <p className="text-sm text-gray-600">
-                {sessionReady ? '✅ Ready' : '⏳ Initializing...'}
-                {error && <span className="text-red-500 ml-2">Error: {error}</span>}
+                {sessionReady ? (
+                  <span className="text-green-600">✅ Ready</span>
+                ) : (
+                  <span className="text-yellow-600">⏳ Initializing session...</span>
+                )}
+                {error && (
+                  <span className="text-red-500 ml-2">
+                    ⚠️ {error} (Editor will work in offline mode)
+                  </span>
+                )}
               </p>
             </div>
             
