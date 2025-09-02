@@ -277,10 +277,10 @@ test.describe('Performance - Bundle Size', () => {
         totalBytes += entry.source.length;
       }
       
-      const ranges = 'ranges' in entry ? entry.ranges : 
-                     'functions' in entry ? entry.functions.flatMap(f => f.ranges) : [];
+      const ranges = 'ranges' in entry ? (entry as any).ranges : 
+                     'functions' in entry ? (entry as any).functions.flatMap((f: any) => f.ranges) : [];
       
-      for (const range of ranges) {
+      for (const range of ranges as any[]) {
         usedBytes += range.endOffset - range.startOffset;
       }
     }

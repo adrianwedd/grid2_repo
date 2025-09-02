@@ -381,7 +381,7 @@ test.describe('StyleShowcase - Complete Image and Style Verification', () => {
     
     page.on('response', async response => {
       if (response.url().includes('.png') || response.url().includes('.jpg')) {
-        const timing = response.timing();
+        const timing = (response as any).timing?.();
         imageLoadTimes.push({
           url: response.url(),
           status: response.status(),
@@ -424,7 +424,7 @@ test.describe('StyleShowcase - Complete Image and Style Verification', () => {
       
       const images = page.locator('img');
       const visibleImages = await images.evaluateAll(imgs => 
-        imgs.filter((img: HTMLImageElement) => {
+        (imgs as HTMLImageElement[]).filter((img) => {
           const rect = img.getBoundingClientRect();
           return rect.width > 0 && rect.height > 0;
         }).length
@@ -506,7 +506,7 @@ test.describe('Image Error Detection', () => {
     
     const images = page.locator('img');
     const imageSrcs = await images.evaluateAll(imgs => 
-      imgs.map((img: HTMLImageElement) => img.src)
+      (imgs as HTMLImageElement[]).map((img) => img.src)
     );
     
     for (const pattern of expectedPatterns) {
