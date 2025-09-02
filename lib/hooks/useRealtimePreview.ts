@@ -40,26 +40,51 @@ export function useRealtimePreview(initialSections: SectionNode[]) {
   const sessionIdRef = useRef<string | null>(null);
 
   const post = useCallback(async (payload: any): Promise<PreviewResponse> => {
-    const res = await fetch('/api/preview', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    return res.json();
+    try {
+      const res = await fetch('/api/preview', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      
+      if (!res.ok) {
+        const error = await res.json().catch(() => ({ error: 'Network error' }));
+        console.error('Preview API error:', res.status, error);
+        return { ok: false, error: error.error || 'Request failed', sessionId: '', sections: [] };
+      }
+      
+      return res.json();
+    } catch (err) {
+      console.error('Fetch error:', err);
+      return { ok: false, error: 'Network error', sessionId: '', sections: [] };
+    }
   }, []);
 
   // Initialize session only once on mount
   useEffect(() => {
     let mounted = true;
+    let timeoutId: NodeJS.Timeout | undefined;
     
     (async () => {
       try {
+        // Set a timeout to prevent infinite initialization
+        timeoutId = setTimeout(() => {
+          if (!sessionReady && mounted) {
+            console.error('Session initialization timeout');
+            setError('Session initialization timed out');
+            // Set ready anyway to allow manual interaction
+            setSessionReady(true);
+          }
+        }, 5000);
+        
         console.log('Initializing preview session with sections:', initialSections);
         
         // Validate sections before sending
         if (!initialSections || initialSections.length === 0) {
           console.error('No sections provided for initialization');
           setError('No sections available to initialize');
+          // Still mark as ready to allow user to proceed
+          setSessionReady(true);
           return;
         }
         
@@ -76,6 +101,8 @@ export function useRealtimePreview(initialSections: SectionNode[]) {
         
         if (!mounted) return;
         
+        clearTimeout(timeoutId);
+        
         if (resp.ok) {
           sessionIdRef.current = resp.sessionId;
           setSessionReady(true);
@@ -84,15 +111,23 @@ export function useRealtimePreview(initialSections: SectionNode[]) {
           const errorMsg = resp.error || 'Failed to init session';
           setError(errorMsg);
           console.error('Session init failed:', errorMsg, resp);
+          // Still mark as ready to allow user interaction
+          setSessionReady(true);
         }
       } catch (err) {
         if (!mounted) return;
+        if (timeoutId) clearTimeout(timeoutId);
         console.error('Session init error:', err);
         setError(`Failed to initialize session: ${err instanceof Error ? err.message : 'Unknown error'}`);
+        // Still mark as ready to allow user interaction
+        setSessionReady(true);
       }
     })();
     
-    return () => { mounted = false; };
+    return () => { 
+      mounted = false;
+      if (timeoutId) clearTimeout(timeoutId);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
