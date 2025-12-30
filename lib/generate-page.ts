@@ -52,9 +52,7 @@ export async function generatePage(
   );
 
   // Enhance sections with contextual media
-  console.log('🎨 Enhancing sections with media for tone:', tone);
   const enhancedPrimary = await enhanceSectionsWithMedia(primary, tone);
-  console.log('📷 Enhanced primary sections:', enhancedPrimary.map(s => `${s.meta.kind}: ${s.props.media?.length || 0} media`));
   const enhancedAlternates = await Promise.all(alternates.map(alt => enhanceSectionsWithMedia(alt, tone)));
 
   // Generate page metadata

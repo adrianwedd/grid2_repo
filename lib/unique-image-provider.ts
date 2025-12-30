@@ -1,6 +1,8 @@
 // Unique AI-generated image provider for all 32 styles
 import type { Tone, SectionKind, MediaAsset } from '@/types/section-system';
 
+const VERBOSE_LOGGING = process.env.DEBUG_IMAGE_PROVIDER === 'true';
+
 interface UniqueImageManifest {
   generated: string;
   totalStyles: number;
@@ -33,7 +35,7 @@ class UniqueImageProvider {
     try {
       const isServerSide = typeof window === 'undefined';
       let baseUrl = '';
-      
+
       if (isServerSide) {
         if (process.env.VERCEL_URL) {
           baseUrl = `https://${process.env.VERCEL_URL}`;
@@ -47,10 +49,10 @@ class UniqueImageProvider {
       }
 
       const response = await fetch(`${baseUrl}/images/ai-generated/manifest.json`);
-      
+
       if (response.ok) {
         this.manifest = await response.json();
-        
+
         // Create lookup map for fast access
         if (this.manifest?.styles) {
           this.manifest.styles.forEach(style => {
@@ -59,13 +61,13 @@ class UniqueImageProvider {
             this.styleMap.set(style.tone, style);
           });
         }
-        
-        console.log(`✅ Loaded unique images manifest with ${this.manifest?.totalImages || 0} images for ${this.manifest?.totalStyles || 0} styles`);
-      } else {
-        console.warn('Unique images manifest not found, falling back to existing system');
+
+        if (VERBOSE_LOGGING) {
+          console.log(`✅ Loaded unique images manifest with ${this.manifest?.totalImages || 0} images for ${this.manifest?.totalStyles || 0} styles`);
+        }
       }
-    } catch (error) {
-      console.warn('Failed to load unique images manifest:', error);
+    } catch {
+      // Silently fail - expected in CLI/test environments
     }
   }
 
