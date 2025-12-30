@@ -19,107 +19,79 @@ interface ImageManifest {
   }
 }
 
+// Control verbosity - silent by default in CLI/test environments
+const VERBOSE_LOGGING = process.env.DEBUG_IMAGE_PROVIDER === 'true';
+
 class ImageProvider {
   private placeholderManifest: ImageManifest | null = null;
   private aiManifest: ImageManifest | null = null;
   private generatedManifest: ImageManifest | null = null;
   private manifestsInitialized = false;
   private initPromise: Promise<void> | null = null;
+  private hasTriedInit = false;
 
   constructor() {
     this.initPromise = this.initializeManifests();
   }
 
   private async initializeManifests() {
-    // Use fetch for both client and server side to ensure consistency
+    this.hasTriedInit = true;
     const isServerSide = typeof window === 'undefined';
-    
-    try {
-      // Determine base URL for server-side requests
-      // In production, use the actual deployment URL
-      let baseUrl = '';
-      if (isServerSide) {
-        if (process.env.VERCEL_URL) {
-          baseUrl = `https://${process.env.VERCEL_URL}`;
-        } else if (process.env.NEXT_PUBLIC_VERCEL_URL) {
-          baseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
-        } else if (process.env.NODE_ENV === 'production') {
-          baseUrl = 'https://grid2repo.vercel.app';
-        } else {
-          baseUrl = 'http://localhost:3000';
-        }
+
+    // Determine base URL for server-side requests
+    let baseUrl = '';
+    if (isServerSide) {
+      if (process.env.VERCEL_URL) {
+        baseUrl = `https://${process.env.VERCEL_URL}`;
+      } else if (process.env.NEXT_PUBLIC_VERCEL_URL) {
+        baseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+      } else if (process.env.NODE_ENV === 'production') {
+        baseUrl = 'https://grid2repo.vercel.app';
+      } else {
+        baseUrl = 'http://localhost:3000';
       }
-      
+    }
+
+    // Try to load AI manifest (silently fail if unavailable)
+    try {
       const aiResponse = await fetch(`${baseUrl}/generated-images/ai-patient-manifest.json`);
       if (aiResponse.ok) {
         this.aiManifest = await aiResponse.json();
         this.manifestsInitialized = true;
-        console.log(`✅ Loaded AI images manifest (${isServerSide ? 'server' : 'client'}) with ${this.aiManifest ? Object.keys(this.aiManifest).length : 0} tones`);
-      } else {
-        console.warn('Failed to fetch AI manifest:', aiResponse.status, aiResponse.statusText);
-      }
-    } catch (error) {
-      console.warn('Failed to load AI manifest:', error);
-    }
-
-    try {
-      // Use same base URL determination
-      let baseUrl = '';
-      if (isServerSide) {
-        if (process.env.VERCEL_URL) {
-          baseUrl = `https://${process.env.VERCEL_URL}`;
-        } else if (process.env.NEXT_PUBLIC_VERCEL_URL) {
-          baseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
-        } else if (process.env.NODE_ENV === 'production') {
-          baseUrl = 'https://grid2repo.vercel.app';
-        } else {
-          baseUrl = 'http://localhost:3000';
+        if (VERBOSE_LOGGING) {
+          console.log(`✅ Loaded AI images manifest with ${this.aiManifest ? Object.keys(this.aiManifest).length : 0} tones`);
         }
       }
-      
+    } catch {
+      // Silently fail - this is expected in CLI/test environments
+    }
+
+    // Try to load placeholder manifest (silently fail if unavailable)
+    try {
       const placeholderResponse = await fetch(`${baseUrl}/generated-images/placeholder-manifest.json`);
       if (placeholderResponse.ok) {
         this.placeholderManifest = await placeholderResponse.json();
-        console.log(`✅ Loaded placeholder manifest (${isServerSide ? 'server' : 'client'})`);
       }
-    } catch (error) {
-      console.warn('Failed to load placeholder manifest:', error);
+    } catch {
+      // Silently fail
     }
 
+    // Try to load generated manifest (silently fail if unavailable)
     try {
-      // Use same base URL determination
-      let baseUrl = '';
-      if (isServerSide) {
-        if (process.env.VERCEL_URL) {
-          baseUrl = `https://${process.env.VERCEL_URL}`;
-        } else if (process.env.NEXT_PUBLIC_VERCEL_URL) {
-          baseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
-        } else if (process.env.NODE_ENV === 'production') {
-          baseUrl = 'https://grid2repo.vercel.app';
-        } else {
-          baseUrl = 'http://localhost:3000';
-        }
-      }
-      
       const generatedResponse = await fetch(`${baseUrl}/generated-images/image-manifest.json`);
       if (generatedResponse.ok) {
         this.generatedManifest = await generatedResponse.json();
-        console.log(`✅ Loaded generated manifest (${isServerSide ? 'server' : 'client'})`);
       }
-    } catch (error) {
-      console.warn('Failed to load generated manifest:', error);
+    } catch {
+      // Silently fail
     }
   }
 
   private ensureManifestsLoaded() {
     // Try to reload AI manifest if it's not loaded yet and we haven't tried initializing
     if (!this.aiManifest && !this.manifestsInitialized) {
-      console.log('🔄 Attempting to initialize manifests...');
       this.initializeManifests();
     }
-    
-    // DEPRECATED: No more placeholder fallbacks! Force AI images only
-    console.log('🚫 Placeholder manifest creation DISABLED - AI images only');
     return;
     
     // DEAD CODE - placeholder manifest creation removed
@@ -194,57 +166,28 @@ class ImageProvider {
   }
 
   /**
-   * Get appropriate image for a tone and section  
+   * Get appropriate image for a tone and section
    */
   async getImageForToneSection(tone: Tone, sectionKind: SectionKind): Promise<MediaAsset | null> {
     // First priority: Try unique AI-generated images
     await uniqueImageProvider.waitForInit();
-    
-    // Check if we have unique images for this tone
+
     const uniqueImage = uniqueImageProvider.getImageForStyle(tone, sectionKind);
     if (uniqueImage) {
-      console.log(`🎨 Using unique AI image for ${tone} ${sectionKind}`);
+      if (VERBOSE_LOGGING) {
+        console.log(`🎨 Using unique AI image for ${tone} ${sectionKind}`);
+      }
       return uniqueImage;
     }
-    
-    // Fallback to existing system
-    // WAIT for async manifest loading to complete
-    if (!this.aiManifest && this.initPromise) {
-      console.log('⏳ WAITING for AI manifest to load for', tone, sectionKind);
+
+    // Wait for manifest loading to complete (only once)
+    if (!this.aiManifest && this.initPromise && !this.hasTriedInit) {
       await this.initPromise;
     }
-    
-    // Still force a retry if no manifest after waiting
-    if (!this.aiManifest) {
-      console.log('⚡ FORCING AI manifest load after wait for', tone, sectionKind);
-      await this.initializeManifests();
-      
-      // Final check
-      if (!this.aiManifest) {
-        console.log('❌ AI manifest STILL not loaded after async wait');
-      }
-    }
-    
-    // Priority order: AI images > Generated images > Placeholders  
-    // DEBUG: Force AI manifest to be used if available
-    console.log('🔍 Image provider debug:', {
-      aiManifest: !!this.aiManifest,
-      generatedManifest: !!this.generatedManifest,
-      placeholderManifest: !!this.placeholderManifest,
-      tone,
-      sectionKind,
-      manifestsInitialized: this.manifestsInitialized
-    });
-    
-    // ONLY use AI manifest - no fallbacks!
+
+    // Use AI manifest if available (no fallbacks)
     const manifest = this.aiManifest;
-    
-    console.log('📝 Using manifest type:', 
-      this.aiManifest ? 'AI' : 'NONE (AI manifest required)'
-    );
-    
     if (!manifest) {
-      console.log('🚫 NO AI MANIFEST - returning null (no placeholders!)');
       return null;
     }
 
@@ -256,17 +199,17 @@ class ImageProvider {
     // Map section kinds to image categories
     const sectionMapping: Record<SectionKind, string> = {
       hero: 'hero',
-      features: 'features', 
-      about: 'hero', // Use hero image for about sections
-      testimonials: 'features', // Use features style for testimonials
+      features: 'features',
+      about: 'hero',
+      testimonials: 'features',
       cta: 'cta',
-      footer: 'cta', // Use CTA style for footer
-      blog: 'features', // Use features style for blog
-      contact: 'cta', // Use CTA style for contact
-      gallery: 'hero', // Use hero style for gallery
-      navigation: 'features', // Use features style for navigation
-      pricing: 'features', // Use features style for pricing
-      faq: 'features' // Use features style for FAQ
+      footer: 'cta',
+      blog: 'features',
+      contact: 'cta',
+      gallery: 'hero',
+      navigation: 'features',
+      pricing: 'features',
+      faq: 'features'
     };
 
     const imageCategory = sectionMapping[sectionKind];
@@ -276,13 +219,12 @@ class ImageProvider {
       return null;
     }
 
-    // Determine the public URL path
     const publicPath = `/generated-images/${imageData.filename}`;
-    
+
     // Parse dimensions if available
     let width = 1024;
     let height = 1024;
-    
+
     if (imageData.dimensions) {
       const [w, h] = imageData.dimensions.split('x').map(Number);
       width = w || 1024;
@@ -364,6 +306,5 @@ export const imageProvider = new ImageProvider();
 // Helper function to get contextual images for sections
 export async function getContextualMedia(tone: Tone, sectionKind: SectionKind): Promise<MediaAsset[]> {
   const image = await imageProvider.getImageForToneSection(tone, sectionKind);
-  console.log(`🖼️ Getting image for ${tone} ${sectionKind}:`, image ? 'Found' : 'Not found', image?.src);
   return image ? [image] : [];
 }
